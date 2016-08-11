@@ -1,4 +1,5 @@
 ## Salt Open
+
 ##### This course teaches a best practice approach to managing infrastructure using Salt configuration automation software and provides system administrators with the skills to implement Salt in complex enterprise environments. Students will take part in extensive hands-on labs, gaining experience and improving retention of concepts and processes covered by lecture and presentations. Topics covered include:
 
 ##### Remote execution
