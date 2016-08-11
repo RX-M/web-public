@@ -1,6 +1,6 @@
 ## MANTL
 
-##### This two day hands on course will give attendees a comprehensive introduction to Mantl and its function as an efficient microservices platform. Attendees will gain basic experience with the complete Mantl stack including:
+##### This two-day hands-on training course will give attendees a comprehensive introduction to Mantl and its function as an efficient microservices platform. Attendees will gain basic experience with the complete Mantl stack including:
 
 ##### - Terraform infrastructure provisioning
 ##### - Ansible platform configuration
@@ -14,4 +14,4 @@
 ##### - collectd metrics collection
 ##### - ELK log management and analytics
 
-##### Lecture and lab sessions collaborate to demonstrate the use of Mantl to manage evolving distributed microservice based systems using best of breed DevOps tools. Attendees will gain hands on experience deploying and running microservice-based applications on a Mantl cluster. Upon course completion attendees will be able to deploy and leverage the Mantl container-based services management platform in environments large and small while using the Mantl substraight to streamline the deployment of applications in CI/CD environments.
+##### Lecture and lab sessions collaborate to demonstrate the use of Mantl to manage evolving distributed microservice-based systems using best of breed DevOps tools. Attendees will gain hands on experience deploying and running microservice-based applications on a Mantl cluster. Upon course completion attendees will be able to deploy and leverage the Mantl container-based services management platform in environments large and small while using the Mantl substrate to streamline the deployment of applications in CI/CD environments.
