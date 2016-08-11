@@ -1,0 +1,3 @@
+## Kubernetes Foundation
+
+##### This introductory course is designed to provide technical staff with a comprehensive overview to Kubernetes. All of the core features of Kubernetes orchestration are covered including, Pods, Labels, Volumes, Replication Controllers, Services and more. The course takes attendees from installation to Pod deployment and management through a combination of lecture, demo and hands-on lab exercises where students will gain experience configuring and managing Kubernetes Pods, RCs and Services. Attendees will leave with a clear understanding of Kubernetes and how it operates in a container-based enterprise and will have the skills and information necessary to begin using Kubernetes.
