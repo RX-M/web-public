@@ -4,4 +4,4 @@
 
 ##### Upon completion of this compact, intensive hands-on course, students will have an in-depth understanding of Compose and its use cases, as well as the ability to immediately use Compose in development and testing applications.
 
-##### This is an Instructor-Led-Training (ILT) training class and is available for in-person or virtual delivery.
+##### This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
