@@ -4,4 +4,4 @@
 
 ##### Various Ansible and OpenStack-based deployment labs are performed throughout the course including a full Ansible all-in-one (AIO) cloud deployment. Upon completion of the course, attendees will have a clear understanding of Ansible and its capabilities as an OpenStack configuration management and orchestration tool and will have learned the skills necessary to deploy an OpenStack cloud with Ansible in development and testing scenarios.
 
-##### This is an Instructor-Led-Training (ILT) training class and is available for in-person or virtual delivery.
+##### This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
