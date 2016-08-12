@@ -6,4 +6,4 @@
 
 ##### The skills and knowledge developed in this course will be particularly useful to system designers and architects interested in leveraging the best features of containers and avoiding the pitfalls. Upon completion of the course attendees will have the skills and information necessary to effectively integrate Docker and containers into sophisticated enterprise environments.
 
-##### This is an Instructor-Led-Training (ILT) training class and is available for in-person or virtual delivery.
+##### This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
