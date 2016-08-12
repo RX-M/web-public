@@ -4,4 +4,4 @@
 
 ##### During the course students will gain hands on experience with the Docker command line, Dockerfiles and Docker image architecture. The course covers Container operations in depth and exposes attendees to the full range of Docker subcommands and Dockerfile instructions in their entirety so that, upon completion of the course, attendees will have the skills and information necessary to begin integrating container technology with their development, test and deployment processes. The course wraps with an introduction to advanced topics such as Docker volume, security, networking and clustering, providing a natural transition when combined with RX-M's Advanced Docker course.
 
-##### This is an Instructor-Led-Training (ILT) training class and is available for in-person or virtual delivery.
+##### This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
