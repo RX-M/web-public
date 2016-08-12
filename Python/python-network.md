@@ -6,3 +6,5 @@
 ##### Attendees will leave with a clear understanding of Python networking features and how to code with a wide range of third party and vendor specific libraries for controlling networking and network equipment. Students will gain hands-on experience with Python and network systems applications; will work with Cisco IOS, VMware NSX and Arista EOS; and will learn how to use Ansible to automate network configurations.
 
 ##### Upon completion of the training, attendees will have the skills and information necessary to begin developing purpose-built Python applications to integrate with and control networking systems in an enterprise setting.
+
+##### This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
