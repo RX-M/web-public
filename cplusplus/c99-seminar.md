@@ -1,3 +1,3 @@
 ## Memory Management in C99 Seminar
 
-##### This one-hour seminar is designed to provide practicing programmers with a whirlwind tour of the memory mechanisms available in the C programming language. The talk takes participants through a comprehensive look at C99 tools and techniques for memory management. Issues covered include scoping and storage class, initialization, allocation/deallocation, and common memory pitfalls as well.
+This one-hour seminar is designed to provide practicing programmers with a whirlwind tour of the memory mechanisms available in the C programming language. The talk takes participants through a comprehensive look at C99 tools and techniques for memory management. Issues covered include scoping and storage class, initialization, allocation/deallocation, and common memory pitfalls as well.
