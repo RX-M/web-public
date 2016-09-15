@@ -4,4 +4,4 @@ This intensive two day hands-on training course is designed to provide working d
 
 Students will gain hands-on experience with the principles discussed in each chapter using Java and common testing tools such as JUnit, Cucumber for Java and Jenkins. The course focuses on principles and practices rather than construction, thus students will come to grips with the reasons and motivation for TDD. Lab experiments provide crisp demonstrations of the value proposition associated with driving software design and construction through test.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
