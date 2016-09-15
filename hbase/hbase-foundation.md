@@ -4,4 +4,4 @@ This HBase training course provides a comprehensive hands-on introduction to HBa
 
 The Java software development API is also covered at a level of detail appropriate for the participants. Students will leave the course ready to begin working with HBase immediately and will be prepared to make decisions as to when HBase may be an appropriate solution and when it may not.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
