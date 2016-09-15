@@ -4,4 +4,4 @@ This intensive one day hands-on training course is designed to provide working d
 
 During the course students will gain hands-on experience with several Docker SDN technologies in a multi-host lab environment. Upon completion of the course attendees will have the knowledge necessary to begin immediately integrating container networking technology with their container-based workflows.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
