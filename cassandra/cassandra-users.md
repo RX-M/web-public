@@ -4,4 +4,4 @@ This Cassandra training course provides an architectural introduction to NoSQL s
 
 The course covers table creation and the significance of keys as well and design best practices. At the core of the course is an iteratively-developed understanding of the vast difference in storage architecture; SQL to CQL are compared and contrasted and exercises are used to solidify the similarities and differences between the two query languages. Training also covers the use of compound keys, clustering, collections, column expiration, counters, indexing and a range of additional CQL topics.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
