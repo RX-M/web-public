@@ -4,4 +4,4 @@ This Chef training class provides experienced *nix operations staff with a compr
 
 Students will take part in extensive hands-on labs where they will install and configure Chef and work with cookbooks, recipes, templates and variables. Upon completion of the training sessions, attendees will feel confident installing, configuring, customizing and optimizing a Chef solution for large scale deployments.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
