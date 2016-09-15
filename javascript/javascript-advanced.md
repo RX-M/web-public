@@ -6,4 +6,4 @@ Day two embraces jQuery, exploring all of the major parts of the jQuery library.
 
 The third day of the course focuses on best practices and tools for JavaScript development. A broad range of critical process components are covered including best practices, test, code quality tools, build automation, debugging and optimization.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
