@@ -4,4 +4,4 @@ This NoSQL training course provides technical staff with a comprehensive introdu
 
 Data distribution and consistency models are explored in the context of the CAP theorem. The data theory covered on day one is studied in practical terms on day two. The principle NoSQL database systems are examined in turn, including document, key-value, column-family and graph systems. The course also examines the reentrance of SQL as an optional modular layer in several NoSQL systems.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
