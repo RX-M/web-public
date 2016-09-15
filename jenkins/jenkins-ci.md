@@ -11,4 +11,4 @@ Advanced topics covered are common Jenkins integration points and skills needed 
 
 Using this platform students will learn and create a variety of Jenkins Jobs working with a wide range of plugins and Jenkins features which will give them confidence to continue using Jenkins in their own environments and workflows.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
