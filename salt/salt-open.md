@@ -13,4 +13,4 @@ Students will learn how to write parameterized Salt States that leverage the Jin
 
 Practical aspects of Salt are also covered, including Salt-SSH, the Minion proc system, and Salt architectures and deployment models, including: multi-master solutions; Salt syndic; and masterless (standalone) Minions. By the completion of the course attendees will feel confident installing, configuring, customizing and managing a Salt-based solution for large-scale deployments.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
