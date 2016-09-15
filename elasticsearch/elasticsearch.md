@@ -4,4 +4,4 @@ This intensive two-day hands-on Elasticsearch training course is designed to hel
 
 The distributed, horizontally-scaled architecture of Elasticsearch is covered along with best practice deployment and operations patterns. Students will gain familiarity with the Elasticsearch query DSL and various APIs including Document, Search and Indices. Attendees will leave the training with a clear understanding of Elasticsearch and how to use it to extract high value data insights over large scale streaming datasets in real time.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
