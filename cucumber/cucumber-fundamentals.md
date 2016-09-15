@@ -4,4 +4,4 @@ This Cucumber training course is designed to introduce programmers and testers t
 
 Participants will learn and become familiar with crafting executable specifications in the form of Cucumber features and step driven tests. Hands-on labs take students through the process of building requirement-driven test suites for new and existing applications using a range of features including data tables and databases. Labs also give participants practical experience installing and configuring Cucumber so that they are prepared to deploy the software at their organization.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
