@@ -4,4 +4,4 @@ This course provides practicing C programmers a deeper understanding of the more
 
 Attendees will be exposed to generic, functional and object-oriented programming strategies and will learn an advanced collection of practical build, test and application profiling techniques in a series of hands-on labs designed to provide practical experience with the covered material.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
