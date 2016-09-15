@@ -4,4 +4,4 @@ RX-M's Couchbase training covers all of the key concepts and administrative task
 
 Attendees will leave with a clear understanding of Couchbase and its place in the NoSQL market and will gain hands-on experience configuring, managing and using Couchbase Server clusters. Upon completion of the training, attendees will have the knowledge necessary to operate Couchbase Server clusters for real-time OLTP enterprise workloads.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
