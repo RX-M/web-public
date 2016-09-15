@@ -4,4 +4,4 @@ This training course provides in-depth coverage of the Apache Thrift serializati
 
 Transport layering, framing and buffering will be covered in detail along with I/O to memory, disk and networks. The course examines the Thrift plug-in serialization framework, covering binary, compact and JSON protocols as well as serialization techniques for persistent cross language data storage. The Apache Thrift IDL is covered throughout the course giving students comprehensive experience with the type and service features of the language.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
