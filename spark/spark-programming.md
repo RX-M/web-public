@@ -4,4 +4,4 @@ This Spark training course is for data engineers, analysts, architects, software
 
 Each topic includes lecture content along with hands-on use of Spark in lab exercises. Attendees will code jobs and perform data analysis queries, and visualizations using their own Spark cluster. All class code is directly usable with pure open-source Spark or any commercial Spark distribution.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
