@@ -4,4 +4,4 @@ This course is designed to provide existing users of Docker with a comprehensive
 
 Upon completion of this compact, intensive hands-on course, students will have an in-depth understanding of Compose and its use cases, as well as the ability to immediately use Compose in development and testing applications.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
