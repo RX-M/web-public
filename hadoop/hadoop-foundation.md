@@ -13,3 +13,5 @@ Students will work through lab exercises using the Hortonworks Data Platform for
 - Write efficient Hive queries and use Hive to run SQL-like queries to perform data analysis
 - Perform data analytics on Big Data using Hive
 - Use HCatalog with Hive
+
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
