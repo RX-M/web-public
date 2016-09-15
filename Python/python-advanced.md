@@ -4,4 +4,4 @@ This Python training course continues from where RX-M's Python Essentials course
 
 All attendees will learn to use Python to leverage OS services, create modules, create and run unit tests, define classes, interact with network services, query databases and process XML data.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
