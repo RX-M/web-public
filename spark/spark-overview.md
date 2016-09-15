@@ -4,4 +4,4 @@ This one-day Spark training course is for data engineers, analysts, architects, 
 
 Each topic includes lecture content along with hands-on use of a Spark cluster in lab exercises. After attending the training, students will be able to: communicate with team members using appropriate terminology; identify and experiment with use cases for Spark and Databricks appropriate to business needs; build data pipelines and query large data sets using Spark SQL and DataFrames; execute and modify ETL jobs using the Spark API, DataFrames and RDDs; and analyze Spark jobs using the UIs and logs.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
