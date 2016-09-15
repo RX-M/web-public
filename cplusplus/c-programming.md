@@ -4,4 +4,4 @@ This training course is designed to introduce experienced C Programmers to embed
 
 Hands-on labs are provided on a range of platforms, typically customized to suit the customer’s needs. Important industry standards are examined including the ISO 2008 Embedded Processor C extensions in TR 18037 and the 2013 MISRA C standard. By the end of the course developers will have completed several projects giving them a well-rounded view of the processes, systems and practices associated with embedded systems development in the C programming language.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
