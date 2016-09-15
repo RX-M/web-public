@@ -7,4 +7,4 @@ Attendees will leave with a clear understanding of Python networking features an
 
 Upon completion of the training, attendees will have the skills and information necessary to begin developing purpose-built Python applications to integrate with and control networking systems in an enterprise setting.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
