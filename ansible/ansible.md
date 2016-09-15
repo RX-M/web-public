@@ -6,4 +6,4 @@ Students will experience using Ansible to complete configuration management task
 
 Upon completion of the course, attendees will have a clear understanding of Ansible concepts and constructs, network automation using Ansible, IaC methodology & techniques, Ansible best practices, and will be prepared to start using Ansible to efficiently manage infrastructure at their organization.
 
-This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
