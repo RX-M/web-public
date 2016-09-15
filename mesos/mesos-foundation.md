@@ -4,4 +4,4 @@ This intensive two-day hands-on Mesos training course is designed to provide wor
 
 Attendees will leave with a clear understanding of Apache Mesos, its place in the market and how Apache Mesos integrates with higher level systems like Kubernetes, Spark and Hadoop, as well as lower level systems like OpenStack and AWS. Upon completion of the course attendees will have the skills and information necessary to begin working with Apache Mesos in their own environment.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
