@@ -6,4 +6,4 @@ The course considers not only the benefits but also the shortcomings and pitfall
 
 Upon completion, managers and other stakeholders will learn and have a well-balanced and firmly grounded understanding of TDD and how it can help organizations produce higher quality at a lower cost.
 
-This is an Instructor-Led-Training (ILT) training class and is available for in-person and virtual delivery.
+This is an instructor-led training (ILT) class and is available for in-person and virtual delivery.
