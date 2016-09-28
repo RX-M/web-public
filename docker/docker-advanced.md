@@ -1,6 +1,6 @@
 ## Advanced Docker
 
-This hands-on Docker training course is designed to pick up where RX-M's Docker Foundation course leaves off; it provides in-depth coverage of the advanced aspects of Docker and orchestration tools commonly used to deploy and maintain containerized application infrastructures. Attendees will leave with a detailed understanding of container networking internals and multi-host networking, security concerns, cgroup constraints and namespace isolation mechanisms.
+This two-day hands-on Docker training course is designed to pick up where RX-M's Docker Foundation course leaves off; it provides in-depth coverage of the advanced aspects of Docker and orchestration tools commonly used to deploy and maintain containerized application infrastructures. Attendees will leave with a detailed understanding of container networking internals and multi-host networking, security concerns, cgroup constraints and namespace isolation mechanisms.
 
 Discussion includes a look at the evolving microservice-based ecosystem and the relationship between Docker and the Open Container Initiative (OCI) standards. Docker architecture is examined at the runC, containerD and Engine levels. Students will gain experience with Docker API operations and distributed Docker configuration. Key orchestration tools used with Docker will also be introduced, including Docker Machine and Docker Swarm.
 
