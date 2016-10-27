@@ -1,1 +1,3 @@
-insert overview
+AWS Microservice
+
+This intensive two day hands on training course is designed to provide working developers, devops staff and other technology professionals with a comprehensive introduction to the AWS microservice environment. Attendees will leave with a clear understanding of microservices and and how to maximize them on AWS. Students will gain hands on experience working with AWS and microservices. The course covers the benefits of container based microservice packaging as well as dynamic application management using the EC2 Container Service (ECS). Attendees will examine various use cases and architecture patterns for microservice based applications throughout the course, with focused discussion on microservice communications, transactions and state management. Upon completion of the course attendees will have the skills and information necessary to begin designing and working with microservice based applications on AWS.
