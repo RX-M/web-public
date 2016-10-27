@@ -1,1 +1,3 @@
-insert overview
+## Building Microservice APIs with gRPC and Protocol Buffers
+
+This intensive two day hands on course is designed to provide working developers, devops staff and other technology professionals with a comprehensive introduction to the gRPC remote procedure call platform and the Protocol Buffers (PB) serialization system. Attendees will leave with a clear understanding of gRPC and how to build high performance microservices using the gRPC tool chain. Lab sessions will give attendees hands on experience building gRPC based microservices in a polyglot, cross platform setting. The course covers the API evolution features provided by the IDL based gRPC/PB stack as well as plugin and extension points available. Upon completion of the course attendees will have the skills and information necessary to begin designing and working with gRPC based microservices in a production setting.
