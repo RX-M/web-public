@@ -1,0 +1,5 @@
+## Java Design Patterns
+
+This three day hands on course provides a comprehensive overview of the canonical "gang of four" design patterns and their best practice applications in Java. Day one provides an overview of design patterns as a tool and their application in software engineering. The introduction is followed by a look at each of the canonical creational design patterns and their common implementations in Java. Modules four through seven cover the structural design patterns. The balance of the course provides a look at each of the behavioral design patterns with discussion of their best practice implementations in Java. Modules include hands on labs and exercises giving attendees a chance to apply the patterns discussed in a practical context. Upon completion of this course attendees will have the skills and experience necessary to begin immediately using design patterns in Java software architecture and construction.
+
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
