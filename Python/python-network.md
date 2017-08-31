@@ -1,5 +1,5 @@
 
-## Python for Network Engineers
+## Network Automation with Python
 
 This intensive four-day hands-on Python training course is designed to help network engineers unlock the power of Python in combination with the programmability of modern networking systems. The class provides a start to finish introduction to Python application programming for networking and network equipment. Students will learn about Python data types, program structure, functions, classes and methods; will work with Git and understand distributed code management techniques; and will learn and use Python networking packages such as paramiko, netmiko pysnmp and more.
 
