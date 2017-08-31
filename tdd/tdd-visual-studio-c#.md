@@ -1,0 +1,4 @@
+## Test-Driven Development Using Visual Studio and C#
+
+An emerging software engineering paradigm is test-driven development, where tests are written early and testing is performed continuously during the development process. Problems are discovered early and corrected when they are found. This one-day course for developers explains the methodology of test-driven development and the use of the unit testing framework that comes with Visual Studio 2013, including the free Express version.  The course is practical, with many example programs and tests written in C#, including a cumulative case study. The goal is to quickly bring you up to speed in doing unit testing in your .NET development projects. The student will receive a comprehensive set of materials, including course notes and all the programming examples.
+
