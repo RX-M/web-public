@@ -1,0 +1,5 @@
+## MPLS
+
+Multiprotocol Label Switching (MPLS) is a multiprotocol data-carrying technique for high-performance telecommunications networks. In recent years MPLS has become the preferred solution with which to build many types of layer 2 independent data networks. This two day intensive course provides a comprehensive introduction to the MPLS telecommunications networking scheme. Through lecture and lab, attendees will gain direct experience with MPLS and its operation in modern networks. Day one covers the basic features of RFC 3031 and gives attendees a solid understanding of the basic function of MPLS, including modern additions such as multicast. Day two digs into practical applications and production issues, covering topics such as auto-bandwidth, fault tolerance and various VPN models. Upon completions attendees will have a solid foundation understanding of MPLS and the ability to begin working with production MPLS use cases.
+
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
