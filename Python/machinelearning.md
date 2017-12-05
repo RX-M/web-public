@@ -7,3 +7,5 @@ Day one introduces the foundational concepts of data science and machine learnin
 Days two and three build on the foundational skills imparted in day one, introducing formal classification of the most common machine learning algorithms and their purposes. Modules and labs give attendees experience using the most common algorithms and a chance to create real solutions, such as fraud detection and recommendation engines.
 
 Upon completion attendees will have a broad but practical understanding of machine learning and a base from which to pursue real applications and further study.
+
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
