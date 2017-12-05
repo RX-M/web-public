@@ -1,3 +1,3 @@
-## Kubernetes Bootcamp with CKA Exam
+## Kubernetes Certification Bootcamp with CKA Exam
 
 The Kubernetes Bootcamp is an intensive and accelerated hands-on instructor-led training course.  Participants will learn the essential facets of Kubernetes administration as well as critical components associated with the Certified Kubernetes Administrator (CKA) exam. The final day of this week long training will conclude with review and the certification exam.  This course will be delivered in an extended day format.  Included in this bootcamp: training curriculum, CKA exam fees, light breakfast, all day coffee and beverage service, lunch, afternoon snack. This course is available immediately for private engagements and the 2018 open enrollment offerings have been announced for San Francisco, New York, London, and Hong Kong.
