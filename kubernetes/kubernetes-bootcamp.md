@@ -4,7 +4,8 @@ The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on 
 
 ### Open-Enrollment Dates
 
-
+.                    |                    .
+-------------------- | --------------------
 New York             | Week of March 19
 London               | Week of April 2
 San Francisco        | Week of April 23
