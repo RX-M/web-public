@@ -1,4 +1,4 @@
-### Terms and Conditions
+## Terms and Conditions
 
 This website and any mobile application (collectively, this “Site”) is owned by RX-M LLC (“We”, “Us” or “RX-M LLC”). We are providing you with access to this Site and our online store (together, our “Services”) subject to the following terms and conditions.
 
