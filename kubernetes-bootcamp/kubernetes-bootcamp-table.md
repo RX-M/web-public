@@ -12,7 +12,7 @@ Tokyo             | August 6-10
 Toronto           | August 27-31
 San Francisco     | Sept 24-28 
 New York          | Oct 29-Nov 2
-Dallas            | Nov 5-9
-San Francisco     | Dec 3-7 
+Dallas            | November 5-9
+San Francisco     | December 3-7 
 
  Class Time: 9 a.m - 6 p.m (local)
