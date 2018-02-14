@@ -15,5 +15,4 @@ New York          | Oct 29-Nov 2
 Dallas            | Nov 5-9
 San Francisco     | Dec 3-7 
 
-Class Time        | 9 a.m - 6 p.m 
-                  | local time
+class time (local)| 9 a.m - 6 p.m
