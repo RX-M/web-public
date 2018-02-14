@@ -16,4 +16,4 @@ Dallas            | Nov 5-9
 San Francisco     | Dec 3-7 
 
 Class Time        | 9 a.m - 6 p.m 
-                    local time
+                  | local time
