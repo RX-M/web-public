@@ -8,7 +8,7 @@ You represent and warrant that you are at least 18 years old or visiting this Si
 
 ### Privacy Policy
 
-Our Privacy Policy, which also governs your visit to Our Site, can be found at [INSERT LINK TO YOUR PRIVACY POLICY]. Please review our Privacy Policy for information on how We collect, use and share information about our users.
+Our Privacy Policy, which also governs your visit to Our Site, can be found at https://rx-m.com/privacy-policy/. Please review our Privacy Policy for information on how We collect, use and share information about our users.
 
 ### Use of This Site
 
