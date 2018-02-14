@@ -1,8 +1,8 @@
 ### Open-Enrollment Dates
 
-City              |     Date
+City              |     Dates
 ----------------- | --------------------
-New York          | Week of March 19
+New York          | March 19-23 (9-6 local)
 London            | Week of April 2
 San Francisco     | Week of April 23
 Hong Kong         | Week of May 21
