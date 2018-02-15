@@ -35,8 +35,3 @@ RX-M uses reasonable efforts to contract with reputable catering providers ("Cat
 
 [info@rx-m.com](mailto:info@rx-m.com)<br>
 415-800-2922
-
-
-### Privacy Policy
-
-Our Privacy Policy, which also governs your visit to our site, can be found at https://rx-m.com/privacy-policy/. Please review our Privacy Policy for information on how we collect, use and share information about our users.
