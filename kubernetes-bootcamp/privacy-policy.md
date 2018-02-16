@@ -1,7 +1,3 @@
-
-## Privacy Policy
-
-
 All information collected through this web site is done with permission from you the visitor. We collect email addresses and identity information for course registrations and inquiries and for such services as our course schedule mailings and promotions.
 
 Internet user privacy and confidentiality is of the utmost importance to RX-M. Its reputation and integrity is directly related to how it serves its customers. If you have any questions pertaining to this privacy policy and its contents, please direct your correspondence to [info@rx-m.com](mailto:info@rx-m.com).
