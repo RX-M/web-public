@@ -1,8 +1,6 @@
 The Cloud Native Computing Foundation offers a certification program that allows users to demonstrate their competence in a hands-on, command-line environment. The purpose of the Certified Kubernetes Administrator (CKA) program is to provide assurance that CKAs have the skills, knowledge, and competency to perform the responsibilities of Kubernetes administrators.
 
-The proctored online exam consists of a set of performance-based items (problems) to be solved in a command line; candidates have 3 hours to complete the tasks.
-
-The Certification focuses on the skills required to be a successful Kubernetes Administrator in industry today. This includes these general domains and their weights on the exam:
+The proctored online exam consists of a set of performance-based items (problems) to be solved in a command line; candidates have 3 hours to complete the tasks. The Certification focuses on the skills required to be a successful Kubernetes Administrator in industry today including these general domains and their weights on the exam:
 
 - Application Lifecycle Management 8%
 - Installation, Configuration & Validation 12%
