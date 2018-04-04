@@ -4,7 +4,7 @@ The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on 
 
 Included in this boot camp: authorized training curriculum & exam session (CKA).
 
-For virtual deliveries:
+For virtual deliveries:  High-speed internet and headset are recommended for the online class option
 
 This course is available immediately for private engagements and the 2018 open enrollment offerings are available below.
 
