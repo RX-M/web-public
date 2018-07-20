@@ -1,3 +1,3 @@
-## Apache Kafka Essentials
+## Apache Kafka Foundation
 
 This intensive two day hands on course is designed to help working technology professionals master the essential aspects and operation of Apache Kafka. The course covers all of the key concepts and administrative tasks necessary to deploy and use a production Kafka distributed, partitioned, replicated commit log service. Attendees will become familiar with core Kafka concepts such as topics, producers, consumers, queueing, pub/sub, partitions and brokers. Hands on labs will provide practical experience wherein students will install, configure and run their own Kafka system for experimentation. The course will also cover common Kafka use cases and best practices. Attendees will leave with a clear understanding of Apache Kafka and the practical skills necessary to begin using Kafka immediately for a range of production messaging, event, stream and log management tasks.

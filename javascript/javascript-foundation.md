@@ -1,4 +1,4 @@
-## JavaScript Essentials
+## JavaScript Foundation
 
 This JavaScript training course teaches the basics of JavaScript programming and how to effectively use JavaScript to build web sites and single page web applications. A modern approach is taken and upon completion, attendees will learn and  be prepared to begin build useful web pages and web applications driven by modern best practices techniques. 
 
