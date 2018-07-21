@@ -1,6 +1,6 @@
 ## Google Cloud Platform Foundation
 
-This three day hands-on course is designed to provide technology professionals with an intensive overview of the key features of the Google Cloud Platform. Attendess will be introduced to the wide range of core features offered by the Google Cloud Platform (GCP). The course is organized into three main topic areas, IaaS, Application Services and Big Data features.
+This three day hands-on course is designed to provide technology professionals with an intensive overview of the key features of the Google Cloud Platform. Attendees will be introduced to the wide range of core features offered by the Google Cloud Platform (GCP). The course is organized into three main topic areas, IaaS, Application Services and Big Data features.
 
 Day one introduces the foundational infrastructure services offered by GCP. Through lecture, discussion and hands on labs, attendees will learn how to work with cloud compute instances, block storage devices and virtual networks. The course covers a range of use cases and highlights the advantages and drawbacks associated with running cloud based workloads. Object storage and other ancillary IaaS services are also examined at various levels of detail.
 
