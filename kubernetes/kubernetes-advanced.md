@@ -1,4 +1,4 @@
-## Advanced Kubernetes
+## Kubernetes Advanced
 
 This advanced Kubernetes training course picks up where RX-M's Kubernetes Foundation leaves off and is designed to provide experienced Kubernetes users with a detailed look at the administration and deployment of the Kubernetes platform through a combination of lecture, demonstrations and hands-on lab exercises. This course will give attendees a better understanding of Kubernetes features including the scheduler, replication controller master, kublet and service proxies.
 
