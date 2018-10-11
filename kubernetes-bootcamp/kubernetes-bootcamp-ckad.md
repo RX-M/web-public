@@ -1,6 +1,6 @@
 The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on instructor-led training course. Participants will learn the essential facets of Kubernetes as well as critical components associated with the Certified Kubernetes Application Developer (CKAD) exam. The final day of this week long training will conclude with review and an in class proctored certification exam.
 
-Included in this boot camp: authorized training curriculum, exam session (CKAD), light breakfast, all day coffee and beverage service, lunch, afternoon snack (regional variances).
+Included in this boot camp: training curriculum, exam voucher (CKAD), light breakfast, all day coffee and beverage service, lunch, afternoon snack (regional variances, available for those who attend in-person class delivery).
 
 [CKAD Exam Curriculum](http://rx-m.com/wp-content/uploads/2018/02/ckad-v1.0.pdf)
 
