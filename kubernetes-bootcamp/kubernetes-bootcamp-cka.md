@@ -2,7 +2,7 @@ The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on 
 
 Included in this boot camp: authorized training curriculum, exam session (CKA), light breakfast, all day coffee and beverage service, lunch, afternoon snack (regional variances).
 
-[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/02/cka-v1.9.0.pdf)
+[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/10/cka-curriculum.pdf)
 
 
 ### Student Reschedule or Cancellation

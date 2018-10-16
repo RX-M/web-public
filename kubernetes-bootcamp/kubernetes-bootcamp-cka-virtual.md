@@ -8,4 +8,4 @@ For virtual deliveries:  High-speed internet and headset are recommended for the
 
 This course is available immediately for private engagements and the 2018 open enrollment offerings are available below.
 
-[CKA Exam Curriculum](http://rx-m.com/wp-content/uploads/2018/02/cka-v1.9.0.pdf)
+[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/10/cka-curriculum.pdf)

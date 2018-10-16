@@ -13,4 +13,4 @@ The proctored online exam, administered by the Linux Foundation, consists of a s
 - Storage 7%
 - Troubleshooting 10%
 
-For more details, review the [CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/02/cka-v1.9.0.pdf)
+For more details, review the [CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/10/cka-curriculum.pdf)
