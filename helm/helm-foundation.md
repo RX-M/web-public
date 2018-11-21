@@ -4,5 +4,6 @@ This intensive two day hands-on course is designed to provide working platform o
 
 This is an instructor-led training (ILT) class and is available for onsite and online delivery.
 
+<br> 
 
 ### Learn more about Helm from this KubeCon + CloudNativeCon lightning talk delivered by RX-M's Christopher Hanson:
