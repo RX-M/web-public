@@ -1,3 +1,3 @@
 #### Certified Kubernetes Administrator Boot Camp with Exam
 
-Open enrollment dates available throughout 2018
+Open enrollment dates available throughout 2019
