@@ -11,4 +11,4 @@ The proctored online exam, administered by the Linux Foundation, consists of a s
 - State Persistence 8%
 
 
-For more details, review the [CKAD Exam Curriculum](https://rx-m.com/wp-content/uploads/2018/10/ckad-curriculum.pdf).
+For more details, review the [CKAD Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/01/ckad-curriculum-v1.12.0.pdf).
