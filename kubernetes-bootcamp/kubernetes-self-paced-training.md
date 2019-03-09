@@ -8,7 +8,7 @@ This free beginner course discusses some of Kubernetes’ basic concepts includi
 
 ## Kubernetes Fundamentals
 
-This intermediate course contains 16 self-paced chapters covering Kubernetes origins and architecture, deployment, accessing a Kubernetes cluster, APIs, and key primitives. 
+This intermediate course contains 16 self-paced chapters covering Kubernetes origins and architecture, deployment, accessing a Kubernetes cluster, APIs, and key primitives.
 
 - 1 year online access to all course content and labs
 - 100% online and self-paced
@@ -18,10 +18,10 @@ The course maps directly to the requirements for the Certified Kubernetes Admini
 
 ## Kubernetes for Developers
 
-This intermediate course contains 8 self-paced chapters covering deployment, configuration, and testing of containerized applications on a multi-node Kubernetes cluster. 
+This intermediate course contains 8 self-paced chapters covering deployment, configuration, and testing of containerized applications on a multi-node Kubernetes cluster.
 
 - 1 year online access to all course content and labs
 - 100% online and self-paced
 - Lots of labs (and solutions) designed by industry experts
 
-The course maps directly to the requirements for the Certified Kubernetes Application Developer (CKAD) Program from the Cloud Native Computing Foundation and is designed to help developers start architecting application orchestration solutions. 
+The course maps directly to the requirements for the Certified Kubernetes Application Developer (CKAD) Program from the Cloud Native Computing Foundation and is designed to help developers start architecting application orchestration solutions.
