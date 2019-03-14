@@ -4,6 +4,8 @@ Included in this boot camp: authorized training curriculum, exam session (CKA), 
 
 [CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/03/CKA_Curriculum_V1.13.0.pdf)
 
+Note: All prices listed are in United States Dollars ($ USD).
+
 
 ### Student Reschedule or Cancellation
 

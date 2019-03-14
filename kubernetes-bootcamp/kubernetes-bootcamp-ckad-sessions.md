@@ -3,3 +3,5 @@ The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on 
 Included in this boot camp: authorized training curriculum, exam session (CKAD), light breakfast, all day coffee and beverage service, lunch, afternoon snack (regional variances). This course is available immediately for private engagements and the 2018 open enrollment offerings are available below.
 
 [CKAD Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/03/CKAD_Curriculum_V1.13.0.pdf)
+
+Note: All prices listed are in United States Dollars ($ USD).

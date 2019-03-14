@@ -1,6 +1,11 @@
 # Terms and Conditions
 
 
+### Pricing
+
+RX-M is based in the United States of America. Unless otherwise noted, all prices listed are in United States Dollars ($ USD).
+
+
 ### Student Reschedule or Cancellation
 
 A full refund will be issued for class cancellations made at least 21 calendar days prior to the course start date (first day of class).
