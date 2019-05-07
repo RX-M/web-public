@@ -2,6 +2,6 @@ The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on 
 
 Included in this boot camp:  training curriculum, exam voucher (CKA), light breakfast, all day coffee and beverage service, lunch, afternoon snack (regional variances and available for those who attend in-person class delivery). This course is available immediately for private engagements and the 2018 open enrollment offerings are available below.
 
-[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/03/CKA_Curriculum_V1.13.0.pdf)
+[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/05/CKA_Curriculum_V1.14.1.pdf)
 
 Note: All prices listed are in United States Dollars ($ USD).
