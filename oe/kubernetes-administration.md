@@ -1,6 +1,6 @@
 Time: 9:00 AM to 5:00 PM local time
 
-Kubernetes Administration covers the core concepts typically used to build and administer a Kubernetes cluster in production, using vendor-independent tools. We build a cluster, determine network configuration, grow the cluster, deploy applications and configure the storage, security and other objects necessary for typical use. This course offers exposure to the many skills necessary to administer Kubernetes in a production environment and is excellent preparation for the Certified Kubernetes Administrator (CKA) exam.
+Kubernetes Administration (LFS458) covers the core concepts typically used to build and administer a Kubernetes cluster in production, using vendor-independent tools. We build a cluster, determine network configuration, grow the cluster, deploy applications and configure the storage, security and other objects necessary for typical use. This course offers exposure to the many skills necessary to administer Kubernetes in a production environment and is excellent preparation for the Certified Kubernetes Administrator (CKA) exam.
 
 Note: All prices listed are in United States Dollars ($ USD).
 
