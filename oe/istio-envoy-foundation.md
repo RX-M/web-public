@@ -1,6 +1,15 @@
 Time: 9:00 AM to 5:00 PM local time
 
-The Go Advanced class is a two-day intensive hands on course is designed to provide software engineers with a deeper look at the Go programming language and its idioms. This course delves into the conceptual and practical aspects of coding in Go. Engineers will learn the hows and whys to coding naturally in Go. The course deals with the most important advanced features of Go programing and discusses best practices throughout, including many external references. Day one begins with Go idioms and common Go programming constructs, followed by coverage of testing and test tools and advanced function and method usage. The problem fraught area of package management is dealt with as well, including a variety of industry references and best practices. The communicating sequential processes model, goroutines, channels and concurrency are explored at the start of day two, followed by a look at reflection and C integration with Go. Attendees will leave with a clear understanding of the more advanced features of the Go programming language and the necessary preparation to begin developing production Go applications.
+This Istio and Envoy Service Mesh Foundation course is designed to provide technology professionals with a comprehensive introduction to the Istio service mesh using the Envoy proxy. Attendees will leave with a clear understanding of how Istio and Envoy provide a powerful and resilient integrated service mesh.
+
+Students will gain hands on experience with Istio, configuring a complete Istio/Envoy/Kubernetes environment on their personal lab system. The course covers key facets of Istio including:
+
+- Traffic management
+- Observability
+- Policy enforcement
+- Service authentication and authorization
+
+Upon completion of the course attendees will have the skills and information necessary to begin working with Istio and designing practical service mesh based solutions to solve real world problems.
 
 Note: All prices listed are in United States Dollars ($ USD).
 
