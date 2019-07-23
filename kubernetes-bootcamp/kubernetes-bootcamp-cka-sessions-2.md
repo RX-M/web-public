@@ -5,21 +5,21 @@ The RX-M Kubernetes Certification Boot Camp is an instructor-led, 5-day training
 
 ### What students are saying about the RX-M CKA Boot Camp
 
-  *"This was the best technical class I have had.”*
+_"This was the best technical class I have had.”_
 
-  *“The instructor clearly had expert-level knowledge of the Kubernetes ecosystem, and he was a good and effective communicator”*
+_“The instructor clearly had expert-level knowledge of the Kubernetes ecosystem, and he was a good and effective communicator”_
 
-  *“Great instructor, and the last day where we went through solving hands on problems was a very effective way to learn.”*
+_“Great instructor, and the last day where we went through solving hands on problems was a very effective way to learn.”_
 
-  *“Comprehensive and lots of new material covered”*
+_“Comprehensive and lots of new material covered”_
 
-  *“I thought I knew Kubernetes coming into this program, yet I learned a lot in the class”*
+_“I thought I knew Kubernetes coming into this program, yet I learned a lot in the class”_
 
-  *“Thank you for all your help. [Passing the CKA exam would] definitely not have been possible without you. And also was great to make your acquaintance. Hope our paths cross again.”*
+_“Thank you for all your help. [Passing the CKA exam would] definitely not have been possible without you. And also was great to make your acquaintance. Hope our paths cross again.”_
 
-  *“Thanks so much for the in-depth training last week. I definitely learned a ton and would never have been able to pass the test without it.”*
+_“Thanks so much for the in-depth training last week. I definitely learned a ton and would never have been able to pass the test without it.”_
 
-  *”Thanks for a great week of training. I learned a ton. You did a great job”*
+_”Thanks for a great week of training. I learned a ton. You did a great job”_
 
 
 Note: All prices listed are in United States Dollars ($ USD).
