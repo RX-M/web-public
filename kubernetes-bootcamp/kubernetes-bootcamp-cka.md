@@ -1,10 +1,38 @@
-The Kubernetes Certification Boot Camp is an intensive and accelerated hands-on instructor-led training course. Participants will learn the essential facets of Kubernetes as well as critical components associated with the Certified Kubernetes Administrator (CKA) exam. The final day of this week long training will conclude with review and an in class proctored certification exam.
+### Program Overview
 
-Included in this boot camp: authorized training curriculum, exam session (CKA), light breakfast, all day coffee and beverage service, afternoon snack (regional variances).
+The RX-M Kubernetes Certification Boot Camp is an instructor-led, 5-day training program. Participants learn the essential facets of Kubernetes as well as the skills and approach necessary to pass the Certified Kubernetes Administrator exam. The [CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/05/CKA_Curriculum_V1.14.1.pdf) will be covered in detail through lecture, hands-on labs and timed drills. The final afternoon of this week-long program concludes with an in-class certification exam session.  The course is intensive and requires students to be present for long days and to commit to extended lab sessions for optimal results.
 
-[CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/05/CKA_Curriculum_V1.14.1.pdf)
+**Contact RX-M to see if this program may be a fit for your employee tuition program.**
 
-Note: All prices listed are in United States Dollars ($ USD).
+[See What Students Are Saying About the RX-M CKA Boot Camp](https://rx-m.com/training/cka-sessions-test/)
+
+
+### Program Inclusions
+
+Included in this boot camp: Instructor-led training with hands-on lab exercises, exam voucher (CKA), Kubernetes Self-Paced Course (LFS258), exam prep/strategy and drills. Available for those who attend in-person class delivery: light breakfast, all day coffee and beverage service and afternoon snack.
+
+
+### Prerequisites
+
+Students should possess proficiency with Docker/containers. Student should also have some experience with Kubernetes. Each attendee should provide their own laptop with the ability to run a 64 bit virtual machine.
+
+
+### What Attendees Will Learn
+
+- Containers & Orchestration
+- Kubernetes Architecture
+- Pods & Manifests
+- Controllers
+- Services & Networking
+- Managing State
+- Security and RBAC
+- Metrics, Monitoring and Autoscaling
+- Ingress Controllers
+- Maintaining and scaling a cluster
+- Debugging and Troubleshooting
+- Kubectl tips and tricks
+- CKA Exam Prep
+- CKA Exam Session
 
 
 ### Student Reschedule or Cancellation
