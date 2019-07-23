@@ -4,6 +4,8 @@ The RX-M Kubernetes Certification Boot Camp is an instructor-led, 5-day training
 
 **Contact RX-M to see if this program may be a fit for your employee tuition program.**
 
+[See What Students Are Saying About the RX-M CKA Boot Camp](https://rx-m.com/training/cka-sessions-test/)
+
 
 ### Program Inclusions
 
@@ -15,7 +17,7 @@ Included in this boot camp: Instructor-led training with hands-on lab exercises,
 Students should possess proficiency with Docker/containers. Student should also have some experience with Kubernetes. Each attendee should provide their own laptop with the ability to run a 64 bit virtual machine.
 
 
-### Topics List
+### What Attendees Will Learn
 
 - Containers & Orchestration
 - Kubernetes Architecture
@@ -30,6 +32,7 @@ Students should possess proficiency with Docker/containers. Student should also 
 - Debugging and Troubleshooting
 - Kubectl tips and tricks
 - CKA Exam Prep
+- CKA Exam Session
 
 
 ### Student Reschedule or Cancellation
