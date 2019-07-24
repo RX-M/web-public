@@ -4,7 +4,7 @@ The RX-M Kubernetes Certification Boot Camp is an instructor-led, 5-day training
 
 **Contact RX-M to see if this program may be a fit for your employee tuition program.**
 
-[See What Students Are Saying About the RX-M CKA Boot Camp](https://rx-m.com/training/cka-sessions-test/)
+[See What Students Are Saying About the RX-M CKA Boot Camp](https://rx-m.com/training/cka-sessions/)
 
 
 ### Program Inclusions
