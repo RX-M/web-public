@@ -1,8 +1,8 @@
-Time: 8:30 AM to 5:30 PM local time
-
 ### Program Overview
 
 The RX-M Kubernetes Certification Boot Camp is an instructor-led, 5-day training program. Participants learn the essential facets of Kubernetes as well as the skills and approach necessary to pass the Certified Kubernetes Administrator exam. The [CKA Exam Curriculum](https://rx-m.com/wp-content/uploads/2019/05/CKA_Curriculum_V1.14.1.pdf) will be covered in detail through lecture, hands-on labs and timed drills. The final afternoon of this week-long program concludes with an in-class certification exam session.  The course is intensive and requires students to be present for long days and to commit to extended lab sessions for optimal results.
+
+Time: 8:30 AM to 5:30 PM local time
 
 **Contact RX-M to see if this program may be a fit for your employee tuition program.**
 
