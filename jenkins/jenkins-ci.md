@@ -5,9 +5,9 @@ RX-M's Jenkins course can be delivered in 1, 2 or 3 days depending on whether st
 
 Introductory topics include an overview of CI, Agile and TDD concepts; Jenkins operations and configuration; and integration with build systems such as Ant, Make and Rake.
 
-Intermediate training covers common Jenkins tools, plugins and skills required to deploy and operate Jenkins in a production environment, including: access control, distributed build architecture and installing and configuring plugins.
+Intermediate training covers common Jenkins tools, plugins, and skills required to deploy and operate Jenkins in a production environment, including access control, distributed build architecture and installing and configuring plugins.
 
-Advanced topics covered are common Jenkins integration points and skills needed to maximize the function of Jenkins in a modern enterprise, including: using Jenkins with Docker, building automation chains and writing plugins.
+Advanced topics covered are common Jenkins integration points and skills needed to maximize the function of Jenkins in a modern enterprise, including using Jenkins with Docker, building automation chains and writing plugins.
 
 Using this platform students will learn and create a variety of Jenkins Jobs working with a wide range of plugins and Jenkins features which will give them confidence to continue using Jenkins in their own environments and workflows.
 

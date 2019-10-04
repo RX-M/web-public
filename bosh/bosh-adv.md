@@ -4,6 +4,6 @@ This in-depth hands-on course is designed to take casual BOSH users to the advan
 
 Day two begins with a look at the Director architecture and API, including exploration of the Director database and its schema, as well as addons and addon configuration. The course concludes with a look at Cloud Provider Interfaces (CPI) and the steps involved in building custom CPIs, followed by a stemcell deep dive and a look at creating custom stemcells.
 
-Each module is followed by a hands on lab, giving attendees practical experience with the tools and concepts discussed in class. Upon completion, attendees should have an in-depth, advanced understanding of BOSH and operation in a wide range of production setting.
+Each module is followed by a hands-on lab, giving attendees practical experience with the tools and concepts discussed in class. Upon completion, attendees should have an in-depth, advanced understanding of BOSH and operation in a wide range of production settings.
 
 This is an instructor-led training (ILT) class and is available for onsite and online delivery.

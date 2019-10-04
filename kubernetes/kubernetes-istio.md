@@ -1,6 +1,6 @@
 ## Istio on Kubernetes
 
-This intensive two day hands-on course is designed to provide technology professionals with a comprehensive introduction to the Istio service mesh using the Envoy proxy on Kubernetes. Attendees will leave with a clear understanding of how Istio and Envoy provide a powerful and resilient integrated Kubernetes service mesh.
+This intensive-two day hands-on course is designed to provide technology professionals with a comprehensive introduction to the Istio service mesh using the Envoy proxy on Kubernetes. Attendees will leave with a clear understanding of how Istio and Envoy provide a powerful and resilient integrated Kubernetes service mesh.
 
 Students will gain hands on experience with Istio, configuring a complete Istio/Envoy/Kubernetes environment on their personal lab system. The course covers key facets of Istio including:
 
