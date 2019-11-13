@@ -1,0 +1,5 @@
+## Docker + Kubernetes for Developers
+
+This course is designed to provide developers with a comprehensive overview of microservice application deployments using cloud native tooling including: Docker, Dockerfiles and image builds, and Kubernetes orchestration tooling and primitives.
+
+ The entire range of Dockerfile instructions is covered and the Docker hands-on labs give students a chance to locally build and test a sateless application from scratch. Attendees will also gain hands-on experience with Kubernetes concepts and operation; Pod operations, replication, state management, spec construction, and general best practices are all covered in lectures and through lab exercises. While learning Kubernetes, students will deploy their Docker-built application on Kubernetes, exposing it as a Kubernetes Service, adding a stateful component and enabling path-based routing with Kubernetes Ingress. The course covers Kubernetes kubectl subcommands and Pod/Controller/Service configuration primitives so that students will have confidence in creating Kubernetes resources imperatively and declaratively.
