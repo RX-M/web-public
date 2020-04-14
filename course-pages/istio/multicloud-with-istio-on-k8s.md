@@ -1,4 +1,4 @@
-<!-- Multicloud with Istion on Kubernetes -->
+<!-- Multicloud with Istio on Kubernetes -->
 
 This two-day hands-on course is designed to provide students with a detailed introduction to the Istio architecture and operation in multi/hybrid cloud settings, covering topics such as multicluster network requirements and policy enforcement.
 
