@@ -1,4 +1,4 @@
-<!-- Multicloud with Istion on Kubernetes -->
+<!-- Multicloud with Istio on Kubernetes -->
 
 This two-day hands-on course is designed to provide students with a detailed introduction to the Istio architecture and operation in multi/hybrid cloud settings, covering topics such as multicluster network requirements and policy enforcement.
 
@@ -12,7 +12,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend?
 
-Site Reliability Engineers (SRE), Architects, Developers, QA Staff, Technical Managers, DevOps and IT personnel
+Site/Service Reliability Engineers (SRE), Architects, Developers, QA Staff, Technical Managers, DevOps and IT personnel
 
 
 ### What Attendees will learn
