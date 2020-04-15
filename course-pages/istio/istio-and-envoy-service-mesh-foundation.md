@@ -14,7 +14,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend?
 
-Kubernetes Operators, Information Technology Staff, Site/Service Reliability Engineers, System Architects, DevOps Staff, Quality Assurance Specialists
+Kubernetes Operators, Information Technology (IT) Staff, Site/Service Reliability Engineers (SRE), System Architects, DevOps Staff, Quality Assurance (QA) Specialists
 
 
 ### What Attendees will learn
