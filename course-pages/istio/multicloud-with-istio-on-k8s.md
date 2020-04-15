@@ -12,7 +12,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend?
 
-Site/Service Reliability Engineers (SRE), Architects, Developers, QA Staff, Technical Managers, DevOps and IT personnel
+Site/Service Reliability Engineers (SRE), Architects, Developers, QA Staff, Technical Managers, DevOps and Information Technology (IT) personnel
 
 
 ### What Attendees will learn
