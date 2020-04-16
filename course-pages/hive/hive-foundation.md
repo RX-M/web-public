@@ -20,8 +20,7 @@ operation. Learning modules include:
 - Hive data definition language (DDL)
 - Hive data manipulation language (DML)
 - Hive query language (HiveQL)
-- Indexes
-- Schema design
+- Indexes and schema design
 - NoSQL storage handlers
 
 
