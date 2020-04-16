@@ -18,11 +18,11 @@ Application Developers, Analysts and Data Scientists
 This course is designed to provide attendees with a comprehensive introduction to data science with Apache Spark and
 Apache Hadoop. Learning modules include:
 
-- Data Science
+- In-depth review of data science
 - Data acquisition, transformation, and analysis
-- Apache Hadoop
+- Deep dive into Apache Hadoop
 - Machine Learning with Mahaut
-- Apache Spark and MLlib (Apache Spark's scalable machine learning library)
+- Apache Spark and MLlib (Apache Spark's scalable machine learning library) overview
 - Spark streaming
 
 
