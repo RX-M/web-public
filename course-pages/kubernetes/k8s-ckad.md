@@ -46,4 +46,4 @@ RX-M is a Linux Foundation Authorized Training Partner (ATP), part of the foundi
 All of RX-M's CKAD Bootcamps are led by Certified Kubernetes Application Developers.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

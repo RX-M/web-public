@@ -38,4 +38,4 @@ Attendees must have intermediate programming experience to benefit fully from th
 Developing Microservices for Cloud Native Environments – 3 days; Developing Microservices for Kubernetes – 5 days; Microservice Application Architecture – 3 days; Microservices – 3 days; Python Foundation; Advanced Python Programming; Python for Developers; Go Advanced – 2 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

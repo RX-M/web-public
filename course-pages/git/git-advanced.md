@@ -30,4 +30,4 @@ distributed version control system (DVCS), Git power tools, workflows and best p
 None.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

@@ -37,4 +37,4 @@ Because the course focuses on microservice design and development, no particular
 Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Developing Microservices on Kubernetes – 2 days; Developing Microservices for Kubernetes – 5 days; Microservice Application Architecture – 3 days; Microservices – 3 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

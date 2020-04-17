@@ -38,4 +38,4 @@ Students should have taken “Docker Foundation” and “Kubernetes Foundation"
 Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Kubernetes “Day 2” for Operations – 2 days; Kubernetes Networking – 2 days; Developing Kubernetes Operators – 2 days; Securing Kubernetes – 2 days; Certified Kubernetes Administrator Boot Camp (CKA) – 5 days; Certified Kubernetes Application Developer Boot Camp (CKAD) – 4 days; Kubernetes Stateful Workloads – 2 days; Developing Microservices on Kubernetes – 5 days; Docker + Kubernetes for Developers - 4 days;  Docker + Kubernetes for Operators- 4 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

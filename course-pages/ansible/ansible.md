@@ -35,4 +35,4 @@ Students should have basic sys-admin capabilities. Each attendee must provide th
 64 bit virtual machine. A 64 bit Ubuntu VM is provided with the course.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

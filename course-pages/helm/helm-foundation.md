@@ -32,4 +32,4 @@ The course provides attendees the skills and information necessary to begin usin
 The RX-M “Docker Foundation” (Containers, Images, Containers in Practice)  and “Kubernetes Foundation" (Containers & Orchestration, Kubernetes Architecture) courses or equivalent knowledge. Each attendee must provide their own laptop with the ability to run a 64 bit virtual machine. Unconstrained internet access is also required to complete the student hands-on lab exercises.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

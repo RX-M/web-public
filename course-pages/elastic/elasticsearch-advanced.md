@@ -32,4 +32,4 @@ Students should have familiarity with programming concepts. Prior use of Elastic
 course to Elasticsearch is recommended. Comfort using the terminal or command line is recommended.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

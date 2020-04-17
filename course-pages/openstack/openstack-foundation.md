@@ -30,4 +30,4 @@ with at least one programming language is beneficial. Experience with container 
 strictly required. 
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

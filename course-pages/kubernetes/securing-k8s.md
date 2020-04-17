@@ -37,4 +37,4 @@ Students should have taken the RX-M “Kubernetes Foundation” course or have e
 Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Kubernetes “Day 2” for Operations – 2 days; Kubernetes Networking – 2 days; Developing Kubernetes Operators – 2 days; Securing Kubernetes – 2 days; Certified Kubernetes Administrator Boot Camp (CKA) – 5 days; Certified Kubernetes Application Developer Boot Camp (CKAD) – 4 days; Kubernetes Stateful Workloads – 2 days; Developing Microservices on Kubernetes – 5 days; Docker + Kubernetes for Developers - 4 days; Docker + Kubernetes for Operators- 4 days; Docker Foundation; Advanced Docker, Docker Boot Camp; Docker Networking; Docker Volumes; Linux Container Technology and Container Runtimes; Microservice Application Architecture – 3 days; Microservices – 3 days; Deploying and Instrumenting Microservices on Kubernetes
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

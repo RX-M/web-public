@@ -37,4 +37,4 @@ The RX-M “Docker Foundation” (Containers, Images, Containers in Practice)  a
 Kubernetes Foundation- 2 day; Kubernetes Advanced – 3 day; Certified Kubernetes Administrator Boot Camp (CKA) – 5 days; IPv6 Foundation - 2 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

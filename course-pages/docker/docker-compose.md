@@ -29,4 +29,4 @@ This course is designed to provide technical staff with an in-depth look at Dock
 Docker Foundation or equivalent experience and the ability to run a 64 bit virtual machine.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

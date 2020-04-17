@@ -30,4 +30,4 @@ Each attendee will require the ability to run a 64 bit virtual machine (provided
 line skills are valuable but not required. All attendees should be experienced technical staff with a background in web application operations and, preferably, development.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

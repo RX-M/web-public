@@ -29,6 +29,3 @@ features of the Google Cloud Platform (GCP).
 
 General technology background. Each attendee must have a laptop with internet access and the ability to run a 64 bit
 virtual machine to complete the lab assignments. The GCP based lab environment is provided by RX-M.
-
-
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)

@@ -31,4 +31,4 @@ Each participant must have a laptop with internet access and the ability to run 
 basic programming concepts is required; knowledge of a specific programming language is not required.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

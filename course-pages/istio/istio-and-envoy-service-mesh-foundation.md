@@ -39,4 +39,4 @@ The RX-M “Docker Foundation” (Containers, Images, Containers in Practice)  a
 Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Kubernetes “Day 2” for Operations – 2 days; Kubernetes Networking – 2 days; Securing Kubernetes – 2 days; Kubernetes Certification Boot Camp (CKA) – 5 days; Kubernetes Certification Boot Camp (CKAD) – 4 days; Multicloud with Istio on Kubernetes – 2 days; Docker + Kubernetes for Developers - 4 days;  Docker + Kubernetes for Operators- 4 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

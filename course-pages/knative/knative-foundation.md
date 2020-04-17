@@ -39,4 +39,4 @@ The RX-M “Docker Foundation” (Containers, Images, Containers in Practice)  a
 Kubernetes Foundation- 2 days; Kubernetes For Cloud Native Developers – 3 days; Docker + Kubernetes for Developers - 4 days; Serverless Technology and Functions as a Service - 1 Day; Developing Microservices for Kubernetes - 5 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

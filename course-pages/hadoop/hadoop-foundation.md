@@ -35,4 +35,4 @@ Students should be familiar with SQL and have a minimal understanding of
 programming principles. No prior Hadoop knowledge is required.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

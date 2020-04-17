@@ -36,4 +36,4 @@ Each attendee will require the ability to run a 64 bit virtual machine (provided
 Microservice Application Architecture – 3 days; Microservices – 3 days; Docker Advanced  – 2 days; Docker Bootcamp – 5 days; Docker Networking – 1 day; Docker Volumes – 1 day; Docker Bootcamp – 5 days; Linux Container Technology and Runtimes – 2 days; Kubernetes Foundation – 2 days
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

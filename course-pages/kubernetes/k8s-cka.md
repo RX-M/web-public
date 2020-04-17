@@ -44,4 +44,4 @@ The Certified Kubernetes Administrator (CKA) and Certified Kubernetes Applicatio
 We are uniquely positioned as unbiased & market neutral. All of RX-M's CKA Bootcamps are led by Certified Kubernetes Administrators.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

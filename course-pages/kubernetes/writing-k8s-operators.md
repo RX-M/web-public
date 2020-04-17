@@ -33,4 +33,4 @@ must provide their own laptop with the ability to run a 64 bit virtual machine (
 environment can be provided). Unconstrained internet access is also required to complete the labs.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

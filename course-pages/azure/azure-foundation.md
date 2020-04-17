@@ -33,4 +33,4 @@ General technology background. Each attendee must have a laptop with internet ac
 virtual machine to complete the lab assignments. The Azure cloud based lab environment is provided by RX-M.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

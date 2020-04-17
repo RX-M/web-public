@@ -30,4 +30,4 @@ is required though attendees should have real experience with at least one progr
 to be able to run the 64 bit lab VM and have access to the Internet.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

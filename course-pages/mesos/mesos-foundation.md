@@ -30,4 +30,4 @@ Attendees must have basic Linux administration skills. Each attendee must provid
 run a 64 bit virtual machine.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

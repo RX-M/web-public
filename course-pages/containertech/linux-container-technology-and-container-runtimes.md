@@ -29,4 +29,4 @@ technologies and the key container runtimes: containerd, rocket, runC and libcon
 Each attendee should have intermediate Linux experience.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

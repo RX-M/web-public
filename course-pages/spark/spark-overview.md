@@ -31,4 +31,4 @@ Each attendee will require the ability to run a 64 bit virtual machine (provided
 line skills are helpful. The coding examples use Python and PySpark so some experience with Python is important.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

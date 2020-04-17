@@ -31,4 +31,4 @@ This course is designed to provide technical staff with a comprehensive introduc
 Each participant must have a computer with ssh, a browser and fast reliable internet access.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

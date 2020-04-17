@@ -31,4 +31,4 @@ introduction to the Git distributed version control system (DVCS). Learning modu
 None.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

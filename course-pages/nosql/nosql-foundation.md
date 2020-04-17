@@ -31,4 +31,4 @@ Learning modules include:
 Participants should have a basic familiarity with relational databases or other formal data storage technology.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+

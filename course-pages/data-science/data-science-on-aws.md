@@ -27,4 +27,4 @@ Learning modules include:
 The ability to run a 64 bit virtual machine (provided) good internet access, basic computing background and experience with SQL and Python.
 
 
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
+
