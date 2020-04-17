@@ -28,6 +28,3 @@ Learning modules include:
 
 Attendees must have basic system administration skills. Each attendee will be required to run multiple 64 bit virtual
 machines (provided with the course).
-
-
-#### [Cloud Native Advisory Services; Consulting Services; Proof of Concept (POC)](https://rx-m.com/cloud-native-consulting/)
