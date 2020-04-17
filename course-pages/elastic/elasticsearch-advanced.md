@@ -21,7 +21,7 @@ This course is designed to provide experienced Elasticsearch users with a deeper
 Elasticsearch specifically Operations and Data Manipulation.
 Learning modules include:
 
-- Cluster setup, configuration, and scaling
+- Elasticsearch cluster setup, configuration, and scaling
 - Deep dive into data importation, indexing, search, and Lucene
 - Production monitoring and operational best practices
 
