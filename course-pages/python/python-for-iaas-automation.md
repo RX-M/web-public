@@ -19,8 +19,8 @@ This course is designed to help technical staff unlock the power of Python in co
 modern infrastructure. Learning modules include:
 
 - Python and DevOps
-- Building microservices with python
-- Python infrastructure automation
+- Building microservices with Python
+- Infrastructure automation
 - Python and network systems
 
 
