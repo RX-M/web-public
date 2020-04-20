@@ -1,4 +1,4 @@
-<!-- Building Cross Languages Services with Apache Thrift -->
+<!-- Building Cross-Language Services with Apache Thrift -->
 
 This training course provides a comprehensive introduction to the Apache Thrift cross-language serialization and RPC framework. Attendees will learn how to design robust and extensible services using the flexible Thrift IDL. Type and service design are covered in detail along with the implementation details necessary to bring interfaces to life. Attendees will learn how to use the Thrift IDL compiler to rapidly generate applications in a range of languages.
 
