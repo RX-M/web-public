@@ -17,10 +17,10 @@ Developers, Architects, Engineering Managers and DevOps personnel
 
 ### What Attendees will learn
 
-This course provides hands on experience with the latest release of Apache Thrift and any four supported languages selected by the client. Either C++ or Java should be included, preferably both, as these are the reference languages. Learning modules include:
+This course provides hands on experience with the latest release of Apache Thrift and any four supported languages selected by the client. Either C++ or Java should be included, preferably both, as these are the reference languages.
 
-- Apache Thrift RPC
-- Apache Thrift Serialization
+- Apache Thrift RPC including architecture, creating RPC services, creating servers and clients
+- Apache Thrift Serialization including Thrift protocols and messaging systems
 - Language Walk Through (client can select their desired languages)
 
 
