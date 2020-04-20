@@ -23,11 +23,9 @@ platform.
 - Storage
 - Support services
 
+
 ### Prerequisites
 
 Because the course focuses on using OpenStack, no particular programming language expertise is required, though experience
 with at least one programming language is beneficial. Experience with container technology is also beneficial but not
-strictly required. 
-
-
-
+strictly required.
