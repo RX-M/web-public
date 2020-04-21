@@ -1,10 +1,10 @@
 <!-- Knative Foundation -->
 
-This intensive two-day hands-on course is designed to provide technology professionals with a comprehensive introduction to the KNative Kubernetes extensions. Attendees will leave with a clear understanding of how KNative provides a streamlined developer experience for cloud native applications.
+This intensive two-day hands-on course is designed to provide technology professionals with a comprehensive introduction to the Knative Kubernetes extensions. Attendees will leave with a clear understanding of how Knative provides a streamlined developer experience for cloud native applications.
 
 Students will gain hands-on experience with KNative, configuring a complete KNative/Kubernetes environment on their personal lab system. The course covers key facets of KNative including, source to container build automation, event management, and request-driven scaling.
 
-Upon completion of the course, attendees will have the skills and information necessary to begin working with KNative in a production setting.
+Upon completion of the course, attendees will have the skills and information necessary to begin working with Knative in a production setting.
 
 
 ### Delivery
@@ -37,6 +37,3 @@ The RX-M “Docker Foundation” (Containers, Images, Containers in Practice)  a
 ### Related  Instructor-Led (ILT & VILT) Training Courses
 
 Kubernetes Foundation- 2 days; Kubernetes For Cloud Native Developers – 3 days; Docker + Kubernetes for Developers - 4 days; Serverless Technology and Functions as a Service - 1 Day; Developing Microservices for Kubernetes - 5 days
-
-
-
