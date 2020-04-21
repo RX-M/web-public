@@ -10,7 +10,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend?
 
-Professional Services Staff, Technical Managers, IT and QA Staff, Developers and DevOps personnel
+Professional Services Staff, Technical Managers, Information Technology (IT) and Quality Assurance (QA) Staff, Developers and DevOps personnel
 
 
 ### What Attendees will learn
