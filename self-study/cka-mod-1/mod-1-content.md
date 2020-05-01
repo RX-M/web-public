@@ -1,6 +1,6 @@
 <!-- CKA Self-Study Mod 1 -->
 
-#### Label Selectors and Scheduling
+# Label Selectors and Scheduling
 
 Labels are key/value pairs attached to Kubernetes objects. Labels allow users to organize and select multiple objects bearing the same labels. Many Kubernetes resources, like services or networkPolicies for example, use labels to determine what pods receive their functionality.
 
@@ -32,7 +32,7 @@ Using this spec the Kubernetes scheduler will only assign the pod to a node bear
 Learn more about labels [here](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors).
 
 
-### DaemonSets
+# DaemonSets
 
 A DaemonSet is a controller that ensures a single copy of a pod runs on every node in the cluster. They are popular for running workloads tied to a host--like storage, logging, or monitoring agents in a Kuberentes cluster. Due to the permissions required to run DaemonSets, Kubernetes platform administrators and operators are the primary DaemonSet consumers.
 
@@ -74,7 +74,7 @@ The spec above runs a Fluentd log aggregation container that mounts the host’s
 Learn more about Daemonsets [here](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
 
-## Container Resource Requests and Limits
+# Container Resource Requests and Limits
 
 Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the minimum amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
 
@@ -125,7 +125,7 @@ spec:
 Learn more about deploying and configuring Multiple schedulers in your cluster [here](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/).
 
 
-## Manually Scheduling a Pod
+# Manually Scheduling a Pod
 
 There are several ways to influence pod scheduling directly from the pod manifest. One example covered earlier is the <code>nodeSelector</code> that you place within a pod spec or template to select nodes based on a label.
 
@@ -185,7 +185,7 @@ $
 See an example of how to confirm scheduling behavior using events [here](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/#verifying-that-the-pods-were-scheduled-using-the-desired-schedulers).
 
 
-## Configuring Schedulers
+# Configuring Schedulers
 
 Schedulers select nodes to run pods using a 2-step process: filtering and scoring. These steps are tunable by users by adjusting the <code>predicates</code> and <code>priorities</code> lists. In the past, these were done using scheduler config files and later a configmap:
 
@@ -217,7 +217,7 @@ The latest versions of Kubernetes are moving toward modifying the default kube-s
 Learn more about configuring scheduler priorities and predicates [here](https://kubernetes.io/docs/concepts/scheduling/kube-scheduler/#kube-scheduler-implementation)
 
 
-## Monitoring Cluster Components
+# Monitoring Cluster Components
 
 The Kubernetes core components are the API Server, Controller Manager, Scheduler, and etcd. In kubeadm-bootstrapped clusters, the core components run as pods in the kube-system namespace.
 
@@ -260,7 +260,7 @@ $
 Learn more about the tools used to monitor cluster components [here](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/) and to learn about the cluster logging architecture look [here](https://kubernetes.io/docs/concepts/cluster-administration/logging/#cluster-level-logging-architectures).
 
 
-## Managing Cluster Component Logs
+# Managing Cluster Component Logs
 
 Use commands like <code>kubectl logs</code> and <code>kubectl get events</code> in the <code>kube-system</code> namespace to view cluster component logs like any other pod in the cluster:
 
@@ -301,7 +301,7 @@ Learn more about cluster component logging and the initial steps to troubleshoot
 
 
 
-## Monitoring Applications
+# Monitoring Applications
 
 Kubernetes exposes several ways to monitor applications at the cluster level. You can view events within the context of applications by using <code>kubectl describe</code> on an application's pods or deployment:
 
@@ -397,7 +397,7 @@ A variety of probes are also available to use to tell Kubernetes whether an appl
 Learn more about gaining insight on your applications through and other troubleshooting techniques [here](https://kubernetes.io/docs/tasks/debug-application-cluster/)
 
 
-## Managing Application Logs
+# Managing Application Logs
 
 Kubernetes retrieves application logs through the container runtime’s logging engine. Many container runtimes publish logs to stdout by default, so application logs are readily available using <code>kubectl logs</code>:
 
@@ -427,7 +427,7 @@ $
 [Learn more about application logging strategies in Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 
 
-## Practice Drill
+# Practice Drill
 
 Create a Daemonset that runs Fluent Bit.
 The Fluent Bit container spec should resemble this:
