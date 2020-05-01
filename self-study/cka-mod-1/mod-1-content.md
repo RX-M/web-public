@@ -38,7 +38,7 @@ A DaemonSet is a controller that ensures a single copy of a pod runs on every no
 
 DaemonSets are very similar to deployments and use a nearly identical spec: Both use pod templates to declare how they run their workloads, with the primary difference being the lack of a <code>replicas</code> key, since DaemonSets only run one pod on all nodes in the cluster (that they tolerate). An example DaemonSet:
 
-<pre class="wp-block-code"><code>
+```
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -67,7 +67,7 @@ spec:
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
-</code></pre>
+```
 
 The spec above runs a Fluentd log aggregation container that mounts the host’s <code>/var/log</code> directory in order to forward system logs--a common use case for the DaemonSet!
 
