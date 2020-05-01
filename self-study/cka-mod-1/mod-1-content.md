@@ -1,6 +1,6 @@
 <!-- CKA Self-Study Mod 1 -->
 
-## Label Selectors and Scheduling
+#### Label Selectors and Scheduling
 
 Labels are key/value pairs attached to Kubernetes objects. Labels allow users to organize and select multiple objects bearing the same labels. Many Kubernetes resources, like services or networkPolicies for example, use labels to determine what pods receive their functionality.
 
@@ -32,7 +32,7 @@ Using this spec the Kubernetes scheduler will only assign the pod to a node bear
 Learn more about labels [here](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors).
 
 
-## DaemonSets
+### DaemonSets
 
 A DaemonSet is a controller that ensures a single copy of a pod runs on every node in the cluster. They are popular for running workloads tied to a host--like storage, logging, or monitoring agents in a Kuberentes cluster. Due to the permissions required to run DaemonSets, Kubernetes platform administrators and operators are the primary DaemonSet consumers.
 
@@ -101,7 +101,7 @@ Containers that exceed their resource limits are liable to be evicted or restart
 Learn more about pod resource requests/limits [here](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
 
 
-## Multiple Schedulers
+# Multiple Schedulers
 
 
 Kubernetes clusters can have multiple schedulers running at the same time. In most cases each scheduler runs as a deployment in the cluster itself, and must possess the proper RBAC permissions to operate as a scheduler in the cluster.
