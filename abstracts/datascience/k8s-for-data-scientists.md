@@ -1,0 +1,5 @@
+## Kubernetes for Data Scientists
+
+This intensive two-day hands-on course is designed to provide working data scientists and other technology professionals with a comprehensive introduction to Kubernetes and its use in data intensive applications. Attendees will leave with a clear understanding of Kubernetes data processing application design and architecture. Students will gain hands on experience with Kubernetes manifest coding from pod and job basics all the way through advanced topics such as stateful services, volumes, auto scaling and configuration. Skills developed include Pod specification and common analytics and data processing pod design patterns, batch and cron jobs, Spark scheduling, ML operations and more. Best practices are covered in class and through the hands-on lab exercises accompanying each module. Upon completion of the course, attendees will have the skills and information necessary to begin creating effective application manifests for sophisticated cloud native data science applications.
+
+This is an instructor-led training (ILT) class and is available for onsite and online delivery.
