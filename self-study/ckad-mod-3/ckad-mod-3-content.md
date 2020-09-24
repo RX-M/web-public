@@ -199,11 +199,13 @@ There are two selector types:
   <ul>
     <li><code>=</code> or<code>==</code> for equality</li>
     <li><code>!=</code> for inequality</li>
+  </ul>
 <li>Set-based</li>
   <ul>
     <li><code>in</code> for labels that have keys with values in this set</li>
     <li><code>notin</code> for labels that have keys not in this set</li>
     <li><code>key_name</code> for labels with the key name</li>
+  </ul>
 
 Take a look at using labels and selectors. Run the following deployments and jobs to launch pods with an environment and a release label. The pods can have an environment label of <code>prod</code>, <code>dev</code>, or <code>qa</code> and a release label with <code>stable</code> or <code>edg</code>. Then use selectors to filter for pods using labels.
 
