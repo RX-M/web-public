@@ -6,17 +6,20 @@
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
 <li>Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
+
 <img src="https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 
 <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
+
 <img src="https://d33wubrfki0l68.cloudfront.net/5b7d4af2e37b1d337ef0bd90b65b7944d7ecac8d/1d5bc/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/ambassador-containers.png" alt=”ambassador” width=”500" height="200">
 
 <li>Adapter - adapter containers standardize and normalize output for remote monitoring systems that require standard data formats. The diagram below shows a monitoring adapter container running an agent that reads the main application’s data, processes it, then exports the normalized data to monitoring systems elsewhere in the network.</li>
+
 <img src="https://d33wubrfki0l68.cloudfront.net/a55d1c355a9f778e38a775a87fd5b2b52db661dc/0c44c/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/adapter-containers.png" alt=”adapter” width=”500" height="200">
 
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
 
-<img src="https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png" alt=”sidecar”>
+<img src="https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 ![Sidecar](https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png "Sidecar")
 
 <pre class="wp-block-code"><code>
