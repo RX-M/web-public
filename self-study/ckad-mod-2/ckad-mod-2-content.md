@@ -15,6 +15,7 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 
 <img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 ![Sidecar](https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png "Sidecar")
+<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 
 <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
 
