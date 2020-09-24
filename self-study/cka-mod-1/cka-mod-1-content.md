@@ -58,7 +58,7 @@ rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
 $
 </code></pre>
 
-Learn more about configuring role-based access control [here](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+[Learn more about configuring role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 
 # Upgrading Kubernetes with Kubeadm
@@ -173,7 +173,7 @@ $ kubectl uncordon <control-plane-node>
 $
 </code></pre>
 
-Learn more about upgrading your cluster with kubeadm [here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/).
+[Learn more about upgrading your cluster with kubeadm](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/).
 
 
 # Implement Backup and Restore Methodologies
@@ -190,7 +190,7 @@ snapshot save /var/lib/etcd/backup.db
 
 This command connects to an etcd cluster and saves its contents to a database file. This database file is then used to restore the entire cluster on a new set of nodes.
 
-[Kubernetes etcd instance backup and restore procedures](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster).
+[Learn about Kubernetes etcd instance backup and restore procedures](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster).
 
 
 # Practice Drill
