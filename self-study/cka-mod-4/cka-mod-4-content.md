@@ -190,8 +190,8 @@ spec:
 This example uses a persistentVolumeClaim to store application log data and also mounts a hostPath to use certificates of its host.
 
 Learn more about persistent storage with your applications on Kubernetes using:
-- [Basic volume plugins](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)
-- [Persistent volumes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/).
+<li>[Basic volume plugins](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)</li>
+<li>[Persistent volumes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/).</li>
 
 
 # Practice Drill

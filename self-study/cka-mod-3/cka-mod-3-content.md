@@ -66,10 +66,10 @@ spec:
 </code></pre>
 
 Learn more about:
-- [Services](https://kubernetes.io/docs/concepts/services-networking/service/),
-- [Endpoints](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors) and
-- [EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
-- [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+<li>[Services](https://kubernetes.io/docs/concepts/services-networking/service/),</li>
+<li>[Endpoints](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors)</li>
+<li>[EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)</li>
+<li>[Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/).</li>
 
 
 # Ingress Controllers and Ingress Resources
@@ -196,8 +196,8 @@ $
 
 
 Learn more about:
-- [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/).
-- [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
+<li>[CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)</li>
+<li>[DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).</li>
 
 
 

@@ -130,9 +130,9 @@ The deployment is back to using the nginx 1.16 image.
 Jobs complete tasks from start to finish. A job is complete when the pod finishes the task and the pod exits successfully on completion.
 
 There are three types of jobs:
-- Non-parallel jobs - a job that runs one pod
-- Parallel jobs with a fixed completion - jobs run multiple pods in parallel and defines the number of completions when the job is finished
-- Parallel jobs without a fixed completion - jobs run multiple pods in parallel and when one pod is successful then the job is complete and all other pods terminate; this is also called a work queue
+<li>Non-parallel jobs - a job that runs one pod</li>
+<li>Parallel jobs with a fixed completion - jobs run multiple pods in parallel and defines the number of completions when the job is finished</li>
+<li>Parallel jobs without a fixed completion - jobs run multiple pods in parallel and when one pod is successful then the job is complete and all other pods terminate; this is also called a work queue</li>
 
 The following manifest describes a parallel job with a fixed number of completions. The job outputs the date to the container’s standard out. The job will run 5 pods in parallel and stop after 20 successful completions.
 
@@ -184,8 +184,8 @@ spec:
 </code></pre>
 
 Learn more about:
-- [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)
-- [CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).
+<li>[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)</li>
+<li>[CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).</li>
 
 
 # Labels, Selectors, Annotations
@@ -195,13 +195,15 @@ Labels are key/value pairs attached to Kubernetes objects such as pods, persiste
 Some commands use selectors to identify and select Kubernetes objects by their labels. Selectors are used with the <code>-l</code> or <code>--selector</code> flag that filters on labels.
 
 There are two selector types:
-- Equality/Inequality-based
-  - <code>=</code> or<code>==</code> for equality
-  - <code>!=</code> for inequality.
-- Set-based
-  - <code>in</code> for labels that have keys with values in this set
-  - <code>notin</code> for labels that have keys not in this set
-  - <code>key_name</code> for labels with the key name
+<li>Equality/Inequality-based</li>
+  <ul>
+    <li><code>=</code> or<code>==</code> for equality</li>
+    <li><code>!=</code> for inequality</li>
+<li>Set-based</li>
+  <ul>
+    <li><code>in</code> for labels that have keys with values in this set</li>
+    <li><code>notin</code> for labels that have keys not in this set</li>
+    <li><code>key_name</code> for labels with the key name</li>
 
 Take a look at using labels and selectors. Run the following deployments and jobs to launch pods with an environment and a release label. The pods can have an environment label of <code>prod</code>, <code>dev</code>, or <code>qa</code> and a release label with <code>stable</code> or <code>edg</code>. Then use selectors to filter for pods using labels.
 
@@ -306,8 +308,8 @@ spec:
 </code></pre>
 
 Learn more about:
-- [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
-- [Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+<li>[Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)</li>
+<li>[Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).</li>
 
 
 # Persistent Volume Claims
@@ -431,6 +433,6 @@ $
 
 # Practice Drill
 
-- Create a deployment that creates 2 replicas of pods using the <code>nginx:1.9</code> image.
-- Update the deployment to use the latest <code>nginx</code> image.
-- Undo the image update and rollback the deployment to use the <code>nginx:1.9</code> image.
+<li>Create a deployment that creates 2 replicas of pods using the <code>nginx:1.9</code> image.</li>
+<li>Update the deployment to use the latest <code>nginx</code> image.</li>
+<li>Undo the image update and rollback the deployment to use the <code>nginx:1.9</code> image.</li>

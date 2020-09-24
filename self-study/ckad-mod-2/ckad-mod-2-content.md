@@ -5,15 +5,14 @@
 
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
-- Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.
+<li>Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
 <img src=https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png alt=”sidecar” width=”500" height="200">
 
-- Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.
+<li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
 <img src=https://d33wubrfki0l68.cloudfront.net/5b7d4af2e37b1d337ef0bd90b65b7944d7ecac8d/1d5bc/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/ambassador-containers.png alt=”ambassador” width=”500" height="200">
 
-- Adapter - adapter containers standardize and normalize output for remote monitoring systems that require standard data formats. The diagram below shows a monitoring adapter container running an agent that reads the main application’s data, processes it, then exports the normalized data to monitoring systems elsewhere in the network.
+<li>Adapter - adapter containers standardize and normalize output for remote monitoring systems that require standard data formats. The diagram below shows a monitoring adapter container running an agent that reads the main application’s data, processes it, then exports the normalized data to monitoring systems elsewhere in the network.</li>
 <img src=https://d33wubrfki0l68.cloudfront.net/a55d1c355a9f778e38a775a87fd5b2b52db661dc/0c44c/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/adapter-containers.png alt=”adapter” width=”500" height="200"
-
 
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
 
@@ -62,9 +61,9 @@ A liveness probe is a health check that tells a kubelet when to restart a contai
 An application may not immediately be ready to accept traffic when its container first starts; a readiness probe informs Kubernetes when it is okay to start sending traffic to a container after it boots. For example, a container of a java application might take minutes to load and may not be ready to accept traffic until it’s fully running. In this scenario, the readiness probe mitigates long loading times.
 
 There are three options for liveness and readiness probes:
-exec - takes a command, an exit code of 0 is success
-httpGet - performs an http get, a 200-399 status is good
-tcpSocket - a successful connection to a specified port is success
+<li>exec - takes a command, an exit code of 0 is success</li>
+<li>httpGet - performs an http get, a 200-399 status is good</li>
+<li>tcpSocket - a successful connection to a specified port is success</li>
 
 Liveness and readiness probes are similarly configured for each container in a pod. For example the following pod manifest has an <code>nginx</code>. container with a liveness probe that runs an http get to the root path to port 80. If the <code>nginx</code> web server replies with a 200 - 399 code then the pod is alive. The liveness probe waits 10 seconds before the first check and periodically checks every 20 seconds.
 
@@ -86,6 +85,7 @@ spec:
       initialDelaySeconds: 10
       periodSeconds: 20
 </code></pre>
+
 [Learn more about Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 
@@ -120,10 +120,10 @@ $
 </code></pre>
 
 Here are other useful container logging options:
-<code>--previous</code> - retrieves container logs from the previous instantiation of a container, this is helpful for containers that are crash looping
-<code>-f</code> - streams container logs
-<code>--since</code> - prints logs since a specific time period e.g. --since 15m
-<code>--timestamps</code> - includes timestamps
+<li><code>--previous</code> - retrieves container logs from the previous instantiation of a container, this is helpful for containers that are crash looping</li>
+<li><code>-f</code> - streams container logs</li>
+<li><code>--since</code> - prints logs since a specific time period e.g. --since 15m</li>
+<li><code>--timestamps</code> - includes timestamps</li>
 
 [Learn more about container logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
 
@@ -152,8 +152,8 @@ weave-net-fv9mb                             1m                 45Mi
 </code></pre>
 
 Learn more about:
-- [monitoring](https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/)
-- [metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server).
+<li>[monitoring](https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/)</li>
+<li>[metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server).</li>
 
 
 # Debugging

@@ -333,9 +333,9 @@ spec:
 If this probe’s livenessProbe ever returns a failure, the kubelet tells the container runtime to restart the container and bring the application back from an unhealthy state.
 
 Learn about:
-- [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
-- [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-- [Details about application probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+<li>[Services](https://kubernetes.io/docs/concepts/services-networking/service/)</li>
+<li>[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)</li>
+<li>[Details about application probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).</li>
 
 
 # Practice Drill

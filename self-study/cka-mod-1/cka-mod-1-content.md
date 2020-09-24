@@ -69,13 +69,13 @@ Cluster upgrades involve updating the version of the Kubernetes control plane co
 The details of the version support policy are detailed on the [version skew policy page](https://kubernetes.io/docs/setup/release/version-skew-policy/) in the Kubernetes documentation.
 
 To upgrade the control-plane node we must do the following:
-- retrieve updated kubernetes binaries
-- install the newer version of kubadm
-- drain the control plane node
-- use <code>kubeadm upgrade plan</code> to check and fetch the new control plane component versions
-- apply the upgrade
-- upgrade the kubelet and kubectl
-- uncordon the control plan node
+<li>retrieve updated kubernetes binaries</li>
+<li>install the newer version of kubadm</li>
+<li>drain the control plane node</li>
+<li>use <code>kubeadm upgrade plan</code> to check and fetch the new control plane component versions</li>
+<li>apply the upgrade</li>
+<li>upgrade the kubelet and kubectl</li>
+<li>uncordon the control plan node</li>
 
 The following is an example of upgrading a Kubernetes control plane node from Kubernetes v1.18.0 to v.19.0 on Ubuntu 18.04:
 

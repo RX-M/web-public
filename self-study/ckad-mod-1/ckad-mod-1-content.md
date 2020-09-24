@@ -1,13 +1,13 @@
 <!-- CKAD Self-Study Mod 1 -->
 
 
-# Basic Pods
+<h1> Basic Pods</h1>
 
 Pods are the atomic unit of deployment in Kubernetes and are made up of one or more containers in different arrays in a PodSpec:
 
-- Containers (required) - long running containers for applications, proxies, logging/monitoring sidecars, etc.
-- Init containers (optional) - bootstrapping containers that run once to bootstrap long running app containers
-- Ephemeral containers (optional) - an alpha feature in Kubernetes, these containers can be added at runtime for ad hoc troubleshooting
+<li>Containers (required) - long running containers for applications, proxies, logging/monitoring sidecars, etc.</li>
+<li>Init containers (optional) - bootstrapping containers that run once to bootstrap long running app containers</li>
+<li>Ephemeral containers (optional) - an alpha feature in Kubernetes, these containers can be added at runtime for ad hoc troubleshooting</li>
 
 A basic pod would contain a single container and could be created with yaml or imperatively:
 
@@ -21,13 +21,15 @@ $ kubectl run ckad-basic-pod --generator=run-pod/v1 --image=nginx:latest
 # SecurityContext
 
 This is a setting in a PodSpec that enhances security for one or all of the containers in a pod and have the following settings:
-- Discretionary Access Control: define user ID (UID) and group ID (GID) settings for processes inside containers
-- Security Enhanced Linux (SELinux): invoke predefined security labels
-- Linux Capabilities: coarse-grained control of system calls to the Linux kernel in a whitelist or blacklist
-  - Marking a pod with privileged = true grants all capabilities
-- AppArmor: invoke predefined program profiles to restrict the capabilities of individual programs
-- Seccomp: Fine-grained control over a process’s system calls through the use of json policies
-- AllowPrivilegeEscalation: Controls whether a process can gain more privileges than its parent
+<li>Discretionary Access Control: define user ID (UID) and group ID (GID) settings for processes inside containers</li>
+<li>Security Enhanced Linux (SELinux): invoke predefined security labels</li>
+<li>Linux Capabilities: coarse-grained control of system calls to the Linux kernel in a whitelist or blacklist</li>
+  <ul>
+    <li>Marking a pod with privileged = true grants all capabilities</li>
+  </ul>
+<li>AppArmor: invoke predefined program profiles to restrict the capabilities of individual programs</li>
+<li>Seccomp: Fine-grained control over a process’s system calls through the use of json policies</li>
+<li>AllowPrivilegeEscalation: Controls whether a process can gain more privileges than its parent</li>
 
 SecurityContext settings can be set for the pod and/or each container in the pod, for example:
 
@@ -147,8 +149,8 @@ spec:
 </code></pre>
 
 Learn more about mounting:
-- [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+<li>[ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)</li>
+<li>[Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).</li>
 
 
 # ServiceAccounts
