@@ -1,6 +1,6 @@
 <!-- CKA Self-Study Mod 1 -->
 
-<h1> Label Selectors and Scheduling </h1>
+<h2> Label Selectors and Scheduling </h2>
 
 Labels are key/value pairs attached to Kubernetes objects. Labels allow users to organize and select multiple objects bearing the same labels. Many Kubernetes resources, like services or networkPolicies for example, use labels to determine what pods receive their functionality.
 
