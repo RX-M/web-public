@@ -7,15 +7,15 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 
 <li>Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
 
-<img src="/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
+<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 
 <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
 
-<img src="/wp-content/uploads/2020/09/ambassador-containers.png" alt=”ambassador” width=”500" height="200">
+<img src="https://rx-m.com/wp-content/uploads/2020/09/ambassador-containers.png" alt=”ambassador” width=”500" height="200">
 
 <li>Adapter - adapter containers standardize and normalize output for remote monitoring systems that require standard data formats. The diagram below shows a monitoring adapter container running an agent that reads the main application’s data, processes it, then exports the normalized data to monitoring systems elsewhere in the network.</li>
 
-<img src="/wp-content/uploads/2020/09/adapter-containers.png" alt=”adapter” width=”500" height="200">
+<img src="https://rx-m.com/wp-content/uploads/2020/09/adapter-containers.png" alt=”adapter” width=”500" height="200">
 
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
 
