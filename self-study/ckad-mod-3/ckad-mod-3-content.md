@@ -201,7 +201,7 @@ There are two selector types:
 - Set-based
   - <code>in</code> for labels that have keys with values in this set
   - <code>notin</code> for labels that have keys not in this set
-  - <code>key_name<code> for labels with the key name
+  - <code>key_name</code> for labels with the key name
 
 Take a look at using labels and selectors. Run the following deployments and jobs to launch pods with an environment and a release label. The pods can have an environment label of <code>prod</code>, <code>dev</code>, or <code>qa</code> and a release label with <code>stable</code> or <code>edg</code>. Then use selectors to filter for pods using labels.
 
