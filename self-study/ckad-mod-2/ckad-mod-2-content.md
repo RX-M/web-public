@@ -7,6 +7,7 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 
 <li>Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
 <img src="https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
+<img src="https://d33wubrfki0l68.cloudfront.net/b7b7a33a62a27dead666a7c5ffc61cb89eeecf78/040b2/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/sidecar-containers.png">
 
 <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
 <img src="https://d33wubrfki0l68.cloudfront.net/5b7d4af2e37b1d337ef0bd90b65b7944d7ecac8d/1d5bc/images/blog/2015-06-00-the-distributed-system-toolkit-patterns/ambassador-containers.png" alt=”ambassador” width=”500" height="200">
