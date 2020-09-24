@@ -27,6 +27,9 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
 
 <img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
+<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar”>
+<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500">
+<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” height="200">
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
