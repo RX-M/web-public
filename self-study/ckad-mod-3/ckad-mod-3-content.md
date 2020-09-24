@@ -184,8 +184,8 @@ spec:
 </code></pre>
 
 Learn more about:
-- [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)
-- [CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).
+<li>[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)</li>
+<li>[CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).</li>
 
 
 # Labels, Selectors, Annotations

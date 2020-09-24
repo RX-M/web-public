@@ -26,7 +26,6 @@ spec:
     - -c
     - sleep 15 && wget -qO - http://ckad-sidecar | awk NR==4 && tail -f /dev/null
   restartPolicy: OnFailure
-</code></pre>
 
 $ kubectl apply -f ckad-sidecar.yaml
 
@@ -34,12 +33,12 @@ pod/ckad-sidecar created
 
 $ kubectl logs ckad-sidecar -c busybox
 
-<title>Welcome to nginx!</title>
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
 
 $
 </code></pre>
 
 
-As an additional exercise, try creating a pod with an Apache HTTP container (httpd) with a liveness probe that uses httpGet. 
+As an additional exercise, try creating a pod with an Apache HTTP container (httpd) with a liveness probe that uses httpGet.
 
 RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.
