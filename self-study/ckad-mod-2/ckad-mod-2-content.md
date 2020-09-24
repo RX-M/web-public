@@ -1,7 +1,7 @@
 <!-- CKAD Self-Study Mod 2 -->
 
 
-# Multi-Container Pods
+<h2 class="fl-heading"> Multi-Container Pods</h2>
 
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
