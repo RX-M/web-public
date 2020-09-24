@@ -1,5 +1,6 @@
 <!-- CKA Self-Study Mod 1 -->
 
+
 # Configure Authentication and Authorization
 
 Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.

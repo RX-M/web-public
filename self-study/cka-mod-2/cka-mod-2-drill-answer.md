@@ -32,3 +32,5 @@ $
 
 
 As an additional exercise, try to change the command in the pods that the cicd deployment creates to output the jenkins logs to a file.
+
+RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps; we offer open enrollments and private engagements for teams or organizations.

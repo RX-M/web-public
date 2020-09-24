@@ -1,11 +1,7 @@
 <!-- CKA Self-Study Mod 2 -->
 
-# Deployments and Rolling Updates
 
-<I used the CKAD content for this since it overlapped - Chris
-https://docs.google.com/document/d/1Fk_jMU8qaEQDQchfTINZYrx6NWxVh-Dj_-Url2bwOHE
-https://rx-m.com/ckad-online-training-module-3/
->
+# Deployments and Rolling Updates
 
 A deployment is a controller that ensures an application’s pods run according to a desired state. Deployments create and control replicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state to the Kubernetes API server. The API server compares the current state to the desired state (stored in etcd). If the current and desired states differ, the Kubernetes API server tells the kubelet(s) to make deployment changes to match the desired state.
 
@@ -217,7 +213,7 @@ spec:
   restartPolicy: OnFailure
 </code></pre>
 
-Learn more about configuring applications using configMaps to run under Kubernetes [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and how to influence container commands [here](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/).
+[Learn more about configuring applications using configMaps to run under Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and [how to influence container commands](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/).
 
 
 # Scale Applications
@@ -266,7 +262,7 @@ deployment.apps/redis-prod configured
 $
 </code></pre>
 
-Learn more about scaling your applications using controllers like deployments [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment).
+[Learn more about scaling your applications using controllers like deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment).
 
 
 # Self-healing Applications
@@ -339,7 +335,7 @@ If this probe’s livenessProbe ever returns a failure, the kubelet tells the co
 Learn about:
 - [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
 - [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-- [Details about application probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+- [Details about application probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 
 # Practice Drill
