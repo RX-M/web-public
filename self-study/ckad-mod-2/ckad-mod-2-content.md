@@ -1,20 +1,12 @@
 <!-- CKAD Self-Study Mod 2 -->
 
 
-<h2 class="fl-heading">Multi-Container Pods</h2>
-<h1>Multi-Container Pods</h1>
 # Multi-Container Pods
-## Multi-Container Pods
-### Multi-Container Pods
-#### Multi-Container Pods
-##### Multi-Container Pods
 
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
 <li>Sidecar - sidecar containers extend and enhance the “main” container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
 
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
-![Sidecar](https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png "Sidecar")
 <img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
 
 <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
@@ -26,11 +18,6 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 <img src="https://rx-m.com/wp-content/uploads/2020/09/adapter-containers.png" alt=”adapter” width=”500" height="200">
 
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
-
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500" height="200">
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar”>
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” width=”500">
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt=”sidecar” height="200">
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
