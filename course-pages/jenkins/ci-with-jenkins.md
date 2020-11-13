@@ -16,7 +16,7 @@ Using this platform students will learn and create a variety of Jenkins Jobs wor
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Architects, Technical Managers and Build Team personnel
 

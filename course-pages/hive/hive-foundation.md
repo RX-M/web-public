@@ -7,7 +7,7 @@ This Hive training is an intensive two-day course for users with a background in
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 

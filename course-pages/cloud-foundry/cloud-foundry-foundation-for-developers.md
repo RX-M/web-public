@@ -8,7 +8,7 @@ This three-day hands-on course is designed to provide developers with a comprehe
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Software engineers, managers, DevOps, test and build personnel
 

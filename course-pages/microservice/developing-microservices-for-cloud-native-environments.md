@@ -10,7 +10,7 @@ Modern tooling and processes are examined, including various agile methodologies
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects, Release Engineers (RE), Engineering Managers and DevOps personnel
 

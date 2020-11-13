@@ -12,7 +12,7 @@ Day two continues with an examination of effective package design and the use of
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers and Technical Managers
 

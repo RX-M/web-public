@@ -10,7 +10,7 @@ Each topic includes lecture content along with hands-on use of a Spark cluster i
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Application Developers, Analysts and Data Scientists
 

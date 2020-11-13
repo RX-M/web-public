@@ -12,7 +12,7 @@ Day three focuses on the big data services offered by Azure. Key data analysis a
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, DevOps, Information Technology (IT) and Quality Assurance (QA) Staff, Architects and Technical Managers
 

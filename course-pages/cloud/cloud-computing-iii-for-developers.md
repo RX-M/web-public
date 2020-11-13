@@ -11,7 +11,7 @@ This course explores a range of modern cloud native technologies with examples i
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects, DevOps, Quality Assurance (QA) personnel and Professional Services staff
 

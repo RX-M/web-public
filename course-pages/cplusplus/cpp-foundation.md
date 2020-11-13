@@ -8,7 +8,7 @@ This intensive hands-on course takes developers from first principals through to
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers
 

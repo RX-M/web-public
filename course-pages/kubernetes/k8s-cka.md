@@ -8,7 +8,7 @@ RX-M’s Certified Kubernetes Administrator Bootcamp is an intensive 5-day progr
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Kubernetes Operators, Information Technology Staff, Site/Service Reliability Engineers
 

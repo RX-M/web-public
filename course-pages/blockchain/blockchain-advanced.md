@@ -8,7 +8,7 @@ The Blockchain Advanced course takes students through the most important advance
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Security Team Members, Information Technology (IT) and Quality Assurance (QA) Staff, Architects and Technical Managers
 

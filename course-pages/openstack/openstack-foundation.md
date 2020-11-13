@@ -8,7 +8,7 @@ This course will give attendees a comprehensive introduction to the design and o
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects, Engineering Managers, Site/Service Reliability Engineers (SRE), Information Technology (IT) and DevOps personnel
 

@@ -12,7 +12,7 @@ Attendees will also get a chance to work with Kubernetes add-ons including DNS, 
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Kubernetes Operators, Information Technology (IT) Staff, Site/Service Reliability Engineers (SRE)
 

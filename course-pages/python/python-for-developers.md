@@ -8,7 +8,7 @@ This class takes experienced programmers from first principals to advanced topic
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Information Technology (IT) staff, Developers, Architects, Engineering Managers and DevOps personnel
 

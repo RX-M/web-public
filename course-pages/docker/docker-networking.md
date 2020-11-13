@@ -9,7 +9,7 @@ During the course, students will gain hands-on experience with several Docker SD
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Network Engineers, DevOps and Build personnel
 

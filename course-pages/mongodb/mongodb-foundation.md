@@ -10,7 +10,7 @@ Scalability concerns are addressed with detailed discussions of replication, sha
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Database Administrators (DBAs), Application Developers, Sysystem Administrators and DevOps personnel
 

@@ -8,7 +8,7 @@ This course is designed to provide technology staff with an in-depth look at dev
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, Site/Service Reliability Engineers (SRE),  Release Engineers (RE), DevOps and Build Personnel
 

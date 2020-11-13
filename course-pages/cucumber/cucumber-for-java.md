@@ -10,7 +10,7 @@ JRuby and Cuke4Duke are used to allow participants to develop Cucumber tests in 
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers and Quality Assurance (QA) Staff
 

@@ -10,7 +10,7 @@ The Java software development API is also covered at a level of detail appropria
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Application Developers with a background in large data systems and Java software development
 

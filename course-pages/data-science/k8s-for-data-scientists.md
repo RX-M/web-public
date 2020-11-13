@@ -7,7 +7,7 @@ This intensive two-day hands-on course is designed to provide working data scien
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Data Scientists, Big Data Practitioners, Data Engineers, Machine Learning Developers
 

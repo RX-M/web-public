@@ -10,7 +10,7 @@ Project principles and design patterns are presented, taking students from simpl
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Application Developers, DevOps personnel, Quality Assurance (QA) Staff, Continuous Integration (CI) Staff and other
 technology professionals

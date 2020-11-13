@@ -10,7 +10,7 @@ Students will take part in extensive hands-on labs where they will install and c
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 

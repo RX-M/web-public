@@ -10,7 +10,7 @@ During the course, students will gain hands-on experience with the Docker comman
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT), Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 

@@ -10,7 +10,7 @@ Upon completion of the course, attendees will have the skills and information ne
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Site/Service Reliability Engineers (SRE), Architects, Developers, QA Staff, Technical Managers, DevOps and Information Technology (IT) personnel
 

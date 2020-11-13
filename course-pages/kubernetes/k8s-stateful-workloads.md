@@ -10,7 +10,7 @@ This course provides an in-depth and practical look at storage and stateful serv
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Kubernetes operators, Developers, Release Engineers, Information Technology (IT) Staff and Site Reliability Engineers (SRE)
 

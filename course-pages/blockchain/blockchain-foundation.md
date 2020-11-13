@@ -10,7 +10,7 @@ Day two explores some of the most popular practical applications and technologie
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Security Team Members, Information Technology (IT) and Quality Assurance (QA) Staff, Architects and Technical Managers
 

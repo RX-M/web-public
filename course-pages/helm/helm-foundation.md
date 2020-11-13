@@ -10,7 +10,7 @@ This intensive two-day hands-on course is designed to provide working platform o
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Kubernetes Platform Operators, Site/Service Reliability Engineers, DevOps Staff, Technical Managers
 

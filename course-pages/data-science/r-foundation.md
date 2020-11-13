@@ -10,7 +10,7 @@ Upon completion of the course, attendees will be capable of employing data impor
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Application Developers, Analysts and Data Scientists
 

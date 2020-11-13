@@ -8,7 +8,7 @@ This intensive five-day hands-on course is designed to provide technical staff w
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Information Technology (IT) and DevOps staff, System Administrators and Site/Service Reliability Engineers (SRE)
 

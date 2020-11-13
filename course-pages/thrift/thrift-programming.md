@@ -10,7 +10,7 @@ Transport layering, framing and buffering will be covered in detail along with I
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects, Engineering Managers and DevOps personnel
 

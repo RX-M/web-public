@@ -10,7 +10,7 @@ The course covers table creation and the significance of keys as well as design 
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, and DevOps and Build personnel
 

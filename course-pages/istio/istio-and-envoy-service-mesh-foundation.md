@@ -12,7 +12,7 @@ Upon completion of the course, attendees will have the skills and information ne
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Kubernetes Operators, Information Technology (IT) Staff, Site/Service Reliability Engineers (SRE), System Architects, DevOps Staff, Quality Assurance (QA) Specialists
 

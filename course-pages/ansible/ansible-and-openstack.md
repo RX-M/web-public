@@ -10,7 +10,7 @@ Various Ansible and OpenStack-based deployment labs are performed throughout the
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Information Technology (IT) and DevOps personnel
 

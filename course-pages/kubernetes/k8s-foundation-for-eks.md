@@ -10,7 +10,7 @@ This intensive three-day hands-on course is designed to provide working SREs, de
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Site/Service Responsibility Engineers (SRE), Release Engineers (RE), Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 

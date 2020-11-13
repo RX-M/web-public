@@ -14,7 +14,7 @@ experience necessary to begin writing sophisticated software in C++.
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers
 

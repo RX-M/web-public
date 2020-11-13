@@ -8,7 +8,7 @@ This intensive one-day hands-on training course is designed to provide working d
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 

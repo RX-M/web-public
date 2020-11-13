@@ -9,7 +9,7 @@ Participants will learn and become familiar with crafting executable specificati
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers and Quality Assurance (QA) Staff
 

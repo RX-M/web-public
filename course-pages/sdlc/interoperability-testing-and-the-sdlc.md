@@ -7,7 +7,7 @@ This training course provides coverage of the principles and practices associate
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Test Engineers and Technical Managers
 

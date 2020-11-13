@@ -8,7 +8,7 @@ This course is designed to give attendees an end to end introduction to the stru
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Professional Services Staff, Technical Managers, Information Technology (IT) and Quality Assurance (QA) Staff, Developers and DevOps personnel
 

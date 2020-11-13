@@ -11,7 +11,7 @@ with each day building on the skills learned in the previous day.
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Technical staff, Site/Service Reliability Engineers (SRE), DevOps teams and developers
 

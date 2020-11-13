@@ -10,7 +10,7 @@ The distributed, horizontally-scaled architecture of Elasticsearch is covered al
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, Developers, DevOps and Build personnel
 

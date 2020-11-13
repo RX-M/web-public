@@ -10,7 +10,7 @@ Prebuilt Apache Thrift RPC servers are described in detail along with Thrift cli
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects, Engineering Managers and DevOps personnel
 

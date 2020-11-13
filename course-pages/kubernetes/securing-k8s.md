@@ -10,7 +10,7 @@ This intensive two-day hands-on course is designed to provide working platform o
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Site/Service Reliability Engineers (SRE), Information Technology (IT) Staff, Platform Operators, Technical Managers, DevOps Personnel
 

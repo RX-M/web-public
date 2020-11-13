@@ -10,7 +10,7 @@ RPC and resource-based client-server interaction styles are contrasted in the co
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Developers, Architects and Technical Managers
 

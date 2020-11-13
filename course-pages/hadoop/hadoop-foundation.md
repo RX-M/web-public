@@ -9,7 +9,7 @@ Students will work through lab exercises using the Hortonworks Data Platform for
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Data Analysts, Business Intelligence (BI) Analysts, Business Intelligence (BI) Developers, Statistical Analysis System (SAS) Developers and other types of analysts who need to answer questions and analyze Big Data stored in a Hadoop cluster.
 
@@ -33,6 +33,3 @@ At the completion of the course students will be able to:
 
 Students should be familiar with SQL and have a minimal understanding of
 programming principles. No prior Hadoop knowledge is required.
-
-
-

@@ -7,7 +7,7 @@ This intensive 4-day hands-on course is designed to teach attendees how to use A
 Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
-### Who Should Attend?
+### Who Should Attend
 
 Application Developers, Analysts and Data Scientists
 
