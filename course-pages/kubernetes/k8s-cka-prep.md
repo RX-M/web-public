@@ -17,13 +17,15 @@ Developers, Technical Managers, Site/Service Reliability Engineers (SRE), Releas
 
 RX-M’s Certified Kubernetes Administrator Exam Prep is a 1-day preparation designed to provide students with intensive training meant to cement their knowledge on the topics covered by the Certified Kubernetes Administrator exam and mentally prepare them for the exam. Attendees will be prepared to effectively navigate the testing environment and have the mindset and skills necessary to pass the CKA exam.
 
-Skills developed and topics covered include:
+Skills developed and course topics include:
 
-- Improved kubectl speed and efficiency to create Kubernetes API objects with imperative commands
-- Practical test preparation tips, strategy and practices that align to the curriculum
-- Identify knowledge gaps and hands-on drills to promote improvement
-- And more
-
+- CKA Curriculum, test environment, mechanics, scoring, and structure briefing
+- Improved kubectl speed and efficiency to create Kubernetes API objects with imperative commands and flags
+- Cluster architecture review
+- Workloads & Scheduling
+- Services & Networking
+- Storage
+- Troubleshooting
 
 ### Prerequisites
 
