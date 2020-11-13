@@ -33,15 +33,14 @@ Suggested prerequisites for the Kubernetes CKAD Boot Camp are our Docker Foundat
 
 ### Related  Instructor-Led (ILT & VILT) Training Courses
 
-Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Kubernetes “Day 2” for Operations – 2 days; Kubernetes Networking – 2 days; Developing Kubernetes Operators – 2 days; Securing Kubernetes – 2 days; Kubernetes Certification Boot Camp (CKA) – 5 days; Kubernetes Certification Boot Camp (CKAD) – 4 days; Helm on Kubernetes – 2 days; Istio on Kubernetes – 2 days; Kubernetes Stateful Workloads – 2 days; Developing Microservices on Kubernetes – 5 days; Docker + Kubernetes for Developers - 4 days;  Docker + Kubernetes for Operators- 4 days; Docker Foundation; Advanced Docker, Docker Boot Camp; Docker Networking; Docker Volumes; Linux Container Technology and Container Runtimes; Microservice Application Architecture – 3 days; Microservices – 3 days; Deploying and Instrumenting Microservices on Kubernetes
+Kubernetes Foundation- 2 days; Kubernetes Advanced – 3 days; Kubernetes For Cloud Native Developers – 3 days; Kubernetes “Day 2” for Operations – 2 days; Kubernetes Networking – 2 days; Developing Kubernetes Operators – 2 days; Securing Kubernetes – 2 days; Kubernetes Certified Application Developer Boot Camp (CKAD) – 5 days; Kubernetes Certification Boot Camp (CKAD) – 4 days; Kubernetes Certified Security Specialist Boot Camp (CKS) – 5 days; Helm on Kubernetes – 2 days; Istio on Kubernetes – 2 days; Kubernetes Stateful Workloads – 2 days; Developing Microservices on Kubernetes – 5 days; Docker + Kubernetes for Developers - 4 days;  Docker + Kubernetes for Operators- 4 days; Docker Foundation; Advanced Docker, Docker Boot Camp; Docker Networking; Docker Volumes; Linux Container Technology and Container Runtimes; Microservice Application Architecture – 3 days; Microservices – 3 days; Deploying and Instrumenting Microservices on Kubernetes
 
 
 ### Getting CKA Certified with RX-M
 RX-M offers two ways to get the CKA certification. Our CKA certified trainers can deliver the boot camp and proctor the exam for your team privately, on-site at your organization, or just enroll in one of our public CKA boot camps.
 
-The Certified Kubernetes Administrator (CKA) and Certified Kubernetes Application Developer (CKAD) programs were created by the Cloud Native Computing Foundation (CNCF), in collaboration with The Linux Foundation (LF), to help develop the Kubernetes ecosystem.RX-M is a Linux Foundation Authorized Training Partner (ATP), part of the founding class of Kubernetes Certified Service Providers (KCSP) and Kubernetes Training Partners (KTP), and a charter member of the CNCF.
+The Certified Kubernetes Administrator (CKA), Certified Kubernetes Application Developer (CKAD), and Certified Kubernetes Security Specialist (CKS) programs were created by the Cloud Native Computing Foundation (CNCF), in collaboration with The Linux Foundation (LF), to help develop the Kubernetes ecosystem.
+
+RX-M is a Linux Foundation Authorized Training Partner (ATP), part of the founding class of Kubernetes Certified Service Providers (KCSP) and Kubernetes Training Partners (KTP), and a charter member of the CNCF.
 
 We are uniquely positioned as unbiased & market neutral. All of RX-M's CKA Bootcamps are led by Certified Kubernetes Administrators.
-
-
-
