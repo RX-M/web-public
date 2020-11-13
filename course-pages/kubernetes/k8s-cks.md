@@ -10,7 +10,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend
 
-Kubernetes Operators, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, Site/Service Reliability Engineers (SRE),  Release Engineers (RE), DevOps and Build Personnel
+Kubernetes Operators, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, Site/Service Reliability Engineers (SRE), Release Engineers (RE), DevOps and Build Personnel
 
 
 ### What Attendees will learn
@@ -32,7 +32,7 @@ Skills developed include:
 
 ### Prerequisites
 
-Students must have current CKA (Certified Kubernetes Administrator) status to take the CKS exam. Valid CKA status or equivalent knowledge is a prerequisite for this course. Each attendee must provide their own laptop and an ssh client.
+Students must have current CKA (Certified Kubernetes Administrator) status to take the CKS exam. Valid CKA status or equivalent knowledge is a prerequisite for this course. Each attendee must provide their own laptop and an SSH client. Unconstrained internet access is also required to complete the student hands-on lab exercises.
 
 
 ### Related  Instructor-Led (ILT & VILT) Training Courses
@@ -47,4 +47,4 @@ The Certified Kubernetes Administrator (CKA), Certified Kubernetes Application D
 
 RX-M is a Linux Foundation Authorized Training Partner (ATP), part of the founding class of Kubernetes Certified Service Providers (KCSP) and Kubernetes Training Partners (KTP), and a charter member of the CNCF.
 
-We are uniquely positioned as unbiased & market neutral. All of RX-M's CKA Bootcamps are led by Certified Kubernetes Administrators.
+We are uniquely positioned as unbiased & market neutral. All of RX-M's CKA Bootcamps are led by Certified Kubernetes Security Specialists.
