@@ -1,4 +1,4 @@
-<!--  Site Reliability Engineering (DevOps Institute) -->
+<!--  Site Reliability Engineering Foundation (DevOps Institute) -->
 
 This two-day hands-on course will introduce attendees to the principles and practices of site reliability engineering (SRE) to enable organizations to reliably and economically scale critical services. The course reviews the evolution of SRE and features SRE practices, methods, and tools.
 
