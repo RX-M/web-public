@@ -152,21 +152,22 @@
 - Apache Beam (2 Days)
 
 **OBSERVABILITY**
-- Elasticsearch (2-5 Days)
-- ELK (2-5 Days)
-- EFK (2-5 Days)
-- Prometheus (2 Days)
-- Open Telemetry (2 Days)
-- Open Metrics (1 Day)
+- Elasticsearch (2-5 Days) \
+- ELK (2-5 Days) \
+- EFK (2-5 Days) <br>
+- Prometheus (2 Days) <br>
+- Open Telemetry (2 Days) \
+- Open Metrics (1 Day) \
 
-**API/MESSAGING/STREAMING**
-- Kafka (2-4 Days)
-- Nats (2 Days)
-- Apache Thrift (2 Days)
-- RabbitMQ (2 Days)
-- ZeroMQ (2 Days)
-- Protocol Buffers (2 Days)
-- gRPC (2 Days)
+| **API/MESSAGING/STREAMING** |
+|-----------------------------|
+| - Kafka (2-4 Days)|
+| - Nats (2 Days)|
+| - Apache Thrift (2 Days)|
+| - RabbitMQ (2 Days)|
+| - ZeroMQ (2 Days)|
+| - Protocol Buffers (2 Days)|
+| - gRPC (2 Days)|
 
 **BLOCKCHAIN**
 - Blockchain (2 Days)
