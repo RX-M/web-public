@@ -10,7 +10,7 @@
 ●	Hypervisor based Container Engines (2 Days) <br>
 <br>
 <br>
-**MICROSERVICES AND APPLICATION ARCHITECTURE** <br>
+**MICROSERVICES AND  APPLICATION ARCHITECTURE** <br>
 ● Microservices Architecture (3 Days) <br>
 ● Building Microservices on AWS (3 Days) <br>
 ● Building Microservices on Azure (3 Days) <br>
