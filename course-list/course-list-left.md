@@ -8,7 +8,8 @@
 ● Containerd (2 Days) <br>
 ● Docker for Developers (2 Days) <br>
 ●	Hypervisor based Container Engines (2 Days) <br>
-
+<br>
+<br>
 **MICROSERVICES & APPLICATION ARCHITECTURE** <br>
 ● Microservices Architecture (3 Days) <br>
 ● Building Microservices on AWS (3 Days) <br>
@@ -21,7 +22,8 @@
 ● Architecting stateful systems in the Cloud (3 Days) <br>
 ● Building Microservices on Oracle (3 Days) <br>
 ● Developing Microservices on Kubernetes (3-5 Days) <br>
-
+<br>
+<br>
 **CI/CD, TDD & CONFIGURATION MANAGEMENT** <br>
 ● Ansible (2 Days) <br>
 ● Puppet (3-5 Days) <br>
@@ -40,7 +42,8 @@
 ● BOSH (2-4 Days) <br>
 ● Spinnaker (1-3 Days) <br>
 ● Helm (1-2 Days) <br>
-
+<br>
+<br>
 **WEB TECH** <br>
 ● JAX-RS (2-3 Days) <br>
 ● AngularJS (3-5 Days) <br>
@@ -48,7 +51,8 @@
 ● React Native (3 Days) <br>
 ● JavaScript (2-5 Days) <br>
 ● Vue (2 Days) <br>
-
+<br>
+<br>
 **PYTHON** <br>
 ● Python Foundation (2 Days) <br>
 ● Python Advanced (3 Days) <br>
@@ -58,7 +62,8 @@
 ● Python Machine Learning with TensorFlow (3 Days) <br>
 ● Python IaaS Automation (4 Days) <br>
 ● Python for Network Engineers (4 Days) <br>
-
+<br>
+<br>
 **DATA SCIENCE** <br>
 ● Hive (2 Days) <br>
 ● Spark (2-5 Days) <br>
@@ -73,7 +78,8 @@
 ● Building Data Processing Solutions on AWS (3 Days) <br>
 ● Data Processing on GCP (3 Days) <br>
 ● Apache Beam (2 Days) <br>
-
+<br>
+<br>
 **OBSERVABILITY** <br>
 ● Elasticsearch (2-5 Days) <br>
 ● ELK (2-5 Days) <br>
@@ -81,7 +87,8 @@
 ● Prometheus (2 Days) <br>
 ● Open Telemetry (2 Days) <br>
 ● Open Metrics (1 Day) <br>
-
+<br>
+<br>
 **BLOCKCHAIN** <br>
 ● Blockchain (2 Days) <br>
 ● Developing Hyperledger Applications (3 days) <br>

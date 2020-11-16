@@ -20,7 +20,8 @@
 ● Containers & Kubernetes for Devs (4-5 Days) <br>
 ● Containers & Kubernetes for Ops (4-5 Days) <br>
 ● CoreDNS (1 Day) <br>
-
+<br>
+<br>
 **CLOUD COMPUTING** <br>
 ● Cloud I: IaaS (2 Days) <br>
 ● Cloud II: Platform Services (2 Days) <br>
@@ -37,7 +38,8 @@
 ● AWS IaaS and EC2 (3 Days) <br>
 ● OpenStack Foundation (3 Days) <br>
 ● Serverless Technology and Functions as a Service (2 Days) <br>
-
+<br>
+<br>
 **AGILE METHODOLOGIES** <br>
 ● Agile Methods (2 Days) <br>
 ● Scrum Foundation (2 Days) <br>
@@ -47,7 +49,8 @@
 ● DevOps Foundation (2 Days) <br>
 ● DevSecOps Foundation (2 Days) <br>
 ● SRE Foundation (2 Days) <br>
-
+<br>
+<br>
 **PROGRAMMING** <br>
 ● Go (2-5 Days) <br>
 ● Scala (2-5 Days) <br>
@@ -59,7 +62,8 @@
 ● Rust (2-5 Days) <br>
 ● Design Patterns (3 Days) <br>
 ● Object Oriented Analysis & Design (2-5 Day) <br>
-
+<br>
+<br>
 **DATABASE** <br>
 ● MongoDB (2 Days) <br>
 ● Redis (2-3 Days) <br>
@@ -74,7 +78,8 @@
 ● Vitess (3 Days) <br>
 ● MySQL (2-5 Days) <br>
 ● Postgres (2-5 Days) <br>
-
+<br>
+<br>
 **API/MESSAGING/STREAMING** <br>
 ● Kafka (2-4 Days) <br>
 ● Nats (2 Days) <br>
