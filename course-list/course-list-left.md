@@ -10,7 +10,7 @@
 ●	Hypervisor based Container Engines (2 Days) <br>
 <br>
 <br>
-**MICROSERVICES & APPLICATION ARCHITECTURE** <br>
+**MICROSERVICES AND APPLICATION ARCHITECTURE** <br>
 ● Microservices Architecture (3 Days) <br>
 ● Building Microservices on AWS (3 Days) <br>
 ● Building Microservices on Azure (3 Days) <br>
@@ -24,7 +24,7 @@
 ● Developing Microservices on Kubernetes (3-5 Days) <br>
 <br>
 <br>
-**CI/CD, TDD & CONFIGURATION MANAGEMENT** <br>
+**CI/CD, TDD AND CONFIGURATION MANAGEMENT** <br>
 ● Ansible (2 Days) <br>
 ● Puppet (3-5 Days) <br>
 ● Salt (2 Days) <br>
