@@ -9,9 +9,8 @@
 | - Containerd (2 Days) | - Cri-O (2 Days) |
 | - Docker for Developers (2 Days) | ● Docker for Developers (2 Days) |
 | - Hypervisor based Container Engines (2 Days) | ●	Hypervisor based Container Engines (2 Days) |
-
-
-| **KUBERNETES**  | **KUBERNETES**  |
+\
+| **KUBERNETES** | **KUBERNETES** |
 | --------------- | --------------- |
 | - Kubernetes Foundation (2 Days) | - Kubernetes Foundation (2 Days) |
 | - Kubernetes Adv for Operators (3 Days) | - Kubernetes Adv for Operators (3 Days) |
