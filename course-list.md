@@ -1,4 +1,4 @@
-# CONTAINER TECHNOLOGY
+**CONTAINER TECHNOLOGY**
 - Docker Found/Adv (2-5 Days)
 - Docker Networking (2 Days)
 - Docker Orchestration (2 Days)
@@ -9,8 +9,7 @@
 - Docker for Developers (2 Days)
 - Hypervisor based Container Engines (2 Days)
 
-
-# KUBERNETES
+**KUBERNETES**
 - Kubernetes Foundation   (2 Days)
 - Kubernetes Adv for Operators (3 Days)
 - Kubernetes CKA Boot Camp (5 Days)
@@ -33,8 +32,7 @@
 - Containers & Kubernetes for Ops (4-5 Days)
 - CoreDNS (1 Day)
 
-
-# MICROSERVICES & APPLICATION ARCHITECTURE
+**MICROSERVICES & APPLICATION ARCHITECTURE**
 - Microservices Architecture (3 Days)
 - Building Microservices on AWS (3 Days)
 - Building Microservices on Azure (3 Days)
@@ -47,8 +45,7 @@
 - Building Microservices on Oracle (3 Days)
 - Developing Microservices on Kubernetes (3-5 Days)
 
-
-# CLOUD COMPUTING
+**CLOUD COMPUTING**
 - Cloud I: IaaS (2 Days)
 - Cloud II: Platform Services (2 Days)
 - Cloud III: Native Systems (2 Days)
@@ -65,8 +62,7 @@
 - OpenStack Foundation (3 Days)
 - Serverless Technology and Functions as a Service (2 Days)
 
-
-# CI/CD, TDD & CONFIGURATION MANAGEMENT
+**CI/CD, TDD & CONFIGURATION MANAGEMENT**
 - Ansible (2 Days)
 - Puppet (3-5 Days)
 - Salt (2 Days)
@@ -85,8 +81,7 @@
 - Spinnaker (1-3 Days)
 - Helm (1-2 Days)
 
-
-# AGILE METHODOLOGIES
+**AGILE METHODOLOGIES**
 - Agile Methods (2 Days)
 - Scrum Foundation (2 Days)
 - Scrum Master (2 Days)
@@ -96,8 +91,7 @@
 - DevSecOps Foundation (2 Days)
 - SRE Foundation (2 Days)
 
-
-# WEB TECH
+**WEB TECH**
 - JAX-RS (2-3 Days)
 - AngularJS (3-5 Days)
 - React (3 Days)
@@ -105,8 +99,7 @@
 - JavaScript (2-5 Days)
 - Vue (2 Days)
 
-
-# PROGRAMMING
+**PROGRAMMING**
 - Go (2-5 Days)
 - Scala (2-5 Days)
 - Java (Spring Boot/Cloud) (2-5 Days)
@@ -118,8 +111,7 @@
 - Design Patterns (3 Days)
 - Object Oriented Analysis & Design (2-5 Day)
 
-
-# PYTHON
+**PYTHON**
 - Python Foundation (2 Days)
 - Python Advanced (3 Days)
 - Practical Machine Learning with Python (3 Days)
@@ -129,8 +121,7 @@
 - Python IaaS Automation (4 Days)
 - Python for Network Engineers (4 Days)
 
-
-# DATABASE
+**DATABASE**
 - MongoDB (2 Days)
 - Redis (2-3 Days)
 - Couchbase (3 Days)
@@ -145,8 +136,7 @@
 - MySQL (2-5 Days)
 - Postgres (2-5 Days)
 
-
-# DATA SCIENCE
+**DATA SCIENCE**
 - Hive (2 Days)
 - Spark (2-5 Days)
 - Hadoop (2-5 Days)
@@ -161,8 +151,7 @@
 - Data Processing on GCP (3 Days)
 - Apache Beam (2 Days)
 
-
-# OBSERVABILITY
+**OBSERVABILITY**
 - Elasticsearch (2-5 Days)
 - ELK (2-5 Days)
 - EFK (2-5 Days)
@@ -170,8 +159,7 @@
 - Open Telemetry (2 Days)
 - Open Metrics (1 Day)
 
-
-# API/MESSAGING/STREAMING
+**API/MESSAGING/STREAMING**
 - Kafka (2-4 Days)
 - Nats (2 Days)
 - Apache Thrift (2 Days)
@@ -180,7 +168,6 @@
 - Protocol Buffers (2 Days)
 - gRPC (2 Days)
 
-
-# BLOCKCHAIN
+**BLOCKCHAIN**
 - Blockchain (2 Days)
 - Developing Hyperledger Applications (3 days)
