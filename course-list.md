@@ -7,8 +7,8 @@
 | - OCI (2 Days) | - OCI (2 Days) |
 | - Cri-O (2 Days) |
 | - Containerd (2 Days) | - Cri-O (2 Days) |
-| - Docker for Developers (2 Days) | - Docker for Developers (2 Days) |
-| - Hypervisor based Container Engines (2 Days) | - Hypervisor based Container Engines (2 Days) |
+| - Docker for Developers (2 Days) | * Docker for Developers (2 Days) |
+| - Hypervisor based Container Engines (2 Days) |  * Hypervisor based Container Engines (2 Days) |
 
 
 **KUBERNETES** \
