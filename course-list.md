@@ -1,36 +1,38 @@
-**CONTAINER TECHNOLOGY**
-- Docker Found/Adv (2-5 Days)
-- Docker Networking (2 Days)
-- Docker Orchestration (2 Days)
-- Container Technology (2-3 Days)
-- OCI (2 Days)
-- Cri-O (2 Days)
-- Containerd (2 Days)
-- Docker for Developers (2 Days)
-- Hypervisor based Container Engines (2 Days)
+| **CONTAINER TECHNOLOGY** | **CONTAINER TECHNOLOGY** |
+| ------------------------ | ------------------------ |
+| - Docker Found/Adv (2-5 Days) | - Docker Found/Adv (2-5 Days) |
+| - Docker Networking (2 Days) | - Docker Networking (2 Days) |
+| - Docker Orchestration (2 Days) | - Docker Orchestration (2 Days) |
+| - Container Technology (2-3 Days) | - Container Technology (2-3 Days) |
+| - OCI (2 Days) | - OCI (2 Days) |
+| - Cri-O (2 Days) |
+| - Containerd (2 Days) | - Cri-O (2 Days) |
+| - Docker for Developers (2 Days) | - Docker for Developers (2 Days) |
+| - Hypervisor based Container Engines (2 Days) | - Hypervisor based Container Engines (2 Days) |
 
-**KUBERNETES**
-- Kubernetes Foundation   (2 Days)
-- Kubernetes Adv for Operators (3 Days)
-- Kubernetes CKA Boot Camp (5 Days)
-- Kubernetes CKS Boot Camp (5 Days)
-- Kubernetes CKAD Boot Camp (4 Days)
-- Securing Kubernetes (2 Days)
-- Kubernetes for Developers (3 Days)
-- Kubernetes Day 2 Operations (2 Days)
-- Writing Kubernetes Operators in Go (4 Days)
-- Kubernetes Networking (2 Days)
-- Kubernetes and Stateful Services (2 days)
-- Istio on Kubernetes (2 Days)
-- Multi/Hybrid Cloud with Istio and K8s (2 Days)
-- OpenShift Origin Foundation (3 Days)
-- Cloud Foundry (2-5 Days)
-- GKE (2 Days)
-- Amazon EKS (2-5 Days)
-- Azure AKS (2-5 Days)
-- Containers & Kubernetes for Devs (4-5 Days)
-- Containers & Kubernetes for Ops (4-5 Days)
-- CoreDNS (1 Day)
+
+**KUBERNETES** \
+- Kubernetes Foundation (2 Days) \
+- Kubernetes Adv for Operators (3 Days) \
+- Kubernetes CKA Boot Camp (5 Days) \
+- Kubernetes CKS Boot Camp (5 Days) \
+- Kubernetes CKAD Boot Camp (4 Days) \
+- Securing Kubernetes (2 Days) \
+- Kubernetes for Developers (3 Days) \
+- Kubernetes Day 2 Operations (2 Days) \
+- Writing Kubernetes Operators in Go (4 Days) \
+- Kubernetes Networking (2 Days) \
+- Kubernetes and Stateful Services (2 days) \
+- Istio on Kubernetes (2 Days) \
+- Multi/Hybrid Cloud with Istio and K8s (2 Days) \
+- OpenShift Origin Foundation (3 Days) \
+- Cloud Foundry (2-5 Days) \
+- GKE (2 Days) \
+- Amazon EKS (2-5 Days) \
+- Azure AKS (2-5 Days) \
+- Containers & Kubernetes for Devs (4-5 Days) \
+- Containers & Kubernetes for Ops (4-5 Days) \
+- CoreDNS (1 Day) \
 
 **MICROSERVICES & APPLICATION ARCHITECTURE**
 - Microservices Architecture (3 Days)
@@ -151,7 +153,7 @@
 - Data Processing on GCP (3 Days)
 - Apache Beam (2 Days)
 
-**OBSERVABILITY**
+**OBSERVABILITY** \
 - Elasticsearch (2-5 Days) \
 - ELK (2-5 Days) \
 - EFK (2-5 Days) <br>
@@ -159,15 +161,14 @@
 - Open Telemetry (2 Days) \
 - Open Metrics (1 Day) \
 
-| **API/MESSAGING/STREAMING** |
-|-----------------------------|
-| - Kafka (2-4 Days)|
-| - Nats (2 Days)|
-| - Apache Thrift (2 Days)|
-| - RabbitMQ (2 Days)|
-| - ZeroMQ (2 Days)|
-| - Protocol Buffers (2 Days)|
-| - gRPC (2 Days)|
+**API/MESSAGING/STREAMING** \
+- Kafka (2-4 Days) \
+- Nats (2 Days) \
+- Apache Thrift (2 Days) \
+- RabbitMQ (2 Days) \
+- ZeroMQ (2 Days) \
+- Protocol Buffers (2 Days) \
+- gRPC (2 Days) \
 
 **BLOCKCHAIN**
 - Blockchain (2 Days)
