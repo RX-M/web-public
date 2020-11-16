@@ -9,7 +9,7 @@
 | - Containerd (2 Days) | - Cri-O (2 Days) |
 | - Docker for Developers (2 Days) | ● Docker for Developers (2 Days) |
 | - Hypervisor based Container Engines (2 Days) | ●	Hypervisor based Container Engines (2 Days) |
-\
+
 | **KUBERNETES** | **KUBERNETES** |
 | --------------- | --------------- |
 | - Kubernetes Foundation (2 Days) | - Kubernetes Foundation (2 Days) |
@@ -33,8 +33,8 @@
 | - Containers & Kubernetes for Devs (4-5 Days) | - Containers & Kubernetes for Devs (4-5 Days) |
 | - Containers & Kubernetes for Ops (4-5 Days) | - Containers & Kubernetes for Ops (4-5 Days) |
 | - CoreDNS (1 Day) | - CoreDNS (1 Day) |
-\
-\
+
+
 **MICROSERVICES & APPLICATION ARCHITECTURE**
 - Microservices Architecture (3 Days)
 - Building Microservices on AWS (3 Days)
