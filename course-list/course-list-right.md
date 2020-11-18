@@ -1,6 +1,6 @@
 **KUBERNETES** <br>
 ● Kubernetes Foundation (2 Days) <br>
-● Kubernetes Adv for Operators (3 Days) <br>
+● Kubernetes Advanced for Operators (3 Days) <br>
 ● Kubernetes CKA Boot Camp (5 Days) <br>
 ● Kubernetes CKS Boot Camp (5 Days) <br>
 ● Kubernetes CKAD Boot Camp (4 Days) <br>
@@ -28,7 +28,7 @@
 ● Cloud III: Native Systems (2 Days) <br>
 ● Cloud IV: Data Analysis in the Cloud <br>
 ● Introduction to the Cloud for Developers (2 Days) <br>
-● Adv Cloud for Developers (2 Days) <br>
+● Advanced Cloud for Developers (2 Days) <br>
 ● Infrastructure Essentials for IBM Cloud (3 Days) <br>
 ● IBM Cloud DevOps Essentials (3 Days) <br>
 ● Oracle Cloud DevOps Essentials (3 Days) <br>

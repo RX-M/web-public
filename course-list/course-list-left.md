@@ -1,5 +1,5 @@
 **CONTAINER TECHNOLOGY** <br>
-● Docker Found/Adv (2-5 Days) <br>
+● Docker Found/Advanced (2-5 Days) <br>
 ● Docker Networking (2 Days) <br>
 ● Docker Orchestration (2 Days) <br>
 ● Container Technology (2-3 Days) <br>
@@ -10,7 +10,7 @@
 ●	Hypervisor based Container Engines (2 Days) <br>
 <br>
 <br>
-**MICROSERVICES AND  APPLICATION ARCHITECTURE** <br>
+**MICROSERVICES AND APPLICATION ARCHITECTURE** <br>
 ● Microservices Architecture (3 Days) <br>
 ● Building Microservices on AWS (3 Days) <br>
 ● Building Microservices on Azure (3 Days) <br>
@@ -19,7 +19,7 @@
 ● Building Microservice APIs with Apache Thrift (2 Days) <br>
 ● Building RESTful Microservice APIs (2 Days) <br>
 ● Building Microservices with Java and Spring Boot (2 Days) <br>
-● Architecting stateful systems in the Cloud (3 Days) <br>
+● Architecting Stateful systems in the Cloud (3 Days) <br>
 ● Building Microservices on Oracle (3 Days) <br>
 ● Developing Microservices on Kubernetes (3-5 Days) <br>
 <br>
