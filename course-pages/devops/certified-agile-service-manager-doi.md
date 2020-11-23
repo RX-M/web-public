@@ -17,10 +17,11 @@ Process Owners, Process Designers, Process Stakeholders, Developers, Managers, C
 
 The course blends Agile and IT Service Management (ITSM) practices to support end-to-end Agile Service Management. At the end of this course, developer-focused attendees will learn how to manage services instead of products and operation-focused and ITSM-focused attendees learn to be more how to be more agile, improve flow of work, and have greater time to value.
 
-This course positions attendees to successfully complete the Certified Agile Service Manager exam.
+The Certified Agile Service Manager course positions attendees to successfully complete the Certified Agile Service Manager exam.
+This course is offered with or without the Certified Agile Service Manager exam.
 
 Learning modules include:
-- The Agile Manifesto, its core values, and principles
+- The Agile Manifesto core values and principles
 - Agile concepts and practices including IT Service Management, Kanban, Lean and DevOps
 - SCRUM from a product and process perspective
 - Agile thinking and values into service management

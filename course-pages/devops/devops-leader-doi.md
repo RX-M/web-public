@@ -18,7 +18,8 @@ Business Managers, Business Stakeholders, Change Agents, Consultants, DevOps Con
 
 Attendees will gain a practical understanding of DevOps target operating models and organizational design. Attendess will learn how to lead their team through a DevOps transformation with understanding investment cases, value outcomes, and organizing workflows.
 
-This course positions attendees to successfully complete the DevOps Leader exam.
+The DevOps Leader course positions attendees to successfully complete the DevOps Leader exam.
+This course is offered with or without the DevOps Leader exam.
 
 Learning modules include:
 -	DevOps and transformational leadership

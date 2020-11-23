@@ -20,7 +20,8 @@ This course covers the key benefits of Continuous Delivery including the followi
 - Reduce risk and lower costs while releasing higher quality solutions
 - Increased productivity and employee morale by having more activities performed by pipelines instead of humans so teams can focus on vision while pipelines do the execution.
 
-This course positions attendees to successfully complete the Continuous Delivery Ecosystem Foundation (CDEF) exam.
+The Continuous Delivery Ecosystem Foundation course positions attendees to successfully complete the Continuous Delivery Ecosystem Foundation (CDEF) exam.
+This course is offered with or without the CDEF exam.
 
 Learning modules include:
 -	Continuous Delivery (CD) goals, history, terminology, and pipeline

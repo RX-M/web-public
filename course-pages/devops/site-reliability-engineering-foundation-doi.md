@@ -17,7 +17,8 @@ Business Managers, Business Stakeholders, Change Agents, Consultants, DevOps Pra
 
 At the end of the course, attendees will understand the principles behind SRE, SRE's organizational impact, and be able to understand the inter-relationship of SRE with DevOps and other frameworks. Participants will be able to set and track Service Level Objectives (SLOs) and Service Level Indicators (SLIs).
 
-This course positions attendees to successfully complete the SRE Foundation exam.
+The SRE Foundation course positions attendees to successfully complete the SRE Foundation exam.
+This course is offered with or without the SRE Foundation exam.
 
 Learning modules include:
 - SRE Principles & Practices

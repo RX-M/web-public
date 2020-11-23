@@ -17,7 +17,8 @@ Compliance Team, Business managers, Delivery Staff, DevOps Engineers, Informatio
 
 Attendees will learn how DevSecOps roles fit with a DevOps culture and organization. At the end of the course participants will understand “security as code” to make security and compliance value consumable as a service.
 
-This course positions attendees to successfully complete the DevSecOps Foundation exam.
+The DevSecOps Foundation course positions attendees to successfully complete the DevSecOps Foundation exam.
+This course is offered with or without the DevSecOps Foundation exam.
 
 Learning modules include:
 - DevSecOps origins and evolution

@@ -23,6 +23,9 @@ The course is designed for a broad audience. Attendees from the business side wi
 
 Attendees will gain an understanding of DevOps, the cultural and professional movement that stresses communication, collaboration, integration, and automation to improve the flow of work between software developers and IT operations professionals.
 
+The DevOps Foundation course positions attendees to successfully complete the DevOps Foundation exam.
+This course is offered with or without the DevOps Foundation exam.
+
 Learning modules include:
 - DevOps objectives and vocabulary
 -	Benefits to the business and IT
