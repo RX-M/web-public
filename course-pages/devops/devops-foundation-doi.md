@@ -1,8 +1,6 @@
 <!-- DevOps Foundation (DevOps Institute) -->
 
-This two-day hands-on course provides a baseline understanding of key DevOps terminology to ensure everyone is talking the same language and highlights the benefits of DevOps to support organizational success.
-
-This course will introduce attendees to the principles and practices behind the DevOps movement such as how to support organizational efforts in reducing costs while increasing agility, quality and customer service; leverage case studies, real-world success stories, and metrics to demonstrate business success in this foundation-level course to support digital transformation.
+This two-day hands-on course introduces attendees to the principles and practices behind the DevOps movement such as how to support organizational efforts in reducing costs while increasing agility, quality and customer service; leverage case studies, real-world success stories, and metrics to demonstrate business success in this foundation-level course to support digital transformation. The course provides a baseline understanding of key DevOps terminology to ensure everyone is talking the same language and highlights the benefits of DevOps to support organizational success.
 
 Learners will gain an understanding of DevOps, the cultural and professional movement that stresses communication, collaboration, integration, and automation to improve the flow of work between software developers and IT operations professionals.
 
