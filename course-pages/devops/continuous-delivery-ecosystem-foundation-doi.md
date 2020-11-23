@@ -24,6 +24,7 @@ The Continuous Delivery Ecosystem Foundation course positions attendees to succe
 This course is offered with or without the CDEF exam.
 
 Learning modules include:
+
 -	Continuous Delivery (CD) goals, history, terminology, and pipeline
 -	Microserve design practices
 -	Continuous Integration (CI) including version control, builds, and remediation

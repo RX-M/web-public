@@ -21,6 +21,7 @@ The DevSecOps Foundation course positions attendees to successfully complete the
 This course is offered with or without the DevSecOps Foundation exam.
 
 Learning modules include:
+
 - DevSecOps origins and evolution
 -	CALMS (Culture, Automation, Lean, Measurement, Sharing)
 - Cyberthread landscape

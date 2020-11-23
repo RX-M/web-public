@@ -22,6 +22,7 @@ The DevOps Leader course positions attendees to successfully complete the DevOps
 This course is offered with or without the DevOps Leader exam.
 
 Learning modules include:
+
 -	DevOps and transformational leadership
 - DevOps Kaizen (change for better)
 - Current and future value stream

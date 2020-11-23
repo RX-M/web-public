@@ -21,6 +21,7 @@ The SRE Foundation course positions attendees to successfully complete the SRE F
 This course is offered with or without the SRE Foundation exam.
 
 Learning modules include:
+
 - SRE Principles & Practices
 -	SLO & Error Budgets
 - Monitoring & SLIs

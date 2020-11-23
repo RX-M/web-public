@@ -21,6 +21,7 @@ The Continuous Testing Foundation course positions attendees to successfully com
 This course is offered with or without the CTF exam.
 
 Learning modules include:
+
 -	DevOps testing and business benefits
 - DevOps testing best practices including culture & organization changes, process & team friction, how to measure success, motiviation strategies, and continuous evolution
 - DevOps pipeline including test & pre-flight strategies, test environment, and topology orchestration

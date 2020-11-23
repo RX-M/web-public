@@ -25,6 +25,7 @@ The DevOps Foundation course positions attendees to successfully complete the De
 This course is offered with or without the DevOps Foundation exam.
 
 Learning modules include:
+
 - DevOps objectives and vocabulary
 -	Benefits to the business and IT
 -	Principles and practices including Continuous Integration, Continuous Delivery, testing, security and the Three Ways
@@ -33,7 +34,6 @@ Learning modules include:
 -	Automation practices including deployment pipelines and DevOps toolchains
 -	Scaling DevOps for the enterprise
 -	Critical success factors and key performance indicators
--	Real-life examples and results
 
 
 ### Prerequisites

@@ -21,6 +21,7 @@ The Certified Agile Service Manager course positions attendees to successfully c
 This course is offered with or without the Certified Agile Service Manager exam.
 
 Learning modules include:
+
 - The Agile Manifesto core values and principles
 - Agile concepts and practices including IT Service Management, Kanban, Lean and DevOps
 - SCRUM from a product and process perspective
