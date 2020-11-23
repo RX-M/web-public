@@ -1,6 +1,6 @@
 <!-- Continuous Delivery Ecosystem Foundation (DevOps Institute) -->
 
-This two-day hands-on course is designed for participants who are engaged in the design, implementation, and management of DevOps deployment pipelines and toolchains that support Continuous Integration, Continuous Delivery, Continuous Testing and potentially Continuous Deployment.
+This two-day hands-on course is designed for participants who are engaged in the design, implementation, and management of DevOps deployment pipelines and toolchains that support Continuous Integration, Continuous Delivery, Continuous Testing and Continuous Deployment.
 
 
 ### Delivery
