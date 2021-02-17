@@ -1,0 +1,31 @@
+# Database of tracks
+
+---
+
+Tracks:
+- id: 33
+  name: Cloud Native Developer
+  paths:
+  - id: 1
+    name: Container Tech
+    courses:
+    - 45
+    - 22
+    - 12
+    next:
+    - 2
+    - 3
+  - id: 2
+    name: MSA
+    courses:
+    - 298
+    - 299
+    next:
+    - 3
+  - id: 3
+    name: K8s
+    courses:
+    - 101
+    - 102
+    - 103
+    

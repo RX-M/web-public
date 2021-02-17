@@ -1,0 +1,11 @@
+# Database of courses
+
+---
+
+Courses:
+- id: 33
+  name: HPE Fav K8s
+  modules:
+  - 1
+  - 45
+  - 22
