@@ -1,145 +1,462 @@
-# Test database of modules
-
----
-
 Modules:
-- id: 1
-  level: 4.5
-  name: k8s-api-admission-control
-- id: 2
-  level: 2.4
-  name: k8s-apps-configuration
-  description: Coverage of ConfigMaps, Secrets, the DownwardAPI and their proper usage
-- id: 3
-  level: 4.1
-  name: msa-api-security
-- id: 4
-  level: 1.2
-  name: k8s-ops-architecture
-- id: 5
-  level: 4.5
-  name: k8s-security-auditing
-  description: Coverage of the K8s API access auditing system
-- id: 6
-  level: 4.4
-  name: k8s-stateful-block-storage
-- id: 7
-  level: 3.2
-  name: k8s-ops-cluster-maintenance
-- id: 8
-  level: 2.1
-  name: containers-images
-- id: 9
+- description: ''
+  id: 48
+  level: 1.0
+  name: Go's 3rd Party Ecosystem
+  topic: Go
+- description: ''
+  id: 53
+  level: 1.0
+  name: Data Types
+  topic: Go
+- description: ''
+  id: 54
+  level: 1.0
+  name: Debugging
+  topic: Go
+- description: ''
+  id: 56
+  level: 1.0
+  name: Error Handling
+  topic: Go
+- description: ''
+  id: 57
+  level: 1.0
+  name: Functions
+  topic: Go
+- description: ''
+  id: 58
+  level: 1.0
+  name: Go Overview
+  topic: Go
+- description: ''
+  id: 59
+  level: 1.0
+  name: The Go Http Library
+  topic: Go
+- description: ''
+  id: 62
+  level: 1.0
+  name: Go Modules
+  topic: Go
+- description: ''
+  id: 64
+  level: 1.0
+  name: Package Managment
+  topic: Go
+- description: ''
+  id: 65
+  level: 1.0
+  name: Program Construction
+  topic: Go
+- description: ''
+  id: 66
+  level: 1.0
+  name: Reflection
+  topic: Go
+- description: ''
+  id: 67
+  level: 1.0
+  name: Go Review
+  topic: Go
+- description: ''
+  id: 68
+  level: 1.0
+  name: The Go Standard Library
+  topic: Go
+- description: ''
+  id: 69
+  level: 1.0
+  name: Syntax and Flow Control
+  topic: Go
+- description: ''
+  id: 71
+  level: 1.0
+  name: User Defined Types
+  topic: Go
+- description: ''
+  id: 72
+  level: 1.0
+  name: Brown Field Microservices
+  topic: Microservices
+- description: ''
+  id: 73
+  level: 1.0
+  name: Cloud Native Transactions
+  topic: Microservices
+- description: ''
+  id: 74
+  level: 1.0
+  name: Container Packaging
+  topic: Microservices
+- description: ''
+  id: 75
+  level: 1.0
+  name: Gateways and Service Meshes
+  topic: Microservices
+- description: ''
+  id: 76
+  level: 1.0
+  name: Image Registries
+  topic: Microservices
+- description: ''
+  id: 77
+  level: 1.0
+  name: Kubernetes Services and Networking
+  topic: Microservices
+- description: ''
+  id: 78
+  level: 1.0
+  name: Microservice Communications I - REST
+  topic: Microservices
+- description: ''
+  id: 79
+  level: 1.0
+  name: Microservice Communications II - RPC
+  topic: Microservices
+- description: ''
+  id: 80
+  level: 1.0
+  name: Microservice Communications III - Messaging
+  topic: Microservices
+- description: ''
+  id: 81
+  level: 1.0
+  name: Microservice Operability
+  topic: Microservices
+- description: ''
+  id: 82
+  level: 1.0
+  name: Microservice Orchestration
+  topic: Microservices
+- description: ''
+  id: 83
+  level: 1.0
+  name: Microservice Overview
+  topic: Microservices
+- description: ''
+  id: 84
+  level: 1.0
+  name: Software Delivery Pipelines
+  topic: Microservices
+- description: ''
+  id: 85
+  level: 1.0
+  name: Observability Overview
+  topic: Microservices
+- description: ''
+  id: 86
+  level: 1.0
+  name: Stateless Services and Polyglot Persistence
+  topic: Microservices
+- description: Introduction to containers and containerized applications using Docker
+  id: 9
   level: 1.1
-  name: containers-overview
-- id: 10
-  level: 2.7
-  name: k8s-apps-batch
-- id: 11
-  level: 2.6
-  name: k8s-apps-deployments
-- id: 12
-  level: 2.5
-  name: k8s-apps-controllers
-- id: 13
-  level: 2.9
-  name: k8s-dashboard
-- id: 14
-  level: 4.3
-  name: k8s-ops-etcd
-- id: 15
-  level: 4.5
-  name: k8s-stateful-file-storage
-- id: 16
-  level: 4.3
-  name: containers-images-security
-- id: 17
-  level: 2.99
-  name: k8s-templating-kustomize
-- id: 18
-  level: 4.6
-  name: k8s-stateful-local-storage
-- id: 19
-  level: 4.1
-  name: k8s-stateful-workloads
-- id: 20
-  level: 4.6
-  name: k8s-api-namespaces
-- id: 21
-  level: 3.97
-  name: k8s-observability-logging
-- id: 22
-  level: 3.99
-  name: k8s-observability-metrics
-- id: 23
-  level: 3.98
-  name: k8s-observability-tracing
-- id: 24
-  level: 2.99
-  name: k8s-observability-overview
-- id: 25
+  name: Container Overview
+  topic: Containers
+- description: Introduction to containers, image building with Dockerfiles and using
+    image registries
+  id: 47
+  level: 1.1
+  name: Container Jump Start
+  topic: Containers
+- description: Examination of Kubernetes control plane components, etcd, HA models,
+    and worker Node agents
+  id: 4
   level: 1.2
-  name: k8s-overview
-- id: 26
-  level: 4.1
-  name: k8s-stateful-primitives
-- id: 27
+  name: Kubernetes Architecture
+  topic: Kubernetes
+- description: Introduction to Kubernetes architecture and the concepts of how Kubernetes
+    deploys applications
+  id: 25
+  level: 1.2
+  name: Kubernetes Overview
+  topic: Kubernetes
+- description: ''
+  id: 49
+  level: 2.0
+  name: Advanced Functions and Methods
+  topic: Go
+- description: ''
+  id: 50
+  level: 2.0
+  name: Channels as First Class Values
+  topic: Go
+- description: ''
+  id: 51
+  level: 2.0
+  name: Context
+  topic: Go
+- description: ''
+  id: 52
+  level: 2.0
+  name: CSP and Go Routines
+  topic: Go
+- description: ''
+  id: 55
+  level: 2.0
+  name: Profiling and Performance
+  topic: Go
+- description: ''
+  id: 60
+  level: 2.0
+  name: Idiomatic Go
+  topic: Go
+- description: ''
+  id: 61
+  level: 2.0
+  name: Methods and Interfaces
+  topic: Go
+- description: ''
+  id: 70
+  level: 2.0
+  name: Testing
+  topic: Go
+- description: OCI / Docker images including registries and image creation with Dockerfiles
+  id: 8
+  level: 2.1
+  name: Image Overview
+  topic: Containers
+- description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
+    manifests
+  id: 27
   level: 2.3
-  name: k8s-pods-basics
-- id: 28
-  level: 3.1
-  name: k8s-pods-architecture
-- id: 29
-  level: 3.2
-  name: k8s-pods-scheduling
-- id: 30
-  level: 4.4
-  name: k8s-stateful-security
-- id: 31
+  name: Pod Basics
+  topic: Kubernetes
+- description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
+    and the Downward API'
+  id: 2
+  level: 2.4
+  name: Application Configuration
+  topic: Kubernetes
+- description: Overview of all of Kubernetes' controllers for stateless, batch, and
+    stateful applications
+  id: 12
+  level: 2.5
+  name: Controllers
+  topic: Kubernetes
+- description: Zero downtime rolling updates for stateless applications using the
+    Deployment controller
+  id: 11
+  level: 2.6
+  name: Deployments
+  topic: Kubernetes
+- description: 'Data science workloads and batch applications using Kubernetes Jobs
+    and CronJobs       '
+  id: 10
   level: 2.7
-  name: k8s-networking-services
-- id: 32
-  level: 3.3
-  name: k8s-networking-sdn
-- id: 33
-  level: 4.1
-  name: k8s-stateful-design
-- id: 34
-  level: 4.99
-  name: k8s-troubleshooting
-- id: 35
-  level: 4.19
-  name: k8s-stateful-operations
-- id: 36
+  name: Batch Jobs
+  topic: Kubernetes
+- description: Expose Pods to clients using Kubernetes Services and DNS
+  id: 31
+  level: 2.7
+  name: Services
+  topic: Kubernetes
+- description: In-depth examination of the Kubernetes Dashboard
+  id: 13
+  level: 2.9
+  name: Dashboard
+  topic: Kubernetes
+- description: Templating for Kubernetes application manifests using the kustomize
+    command line utility
+  id: 17
+  level: 2.99
+  name: Kustomize
+  topic: Kubernetes
+- description: 'Overview the aspects of Observability: Logging, metrics, and tracing
+    and implementations in Kubernetes'
+  id: 24
+  level: 2.99
+  name: Observability Overview
+  topic: Kubernetes
+- description: Overview of software defined networking, network policy and ingress
+    load balancing
+  id: 33
+  level: 3.0
+  name: Pod Networking Overview
+  topic: Kubernetes
+- description: Examining multi-container Pod architecture, Pod design patterns, and
+    best practices for Pods
+  id: 28
+  level: 3.1
+  name: Pod Architecture
+  topic: Kubernetes
+- description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
+    nodes'
+  id: 7
   level: 3.2
-  name: k8s-ops-cluster-maintenance
-- id: 37
-  level: 3.5
-  name: k8s-security-rbac
-- id: 38
-  level: 4.1
-  name: k8s-security-os-hardening
-- id: 39
+  name: Cluster Maintenance
+  topic: Kubernetes
+- description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
+    Node taints and Pod tolerations'
+  id: 29
+  level: 3.2
+  name: Scheduling
+  topic: Kubernetes
+- description: 'Software defined networking (SDN) and Kubernetes: networking models,
+    network policy, and SDN configuration'
+  id: 32
   level: 3.3
-  name: k8s-security-network-policy
-- id: 40
-  level: 4.3
-  name: k8s-networking-ingress
-- id: 41
-  level: 4.5
-  name: k8s-security-control-plane-tls
-- id: 42
-  level: 4.4
-  name: k8s-security-network-design
-- id: 43
-  level: 4.3
-  name: containers-images-security
-- id: 44
+  name: Software Defined Networking
+  topic: Kubernetes
+- description: 'Kubernetes Network Policy concepts and primitives: ingress and egress
+    policies, patterns, and limitations'
+  id: 39
+  level: 3.3
+  name: Network Policy
+  topic: Kubernetes
+- description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
+    for users and application Pods
+  id: 37
+  level: 3.5
+  name: RBAC
+  topic: Kubernetes
+- description: Accessing Kubernetes Pod application logs, configuring logging drivers,
+    and strategies for log forwarding
+  id: 21
+  level: 3.97
+  name: Logging
+  topic: Kubernetes
+- description: Implementing tracing solutions in distributed orchestration systems
+    using containers and Kubernetes
+  id: 23
+  level: 3.98
+  name: Tracing
+  topic: Kubernetes
+- description: Kubernetes metrics APIs, the Metrics Server, and using metrics to power
+    Pod autoscaling
+  id: 22
   level: 3.99
-  name: k8s-security-static-analysis
-- id: 45
+  name: Metrics
+  topic: Kubernetes
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
+  id: 44
+  level: 3.99
+  name: Static Analysis
+  topic: Kubernetes
+- description: Guidance and best practices for building secure microservice APIs
+  id: 3
   level: 4.1
-  name: k8s-security-runtimes
-- id: 46
+  name: API Security
+  topic: Kubernetes
+- description: The StatefulSet application controller and Kubernetes' storage abstraction
+    using Storage Classes, PVs, and PVCs
+  id: 19
+  level: 4.1
+  name: Stateful Workloads
+  topic: Kubernetes
+- description: 'Storage abstractions in Kubernetes: Persistent Volumes (PVs), Persistent
+    Volume Claims (PVCs), and Storage Classes'
+  id: 26
+  level: 4.1
+  name: State Primitives
+  topic: Kubernetes
+- description: 'Kubernetes volumes: concepts and types; using volumes with the StatefulSet
+    controller'
+  id: 34
+  level: 4.1
+  name: State Design
+  topic: Kubernetes
+- description: Using LSM and SecComp to secure pod based services
+  id: 38
+  level: 4.1
+  name: OS Hardening
+  topic: Kubernetes
+- description: Examination of kubernetes os based and vm based container runtime solutions
+  id: 45
+  level: 4.1
+  name: Runtimes
+  topic: Kubernetes
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
+  id: 46
   level: 4.11
-  name: k8s-security-behavioral-analysis
+  name: Behavioral Analysis
+  topic: Kubernetes
+- description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
+    restore'
+  id: 36
+  level: 4.19
+  name: State Operations
+  topic: Kubernetes
+- description: 'Examination of the Kubernetes database: etcd; including bootstrapping,
+    sizing, backup and restore'
+  id: 14
+  level: 4.3
+  name: Etcd
+  topic: Kubernetes
+- description: 'Best practices for container image security: scanning, image signing,
+    and binary authorization'
+  id: 16
+  level: 4.3
+  name: Image Security
+  topic: Containers
+- description: 'Kubernetes ingress load balancing: concepts, rules, primitives, TLS
+    termination, and rate limiting'
+  id: 40
+  level: 4.3
+  name: Ingress
+  topic: Kubernetes
+- description: 'Best practices for container images including: scanning, image signing,
+    and binary authorization'
+  id: 43
+  level: 4.3
+  name: Image Security
+  topic: Containers
+- description: Kubernetes block storage volumes and block storage CSI features
+  id: 6
+  level: 4.4
+  name: Block Storage
+  topic: Kubernetes
+- description: 'Security for stateful Pods: Secret encryption, Pod Security Policies,
+    and file permissions in Pods'
+  id: 30
+  level: 4.4
+  name: State Security
+  topic: Kubernetes
+- description: Securing Kubernetes clusters with zone-based architecture and firewalls
+  id: 42
+  level: 4.4
+  name: Network Design
+  topic: Kubernetes
+- description: Admission controller operations and key implementations in the Kubernetes
+    API Server
+  id: 1
+  level: 4.5
+  name: Admission Control
+  topic: Kubernetes
+- description: Working with API auditing and audit log policies
+  id: 5
+  level: 4.5
+  name: Auditing
+  topic: Kubernetes
+- description: Techniques for exposing file storage systems to Kubernetes Pods
+  id: 15
+  level: 4.5
+  name: File Storage
+  topic: Kubernetes
+- description: 'Securing the Kubernetes API using TLS: best practices and common mistakes
+    are discussed'
+  id: 41
+  level: 4.5
+  name: Control Plane TLS
+  topic: Kubernetes
+- description: Exposing locally attached storage to application Pods with demanding
+    disk IOPS
+  id: 18
+  level: 4.6
+  name: Local Storage
+  topic: Kubernetes
+- description: Lightweight Kubernetes cluster multitenancy using Namespaces, Quotas,
+    and LimtRanges
+  id: 20
+  level: 4.6
+  name: Namespaces
+  topic: Kubernetes
+- description: Troubleshooting stuck or crashing Pods, network connectivity and service
+    discovery and cluster components (optional)
+  id: 35
+  level: 4.99
+  name: Troubleshooting
+  topic: Kubernetes
