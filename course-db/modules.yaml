@@ -398,12 +398,6 @@ Modules:
   level: 4.3
   name: Ingress
   topic: Kubernetes
-- description: 'Best practices for container images including: scanning, image signing,
-    and binary authorization'
-  id: 43
-  level: 4.3
-  name: Image Security
-  topic: Containers
 - description: Kubernetes block storage volumes and block storage CSI features
   id: 6
   level: 4.4
