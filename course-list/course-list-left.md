@@ -105,10 +105,6 @@
 ● Certified Agile Service Manager (2 Days) <br>
 ● Site Reliability Engineering Practitioner (2 Days) <br><br>
 <br>
-**BLOCKCHAIN** <br>
-● Blockchain (2-4 Days) <br>
-● Developing Hyperledger Applications (3 days) <br>
-<br>
 <br>
 **OPERATING SYSTEMS** <br>
 ● Linux Foundation for Cloud Native Engineers (2 Days) <br>
