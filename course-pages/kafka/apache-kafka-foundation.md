@@ -10,7 +10,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend
 
-Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps  and Build personnel
+Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, DevOps and Build personnel
 
 
 ### What Attendees will learn
@@ -29,6 +29,3 @@ message flows. Learning modules include:
 
 Each attendee will require the ability to run a 64 bit virtual machine (provided with the course). Basic Linux command
 line skills are valuable but not required.
-
-
-
