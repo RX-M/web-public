@@ -1,75 +1,76 @@
 Modules:
-- description: ''
+- description: Explore the Golang 3rd party ecosystem
   id: 48
   level: 1.0
   name: Go's 3rd Party Ecosystem
   topic: Go
-- description: ''
+- description: Understand the basic data types of the Go language
   id: 53
   level: 1.0
   name: Data Types
   topic: Go
-- description: ''
+- description: Learn how to debug Go programs, techniques and tools like Delve
   id: 54
   level: 1.0
   name: Debugging
   topic: Go
-- description: ''
+- description: Understand the error package and using errors in your Go code
   id: 56
   level: 1.0
   name: Error Handling
   topic: Go
-- description: ''
+- description: How to develop functions in Go
   id: 57
   level: 1.0
   name: Functions
   topic: Go
-- description: ''
+- description: Learn about the history and basic usage of the Go language
   id: 58
   level: 1.0
   name: Go Overview
   topic: Go
-- description: ''
+- description: Learn about the http package from the Go standard library
   id: 59
   level: 1.0
   name: The Go Http Library
   topic: Go
-- description: ''
+- description: Learn how to organize and share Go code using modules
   id: 62
   level: 1.0
   name: Go Modules
   topic: Go
-- description: ''
+- description: Learn how to create Go packages
   id: 64
   level: 1.0
-  name: Package Managment
+  name: Package Management
   topic: Go
-- description: ''
+- description: Learn how Go packages, libraries, and main (drivers) programs work
+    in Go
   id: 65
   level: 1.0
   name: Program Construction
   topic: Go
-- description: ''
+- description: Learn about the reflection package from the Go standard library
   id: 66
   level: 1.0
   name: Reflection
   topic: Go
-- description: ''
+- description: Review of the Go language for those with basic knowledge of Go
   id: 67
   level: 1.0
-  name: Go Review
+  name: Review of Go
   topic: Go
-- description: ''
+- description: Learn about the Go standard library
   id: 68
   level: 1.0
   name: The Go Standard Library
   topic: Go
-- description: ''
+- description: Learn about syntax and flow control in Go
   id: 69
   level: 1.0
   name: Syntax and Flow Control
   topic: Go
-- description: ''
+- description: Learn how to create user defined types in Go
   id: 71
   level: 1.0
   name: User Defined Types
@@ -85,19 +86,9 @@ Modules:
   name: Cloud Native Transactions
   topic: Microservices
 - description: ''
-  id: 74
-  level: 1.0
-  name: Container Packaging
-  topic: Microservices
-- description: ''
   id: 75
   level: 1.0
   name: Gateways and Service Meshes
-  topic: Microservices
-- description: ''
-  id: 76
-  level: 1.0
-  name: Image Registries
   topic: Microservices
 - description: ''
   id: 77
@@ -149,10 +140,50 @@ Modules:
   level: 1.0
   name: Stateless Services and Polyglot Persistence
   topic: Microservices
+- description: Learn the basic components of Kafka and how they programmatically relate
+  id: 91
+  level: 1.0
+  name: Overview of Kafka Development
+  topic: Kafka
+- description: Learn the Producer client API
+  id: 92
+  level: 1.0
+  name: Building Producers
+  topic: Kafka
+- description: Learn the Consumer client API
+  id: 93
+  level: 1.0
+  name: Building Consumers
+  topic: Kafka
+- description: Learn the Connector API
+  id: 94
+  level: 1.0
+  name: Developing Connectors
+  topic: Kafka
+- description: Learn how Producers can be resilient to Kafka failures
+  id: 95
+  level: 1.0
+  name: Managing Failure Modes in Producers
+  topic: Kafka
+- description: Learn how Consumers can be resilient to Kafka failures
+  id: 96
+  level: 1.0
+  name: Managing Failure Modes in Consumers
+  topic: Kafka
+- description: Learn the Stream API
+  id: 97
+  level: 1.0
+  name: Developing Stream Processors
+  topic: Kafka
+- description: Learn about state management when using the Stream API
+  id: 98
+  level: 1.0
+  name: Developing Stateful Stream Processors
+  topic: Kafka
 - description: Introduction to containers and containerized applications using Docker
   id: 9
   level: 1.1
-  name: Container Overview
+  name: Containers Overview
   topic: Containers
 - description: Introduction to containers, image building with Dockerfiles and using
     image registries
@@ -160,75 +191,93 @@ Modules:
   level: 1.1
   name: Container Jump Start
   topic: Containers
+- description: OCI / Docker images including registries and image creation with Dockerfiles
+  id: 8
+  level: 1.5
+  name: Images Overview
+  topic: Containers
+- description: Examination of container images, image metadata, and pushing images
+    to private registries
+  id: 88
+  level: 1.6
+  name: Images and Registries
+  topic: Containers
+- description: Learn advance usage patterns of functions and methods
+  id: 49
+  level: 2.0
+  name: Advanced Functions and Methods
+  topic: Go
+- description: Explorer using and managing channel objects
+  id: 50
+  level: 2.0
+  name: Channels as First Class Values
+  topic: Go
+- description: Learning how to control asynchronous Go routines with the context package
+  id: 51
+  level: 2.0
+  name: Context
+  topic: Go
+- description: Learn how to create concurrent functions in Go
+  id: 52
+  level: 2.0
+  name: CSP and Go Routines
+  topic: Go
+- description: Learn how to use the Go profiling tools
+  id: 55
+  level: 2.0
+  name: Profiling and Performance
+  topic: Go
+- description: Learn the best practices when developing Go programs
+  id: 60
+  level: 2.0
+  name: Idiomatic Go
+  topic: Go
+- description: Learn how to design and refactor Go code
+  id: 61
+  level: 2.0
+  name: Methods and Interfaces
+  topic: Go
+- description: Learn how to write tests in Go
+  id: 70
+  level: 2.0
+  name: Testing
+  topic: Go
 - description: Examination of Kubernetes control plane components, etcd, HA models,
     and worker Node agents
   id: 4
-  level: 1.2
+  level: 2.1
   name: Kubernetes Architecture
   topic: Kubernetes
 - description: Introduction to Kubernetes architecture and the concepts of how Kubernetes
     deploys applications
   id: 25
-  level: 1.2
+  level: 2.1
   name: Kubernetes Overview
   topic: Kubernetes
-- description: ''
-  id: 49
-  level: 2.0
-  name: Advanced Functions and Methods
-  topic: Go
-- description: ''
-  id: 50
-  level: 2.0
-  name: Channels as First Class Values
-  topic: Go
-- description: ''
-  id: 51
-  level: 2.0
-  name: Context
-  topic: Go
-- description: ''
-  id: 52
-  level: 2.0
-  name: CSP and Go Routines
-  topic: Go
-- description: ''
-  id: 55
-  level: 2.0
-  name: Profiling and Performance
-  topic: Go
-- description: ''
-  id: 60
-  level: 2.0
-  name: Idiomatic Go
-  topic: Go
-- description: ''
-  id: 61
-  level: 2.0
-  name: Methods and Interfaces
-  topic: Go
-- description: ''
-  id: 70
-  level: 2.0
-  name: Testing
-  topic: Go
-- description: OCI / Docker images including registries and image creation with Dockerfiles
-  id: 8
-  level: 2.1
-  name: Image Overview
-  topic: Containers
 - description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
     manifests
   id: 27
   level: 2.3
   name: Pod Basics
   topic: Kubernetes
+- description: 'Introduction to building container images with Dockerfiles including:
+    Dockerfile syntax, caching, and build options'
+  id: 89
+  level: 2.3
+  name: 'Dockerfiles: Basics'
+  topic: Containers
 - description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
     and the Downward API'
   id: 2
   level: 2.4
   name: Application Configuration
   topic: Kubernetes
+- description: 'Advanced patterns using Dockerfiles: multistage and automated builds,
+    advanced syntax, and best practices'
+  id: 90
+  level: 2.4
+  name: 'Dockerfiles: Advanced'
+  topic: Containers
 - description: Overview of all of Kubernetes' controllers for stateless, batch, and
     stateful applications
   id: 12
@@ -241,8 +290,8 @@ Modules:
   level: 2.6
   name: Deployments
   topic: Kubernetes
-- description: 'Data science workloads and batch applications using Kubernetes Jobs
-    and CronJobs       '
+- description: Data science workloads and batch applications using Kubernetes Jobs
+    and CronJobs
   id: 10
   level: 2.7
   name: Batch Jobs
@@ -281,6 +330,12 @@ Modules:
   level: 3.1
   name: Pod Architecture
   topic: Kubernetes
+- description: Overview of Kubernetes API security (RBAC, Namespaces, PSP) and Pod
+    security (Security Context, Capabilities, etc.)
+  id: 87
+  level: 3.1
+  name: Security Overview
+  topic: Kubernetes
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
@@ -315,19 +370,19 @@ Modules:
     and strategies for log forwarding
   id: 21
   level: 3.97
-  name: Logging
+  name: Observability - Logging
   topic: Kubernetes
 - description: Implementing tracing solutions in distributed orchestration systems
     using containers and Kubernetes
   id: 23
   level: 3.98
-  name: Tracing
+  name: Observability - Tracing
   topic: Kubernetes
 - description: Kubernetes metrics APIs, the Metrics Server, and using metrics to power
     Pod autoscaling
   id: 22
   level: 3.99
-  name: Metrics
+  name: Observability - Metrics
   topic: Kubernetes
 - description: Using unikernels and/or micro-VMs for improved Pod security and hard
     multi-tenancy in Kubernetes
@@ -363,7 +418,7 @@ Modules:
   level: 4.1
   name: OS Hardening
   topic: Kubernetes
-- description: Examination of kubernetes os based and vm based container runtime solutions
+- description: Examination of kubernetes OS based and VM based container runtime solutions
   id: 45
   level: 4.1
   name: Runtimes
@@ -384,7 +439,7 @@ Modules:
     sizing, backup and restore'
   id: 14
   level: 4.3
-  name: Etcd
+  name: etcd
   topic: Kubernetes
 - description: 'Best practices for container image security: scanning, image signing,
     and binary authorization'
@@ -396,7 +451,7 @@ Modules:
     termination, and rate limiting'
   id: 40
   level: 4.3
-  name: Ingress
+  name: Ingress Load Balancing
   topic: Kubernetes
 - description: Kubernetes block storage volumes and block storage CSI features
   id: 6
