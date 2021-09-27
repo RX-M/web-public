@@ -101,6 +101,7 @@
 <br>
 **API, MESSAGING, AND STREAMING** <br>
 ● Kafka (2-4 Days) <br>
+● Kafka App Dev (2 Days) <br>
 ● Fluentd (2 Days) <br>
 ● NATS (2 Days) <br>
 ● Apache Thrift (2 Days) <br>
