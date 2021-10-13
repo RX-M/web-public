@@ -1,7 +1,14 @@
 <!-- Go Advanced -->
 
-This two-day intensive hands-on course is designed to provide software engineers with a deeper look at the Go programming language and its idioms. This course delves into the conceptual and practical aspects of coding in Go. Engineers will learn the hows and whys to coding naturally in Go. The course deals with the most important advanced features of Go programing and discusses best practices throughout, including many external references. Day one begins with Go idioms and common Go programming constructs, followed by coverage of testing and test tools and advanced function and method usage. The problem fraught area of package management is dealt with as well, including a variety of industry references and best practices. The communicating sequential processes model, goroutines, channels, and concurrency are explored at the start of day two, followed by a look at reflection and C integration with Go. Attendees will leave with a clear understanding of the more advanced features of the Go programming language and the necessary preparation to begin developing production Go applications.
-
+This course delves into the conceptual and practical aspects of coding efficiently in Go. In this intensive three-day
+hands-on course, engineers will learn how to coding naturally in Go, using the language as it was intended to solve
+problems using Go centric idioms. The course deals with the most important advanced features of Go programing  and
+discusses best practices throughout. Day one begins with Go idioms and common Go programming constructs, followed by
+coverage of advanced function and method usage. The communicating sequential processes model, goroutines, channels and
+concurrency are also explored, followed by a look at testing and profiling Go programs. Upon completion, attendees will
+leave with a clear understanding of the more advanced features of the Go programming language and ways to best utilize
+Go to solve problems in an idiomatic fashion, using the features of the language to build direct, correct, safe and easy
+to maintain software.
 
 ### Delivery
 
@@ -20,9 +27,8 @@ This course is designed to provide software engineers with a deeper look at the 
 - Go idioms and common programming constructs
 - Advanced functions and methods
 - Testing and test tools
-- Package Management
 - Communicating sequential processes (CSP) and goroutines
-- Integrating C with Go
+- Networking and Systems Engineering with Go
 
 
 ### Prerequisites
@@ -33,6 +39,3 @@ Attendee must have intermediate programming experience to benefit fully from thi
 ### Related  Instructor-Led (ILT & VILT) Training Courses
 
 Developing Microservices for Cloud Native Environments – 3 days; Developing Microservices for Kubernetes – 5days; Microservice Application Architecture – 3 days; Microservices – 3 days; Python Foundation; Advanced Python Programming; Python for Developers; Go Foundation – 2 days
-
-
-
