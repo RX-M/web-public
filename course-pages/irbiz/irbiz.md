@@ -1,7 +1,7 @@
 <!-- IRBIZ-->
 
 
-The CertNexus Incident Response for Business Professionals (IRBIZ) certification course (exam IRZ-110) covers methods and procedures in alignment with US-CERT's NCIRP (National Cyber Incident Response Plan) and Presidential Policy Directive 41 (PPD-41), regarding United States Cyber Incident Coordination. With IRBIZ accreditation, candidates will display competency in the effective preparations and oversight of the incident response process.
+The CertNexus Incident Response for Business Professionals (IRBIZ) certification course (exam IRZ-110) covers methods and procedures in alignment with US-CERT's National Cyber Incident Response Plan (NCIRP) and Presidential Policy Directive 41 (PPD-41) regarding United States Cyber Incident Coordination. With IRBIZ accreditation, candidates will display competency in the effective preparation and oversight of the incident response process.
 
 
 ### Delivery
@@ -11,7 +11,7 @@ IRBIZ training is available for Instructor-Led (ILT) in-person/onsite training o
 
 ### Who Should Attend
 
-This course and certification are intended for those trusted with managing compliance with state and federal legislation, as well as other regulations concerning incident response, and following through with standardized responses when such an incident occurs.
+This course and certification are intended for those entrusted with managing compliance with state and federal legislation, as well as other regulations concerning incident response, and following through with standardized responses when such an incident occurs.
 
 
 ### What Attendees will learn
@@ -29,9 +29,9 @@ Successful candidates will be able to perform the following tasks:
 
 ### Prerequisites
 
-A general understanding of cybersecurity concepts.
+A general understanding of cybersecurity fundamentals.
 
 
 ### Related Instructor-Led (ILT & VILT) Training Courses
 
-CyberSec First Responder (CFR), Cyber Secure Coder (CSC), CyberSAFE (CBS), Certified Kubernetes Security Specialist (CKS),
+CyberSec First Responder (CFR), Cyber Secure Coder (CSC), CyberSAFE (CBS), Certified Kubernetes Security Specialist (CKS)
