@@ -4,12 +4,13 @@ The CertNexus Data Science for Business Professionals affords the tools necessar
 
 ### Delivery
 
- training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
+ DSBIZ training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
 ### Who Should Attend
 
 This course is designed for business leaders and decision makers, including C-level executives, project managers, HR leaders, Marketing and Sales leaders, and technical sales consultants, who want to increase their knowledge of and familiarity with concepts surrounding data science. Other individuals who want to know more about basic data science concepts are also candidates for this course.
+
 This course is also designed to assist learners in preparing for the CertNexus® DSBIZ (Exam DSZ-110) credential.
 
 ### What Attendees will learn

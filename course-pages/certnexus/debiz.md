@@ -15,12 +15,15 @@ The DEBIZ course is designed for business leaders and decision makers, including
 
 ### What Attendees will learn
 
-Each lesson includes activities, indicated and the option of a capstone project.
+Each lesson includes activities, indicated and the option of a capstone project:
+
 - Introduction to Data Ethics
+
   - Defining Data Ethics
   - The Case for Data Ethics
   - Activity: Identifying Ethical Issues
   - Capstone: Improving Ethical Data Practices
+
 - Ethical Principles
   - Ethical Frameworks
   - Data Privacy
@@ -30,7 +33,9 @@ Each lesson includes activities, indicated and the option of a capstone project.
   - Inclusive Growth, Sustainable Development, and Well-Being
   - Activity: Applying Ethical Principles to Emerging Technology
   - Capstone: Improving Ethical Data Practices
+
 - Sources of Ethical Risk
+
   - Mitigating Bias
   - Mitigating Discrimination
   - Safety and Security
@@ -38,7 +43,9 @@ Each lesson includes activities, indicated and the option of a capstone project.
   - Data Surveillance
   - Activity: Assessing Risk Ethical Risks in sharing data
   - Capstone: Applying professional critical judgement
+
 - Business Considerations
+
   - Data Legislation
   - Impact of Social and Behavioral Effects Trustworthiness
   - Impact on Business Reputation
@@ -51,5 +58,7 @@ Each lesson includes activities, indicated and the option of a capstone project.
 
 
 To ensure your success in this course, you should have a working knowledge of general business concepts and practices. You should also have a basic understanding of Artificial Intelligence and/or Data Science. You can obtain this level of skills and knowledge by taking the following CertNexus courses:
+
 AIBIZ Artificial Intelligence for Business Professionals
+
 DSBIZ Data Science for Business Professionals
