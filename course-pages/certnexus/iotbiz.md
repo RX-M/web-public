@@ -1,4 +1,4 @@
-<!-- IoTBIZ -->
+<!-- IoTBIZ-->
 
 The CertNexus Internet of Things for Business Professionals (IoTBIZ) course affords business leaders the tools they need to effectively integrate with the growing IoT industry. The Internet of Things (IoT) promises a wide range of benefits for industry, energy and utility companies, municipalities, healthcare, and consumers. Data can be collected in extraordinary volume and detail regarding almost anything worth measuring, such as public health and safety, the environment, industrial and agricultural production, energy, and utilities. New data analysis tools have been optimized for the massive amounts of data that IoT produces, enabling well-informed decisions to be made quickly.
 

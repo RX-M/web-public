@@ -1,4 +1,4 @@
-<!-- AIBIZ -->
+<!-- AIBIZ-->
 
 As the general public's understanding of artificial intelligence (AI) changes, the preceding mass adoption of AI methods by organizations and businesses in both the public and private sector has created a demand for training in artificial intelligence for business professionals; enter AIBIZ. In the past, popular thought treated artificial intelligence (AI) as if it were the domain of science fiction or some far-flung future. However, AI is not just another fantasy, nor a technology or process for a business to merely consider; it is a truly disruptive force, one that promises to deliver an entirely new level of results for all aspects of the business. Even organizations hesitant of adopting AI will eventually feel its impact. If the organization wants to thrive and survive in this paradigm shift, it will need to channel the power of AI.
 

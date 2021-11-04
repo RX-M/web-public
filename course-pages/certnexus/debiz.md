@@ -1,4 +1,4 @@
-<!-- DEBIZ -->
+<!-- DEBIZ-->
 
 The CertNexus Data Ethics for Business Professionals (DEBIZ) course affords business leaders the tools they need in order to make sure their organizations treat their data The power of extracting value from data utilizing Artificial Intelligence, Data Science and Machine Learning exposes the learning differences between humans and machines. Humans can apply ethical principles throughout the decision-making process to avoid discrimination, societal harm, and marginalization to maintain and even enhance acceptable norms. Machines make decisions autonomously. So how do we train them to apply ethical principles as they learn from decisions they make? This course provides business professionals and consumers of technology core concepts of ethical principles, how they can be applied to emerging data driven technologies and the impact to an organization which ignores ethical use of technology.
 

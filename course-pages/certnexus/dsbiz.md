@@ -1,4 +1,4 @@
-<!-- DSBIZ -->
+<!-- DSBIZ-->
 
 The CertNexus Data Science for Business Professionals affords the tools necessary to integrate data science practices into many business models. The ability to identify and respond to changing trends is a hallmark of a successful business. Whether those trends are related to customers and sales, or to regulatory and industry standards, businesses are wise to keep track of the variables that can affect the bottom line. In today's business landscape, data comes from numerous sources and in diverse forms. By leveraging data science concepts and technologies, businesses can mold all of that raw data into information that facilitates decisions to improve and expand the success of the business.
 
