@@ -30,8 +30,3 @@ Successful candidates will be able to perform the following tasks:
 ### Prerequisites
 
 A general understanding of cybersecurity fundamentals.
-
-
-### Related Instructor-Led (ILT & VILT) Training Courses
-
-CyberSec First Responder (CFR), Cyber Secure Coder (CSC), CyberSAFE (CBS), Certified Kubernetes Security Specialist (CKS)

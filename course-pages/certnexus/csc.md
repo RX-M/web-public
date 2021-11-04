@@ -1,4 +1,4 @@
-<!-- Cyber Secure Coder-->
+<!-- CSC-->
 
 The Cyber Secure Coder course was developed to address then need for increased caution when producing software, whether it be end-user facing or B2B. The stakes for software security are high, and yet many development teams deal with software security only after the code has been developed and the software is being prepared for delivery. As with any aspect of software quality, to ensure successful implementation, security and privacy issues should be managed throughout the entire software development lifecycle.
 This course presents an approach for dealing with security and privacy throughout the entire software development lifecycle. You will learn about vulnerabilities that undermine security, and how to identify and remediate them in your own projects. You will learn general strategies for dealing with security defects and misconfiguration, how to design software to deal with the human element in security, and how to incorporate security into all phases of development.
@@ -36,4 +36,3 @@ This course presents secure programming concepts that apply to many different ty
 - Python Foundation
 - Python for Developers
 - DevOps Foundation
-- NoSQL Foundation
