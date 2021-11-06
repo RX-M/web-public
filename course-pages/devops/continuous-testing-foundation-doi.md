@@ -23,7 +23,7 @@ This course is offered with or without the CTF exam.
 Learning modules include:
 
 -	DevOps testing and business benefits
-- DevOps testing best practices including culture & organization changes, process & team friction, how to measure success, motiviation strategies, and continuous evolution
+- DevOps testing best practices including culture & organization changes, process & team friction, how to measure success, motivation strategies, and continuous evolution
 - DevOps pipeline including test & pre-flight strategies, test environment, and topology orchestration
 - Test automation frameworks including test tools, selection criterion, and automation metrics
 - Test case & suite best practices and design

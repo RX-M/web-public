@@ -26,7 +26,7 @@ This course is offered with or without the CDEF exam.
 Learning modules include:
 
 -	Continuous Delivery (CD) goals, history, terminology, and pipeline
--	Microserve design practices
+-	Microservice design practices
 -	Continuous Integration (CI) including version control, builds, and remediation
 - Tenets and best practices of Continuous Testing (CT)
 - Continuous Delivery and Deployment (CD) including packaging, containers, and release

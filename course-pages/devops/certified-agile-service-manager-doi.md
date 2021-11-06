@@ -33,4 +33,4 @@ Learning modules include:
 
 ### Prerequisites
 
-Familiarity with ITSM processes and Information Technology Infrastructure Library (ITIL®) is recommended. Completition of a pre-course assignment.
+Familiarity with ITSM processes and Information Technology Infrastructure Library (ITIL®) is recommended. Completion of a pre-course assignment.
