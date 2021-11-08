@@ -5,7 +5,7 @@ Professional Scrum Product Owner™ (PSPO) is a hands-on, activity-based course 
 
 There are many myths and misconceptions about the role of the Product Owner. The accountabilities of the Product Owner, however, go well beyond managing the Product Backlog and writing User Stories. The Product Owner is pivotal to bridging business strategy and product execution in order to help the Scrum Team create valuable products.
 
-In this two day class* students will develop and solidify their knowledge of the Scrum framework and the accountabilities of being a Product Owner through instruction and team-based exercises. Students learn techniques that they can use to help them overcome the challenges that are often encountered on a day-to-day basis.  They will do this while learning better ways to work with the organization, stakeholders, customers and their team to provide greater value in the product being delivered.
+In this two day class students will develop and solidify their knowledge of the Scrum framework and the accountabilities of being a Product Owner through instruction and team-based exercises. Students learn techniques that they can use to help them overcome the challenges that are often encountered on a day-to-day basis.  They will do this while learning better ways to work with the organization, stakeholders, customers and their team to provide greater value in the product being delivered.
 
 
 ### Delivery

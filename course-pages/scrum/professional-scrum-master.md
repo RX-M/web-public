@@ -1,8 +1,8 @@
-<!-- -->
+<!-- professional-scrum-master-->
 
 Professional Scrum Master™ (PSM) is an interactive, activity-based course where students gain a strong understanding of Professional Scrum and the role of the Scrum Master.  Through a combination of discussion and exercises, students develop a deep understanding of the underlying principles of Scrum and the Agile mindset while learning the practices applied by successful Scrum Teams.
 
-In this two day class* students are challenged to explore the Agile and Scrum principles so they can better understand what to do when applying Scrum to support their teams and organizations.
+In this two day class students are challenged to explore the Agile and Scrum principles so they can better understand what to do when applying Scrum to support their teams and organizations.
 
 The course, developed by Scrum.org, uses a combination of instructor-led and activity-based learning where students work together in teams. Professional Scrum Trainers (PSTs) bring their own Scrum Master experiences and stories to the class and use their skills as professional trainers to deliver the material using their own unique delivery style. The result is an engaging, enjoyable learning experience where students gain a deep understanding of Scrum theory and principles, the Scrum Master accountabilities and why each element of the Scrum framework is important.
 

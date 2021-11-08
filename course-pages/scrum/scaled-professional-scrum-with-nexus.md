@@ -1,4 +1,4 @@
-<!-- -->
+<!-- scaled-professional-scrum-with-nexus-->
 
 Scaled Professional Scrum™ (SPS) with Nexus is a 2-day course that is designed as an experiential workshop where students learn how to scale Scrum using the Nexus Framework. Throughout, you are introduced to the artifacts and events within the framework, the new Nexus Integration Team role, along with more than 50 associated practices. The course also includes a free attempt at the globally recognized Scaled Professional Scrum certification exam.
 

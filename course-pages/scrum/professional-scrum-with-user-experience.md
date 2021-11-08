@@ -1,11 +1,11 @@
 <!-- professional-scrum-with-user-experience-->
 
-Professional Scrum with User Experience (PSU) is a 2-day hands-on course where students who already have a fundamental understanding of Scrum and some experience using it will learn how to integrate modern UX practices into the way they are working in Scrum and how to work most effectively within Scrum Teams. Design work can sometimes feel slow, and not well suited to quick agile cadences and Scrum events, but that isn't the case. Learn UX techniques that fit beautifully into Scrum, and practice these techniques with cross-functional teams in class.
+Professional Scrum™ with User Experience (PSU) is a 2-day hands-on course where students who already have a fundamental understanding of Scrum and some experience using it will learn how to integrate modern UX practices into the way they are working in Scrum and how to work most effectively within Scrum Teams. Design work can sometimes feel slow, and not well suited to quick agile cadences and Scrum events, but that isn't the case. Learn UX techniques that fit beautifully into Scrum, and practice these techniques with cross-functional teams in class.
 
 
 ### Delivery
 
-Professional Scrum with User Experience training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
+Professional Scrum™ with User Experience training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
 ### Created in Partnership with the Authors of Lean UX

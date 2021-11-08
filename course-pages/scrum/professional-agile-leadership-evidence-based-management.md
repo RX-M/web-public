@@ -25,7 +25,7 @@ PAL-EBM is for professionals in leadership roles (including executives, managers
 
 ### What Attendees will learn
 
-In the Professional Agile Leadership™ – Evidence-Based Management (PAL-EBM) one day* course, participants learn what EBM is and how to apply it through hands-on, activity-based learning. Through a series of exercises participants learn techniques that support a more agile mindset:
+In the Professional Agile Leadership™ – Evidence-Based Management (PAL-EBM) one day course, participants learn what EBM is and how to apply it through hands-on, activity-based learning. Through a series of exercises participants learn techniques that support a more agile mindset:
 
 - Use empiricism to set and achieve strategic goals, managing the unknown and complexity through experimentation and by adapting goals along the way
 - Create a cultural environment using clear goals, appropriate measures and trust to enable self-management and autonomy

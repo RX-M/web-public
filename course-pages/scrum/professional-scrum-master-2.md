@@ -1,4 +1,4 @@
-<!-- professional-scrum-master-ii-->
+<!-- professional-scrum-master-2-->
 
 
 Professional Scrum Master™ II (PSM II) course is a 2-day advanced Scrum Master class designed to support Scrum Masters in their professional development.  The PSM II course is intended for Scrum Masters with at least one year of experience who are looking to grow their knowledge and abilities as a Scrum Master. This course is one step in that journey. The course also includes a free attempt at the globally recognized Professional Scrum Master II (PSM II) certification exam.

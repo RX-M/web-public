@@ -2,7 +2,7 @@
 
 Professional Scrum Product Owner™ - Advanced (PSPO-A) is a hands-on, activity-based course that focuses on helping experienced Product Owners and Product Managers expand their ability to establish a vision, validate their hypotheses, and ultimately deliver more value to their stakeholders. The course goes beyond the topics explored in the Professional Scrum Product Owner (PSPO) class by deepening the attendee's understanding of the role through the exploration of the many stances of a professional Product Owner. Students should have at least one year of Product Owner experience and a practical knowledge of Scrum in order to participate in and benefit from these exercises. Having previously taken the PSPO class is recommended, but not required.
 
-In this two day class* students will gain a better understanding of what it means to deliver value and how to express that value inside and outside of their organization. Through a case study-based series of exercises, combined with instruction, students gain the entrepreneurial product leadership skills and practices critical to growing as a successful Product Owner.
+In this two day class students will gain a better understanding of what it means to deliver value and how to express that value inside and outside of their organization. Through a case study-based series of exercises, combined with instruction, students gain the entrepreneurial product leadership skills and practices critical to growing as a successful Product Owner.
 
 
 ### Delivery

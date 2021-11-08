@@ -1,6 +1,6 @@
 <!-- applying-professional-scrum--->
 
-Applying Professional ScrumTM (APS) is a hands-on, activity based course in which students experience how Professional Scrum and the Scrum framework improve their ability to deliver value compared to traditional methods.  Scrum provides a better way of working that highlights the use of experimentation, incremental delivery of customer value, frequent feedback loops and the fostering of strong team dynamics.
+Applying Professional Scrum™ (APS) is a hands-on, activity based course in which students experience how Professional Scrum and the Scrum framework improve their ability to deliver value compared to traditional methods.  Scrum provides a better way of working that highlights the use of experimentation, incremental delivery of customer value, frequent feedback loops and the fostering of strong team dynamics.
 
 The course provides an active learning environment for students to engage in discussion, team-based exercises, and individual reflection. During the course, students work in Scrum Teams over a series of Sprints to learn Scrum while using Scrum.
 
