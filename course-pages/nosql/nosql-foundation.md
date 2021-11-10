@@ -12,7 +12,7 @@ Available for Instructor-Led (ILT) in-person/onsite training or Virtual Instruct
 
 ### Who Should Attend
 
-Developers, Information Technology (IT) and Quality Assurance (QA) Staff, Technical Managers, and DevOps and Build personnel
+Developers, Data Architects, DBAs, Developers, and Technical staff can benefit from this course.
 
 
 ### What Attendees will learn
@@ -28,7 +28,4 @@ Learning modules include:
 
 ### Prerequisites
 
-Participants should have a basic familiarity with relational databases or other formal data storage technology.
-
-
-
+Participants should have a basic familiarity with relational databases or other formal data storage technology. All students will need to be able to ssh to a provided cloud instance. If ssh isn't available due to security concerns, arrangements can be made.
