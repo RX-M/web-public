@@ -1,6 +1,6 @@
 <!-- Cloud Native Storage Survey-->
 
-Cloud Native Storage survey is an extensive two day course covering a plethora of cloud native storage solutions, including Cassandra, Hazelcast, Kafka, MongoDB, Redis, and Vitess (all open source, naturally). By providing a survey of these options, participants will be enabled to help choose the solution(s) which best suit their organization or organizational unit's needs. By providing a vendor neutral overview, this course offers an understanding of the advantages and disadvantages of each, regardless of whether the final decision by group is to seek an on-prem, public cloud, hosted service, or hybrid solution.
+Cloud Native Storage Survey is an extensive two day course covering a plethora of cloud native storage solutions, including Cassandra, Hazelcast, Kafka, MongoDB, Redis, and Vitess (all open source, naturally). By providing a survey of these options, participants will be enabled to help choose the solution(s) which best suit their organization or organizational unit's needs. By providing a vendor neutral overview, this course offers an understanding of the advantages and disadvantages of each, regardless of whether the final decision by a group is to seek an on-prem, public cloud, hosted service, or hybrid solution.
 
 
 ### Delivery

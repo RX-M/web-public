@@ -1,6 +1,6 @@
 <!-- ArangoDB-->
 
-The ArangoDB course is offered as a two day hands-on course where participants will learn a comprehensive introduction to the ArangoDB multi-model database. As a multi-model database, some may find ArangoDB is initially surprising in the amount of flexibility offered.
+The ArangoDB course is offered as a two day hands-on course where participants will receive a comprehensive introduction to the ArangoDB multi-model database. As a multi-model database, some may find ArangoDB is initially surprising in the amount of flexibility offered.
 
 
 ### Delivery
