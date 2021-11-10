@@ -1,4 +1,4 @@
-# Privacy Policy
+<!-- Privacy Policy-->
 
 All information collected through this web site is done with permission from you the visitor. We collect email addresses and identity information for course registrations and inquiries and for such services as our course schedule mailings and promotions.
 
