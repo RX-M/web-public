@@ -1,8 +1,8 @@
-<!-- Professional Scrum™ with Kanban (PSK) -->
+<!-- professional-scrum-with-kanban-->
 
-Professional Scrum™ with Kanban (PSK) is a 2-day course that teaches Scrum practitioners how to apply Kanban practices to their work. Through theory, case studies, and hands-on exercises, participants will understand the importance of transparency and flow as it pertains to the Scrum framework.
+Professional ScrumTM with Kanban™ (PSK) is a 2-day course that teaches Scrum practitioners how to apply Kanban practices to their work. Through theory, case studies, and hands-on exercises, participants will understand the importance of transparency and flow as it pertains to the Scrum framework.
 
-Scrum is the de facto standard for how Agile teams work.  Scrum exists only in its entirety and functions well as a container for other techniques and practices.  Scrum Teams keep improving how they work, based on what they learn by inspecting and adapting on an ongoing basis.
+Scrum is the defacto standard for how Agile teams work.  Scrum exists only in its entirety and functions well as a container for other techniques and practices.  Scrum Teams keep improving how they work, based on what they learn by inspecting and adapting on an ongoing basis.
 
 
 ### Delivery

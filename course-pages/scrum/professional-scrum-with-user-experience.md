@@ -57,9 +57,3 @@ While this course covers an introduction to the Scrum framework, it’s primaril
 ### Professional Scrum with User Experience Certification
 
 All participants completing the Professional Scrum with User Experience course will receive a password to attempt the Professional Scrum with User Experience I (PSU I) certification assessment. PSU class participants who attempt the PSU I assessment within 14 days of the class and do not score at least 85% will be granted a 2nd attempt at no additional cost.
-
-
-### Why Scrum.org
-Scrum.org provides the highest quality Scrum training, training materials and certified Professional Scrum Trainers (PSTs) to teach them. Our training materials are created and maintained by Scrum co-creator Ken Schwaber, Scrum.org and the PST community members who teach the courses, helping to ensure that they are in tune with what’s happening in organizations and always up-to-date with the latest practices.
-
-Professional Scrum Trainers bring their own style and experience to the courses, but use the same materials so that students are learning from the same content regardless of who teaches the course or where it is taught around the world.

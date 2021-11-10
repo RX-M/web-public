@@ -49,9 +49,3 @@ While this course covers an introduction to the Scrum framework, it’s primaril
 All participants completing the Professional Scrum Product Owner course receive a password to take the Professional Scrum Product Owner I (PSPO I) assessment. The industry-recognized PSPO I certification requires a minimum passing score of 85%. PSPO class participants who attempt the PSPO I assessment within 14 days of receiving their free password and do not score at least 85% will be granted a second attempt at no additional cost.
 
 You are also entitled to a discount on the PSPO II assessment once passing PSPO I.
-
-
-### Why Scrum.org
-Scrum.org provides the highest quality Scrum training, training materials and certified Professional Scrum Trainers (PSTs) to teach them. Our training materials are created and maintained by Scrum co-creator Ken Schwaber, Scrum.org and the PST community members who teach the courses, helping to ensure that they are in tune with what’s happening in organizations and always up-to-date with the latest practices.
-
-Professional Scrum Trainers bring their own style and experience to the courses, but use the same materials so that students are learning from the same content regardless of who teaches the course or where it is taught around the world.
