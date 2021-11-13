@@ -1,8 +1,5 @@
 <!-- Kubernetes for Contributors-->
 
-Kubernetes for Contributors
-
-
 Kubernetes for Contributors is a three day hands-on course which is designed to provide experienced Kubernetes users with a deeper look at the Kubernetes platform. The course provides attendees with a detailed look at the administration and deployment of the Kubernetes platform through a combination of lecture, demonstrations and hands-on labs. Students will gain hands on experience configuring and managing Kubernetes features and functions in a live Kubernetes lab cluster. Those attending will leave with a clear understanding of the more advanced features of Kubernetes and how they operate in a container based enterprise.
 
 
