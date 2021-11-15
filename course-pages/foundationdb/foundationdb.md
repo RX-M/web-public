@@ -1,16 +1,16 @@
-<!-- FoundationDB Foundation-->
+<!-- Introduction to FoundationDB-->
 
-The FoundationDB Foundation course is a two day hands-on course which is designed to provide technology professionals with an introduction to FoundationDB. Attendees should leave with a clear understanding of the basic architecture of FoundationDB, how to design effective storage solutions using FoundationDB and a solid understanding of the FoundationDB architecture.
+The Introduction to FoundationDB course is a two day hands-on course which is designed to provide technology professionals with an introduction to FoundationDB. Attendees should leave with a clear understanding of the basic architecture of FoundationDB, how to design effective storage solutions using FoundationDB and a solid understanding of the FoundationDB architecture.
 
 
 ### Delivery
 
-FoundationDB Foundation training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
+The Introduction to FoundationDB training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
 ### Who Should Attend
 
-This course is intended for Developers, IT and QA Staff, Technical Managers, Devops, and Build Personnel.
+This course is intended for Developers, IT and QA Staff, Technical Managers, DevOps, and Build Personnel.
 
 
 ### What Attendees will learn

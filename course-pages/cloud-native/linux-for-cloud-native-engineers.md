@@ -1,16 +1,16 @@
-<!-- Linux Foundation for Cloud Native Engineers-->
+<!-- Introduction to Linux for Cloud Native Engineers -->
 
-Linux Foundation for Cloud Native Engineers is an intensive two day hands on course which is designed to provide working engineers and other technology professionals with a comprehensive introduction to Linux and its use in Cloud Native systems. Attendees will leave with a clear understanding of Linux and how to use it in container environments. Students will gain hands on experience working with Linux during lab sessions following each of the eight modules in the course. Upon completion, attendees will have the skills and information necessary to work with Linux and Linux shell scripts at the command line, in container settings and in Kubernetes environments.
+Introduction to Linux for Cloud Native Engineers is an intensive two day hands on course which is designed to provide working engineers and other technology professionals with a comprehensive introduction to Linux and its use in Cloud Native systems. Attendees will leave with a clear understanding of Linux and how to use it in container environments. Students will gain hands on experience working with Linux during lab sessions following each of the eight modules in the course. Upon completion, attendees will have the skills and information necessary to work with Linux and Linux shell scripts at the command line, in container settings and in Kubernetes environments.
 
 
 ### Delivery
 
- Linux Foundation for Cloud Native Engineers training is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
+Introduction to Linux for Cloud Native Engineers is available for Instructor-Led (ILT) in-person/onsite training or Virtual Instructor-Led training (VILT) delivery; Open Enrollment options may be available.
 
 
 ### Who Should Attend
 
-This course is intended to benefit all manner of technical staff.
+This course is intended to benefit all technical staff.
 
 
 ### What Attendees will learn
