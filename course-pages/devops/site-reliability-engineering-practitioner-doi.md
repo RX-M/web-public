@@ -1,6 +1,6 @@
 <!--  Site Reliability Engineering (SRE) Practitioner (DevOps Institute) -->
 
-The SRE (Site Reliability Engineering) Practitioner course introduces ways to economically and reliably scale services in an organization. It explores strategies to improve agility, cross-functional collaboration, and transparency of health of services towards building resiliency by design, automation and closed loop remediation.
+The Site Reliability Engineering (SRE) Practitioner course introduces ways to economically and reliably scale services in an organization. It explores strategies to improve agility, cross-functional collaboration, and transparency of health of services towards building resiliency by design, automation and closed loop remediation.
 
 The 3-day course aims to equip participants with the SRE practices, methods, and tools to engage people across the organization involved in reliability through the use of real-life scenarios and case stories.
 
