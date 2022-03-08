@@ -1,81 +1,5 @@
 Modules:
-- description: Explore the Golang 3rd party ecosystem
-  id: 48
-  level: 1.0
-  name: Go's 3rd Party Ecosystem
-  topic: Go
-- description: Understand the basic data types of the Go language
-  id: 53
-  level: 1.0
-  name: Data Types
-  topic: Go
-- description: Learn how to debug Go programs, techniques and tools like Delve
-  id: 54
-  level: 1.0
-  name: Debugging
-  topic: Go
-- description: Understand the error package and using errors in your Go code
-  id: 56
-  level: 1.0
-  name: Error Handling
-  topic: Go
-- description: How to develop functions in Go
-  id: 57
-  level: 1.0
-  name: Functions
-  topic: Go
-- description: Learn about the history and basic usage of the Go language
-  id: 58
-  level: 1.0
-  name: Go Overview
-  topic: Go
-- description: Learn about the http package from the Go standard library
-  id: 59
-  level: 1.0
-  name: The Go Http Library
-  topic: Go
-- description: Learn how to organize and share Go code using modules
-  id: 62
-  level: 1.0
-  name: Go Modules
-  topic: Go
-- description: Learn how to create Go packages
-  id: 64
-  level: 1.0
-  name: Package Management
-  topic: Go
-- description: Learn how Go packages, libraries, and main (drivers) programs work
-    in Go
-  id: 65
-  level: 1.0
-  name: Program Construction
-  topic: Go
-- description: Learn about the reflection package from the Go standard library
-  id: 66
-  level: 1.0
-  name: Reflection
-  topic: Go
-- description: Review of the Go language for those with basic knowledge of Go
-  id: 67
-  level: 1.0
-  name: Review of Go
-  topic: Go
-- description: Learn about the Go standard library
-  id: 68
-  level: 1.0
-  name: The Go Standard Library
-  topic: Go
-- description: Learn about syntax and flow control in Go
-  id: 69
-  level: 1.0
-  name: Syntax and Flow Control
-  topic: Go
-- description: Learn how to create user defined types in Go
-  id: 71
-  level: 1.0
-  name: User Defined Types
-  topic: Go
-- description: ''
+- description: Approaches, reviews domain-driven design and resilience patterns.
   id: 72
   level: 1.0
   name: Brown Field Microservices
@@ -86,9 +10,19 @@ Modules:
   name: Cloud Native Transactions
   topic: Microservices
 - description: ''
+  id: 74
+  level: 1.0
+  name: Container Packaging (Deprecated)
+  topic: Microservices
+- description: ''
   id: 75
   level: 1.0
   name: Gateways and Service Meshes
+  topic: Microservices
+- description: ''
+  id: 76
+  level: 1.0
+  name: Image Registries (Deprecated)
   topic: Microservices
 - description: ''
   id: 77
@@ -98,7 +32,7 @@ Modules:
 - description: ''
   id: 78
   level: 1.0
-  name: Microservice Communications I - REST
+  name: Microservice Communications I - APIs
   topic: Microservices
 - description: ''
   id: 79
@@ -140,42 +74,42 @@ Modules:
   level: 1.0
   name: Stateless Services and Polyglot Persistence
   topic: Microservices
-- description: Learn the basic components of Kafka and how they programmatically relate
+- description: Learn the basic components of Kafka and how they programatically relate.
   id: 91
   level: 1.0
   name: Overview of Kafka Development
   topic: Kafka
-- description: Learn the Producer client API
+- description: Learn the Producer client API.
   id: 92
   level: 1.0
   name: Building Producers
   topic: Kafka
-- description: Learn the Consumer client API
+- description: Learn the Consumer client API.
   id: 93
   level: 1.0
   name: Building Consumers
   topic: Kafka
-- description: Learn the Connector API
+- description: Learn the Connector API.
   id: 94
   level: 1.0
   name: Developing Connectors
   topic: Kafka
-- description: Learn how Producers can be resilient to Kafka failures
+- description: Learn how Producers can be resilant to Kafka failures.
   id: 95
   level: 1.0
   name: Managing Failure Modes in Producers
   topic: Kafka
-- description: Learn how Consumers can be resilient to Kafka failures
+- description: Learn how Consumers can be resilant to Kafka failuers.
   id: 96
   level: 1.0
   name: Managing Failure Modes in Consumers
   topic: Kafka
-- description: Learn the Stream API
+- description: Learn the Stream API.
   id: 97
   level: 1.0
   name: Developing Stream Processors
   topic: Kafka
-- description: Learn about state management when using the Stream API
+- description: Learn about state management when using the Stream API.
   id: 98
   level: 1.0
   name: Developing Stateful Stream Processors
@@ -191,57 +125,123 @@ Modules:
   level: 1.1
   name: Container Jump Start
   topic: Containers
+- description: Learn about the history and basic usage of the Go language.
+  id: 58
+  level: 1.1
+  name: Go Overview
+  topic: Go
+- description: Learn how to design and refactor Go code.
+  id: 61
+  level: 1.1
+  name: Methods and Interfaces
+  topic: Go
+- description: Learn about syntax and flow control in Go.
+  id: 69
+  level: 1.1
+  name: Syntax and Flow Control
+  topic: Go
+- description: ''
+  id: 109
+  level: 1.1
+  name: Introduction
+  topic: Python
+- description: Understand the basic data types of the Go language.
+  id: 53
+  level: 1.2
+  name: Data Types
+  topic: Go
+- description: How to develop functions in Go.
+  id: 57
+  level: 1.2
+  name: Functions
+  topic: Go
+- description: Learn how to organize and share Go code using modules.
+  id: 62
+  level: 1.2
+  name: Go Modules
+  topic: Go
+- description: Learn how to create Go packages.
+  id: 64
+  level: 1.2
+  name: Package Managment
+  topic: Go
+- description: Learn how Go packages, libraries, and main (drivers) programs work
+    in Go.
+  id: 65
+  level: 1.2
+  name: Program Construction
+  topic: Go
+- description: Learn how to create user defined types in Go.
+  id: 71
+  level: 1.2
+  name: User Defined Types
+  topic: Go
+- description: ''
+  id: 107
+  level: 1.2
+  name: Flow Control
+  topic: Python
+- description: ''
+  id: 108
+  level: 1.2
+  name: Functions
+  topic: Python
+- description: ''
+  id: 121
+  level: 1.2
+  name: Strings and Numbers
+  topic: Python
+- description: Learn advance usage patterns of functions and methods.
+  id: 49
+  level: 1.3
+  name: Advanced Functions and Methods
+  topic: Go
+- description: ''
+  id: 105
+  level: 1.3
+  name: Errors and Exceptions
+  topic: Python
+- description: ''
+  id: 106
+  level: 1.3
+  name: File IO
+  topic: Python
+- description: ''
+  id: 123
+  level: 1.3
+  name: Working with Packages
+  topic: Python
+- description: Understand the error package and using errors in your Go code.
+  id: 56
+  level: 1.4
+  name: Error Handling
+  topic: Go
+- description: Learn how to write tests in Go.
+  id: 70
+  level: 1.4
+  name: Testing
+  topic: Go
+- description: ''
+  id: 117
+  level: 1.4
+  name: Program Construction
+  topic: Python
 - description: OCI / Docker images including registries and image creation with Dockerfiles
   id: 8
   level: 1.5
   name: Images Overview
   topic: Containers
+- description: ''
+  id: 122
+  level: 1.5
+  name: Testing
+  topic: Python
 - description: Examination of container images, image metadata, and pushing images
     to private registries
   id: 88
   level: 1.6
   name: Images and Registries
   topic: Containers
-- description: Learn advance usage patterns of functions and methods
-  id: 49
-  level: 2.0
-  name: Advanced Functions and Methods
-  topic: Go
-- description: Explorer using and managing channel objects
-  id: 50
-  level: 2.0
-  name: Channels as First Class Values
-  topic: Go
-- description: Learning how to control asynchronous Go routines with the context package
-  id: 51
-  level: 2.0
-  name: Context
-  topic: Go
-- description: Learn how to create concurrent functions in Go
-  id: 52
-  level: 2.0
-  name: CSP and Go Routines
-  topic: Go
-- description: Learn how to use the Go profiling tools
-  id: 55
-  level: 2.0
-  name: Profiling and Performance
-  topic: Go
-- description: Learn the best practices when developing Go programs
-  id: 60
-  level: 2.0
-  name: Idiomatic Go
-  topic: Go
-- description: Learn how to design and refactor Go code
-  id: 61
-  level: 2.0
-  name: Methods and Interfaces
-  topic: Go
-- description: Learn how to write tests in Go
-  id: 70
-  level: 2.0
-  name: Testing
-  topic: Go
 - description: Examination of Kubernetes control plane components, etcd, HA models,
     and worker Node agents
   id: 4
@@ -254,24 +254,94 @@ Modules:
   level: 2.1
   name: Kubernetes Overview
   topic: Kubernetes
+- description: Learn how to create concurrent functions in Go.
+  id: 52
+  level: 2.1
+  name: CSP and Go Routines
+  topic: Go
+- description: Learn the best practices when developing Go programs.
+  id: 60
+  level: 2.1
+  name: Idiomatic Go
+  topic: Go
+- description: Review of the Go language for those with basic knowledge of Go.
+  id: 67
+  level: 2.1
+  name: Review of Go
+  topic: Go
+- description: Learn about the Go standard library.
+  id: 68
+  level: 2.1
+  name: The Go Standard Library
+  topic: Go
+- description: ''
+  id: 104
+  level: 2.1
+  name: Data
+  topic: Python
+- description: ''
+  id: 120
+  level: 2.1
+  name: Standard Library
+  topic: Python
+- description: Explorer using and managing channel objects.
+  id: 50
+  level: 2.2
+  name: Channels as First Class Values
+  topic: Go
+- description: ''
+  id: 103
+  level: 2.2
+  name: Collections and Comprehensions
+  topic: Python
 - description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
     manifests
   id: 27
   level: 2.3
   name: Pod Basics
   topic: Kubernetes
+- description: Learning how to control asynchronous Go routines with the context package.
+  id: 51
+  level: 2.3
+  name: Context
+  topic: Go
 - description: 'Introduction to building container images with Dockerfiles including:
     Dockerfile syntax, caching, and build options'
   id: 89
   level: 2.3
   name: 'Dockerfiles: Basics'
   topic: Containers
+- description: ''
+  id: 102
+  level: 2.3
+  name: Classes and OOP
+  topic: Python
 - description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
     and the Downward API'
   id: 2
   level: 2.4
   name: Application Configuration
   topic: Kubernetes
+- description: Explore the Golang 3rd party ecosystem.
+  id: 48
+  level: 2.4
+  name: Go's 3rd Party Ecosystem
+  topic: Go
+- description: Learn how to debug Go programs, techniiques and tools like Delve.
+  id: 54
+  level: 2.4
+  name: Debugging
+  topic: Go
+- description: Learn how to use the Go profiling tools.
+  id: 55
+  level: 2.4
+  name: Profiling and Performance
+  topic: Go
+- description: Learn about the http package from the Go standard library.
+  id: 59
+  level: 2.4
+  name: The Go Http Library
+  topic: Go
 - description: 'Advanced patterns using Dockerfiles: multistage and automated builds,
     advanced syntax, and best practices'
   id: 90
@@ -284,6 +354,11 @@ Modules:
   level: 2.5
   name: Controllers
   topic: Kubernetes
+- description: Learn about the reflection package from the Go standard library.
+  id: 66
+  level: 2.5
+  name: Reflection
+  topic: Go
 - description: Zero downtime rolling updates for stateless applications using the
     Deployment controller
   id: 11
@@ -336,6 +411,16 @@ Modules:
   level: 3.1
   name: Security Overview
   topic: Kubernetes
+- description: ''
+  id: 115
+  level: 3.1
+  name: Numpy
+  topic: Python
+- description: ''
+  id: 116
+  level: 3.1
+  name: Pandas
+  topic: Python
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
@@ -348,6 +433,21 @@ Modules:
   level: 3.2
   name: Scheduling
   topic: Kubernetes
+- description: ''
+  id: 111
+  level: 3.2
+  name: Multitasking
+  topic: Python
+- description: ''
+  id: 118
+  level: 3.2
+  name: Scapy
+  topic: Python
+- description: ''
+  id: 119
+  level: 3.2
+  name: SQL-DB
+  topic: Python
 - description: 'Software defined networking (SDN) and Kubernetes: networking models,
     network policy, and SDN configuration'
   id: 32
@@ -360,11 +460,36 @@ Modules:
   level: 3.3
   name: Network Policy
   topic: Kubernetes
+- description: ''
+  id: 110
+  level: 3.3
+  name: Jinja
+  topic: Python
+- description: ''
+  id: 112
+  level: 3.3
+  name: netconf restconf
+  topic: Python
+- description: ''
+  id: 113
+  level: 3.3
+  name: Networking Features
+  topic: Python
+- description: ''
+  id: 114
+  level: 3.3
+  name: Networking Modules
+  topic: Python
 - description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
     for users and application Pods
   id: 37
   level: 3.5
   name: RBAC
+  topic: Kubernetes
+- description: A look at pod security features and secure pod design approaches.
+  id: 124
+  level: 3.5
+  name: Pod Security
   topic: Kubernetes
 - description: Accessing Kubernetes Pod application logs, configuring logging drivers,
     and strategies for log forwarding
@@ -389,6 +514,16 @@ Modules:
   id: 44
   level: 3.99
   name: Static Analysis
+  topic: Kubernetes
+- description: Examines Custom Resource Definitions (CRDs) and how to use them.
+  id: 125
+  level: 4.0
+  name: CRDs Overview
+  topic: Kubernetes
+- description: Explores cloud native approaches to software supply chain security.
+  id: 126
+  level: 4.0
+  name: Supply Chain Security
   topic: Kubernetes
 - description: Guidance and best practices for building secure microservice APIs
   id: 3
@@ -423,6 +558,21 @@ Modules:
   level: 4.1
   name: Runtimes
   topic: Kubernetes
+- description: ''
+  id: 99
+  level: 4.1
+  name: Python Jupyter
+  topic: Python
+- description: ''
+  id: 100
+  level: 4.1
+  name: Anaconda_intro
+  topic: Python
+- description: ''
+  id: 101
+  level: 4.1
+  name: C Extensions
+  topic: Python
 - description: Using unikernels and/or micro-VMs for improved Pod security and hard
     multi-tenancy in Kubernetes
   id: 46
@@ -453,6 +603,12 @@ Modules:
   level: 4.3
   name: Ingress Load Balancing
   topic: Kubernetes
+- description: 'Best practices for container images including: scanning, image signing,
+    and binary authorization'
+  id: 43
+  level: 4.3
+  name: Image Security
+  topic: Containers
 - description: Kubernetes block storage volumes and block storage CSI features
   id: 6
   level: 4.4
@@ -491,7 +647,7 @@ Modules:
   level: 4.5
   name: Control Plane TLS
   topic: Kubernetes
-- description: Exposing locally attached storage to application Pods with demanding
+- description: Exposing locally attached storage to application Pods with damanding
     disk IOPS
   id: 18
   level: 4.6
@@ -509,3 +665,4 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
+
