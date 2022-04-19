@@ -1,440 +1,480 @@
 <!-- CKAD Self-Study Mod 3 -->
 
+# Application Environment Configuration and Security
 
-# Deployments and Rolling Updates
 
-A deployment is a controller that ensures an application’s pods run according to a desired state. Deployments create and control replicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state to the Kubernetes API server. The API server compares the current state to the desired state (stored in etcd). If the current and desired states differ, the Kubernetes API server tells the kubelet(s) to make deployment changes to match the desired state.
+## Discover and use resources that extend Kubernetes
 
-The deployment spec declares the desired state of pod configurations under the pod template. The following example is a deployment of 3 nginx pods using the nginx version 1.16 image:
+A Kubernetes cluster's functionality is extended by registering additional APIs to the API Server. Custom APIs usually bring their own set of custom resources which can be specified. If your cluster has been expanded to include custom resource definitions, there are two primary ways to identify them.
+
+First is to see the list of APIs that have been registered, which you can see with <code>kubectl api-versions</code>:
 
 <pre class="wp-block-code"><code>
-apiVersion: apps/v1
-kind: Deployment
+$ kubectl api-versions
+
+admissionregistration.k8s.io/v1
+apiextensions.k8s.io/v1
+apiregistration.k8s.io/v1
+apps/v1
+authentication.k8s.io/v1
+authorization.k8s.io/v1
+autoscaling/v1
+autoscaling/v2
+autoscaling/v2beta1
+autoscaling/v2beta2
+batch/v1
+batch/v1beta1
+certificates.k8s.io/v1
+coordination.k8s.io/v1
+discovery.k8s.io/v1
+discovery.k8s.io/v1beta1
+events.k8s.io/v1
+events.k8s.io/v1beta1
+flowcontrol.apiserver.k8s.io/v1beta1
+flowcontrol.apiserver.k8s.io/v1beta2
+networking.k8s.io/v1
+node.k8s.io/v1
+node.k8s.io/v1beta1
+policy/v1
+policy/v1beta1
+rbac.authorization.k8s.io/v1
+scheduling.k8s.io/v1
+storage.k8s.io/v1
+storage.k8s.io/v1beta1
+v1
+
+$
+</code></pre>
+
+Any additional APIs you have installed as part of various cluster extensions, like operators, 
+
+The resources available to your cluster are viewable with <code>kubectl api-resources</code>, which shows the kinds of
+resources you can create in a cluster:
+
+<pre class="wp-block-code"><code>
+$ kubectl api-resources
+NAME                              SHORTNAMES   APIVERSION                             NAMESPACED   KIND
+bindings                                       v1                                     true         Binding
+componentstatuses                 cs           v1                                     false        ComponentStatus
+configmaps                        cm           v1                                     true         ConfigMap
+endpoints                         ep           v1                                     true         Endpoints
+events                            ev           v1                                     true         Event
+limitranges                       limits       v1                                     true         LimitRange
+namespaces                        ns           v1                                     false        Namespace
+nodes                             no           v1                                     false        Node
+persistentvolumeclaims            pvc          v1                                     true         PersistentVolumeClaim
+persistentvolumes                 pv           v1                                     false        PersistentVolume
+pods                              po           v1                                     true         Pod
+podtemplates                                   v1                                     true         PodTemplate
+replicationcontrollers            rc           v1                                     true         ReplicationController
+resourcequotas                    quota        v1                                     true         ResourceQuota
+secrets                                        v1                                     true         Secret
+serviceaccounts                   sa           v1                                     true         ServiceAccount
+services                          svc          v1                                     true         Service
+
+...
+
+$
+</code></pre>
+
+[Learn more about custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+
+
+## Understanding Authentication, Authorization and admission control
+
+Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.
+
+Kubernetes uses Role-based access control (RBAC) mechanisms to control the ability of users to perform a specific task on Kubernetes objects. Clusters bootstrapped with kubeadm have RBAC enabled by default.
+
+Permissions to API resources are granted using Roles and ClusterRoles (the only difference being that clusterRoles apply to the entire cluster while regular roles apply to their namespace). Permissions are scoped to API resources and objects under the API resources. Verbs control what operations can be performed by each role.
+
+Roles can be created imperatively using <code>kubectl create role</code>. You can specify the API resources and verbs associated with the permissions the role will grant:
+
+<pre class="wp-block-code"><code>
+$ kubectl create role default-appmanager --resource pod,deploy,svc,ingresses --verb get,list,watch,create -o yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
 metadata:
+  name: default-appmanager
+  namespace: default
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+
+$
+</code></pre>
+
+Roles and clusterRoles are assigned to users and processes using roleBindings and clusterRoleBindings. Rolebindings associate a user, like a service account, with a role. Any permissions granted by a role are passed to the user through the rolebinding.
+
+Rolebindings can also be created imperatively using <code>kubectl create rolebinding</code>. Rolebindings bind roles to users using the <code>--user</code> flag and serviceAccounts using the <code>--serviceaccount</code> flag. The following example binds the default-appmanager role to the default namespace’s default service account:
+
+<pre class="wp-block-code"><code>
+$ kubectl create rolebinding default-appmanager-rb \
+--serviceaccount default:default \
+--role default-appmanager
+
+rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
+
+$
+</code></pre>
+
+[Learn more about configuring role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+
+
+## Resource Requests, Limits, and LimitRanges
+
+Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the _minimum_ amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ckad-resource-pod
+spec:
+  containers:
+  - name: ckad-resource-container
+    image: my-app:v3.3
+    resources:
+      limits:
+        cpu: "1"
+        memory: “1Gi”
+      requests:
+        cpu: "0.5"
+        memory: “500Mi”
+</code></pre>
+
+[Learn more about pod resource requests/limits](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/).
+
+
+## LimitRanges
+
+Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits. 
+
+LimitRanges must be defined in YAML, and can ensure that either CPU or memory constraints are enforced within the namespace:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit
+  namespace: limited
+spec:
+  limits:
+  - max:
+      cpu: "512m"
+    min:
+      cpu: "64m"
+    type: Container
+</code></pre>
+
+Once defined, the limitrange can be found within the description. 
+
+<pre class="wp-block-code"><code>
+$ kubectl apply -f limitrange.yaml 
+
+limitrange/cpu-limit created
+
+$ kubectl describe namespace limited
+
+Name:         limited
+Labels:       kubernetes.io/metadata.name=limited
+Annotations:  <none>
+Status:       Active
+
+No resource quota.
+
+Resource Limits
+ Type       Resource  Min  Max   Default Request  Default Limit  Max Limit/Request Ratio
+ ----       --------  ---  ---   ---------------  -------------  -----------------------
+ Container  cpu       64m  512m  512m             512m           -
+
+</code></pre>
+
+Once a limitrange like the one described is in place, any pods you create will have that limit injected into their containers:
+
+<pre class="wp-block-code"><code>
+$ kubectl run -n limited --image nginx -o yaml webserver
+
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
+      webserver; cpu limit for container webserver'
+  creationTimestamp: "2022-04-19T23:35:55Z"
   labels:
-    run: nginx
-  name: nginx
+    run: webserver
+  name: webserver
+  namespace: limited
+  resourceVersion: "105825"
+  uid: f9132086-5b4d-4c05-a7e3-991cf8227360
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      run: nginx
-  template:
-    metadata:
-      labels:
-        run: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.16
-</code></pre>
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: webserver
+    resources:
+      limits:
+        cpu: 512m
+      requests:
+        cpu: 512m
 
-Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
-
-The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl </code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
-
-<pre class="wp-block-code"><code>
-$ kubectl run nginx --image=nginx:1.16 --replicas=3 --record
-
-kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
-deployment.apps/nginx created
-
-$ kubectl rollout status deploy nginx
-
-deployment "nginx" successfully rolled out
-
-$ kubectl rollout history deploy nginx
-
-deployment.apps/nginx
-REVISION    CHANGE-CAUSE
-1                    kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
-
-$
-</code></pre>
-Because the <code>--record</code> option was used to create the deployment, the annotation is listed under the <code>CHANGE-CAUSE</code> column. If <code>--record</code> was not used to annotate then <code>none</code> would appear under <code>CHANGE-CAUSE</code> for revision 1.
-
-Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
-
-<pre class="wp-block-code"><code>
-$ kubectl set image deploy nginx nginx=nginx:1.17 --record
-
-deployment.apps/nginx image updated
-
-$ kubectl rollout status deploy nginx
-
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-deployment "nginx" successfully rolled out
+...
 
 $
 </code></pre>
 
-[Learn more about deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [updating deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment).
+[Learn more about LimitRanges and how they enforce resource constraints in your namespaces](https://kubernetes.io/docs/concepts/policy/limit-range/).
 
 
-# Deployments and Rollbacks
+## Namespace Quotas
 
-Kubernetes allows users to undo deployment updates. Deployments can be rolled back to a previous version with <code>kubectl rollout undo deploy <deployment_name></code> or you can specify a specific revision.
+In addition to limiting resources for containers in pods, users also have options to control the resources on the Kubernetes namespace level.
 
-Using the previous example, let’s look at the revisions available.
+Namespace quotas are API objects that place limits on:
+
+<li>The number of certain resources, like pods or services, inside a namespace</li>
+<li>The total utilization of certain machine resources, like cpu or memory, by containers within pods of the namespace</li>
+
+Quotas are enforced in two different ways:
+
+<li>Soft</li> - where a warning is presented to the client if a request that violates the quota is made
+<li>Hard</li> - where a request that violates the quota is rejected
+
+Quotas can be placed by defining a specification for the quota inside a given namespace, which can be done using <code>kubectl create quota</code>:
 
 <pre class="wp-block-code"><code>
-$ kubectl rollout history deploy nginx
+$ kubectl create quota --hard pods=3 pod-limit
 
-deployment.apps/nginx
-REVISION  CHANGE-CAUSE
-1         kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
-2         kubectl set image deploy nginx nginx=nginx:1.17 --record=true
+resourcequota/pod-limit created
+
+$ kubectl describe namespace default
+
+Name:         default
+Labels:       kubernetes.io/metadata.name=default
+Annotations:  <none>
+Status:       Active
+
+Resource Quotas
+  Name:     pod-limit
+  Resource  Used  Hard
+  --------  ---   ---
+  pods      5     3
+
+No LimitRange resource.
 
 $
 </code></pre>
 
-The deployment’s update is now under revision 2. Again, if <code>--record</code> was not used to annotate then <code>none</code> would be listed under the <code>CHANGE-CAUSE</code> column.
+Once create, quotas are visible in the describe output for a given namespace.
 
-Next we undo the rollout to a specific revision, watch the status, and check the rollout history.
-
-<pre class="wp-block-code"><code>
-$ kubectl rollout undo deploy nginx --to-revision=1
-
-deployment.apps/nginx rolled back
-
-$ kubectl rollout status deploy nginx
-
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-deployment "nginx" successfully rolled out
-
-$ kubectl rollout history deploy nginx
-
-deployment.apps/nginx
-REVISION  CHANGE-CAUSE
-2         kubectl set image deploy nginx nginx=nginx:1.17 --record=true
-3         kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
-
-$
-</code></pre>
-
-The deployment is back to using the nginx 1.16 image.
-
-[Learn more about rolling back deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision).
-
-
-# Jobs and CronJobs
-
-Jobs complete tasks from start to finish. A job is complete when the pod finishes the task and the pod exits successfully on completion.
-
-There are three types of jobs:
-<li>Non-parallel jobs - a job that runs one pod</li>
-<li>Parallel jobs with a fixed completion - jobs run multiple pods in parallel and defines the number of completions when the job is finished</li>
-<li>Parallel jobs without a fixed completion - jobs run multiple pods in parallel and when one pod is successful then the job is complete and all other pods terminate; this is also called a work queue</li>
-
-The following manifest describes a parallel job with a fixed number of completions. The job outputs the date to the container’s standard out. The job will run 5 pods in parallel and stop after 20 successful completions.
-
-<pre class="wp-block-code"><code>
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: date-job
-spec:
-  parallelism: 5
-  completions: 20
-  template:
-    metadata:
-      name: date-job
-    spec:
-      containers:
-      - name: busybox
-        image: busybox
-        command:                        
-        - /bin/sh
-        - -c
-        - date
-      restartPolicy: OnFailure
-</code></pre>
-
-At the end of this job, there would be 20 completed pods. Obtaining the container log for any of the 20 pods outputs the date the container ran.
-
-CronJobs are jobs with a schedule and are used to automate tasks. The following CronJob manifest creates a CronJob that runs every minute and outputs the date to the container’s standard out.
-
-<pre class="wp-block-code"><code>
-apiVersion: batch/v1beta1
-kind: CronJob
-metadata:
-  name: cron-job
-spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: busybox
-            image: busybox
-            args:
-            - /bin/sh
-            - -c
-            - date
-          restartPolicy: OnFailure
-</code></pre>
-
-Learn more about:
-<li>[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)</li>
-<li>[CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).</li>
-
-
-# Labels, Selectors, Annotations
-
-Labels are key/value pairs attached to Kubernetes objects such as pods, persistent volumes, and cluster nodes. Labels help manage and organize Kubernetes objects into logical groups and can also be used to qualify Kubernetes objects for resources to execute on. For example, a network policy targets pods within the same namespace using labels on pods.
-
-Some commands use selectors to identify and select Kubernetes objects by their labels. Selectors are used with the <code>-l</code> or <code>--selector</code> flag that filters on labels.
-
-There are two selector types:
-<li>Equality/Inequality-based</li>
-  <ul>
-    <li><code>=</code> or<code>==</code> for equality</li>
-    <li><code>!=</code> for inequality</li>
-  </ul>
-<li>Set-based</li>
-  <ul>
-    <li><code>in</code> for labels that have keys with values in this set</li>
-    <li><code>notin</code> for labels that have keys not in this set</li>
-    <li><code>key_name</code> for labels with the key name</li>
-  </ul>
-
-Take a look at using labels and selectors. Run the following deployments and jobs to launch pods with an environment and a release label. The pods can have an environment label of <code>prod</code>, <code>dev</code>, or <code>qa</code> and a release label with <code>stable</code> or <code>edg</code>. Then use selectors to filter for pods using labels.
-
-N.B. When creating deployments, the first <code>-l</code> option labels the deployment and the second <code>-l</code> option labels pods.
-
-<pre class="wp-block-code"><code>
-$ kubectl run nginx-deploy --image=nginx:1.9 --replicas=5 -l environment=prod -l environment=prod,release=stable
-
-kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
-deployment.apps/nginx-deploy created
-
-$ kubectl run nginx-pod --generator=run-pod/v1 --image=nginx:latest -l environment=dev,release=edge
-
-pod/nginx-pod created
-
-$ kubectl run nginx-qa --image=nginx:latest --replicas=3 -l environment=qa -l environment=qa,release=edge
-
-kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
-deployment.apps/nginx-qa created
-
-$
-</code></pre>
-
-Now we have 9 pods running.
+As this quota has hard enforcement, any requests that would violate a quota in a namespace is rejected, generating an error: 
 
 <pre class="wp-block-code"><code>
 $ kubectl get pods
 
-NAME                                            READY   STATUS    RESTARTS   AGE
-nginx-deploy-86f8b8c8d4-8j78k    1/1           Running    0                   21s
-nginx-deploy-86f8b8c8d4-cbsbz   1/1           Running    0                   21s
-nginx-deploy-86f8b8c8d4-jq2cb    1/1           Running    0                   21s
-nginx-deploy-86f8b8c8d4-l8ck8    1/1           Running    0                   21s
-nginx-deploy-86f8b8c8d4-smfmf   1/1           Running    0                   21s
-nginx-pod                                       1/1           Running    0                   14s
-nginx-qa-55d6b56d5c-fssmn         1/1           Running    0                    8s
-nginx-qa-55d6b56d5c-mmsp9       1/1           Running    0                    8s
-nginx-qa-55d6b56d5c-xlks7          1/1            Running    0                    8s
+No resources found in default namespace.
+
+$ kubectl create deploy webserver --replicas=3 --image nginx
+
+deployment.apps/webserver created
+
+$ kubectl run webserver-new --image httpd
+
+Error from server (Forbidden): pods "webserver-new" is forbidden: exceeded quota: pod-limit, requested: pods=1, used: pods=3, limited: pods=3
 
 $
 </code></pre>
 
+Quotas are a great way of limiting the resource pools within namespaces.
 
-Let’s use selectors to filter labels to identify the appropriate pods that we’re looking for.
+[Learn more about resource quotas for namespaces](https://kubernetes.io/docs/concepts/policy/resource-quotas/). 
 
-Let’s get pods that are not running in production
+
+## ConfigMaps
+
+ConfigMaps are decoupled configuration artifacts keeping containerized applications portable.
+The ConfigMap API resource provides mechanisms to inject containers with configuration data while
+keeping containers agnostic of Kubernetes. A ConfigMap can be used to store fine-grained information like individual properties or coarse-grained information like entire config files or JSON blobs.
+
+There are multiple ways to create a ConfigMap: from a directory upload, a file, or from literal values in command line as shown in the following example:
 
 <pre class="wp-block-code"><code>
-$ kubectl get pod -l environment!=prod --show-labels
+$ kubectl create configmap ckad-example-config --from-literal foo=bar -o yaml
 
-NAME                                       READY   STATUS    RESTARTS   AGE   LABELS
-nginx-pod                                  1/1          Running     0                   67s     environment=dev,release=edge
-nginx-qa-55d6b56d5c-fssmn    1/1          Running     0                   61s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
-nginx-qa-55d6b56d5c-mmsp9  1/1          Running     0                   61s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
-nginx-qa-55d6b56d5c-xlks7      1/1          Running     0                   61s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
+apiVersion: v1
+data:
+  foo: bar
+kind: ConfigMap
+metadata:
+  name: ckad-example-config
+  namespace: default
 
 $
 </code></pre>
 
-We can also retrieve non production pods with set-based requirements:
+[Learn more about ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/).
+
+
+## Secrets
+
+Secrets hold sensitive information, such as passwords, OAuth tokens, and SSH keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or a Docker image!
+
+There are three types of secrets, explained by the `--help` flag:
 
 <pre class="wp-block-code"><code>
-$ kubectl get pods -l "environment notin (prod)" --show-labels
+$ kubectl create secret --help
 
-NAME                                       READY   STATUS    RESTARTS   AGE   LABELS
-nginx-pod                                  1/1          Running     0                   84s   environment=dev,release=edge
-nginx-qa-55d6b56d5c-fssmn    1/1          Running     0                   78s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
-nginx-qa-55d6b56d5c-mmsp9  1/1          Running     0                   78s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
-nginx-qa-55d6b56d5c-xlks7     1/1          Running     0                   78s   environment=qa,pod-template-hash=55d6b56d5c,release=edge
-
-$
+Create a secret using specified subcommand.
+Available Commands:
+  docker-registry Create a secret for use with a Docker registry
+  generic     	Create a secret from a local file, directory or literal value
+  tls         	Create a TLS secret
 </code></pre>
 
-Using the comma separator acts like a logical and (<code>&&</code>) operator. The following example lists pods in the dev environment and with an edge release:
+Example of creating a secret imperatively:
 
 <pre class="wp-block-code"><code>
-$ kubectl get pods -l environment=dev,release=edge --show-labels
+$ kubectl create secret generic my-secret --from-literal=username=ckad-user --from-literal=password="Char1!3-K!10-Alpha-D31ta" -o yaml
 
-NAME        READY   STATUS    RESTARTS   AGE    LABELS
-nginx-pod   1/1          Running     0                   108s    environment=dev,release=edge
+apiVersion: v1
+data:
+  password: Q2hhcjFLd2hpbGUgdHJ1ZSA7IGRvIHdoaWNoIHZpbSA7QWxwaGEtRDMxdGE=
+  username: Y2thZC11c2Vy
+kind: Secret
+metadata:
+  name: my-secret
+  namespace: default
+type: Opaque
 
 $
 </code></pre>
 
-Annotations are similar to labels in that they are metadata key/value pairs. Annotations differ from labels in that they are not used for object selection but are typically used by external applications. Annotations are retrievable by API clients, tools, and libraries. Annotations are created in the manifest.
-The following example is a pod manifest with annotations for build and image information.
+[Learn more about secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+
+
+## Mounting ConfigMaps/Secrets as volumes or environment variables
+
+ConfigMaps and Secrets are mounted by Pods as either volumes or environment variables to be used by container in a Pod.
+
+ConfigMaps and Secrets can be used with a pod in two ways:
+Files in a volume
+Environment variables
+
+Secrets can also be used by the kubelet when pulling images for a pod, called an imagePullSecret
+
+The following Pod manifest mounts the ConfigMap ckad-example-config as a volume to the `/etc/myapp` directory in the container and uses a secret called “`ckad-training-docker-token`” as an imagePullSecret:
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hostinfo
-  annotations:
-    build: one
-    builder: rxmllc
-    imageregistery: “https://hub.docker.com/r/rxmllc/hostinfo”
-spec:
-  containers:
-  - name: hostinfo
-    image: rxmllc/hostinfo
-  restartPolicy: Never
-</code></pre>
-
-Learn more about:
-<li>[Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)</li>
-<li>[Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).</li>
-
-
-# Persistent Volume Claims
-
-A Kubernetes persistent volume exists outside the lifecycle of any pod that mounts it. Persistent volumes are storage objects managed by the Kubernetes cluster and provisioned from the cluster’s infrastructure (like the host’s filesystem).
-
-Persistent volumes describe details of a storage implementation for the cluster, including:
-Access modes for the volume
-The total capacity of the volume
-What happens to the data after the volume is unclaimed
-The type of storage
-An optional, custom storage class identifier
-
-Persistent volume claims are an abstraction of persistent volumes. A persistent volume claim is a request for storage. Persistent volume claims bind to existing persistent volumes on a number of factors like label selectors, storage class name, storage capacity, and access mode. Persistent volume claims can dynamically create persistent volumes using an existing storage class. Pods bind to persistent volume claims by name in the pod’s manifest.
-
-Let’s see how pods bind to a persistent volume claim and how a persistent volume claim binds to a persistent volume.
-
-The manifest below is for a persistent volume with the following characteristics:
-Label of k8scluster: master
-Storage class name is local
-Storage capacity is 200Mi
-One node can mount the volume as read-write (access mode = ReadWriteOnce)
-The persistent volume is released when a bounded persistent volume claim is deleted but not available until the persistent volume is deleted (persistentVolumeReclaimPolicy = Retain)
-Mounted to a host path of /home/ubuntu/persistentvolume.
-
-<pre class="wp-block-code"><code>
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-volume
-  labels:
-    k8scluster: master
-spec:
-  storageClassName: local
-  capacity:
-    storage: 200Mi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /home/ubuntu/persistentvolume
-</code></pre>
-
-In the example above, a persistent volume claim can use one or more of the following to bind to the persistent volume:  label, storage class name, storage capacity, and access mode.
-
-The following example describes a persistent volume claim that binds to the ‘local-volume’ persistent volume by using a selector to select the label <code>k8scluster:master</code>, storage class name of local, and matching storage capacity and access mode.
-
-<pre class="wp-block-code"><code>
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: local-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 200Mi
-  storageClassName: local
-  selector:
-    matchLabels:
-      k8scluster: master
-</code></pre>
-
-After creating the persistent volume and persistent volume claim with <code>kubectl apply -f yaml_file.yaml</code> we can verify the binding but describing the persistent volume and persistent volume claim.
-
-<pre class="wp-block-code"><code>
-$ kubectl describe pv local-volume | grep -A1 Status
-
-Status:          Bound
-Claim:           default/local-pvc
-
-$ kubectl describe pvc local-pvc | grep -A1 Status
-
-Status:        Bound
-Volume:        local-volume
-
-$
-</code></pre>
-
-Now let’s create a pod that binds to the persistent volume claim. The following pod manifest binds to the persistent volume claim by name and mounts the volume to the container’s <code>/usr/share/nginx/html</code> directory.
-
-<pre class="wp-block-code"><code>
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
+  name: pod-config
 spec:
   containers:
     - name: nginx
       image: nginx:latest
+    imagePullSecrets:
+    - name: ckad-training-docker-token
       volumeMounts:
-        - name: data
-          mountPath: /usr/share/nginx/html
+      - name: config
+        mountPath: /etc/myapp
   volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: local-pvc
+    - name: config
+      configMap:
+        name: ckad-example-config
 </code></pre>
 
-After creating this pod. Verify the binding by describing the persistent volume claim and grep for “Mounted By” then describe the pod and grep for “Volumes”
+Learn more about mounting:
+<li>[ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)</li>
+<li>[Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).</li>
+
+
+## ServiceAccounts
+
+Service Accounts are users managed by the Kubernetes API that provide processes in a pod with an identity in the cluster. Service Accounts are bound to a set of credentials stored as secrets in the same namespace in the cluster. Every container in a pod within a namespace inherits credentials from their designated service account.
+
+Service Accounts are entirely managed by the API, and are created by making API calls to the Kubernetes API server. `kubectl` automates the process of creating service accounts with the `create` subcommand. The example below shows an imperative command that creates a serviceAccount called `ckadexample` under the namespace called `ckadtraining`:
 
 <pre class="wp-block-code"><code>
-$ kubectl describe pvc local-pvc | grep “Mounted By”
+$ kubectl create namespace ckadtraining
 
-Mounted By:    nginx
+$ kubectl create serviceaccount ckadexample --namespace ckadtraining
+</code></pre>
 
-$ kubectl describe pod nginx | grep -A3 Volumes
+A service account has no permissions within the cluster by default. The service account must be bound to a role that defines its permissions using a rolebinding. The following example creates a role that allows our new service account to view pods within the ckadtraining namespace and a rolebinding that grants those permissions to the ckadexample SA:
 
-Volumes:
-  data:
-    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  local-pvc
+<pre class="wp-block-code"><code>
+$ kubectl create role ckadsarole\
+--namespace ckadtraining \
+--verb=get,list,watch \
+ --resource=pods
+
+$ kubectl create rolebinding ckadsarolebinding \
+--namespace ckadtraining \
+--role=mysarole \
+--serviceaccount=ckadtraining:ckadexample
 
 $
 </code></pre>
 
+[Learn more about ServiceAccounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).
 
-[Learn more about persistent volumes and persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+
+## SecurityContext
+
+This is a setting in a PodSpec that enhances security for one or all of the containers in a pod and have the following settings:
+<li>Discretionary Access Control: define user ID (UID) and group ID (GID) settings for processes inside containers</li>
+<li>Security Enhanced Linux (SELinux): invoke predefined security labels</li>
+<li>Linux Capabilities: coarse-grained control of system calls to the Linux kernel in a whitelist or blacklist</li>
+  <ul>
+    <li>Marking a pod with privileged = true grants all capabilities</li>
+  </ul>
+<li>AppArmor: invoke predefined program profiles to restrict the capabilities of individual programs</li>
+<li>Seccomp: Fine-grained control over a process’s system calls through the use of json policies</li>
+<li>AllowPrivilegeEscalation: Controls whether a process can gain more privileges than its parent</li>
+
+SecurityContext settings can be set for the pod and/or each container in the pod, for example:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ckad-training-pod
+spec:
+  securityContext:              # pod securitycontext
+    fsGroup: 2000
+  containers:
+  - name: ckad-training-container
+    image: nginx
+    securityContext:            # container securitycontext
+      capabilities:
+        add: ["NET_ADMIN"]
+</code></pre>
+
+[Learn more about SecurityContexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 
-# Practice Drill
+## Practice Drill
 
-<li>Create a deployment that creates 2 replicas of pods using the <code>nginx:1.9</code> image.</li>
-<li>Update the deployment to use the latest <code>nginx</code> image.</li>
-<li>Undo the image update and rollback the deployment to use the <code>nginx:1.9</code> image.</li>
+Create a pod that runs the <code>nginx</code> image and uses a ServiceAccount called <code>my-sa</code>.
