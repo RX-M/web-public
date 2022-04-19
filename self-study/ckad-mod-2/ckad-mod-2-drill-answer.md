@@ -1,44 +1,36 @@
-<!-- CKAD Self-Study Mod 2 -->
+<!-- CKA Self-Study Mod 2 -->
 
-Create the yaml manifest to use as a template for the <code>ckad-side</code> pod using the <code>-o yaml --dry-run=client</code> options:
-
+Create a deployment named <code>cicd</code> with the <code>jenkins/jenkins:lts</code> image:
 <pre class="wp-block-code"><code>
-$ kubectl run ckad-sidecar --restart=Never --image=busybox:latest -o yaml --dry-run=client > ckad-sidecar.yaml --command -- /bin/sh -c "sleep 15 && wget -qO - http://ckad-sidecar | awk NR==4 && tail -f /dev/null"
+$ kubectl create deploy cicd --image jenkins/jenkins:lts
+
+deployment.apps/cicd created
+
+$ kubectl scale deploy cicd --replicas=5
+
+deployment.apps/cicd scaled
 
 $
 </code></pre>
-Edit <code>ckad-sidecar.yaml</code>, rename the <code>busybox</code> container appropriately, and add a <code>nginx</code> container.
+
+Or
 
 <pre class="wp-block-code"><code>
-$ nano ckad-sidecar.yaml && cat ckad-sidecar.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ckad-sidecar
-spec:
-  containers:
-  - name: nginx
-    image: nginx:latest
-  - name: busybox
-    image: busybox:latest
-    command:
-    - /bin/sh
-    - -c
-    - sleep 15 && wget -qO - http://ckad-sidecar | awk NR==4 && tail -f /dev/null
-  restartPolicy: OnFailure
+$ kubectl create deploy cicd --image jenkins/jenkins:lts -o yaml --dry-run > cicddep.yaml
 
-$ kubectl apply -f ckad-sidecar.yaml
+$ nano cicddep.yaml
+</code></pre>
 
-pod/ckad-sidecar created
+Change the <code>replicas</code> key’s value to 5
 
-$ kubectl logs ckad-sidecar -c busybox
+<pre class="wp-block-code"><code>
 
-&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+$ kubectl apply -f cicddep.yaml
 
 $
 </code></pre>
 
 
-As an additional exercise, try creating a pod with an Apache HTTP container (httpd) with a liveness probe that uses httpGet.
+As an additional exercise, try to change the command in the pods that the cicd deployment creates to output the jenkins logs to a file.
 
-RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.
+RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps; we offer open enrollments and private engagements for teams or organizations.

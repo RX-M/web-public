@@ -138,9 +138,7 @@ spec:
           restartPolicy: OnFailure
 </code></pre>
 
-Learn more about:
-<li>[Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)</li>
-<li>[CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)</li>
+Learn more about [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) and [CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).
 
 
 <h2>Understand multi-container Pod design patterns</h2>
@@ -314,16 +312,16 @@ Volumes:
 $
 </code></pre>
 
-
 [Learn more about persistent volumes and persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+
 
 <h2>Practice Drill<h2>
 
-<li> Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:
+<li> Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:</li>
 
 <pre class="wp-block-code"><code>
 FROM centos/httpd
 RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
 </code></pre>
 
-<li> Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.
+<li> Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.</li>
