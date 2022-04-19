@@ -1,26 +1,97 @@
 <!-- CKAD Self-Study Mod 1 -->
 
-Create the <code>my-sa</code> ServiceAccount:
+Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:
 
 <pre class="wp-block-code"><code>
-$ kubectl create serviceaccount my-sa
+$ nano Dockerfile && cat $_
 
-serviceaccount/my-sa created
+FROM centos/httpd
+RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
+
+$ docker build -t self-study/webserver:v1 .
+
+Sending build context to Docker daemon  3.584kB
+Step 1/2 : FROM centos/httpd
+ ---> 2cc07fbb5000
+Step 2/2 : RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
+ ---> Running in 2addf467f100
+Removing intermediate container 2addf467f100
+ ---> 3c1011807b54
+Successfully built 3c1011807b54
+Successfully tagged self-study/webserver:v1
 
 $
 </code></pre>
 
-Create a pod that runs the <code>nginx</code> image with the <code>my-sa</code> ServiceAccount:
+Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.:
 
 <pre class="wp-block-code"><code>
-$ kubectl run ckad-basic-pod --generator=run-pod/v1 --image=nginx --serviceaccount=my-sa
+$ nano self-study-pod-1.yaml && cat $_
 
-pod/ckad-basic-pod created
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: self-study-pod-1
+  name: self-study-pod-1
+spec:
+  containers:
+  - image: self-study/webserver:v1
+    name: primary
+    volumeMounts:
+    - name: logs
+      mountPath: /var/log/httpd
+  - image: fluent/fluent-bit:1.9.2
+    name: logger
+    volumeMounts:
+    - name: logs
+      mountPath: /httpd
+    command:
+    - /fluent-bit/bin/fluent-bit 
+    - -i 
+    - tail 
+    - -p 
+    - path=/httpd/access_log 
+    - -o 
+    - stdout
+  volumes:
+  - name: logs
+    emptyDir: {}
+
+$ kubectl apply -f self-study-pod-1.yaml 
+
+pod/self-study-pod-1 created
 
 $
 </code></pre>
 
+To test it, curl the IP of the <code>self-study-pod-1</code> pod and retrieve the logs from the its <code>logger</code> container:
 
-As an additional exercise, try creating a configMap and/or secret and using it in a pod as a volume or environment variable.
+<pre class="wp-block-code"><code>
+$ kubectl get pods self-study-pod-1 -o wide
+
+NAME               READY   STATUS    RESTARTS   AGE    IP          NODE               NOMINATED NODE   READINESS GATES
+self-study-pod-1   2/2     Running   0          4m1s   10.32.0.4   ip-172-31-57-184   <none>           <none>
+
+$ curl 10.32.0.4
+
+welcome
+
+$ kubectl logs self-study-pod-1 logger
+Fluent Bit v1.9.2
+* Copyright (C) 2015-2022 The Fluent Bit Authors
+* Fluent Bit is a CNCF sub-project under the umbrella of Fluentd
+* https://fluentbit.io
+
+[2022/04/19 00:14:32] [ info] [fluent bit] version=1.9.2, commit=27a63c11d3, pid=1
+[2022/04/19 00:14:32] [ info] [storage] version=1.1.6, type=memory-only, sync=normal, checksum=disabled, max_chunks_up=128
+[2022/04/19 00:14:32] [ info] [cmetrics] version=0.3.0
+[2022/04/19 00:14:32] [ info] [sp] stream processor started
+[2022/04/19 00:14:32] [ info] [output:stdout:stdout.0] worker #0 started
+[2022/04/19 00:14:32] [ info] [input:tail:tail.0] inotify_fs_add(): inode=777359 watch_fd=1 name=/httpd/access_log
+[0] tail.0: [1650327514.381999019, {"log"=>"10.32.0.1 - - [19/Apr/2022:00:18:34 +0000] "GET / HTTP/1.1" 403 8 "-" "curl/7.68.0""}]
+
+$ 
+</code></pre>
 
 RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.
