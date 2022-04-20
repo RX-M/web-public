@@ -36,29 +36,22 @@ Updates to the deployment’s pod template trigger a gradual update. When a depl
 The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl </code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
 
 <pre class="wp-block-code"><code>
-$ kubectl run nginx --image=nginx:1.16 --replicas=3 --record
+$ kubectl create deploy nginx --image=nginx:1.16 --replicas=3
 
-kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
 deployment.apps/nginx created
 
 $ kubectl rollout status deploy nginx
 
 deployment "nginx" successfully rolled out
 
-$ kubectl rollout history deploy nginx
-
-deployment.apps/nginx
-REVISION    CHANGE-CAUSE
-1                    kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
 
 $
 </code></pre>
-Because the <code>--record</code> option was used to create the deployment, the annotation is listed under the <code>CHANGE-CAUSE</code> column. If <code>--record</code> was not used to annotate then <code>none</code> would appear under <code>CHANGE-CAUSE</code> for revision 1.
 
 Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
 
 <pre class="wp-block-code"><code>
-$ kubectl set image deploy nginx nginx=nginx:1.17 --record
+$ kubectl set image deploy nginx nginx=nginx:1.17
 
 deployment.apps/nginx image updated
 
@@ -88,8 +81,8 @@ $ kubectl rollout history deploy nginx
 
 deployment.apps/nginx
 REVISION  CHANGE-CAUSE
-1         kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
-2         kubectl set image deploy nginx nginx=nginx:1.17 --record=true
+1         <none>
+2         <none>
 
 $
 </code></pre>
@@ -116,8 +109,8 @@ $ kubectl rollout history deploy nginx
 
 deployment.apps/nginx
 REVISION  CHANGE-CAUSE
-2         kubectl set image deploy nginx nginx=nginx:1.17 --record=true
-3         kubectl run nginx --image=nginx:1.16 --replicas=3 --record=true
+2         <none>
+3         <none>
 
 $
 </code></pre>
@@ -402,6 +395,7 @@ Once a release is generated, you can change the parameters by changing values (a
 
 <pre class="wp-block-code"><code>
 $ helm upgrade self-study-nginx --set service.type=NodePort bitnami/nginx
+
 Release "self-study-nginx" has been upgraded. Happy Helming!
 NAME: self-study-nginx
 LAST DEPLOYED: Tue Apr 19 19:24:14 2022

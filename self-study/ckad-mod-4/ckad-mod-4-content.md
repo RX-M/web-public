@@ -206,6 +206,6 @@ Network policies are an essential way to control network access between pods in 
 
 Run the following command:
 
-<code>kubectl run --generator run-pod/v1 --image nginx nginx-drill</code>
+<code>kubectl run --image nginx nginx-drill</code>
 
 Create a NodePort service that allows you to send a curl request to the nginx-drill pod at port 80 through your machine’s IP address.
