@@ -1,9 +1,9 @@
-<!-- CKA Self-Study Mod 2 -->
+<!-- CKAD Self-Study Mod 2 -->
 
-# Application Deployment
+<h1>Application Deployment</h1>
 
 
-## Deployments and Rolling Updates
+<h2>Deployments and Rolling Updates</h2>
 
 A deployment is a controller that ensures an application’s pods run according to a desired state. Deployments create and control replicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state to the Kubernetes API server. The API server compares the current state to the desired state (stored in etcd). If the current and desired states differ, the Kubernetes API server tells the kubelet(s) to make deployment changes to match the desired state.
 
@@ -33,7 +33,7 @@ spec:
 
 Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
 
-The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl </code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
+The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
 
 <pre class="wp-block-code"><code>
 $ kubectl create deploy nginx --image=nginx:1.16 --replicas=3
@@ -67,10 +67,10 @@ deployment "nginx" successfully rolled out
 $
 </code></pre>
 
-[Learn more about deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [updating deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployments</a></strong> and <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment">updating deployments</a></strong>.
 
 
-## Deployments and Rollbacks
+<h2>Deployments and Rollbacks</h2>
 
 Kubernetes allows users to undo deployment updates. Deployments can be rolled back to a previous version with <code>kubectl rollout undo deploy <deployment_name></code> or you can specify a specific revision.
 
@@ -117,11 +117,10 @@ $
 
 The deployment is back to using the nginx 1.16 image.
 
-[Learn more about rolling back deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision)
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision">rolling back deployments</a></strong>.
 
 
-
-## Scale Applications
+<h2>Scale Applications</h2>
 
 Applications deployed using a controller like a Deployment or statefulSet can be scaled up or down by modifying the number of replicas.
 
@@ -167,12 +166,12 @@ deployment.apps/redis-prod configured
 $
 </code></pre>
 
-[Learn more about scaling your applications using controllers like deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment">scaling your applications using controllers like deployments</a></strong>.
 
 
-## Deployment Patterns
+<h2>Deployment Patterns</h2>
 
-As you have seen, deployments when combined with services, can expose new application features and updates to users with little downtime. That combination allows a basic Kubernetes clusters to perform things like canary or blue/green deployments. 
+As you have seen, deployments when combined with services, can expose new application features and updates to users with little downtime. That combination allows a basic Kubernetes clusters to perform things like canary or blue/green deployments.
 
 A canary deployment is a pattern where new features or updates are exposed to users gradually. A canary deployment can be achieved by taking a service backed by a deployment and adding additional pods with the updated code to that service (whether they are standalone pods or another deployment).
 
@@ -200,7 +199,7 @@ $ curl 10.103.48.81
 $
 </code></pre>
 
-To achieve a canary deployment in Kubernetes, another deployment with a new version of the application (in this case, a webserver) can 
+To achieve a canary deployment in Kubernetes, another deployment with a new version of the application (in this case, a webserver) can
 
 <pre class="wp-block-code"><code>
 $ cat webserver-canary.yaml
@@ -223,7 +222,7 @@ spec:
       - image: httpd
         name: httpd
 
-$ kubectl apply -f webserver-canary.yaml 
+$ kubectl apply -f webserver-canary.yaml
 
 deployment.apps/webserver-canary created
 
@@ -305,12 +304,12 @@ $ curl 10.103.48.81
 $
 </code></pre>
 
-Learn more about [blue/green deployments](https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/) and [canary deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment). 
+Learn more about <strong><a href="https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/">blue/green deployments</a></strong> and <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment">canary deployments</a></strong>.
 
 
-## Use the Helm package manager to deploy existing packages
+<h2>Use the Helm Package Manager to Deploy Existing Packages</h2>
 
-A popular method of deploying applications on Kubernetes is through the use of templating tools like Helm. These tools allow users to specify all of the components of an application meant to run on Kubernetes in a series of templated YAML files. Toos like Helm take these templated YAML files, populate them with user-defined values, and deploy all of those resources together.
+A popular method of deploying applications on Kubernetes is through the use of templating tools like Helm. These tools allow users to specify all of the components of an application meant to run on Kubernetes in a series of templated YAML files. Tools like Helm take these templated YAML files, populate them with user-defined values, and deploy all of those resources together.
 
 Helm take the concept of an application package and applies it to Kubernetes. The application's resource templates are grouped into packages known as charts. Charts include all of the YAML templates that represent Kubernetes resources deployed by Helm and supporting components like metadata, information on dependencies, custom resource definitions, and tests to be run.
 
@@ -437,13 +436,13 @@ $ kubectl get all
 NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   19h
 
-$ 
+$
 </code></pre>
 
 
-[Learn more about the Helm package manager and its use here](https://helm.sh/docs/)
+Learn more about the <strong><a href="https://helm.sh/docs/">Helm package manager and its use</a></strong>.
 
 
-## Practice Drill
+<h2>Practice Drill</h2>
 
 Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>jenkins/jenkins:lts</code> image.

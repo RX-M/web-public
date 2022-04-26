@@ -1,9 +1,9 @@
 <!-- CKAD Self-Study Mod 5 -->
 
-# Application Observability and maintenance
+<h1>Application Observability and Maintenance</h1>
 
 
-## Understand API deprecations
+<h2>Understand API Deprecations</h2>
 
 As an ongoing project, new features will move through various stages of maturity as Kubernetes continues to grow. Every feature is served by a new API that is registered to the Kubernetes API server. There are 3 stages of maturity for these APIs:
 
@@ -34,9 +34,9 @@ $
 
 API deprecations are a major event in the Kubernetes development cycle and come with many announcements. After a deprecation announcement, the affected features and/or APIs that get deprecated will:
 
-<code>Begin generating warnings in the CLI when invoked or submitted to the Kubernetes API server</code>
-<code>Have their functionality disabled while continuing to generate warnings</code>
-<code>Eventually get removed from the codebase all together, usually within 2-3</code>
+<li>Begin generating warnings in the CLI when invoked or submitted to the Kubernetes API server</li>
+<li>Have their functionality disabled while continuing to generate warnings</li>
+<li>Eventually get removed from the codebase all together, usually within 2-3 releases</li>
 
 <pre class="wp-block-code"><code>
 $ kubectl run -o yaml --dry-run=client pod-with-reqs-limits --requests cpu=64m,memory=256Mi --limits cpu=256m,memory=512Mi --image nginx
@@ -64,7 +64,7 @@ $
 
 For existing manifests, the <code>apiVersion</code> line must be changed to a non-deprecated API version. This can be done with <code>kubectl-convert</code>, an optional kubectl plugin that examines older manifests and updates them to reflect the latest API versions.
 
-The <code>kubectl-convert</code> plugin must be installed separate, with instructions found [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin).
+The <code>kubectl-convert</code> plugin must be installed separate, with instructions found <strong><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin">here</a></strong>.
 
 <pre class="wp-block-code"><code>
 $ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl-convert"
@@ -77,7 +77,7 @@ $
 Given the following file, which describes a deployment from v1.16 (when deployments were under the old <code>extensions</code> API):
 
 <pre class="wp-block-code"><code>
-$ cat old-deploy.yaml 
+$ cat old-deploy.yaml
 
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -149,10 +149,10 @@ $
 
 There are usually about 2-3 minor versions between a deprecation notice and the removal of a feature, so users typically have at least 6 months.
 
-[Learn more about and keep track of the API Deprecation process](https://kubernetes.io/docs/reference/using-api/deprecation-guide/) and [how to install and use kubectl-convert]().
+Learn more about and keep track of the <strong><a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/">API Deprecation process</a></strong> and how to <strong><a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/#migrate-to-non-deprecated-apis">use kubectl-convert</a></strong>.
 
 
-## Liveness Probes and Readiness Probes
+<h2>Liveness Probes and Readiness Probes</h2>
 
 A liveness probe is a health check that tells a kubelet when to restart a container. Liveness probes help catch locks where an application seems to be running but can not proceed. Implementing a liveness probe in a deployment is a start to making a self-healing application.
 
@@ -184,10 +184,10 @@ spec:
       periodSeconds: 20
 </code></pre>
 
-[Learn more about Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Liveness and Readiness Probes</a></strong>.
 
 
-## Container Logging
+<h2>Container Logging</h2>
 
 Kubernetes retrieves container logs from a container’s standard output and standard error streams. The applications running in the container must output their logs to a place read by the container logging engine (commonly STDOUT).
 
@@ -220,14 +220,14 @@ Here are other useful container logging options:
 <li><code>--since</code> - prints logs since a specific time period e.g. --since 15m</li>
 <li><code>--timestamps</code> - includes timestamps</li>
 
-[Learn more about container logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/cluster-administration/logging/">container logging</a></strong>.
 
 
-## Monitoring Applications
+<h2>Monitoring Applications</h2>
 
 For the CKAD exam, the scope of monitoring applications is only within the scope of Kubernetes (including the Kubernetes metrics server). Key metrics to monitor are resources such as CPU and memory along with deployments and their running pods. Labels filter for a specific application or domain during monitoring.
 
-The Kubernetes metrics server is not installed with the Kubernetes installation using kubeadm. Install the Kubernetes metrics-server and [learn more about the metrics-server](https://github.com/kubernetes-sigs/metrics-server).
+The Kubernetes metrics server is not installed with the Kubernetes installation using kubeadm. Install the Kubernetes metrics-server and learn more about the <strong><a href="https://github.com/kubernetes-sigs/metrics-server">metrics-server</a></strong>.
 
 With the metrics server installed you can view the resources used reported by the kubelets on each pod with <code>kubectl top pods</code>:
 
@@ -246,16 +246,16 @@ metrics-server-6f7946fdd7-dq6hd            4m           13Mi
 weave-net-tbhqd                            1m           45Mi  
 </code></pre>
 
-Learn more about [the tools for monitoring resources on Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/), [monitoring](https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/), and the [metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/">the tools for monitoring resources on Kubernetes</a></strong>, <strong><a href="https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/">monitoring</a></strong>, and the <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server">metrics server</a></strong>.
 
 
-## Debugging
+<h2>Debugging</h2>
 
 Debugging running applications in Kubernetes starts by retrieving simple status information about the pods.
 Here are a few places to start looking:
-Pod status - is the pod running, pending, or crash looping?
-Pod restart count - does the pod have many recent restarts?
-Pod resources - is the pod requesting more resources available in its namespace or on its node?
+<li>Pod status - is the pod running, pending, or crash looping?</li>
+<li>Pod restart count - does the pod have many recent restarts?</li>
+<li>Pod resources - is the pod requesting more resources available in its namespace or on its node?</li>
 
 Pod details are retrieved by introspecting the pod with <code>kubectl describe pod pod_name</code>.
 
@@ -294,6 +294,7 @@ Events:
 
 $
 </code></pre>
+
 The <code>Events</code> section of the description points out the image name is invalid. Correcting the image name will resolve this issue.
 
 Here’s another pending pod:
@@ -343,19 +344,15 @@ $
 
 The pod is requesting 1500m of cpu. There are no nodes in the cluster with 1500m free of cpu so the pod stays pending. There are a few ways to resolve this issue: reduce the container’s cpu request, free up cpu on a cluster node, or add a new worker node to the cluster.
 
-[Learn more about application debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/">application debugging</a></strong>.
 
 
-## Practice Drill
+<h2>Practice Drill</h2>
 
-The pod defined in the `problem.yaml` below creates a pod meant to run a perpetual tail command in the `busybox` image.
-The pod, which runs an init container with the `alpine:latest` does not run as expected. Apply the manifest to your cluster,
-identify the problem and repair it so that the pod runs as expected.
+The pod defined in the <code>problem.yaml</code> below creates a pod meant to run a perpetual tail command in the <code>busybox</code> image. The pod, which runs an init container with the <code>alpine:latest</code> does not run as expected. Apply the manifest to your cluster, identify the problem and repair it so that the pod runs as expected.
 
-Apply the `problem.yaml` manifest to your cluster using the following command:
+Apply the <code>problem.yaml</code> manifest to your cluster using the following command:
 
-<pre class="wp-block-code"><code>
-kubectl apply -f https://raw.githubusercontent.com/RX-M/bust-a-kube/master/workload-1/problem.yaml
-</code></pre>
+<pre class="wp-block-code"><code>kubectl apply -f https://raw.githubusercontent.com/RX-M/bust-a-kube/master/workload-1/problem.yaml</code></pre>
 
 The pod must be in the running state with all containers ready for this problem to be considered resolved.

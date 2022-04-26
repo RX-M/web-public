@@ -1,17 +1,17 @@
 <!-- CKAD Self-Study Mod 4 -->
 
-# Services & Networking
+<h1>Services & Networking</h1>
 
 
-## Services and Other Network Primitives
+<h2>Services and Other Network Primitives</h2>
 
 A service is an abstraction of a logical set of pods and a policy that defines inbound and network access. A service uses a selector to target pods by the pods’ label. A service exposes a logical set of pods as a network service providing a single IP address, DNS name, or load balancing to access the pods.
 
 The service type is defined in the manifest. The following are available service types:
-ClusterIP - exposes the service on an internal IP in the Kubernetes cluster (default)
-NodePort - exposes the service on the same port of each node in the Kubernetes cluster
-LoadBalancer - creates an external load balancer with a cloud provider (e.g. GCE ForwardingRules, AWS Elastic Load Balancer, Azure Load Balancer) and assigns a public IP to the service
-ExternalName - exposes the service using an arbitrary name
+<li>ClusterIP - exposes the service on an internal IP in the Kubernetes cluster (default)</li>
+<li>NodePort - exposes the service on the same port of each node in the Kubernetes cluster</li>
+<li>LoadBalancer - creates an external load balancer with a cloud provider (e.g. GCE ForwardingRules, AWS Elastic Load Balancer, Azure Load Balancer) and assigns a public IP to the service</li>
+<li>ExternalName - exposes the service using an arbitrary name</li>
 
 Services can be created imperatively for a running resource. At minimum the resource type, resource name, and the service’s exposed proxy port are required e.g. <code>kubectl expose<resource> <resource_name> --port=<port number></code>.
 
@@ -67,10 +67,10 @@ spec:
           servicePort: 80
 </code></pre>
 
-On the docs, you can learn more about [Services](https://kubernetes.io/docs/concepts/services-networking/service/), [Endpoints](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors), and [EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/).
+On the docs, you can learn more about <strong><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></strong>, <strong><a href="https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors">Endpoints</a></strong>, and <strong><a href="https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/">EndpointSlices</a></strong>.
 
 
-## Ingress Controllers and Ingress Resources
+<h2>Ingress Controllers and Ingress Resources</h2>
 
 The Ingress resource manages external access to Kubernetes services via HTTP and HTTPS routes. An Ingress controller is required to satisfy an Ingress. The Ingress controller reads and implements the rules of the Ingress resource.
 
@@ -146,23 +146,22 @@ $ curl --resolve www.example.com:30111:<Your IP> http://www.example.com:30111
 $
 </code></pre>
 
-Learn more about [Ingress resource](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress resources</a></strong> and <strong><a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress controllers</a></strong>.
 
 
-### Using Network Policies
+<h3>Using Network Policies</h3>
 
 Network Policies are crucial to controlling pod-to-pod access in a cluster. Network policies enable cluster users
 to enforce:
 
-- Pod to Pod communication within and between namespaces in the cluster
-  - Can by done by port or by label
-- Pod to other destinations, like certain CIDR blocks (0.0.0.0, 172.168.0.0/16, 10.255.255.255/32)
+<li>Pod to Pod communication within and between namespaces in the cluster (can by done by port or by label)</li>
+<li>Pod to other destinations, like certain CIDR blocks (0.0.0.0, 172.168.0.0/16, 10.255.255.255/32)</li>
 
 When a network policy is put into place in a namespace, by default all incoming traffic to pods within that namespace (AKA ingress) is blocked while all outgoing traffic (called Egress) remains unblocked. Additional rules to block egress or allow ingress to certain pods must be present:
 
-The following Network Policy selects all pods in the `meta` namespace and explicitly prevents all Ingress traffic into those pods:
+The following Network Policy selects all pods in the <code>meta</code> namespace and explicitly prevents all Ingress traffic into those pods:
 
-```yaml
+<pre class="wp-block-code"><code>
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -172,15 +171,15 @@ spec:
   podSelector: {}
   policyTypes:
   - Ingress
-```
+</code></pre>
 
-If you add `- Egress` to the `policyTypes` section of the network policy, the network policy will prevent all outgoing traffic from all affected pods in the `meta` namespace.
+If you add <code>- Egress</code> to the <code>policyTypes</code> section of the network policy, the network policy will prevent all outgoing traffic from all affected pods in the <code>meta</code> namespace.
 
-To allow incoming traffic to pods in the affected namespace, you must add the `ingress` key into the network policy's spec. Under that key, you can define one or more rules that define what pods, namespaces, or IP Ranges (CIDRs).
+To allow incoming traffic to pods in the affected namespace, you must add the <code>ingress</code> key into the network policy's spec. Under that key, you can define one or more rules that define what pods, namespaces, or IP Ranges (CIDRs).
 
-The following Network Policy spec allows Ingress traffic from all pods within the `10.0.0.0/8` CIDR block (covering IP addresses ranging from 10.0.0.0 to 10.255.255.255) that are labeled with the key-value pair `network=approved`:
+The following Network Policy spec allows Ingress traffic from all pods within the <code>10.0.0.0/8</code> CIDR block (covering IP addresses ranging from 10.0.0.0 to 10.255.255.255) that are labeled with the key-value pair <code>network=approved</code>:
 
-```yaml
+<pre class="wp-block-code"><code>
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -197,12 +196,12 @@ spec:
       podSelector:
         matchLabels:
           network: approved
-```
+</code></pre>
 
-Network policies are an essential way to control network access between pods in your cluster. [You can learn more about Kubernetes network policies and how to use them here](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
+Network policies are an essential way to control network access between pods in your cluster. You can learn more about <strong><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes network policies</a></strong> and how to use them.
 
 
-## Practice Drill
+<h2>Practice Drill</h2>
 
 Run the following command:
 

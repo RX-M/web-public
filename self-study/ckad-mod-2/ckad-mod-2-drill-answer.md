@@ -1,4 +1,4 @@
-<!-- CKA Self-Study Mod 2 -->
+<!-- CKAD Self-Study Mod 2 -->
 
 Create a deployment named <code>cicd</code> with the <code>jenkins/jenkins:lts</code> image:
 <pre class="wp-block-code"><code>
@@ -33,4 +33,4 @@ $
 
 As an additional exercise, try to change the command in the pods that the cicd deployment creates to output the jenkins logs to a file.
 
-RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps; we offer open enrollments and private engagements for teams or organizations.
+RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.

@@ -1,9 +1,9 @@
 <!-- CKAD Self-Study Mod 3 -->
 
-# Application Environment Configuration and Security
+<h1>Application Environment Configuration and Security</h1>
 
 
-## Discover and use resources that extend Kubernetes
+<h2>Discover and Use Resources that Extend Kubernetes</h2>
 
 A Kubernetes cluster's functionality is extended by registering additional APIs to the API Server. Custom APIs usually bring their own set of custom resources which can be specified. If your cluster has been expanded to include custom resource definitions, there are two primary ways to identify them.
 
@@ -46,7 +46,7 @@ v1
 $
 </code></pre>
 
-Any additional APIs you have installed as part of various cluster extensions, like operators, 
+Any additional APIs you have installed as part of various cluster extensions, like operators,
 
 The resources available to your cluster are viewable with <code>kubectl api-resources</code>, which shows the kinds of
 resources you can create in a cluster:
@@ -77,10 +77,10 @@ services                          svc          v1                               
 $
 </code></pre>
 
-[Learn more about custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/">custom resource definitions</a></strong>.
 
 
-## Understanding Authentication, Authorization and admission control
+<h2>Understanding Authentication, Authorization and Admission Control</h2>
 
 Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.
 
@@ -138,12 +138,12 @@ rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
 $
 </code></pre>
 
-[Learn more about configuring role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+Learn more about <strong><a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">configuring role-based access control</a></strong>.
 
 
-## Resource Requests, Limits, and LimitRanges
+<h2>Resource Requests, Limits, and LimitRanges</h2>
 
-Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the _minimum_ amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
+Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the <em>minimum</em> amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
@@ -163,12 +163,12 @@ spec:
         memory: “500Mi”
 </code></pre>
 
-[Learn more about pod resource requests/limits](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/">pod resource requests/limits</a></strong>.
 
 
-## LimitRanges
+<h2>LimitRanges</h2>
 
-Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits. 
+Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits.
 
 LimitRanges must be defined in YAML, and can ensure that either CPU or memory constraints are enforced within the namespace:
 
@@ -187,10 +187,10 @@ spec:
     type: Container
 </code></pre>
 
-Once defined, the limitrange can be found within the description. 
+Once defined, the limitrange can be found within the description.
 
 <pre class="wp-block-code"><code>
-$ kubectl apply -f limitrange.yaml 
+$ kubectl apply -f limitrange.yaml
 
 limitrange/cpu-limit created
 
@@ -244,10 +244,10 @@ spec:
 $
 </code></pre>
 
-[Learn more about LimitRanges and how they enforce resource constraints in your namespaces](https://kubernetes.io/docs/concepts/policy/limit-range/).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/policy/limit-range/">LimitRanges</a></strong> and how they enforce resource constraints in your namespaces.
 
 
-## Namespace Quotas
+<h2>Namespace Quotas</h2>
 
 In addition to limiting resources for containers in pods, users also have options to control the resources on the Kubernetes namespace level.
 
@@ -258,8 +258,8 @@ Namespace quotas are API objects that place limits on:
 
 Quotas are enforced in two different ways:
 
-<li>Soft</li> - where a warning is presented to the client if a request that violates the quota is made
-<li>Hard</li> - where a request that violates the quota is rejected
+<li>Soft - where a warning is presented to the client if a request that violates the quota is made</li>
+<li>Hard - where a request that violates the quota is rejected</li>
 
 Quotas can be placed by defining a specification for the quota inside a given namespace, which can be done using <code>kubectl create quota</code>:
 
@@ -288,7 +288,7 @@ $
 
 Once create, quotas are visible in the describe output for a given namespace.
 
-As this quota has hard enforcement, any requests that would violate a quota in a namespace is rejected, generating an error: 
+As this quota has hard enforcement, any requests that would violate a quota in a namespace is rejected, generating an error:
 
 <pre class="wp-block-code"><code>
 $ kubectl get pods
@@ -308,10 +308,10 @@ $
 
 Quotas are a great way of limiting the resource pools within namespaces.
 
-[Learn more about resource quotas for namespaces](https://kubernetes.io/docs/concepts/policy/resource-quotas/). 
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">resource quotas for namespaces</a></strong>.
 
 
-## ConfigMaps
+<h2>ConfigMaps</h2>
 
 ConfigMaps are decoupled configuration artifacts keeping containerized applications portable.
 The ConfigMap API resource provides mechanisms to inject containers with configuration data while
@@ -333,14 +333,14 @@ metadata:
 $
 </code></pre>
 
-[Learn more about ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">ConfigMaps</a></strong>.
 
 
-## Secrets
+<h2>Secrets</h2>
 
 Secrets hold sensitive information, such as passwords, OAuth tokens, and SSH keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or a Docker image!
 
-There are three types of secrets, explained by the `--help` flag:
+There are three types of secrets, explained by the <code>--help</code> flag:
 
 <pre class="wp-block-code"><code>
 $ kubectl create secret --help
@@ -370,10 +370,10 @@ type: Opaque
 $
 </code></pre>
 
-[Learn more about secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/configuration/secret/">secrets</a></strong>.
 
 
-## Mounting ConfigMaps/Secrets as volumes or environment variables
+<h2>Mounting ConfigMaps/Secrets as Volumes or Environment Variables</h2>
 
 ConfigMaps and Secrets are mounted by Pods as either volumes or environment variables to be used by container in a Pod.
 
@@ -383,7 +383,7 @@ Environment variables
 
 Secrets can also be used by the kubelet when pulling images for a pod, called an imagePullSecret
 
-The following Pod manifest mounts the ConfigMap ckad-example-config as a volume to the `/etc/myapp` directory in the container and uses a secret called “`ckad-training-docker-token`” as an imagePullSecret:
+The following Pod manifest mounts the ConfigMap ckad-example-config as a volume to the <code>/etc/myapp</code> directory in the container and uses a secret called “<code>ckad-training-docker-token</code>” as an imagePullSecret:
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
@@ -406,15 +406,15 @@ spec:
 </code></pre>
 
 Learn more about mounting:
-<li>[ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)</li>
-<li>[Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).</li>
+<li><strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">ConfigMaps</a></strong></li>
+<li><strong><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></strong></li>
 
 
-## ServiceAccounts
+<h2>Service Accounts</h2>
 
 Service Accounts are users managed by the Kubernetes API that provide processes in a pod with an identity in the cluster. Service Accounts are bound to a set of credentials stored as secrets in the same namespace in the cluster. Every container in a pod within a namespace inherits credentials from their designated service account.
 
-Service Accounts are entirely managed by the API, and are created by making API calls to the Kubernetes API server. `kubectl` automates the process of creating service accounts with the `create` subcommand. The example below shows an imperative command that creates a serviceAccount called `ckadexample` under the namespace called `ckadtraining`:
+Service Accounts are entirely managed by the API, and are created by making API calls to the Kubernetes API server. <code>kubectl</code> automates the process of creating service accounts with the <code>create</code> subcommand. The example below shows an imperative command that creates a serviceAccount called <code>ckadexample</code> under the namespace called <code>ckadtraining</code>:
 
 <pre class="wp-block-code"><code>
 $ kubectl create namespace ckadtraining
@@ -438,21 +438,21 @@ $ kubectl create rolebinding ckadsarolebinding \
 $
 </code></pre>
 
-[Learn more about ServiceAccounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">Service Accounts</a></strong>.
 
 
-## SecurityContext
+<h2>SecurityContext</h2>
 
 This is a setting in a PodSpec that enhances security for one or all of the containers in a pod and have the following settings:
-<li>Discretionary Access Control: define user ID (UID) and group ID (GID) settings for processes inside containers</li>
-<li>Security Enhanced Linux (SELinux): invoke predefined security labels</li>
-<li>Linux Capabilities: coarse-grained control of system calls to the Linux kernel in a whitelist or blacklist</li>
+<li>Discretionary Access Control - define user ID (UID) and group ID (GID) settings for processes inside containers</li>
+<li>Security Enhanced Linux (SELinux) - invoke predefined security labels</li>
+<li>Linux Capabilities - coarse-grained control of system calls to the Linux kernel in a whitelist or blacklist</li>
   <ul>
     <li>Marking a pod with privileged = true grants all capabilities</li>
   </ul>
-<li>AppArmor: invoke predefined program profiles to restrict the capabilities of individual programs</li>
-<li>Seccomp: Fine-grained control over a process’s system calls through the use of json policies</li>
-<li>AllowPrivilegeEscalation: Controls whether a process can gain more privileges than its parent</li>
+<li>AppArmor - invoke predefined program profiles to restrict the capabilities of individual programs</li>
+<li>Seccomp - Fine-grained control over a process’s system calls through the use of json policies</li>
+<li>AllowPrivilegeEscalation - Controls whether a process can gain more privileges than its parent</li>
 
 SecurityContext settings can be set for the pod and/or each container in the pod, for example:
 
@@ -472,9 +472,9 @@ spec:
         add: ["NET_ADMIN"]
 </code></pre>
 
-[Learn more about SecurityContexts](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">SecurityContexts</a></strong>.
 
 
-## Practice Drill
+<h2>Practice Drill</h2>
 
 Create a pod that runs the <code>nginx</code> image and uses a ServiceAccount called <code>my-sa</code>.

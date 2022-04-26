@@ -2,7 +2,7 @@
 
 <h1>Application Design and Build</h1>
 
-<h2>Define, build, and modify container images</h2>
+<h2>Define, Build, and Modify Container Images</h2>
 
 All workloads on Kubernetes run as containers created from container images. With containers, the deployment of applications becomes fast, reliable, and repeatable. It is up to the developer to know how to define, build, and modify container images meant to run on a Kubernetes cluster.
 
@@ -24,7 +24,7 @@ RUN apt update & apt install -y vim
 CMD while true; do which vim; sleep 2; done
 </code></pre>
 
-After defining the instructions to create a container image, the image must be built. Tools like Docker and Podman (through buildah) usually have an accompanying "build" instruction that parses a Dockerfile, executes its steps in order, and produces a tagged image. 
+After defining the instructions to create a container image, the image must be built. Tools like Docker and Podman (through buildah) usually have an accompanying "build" instruction that parses a Dockerfile, executes its steps in order, and produces a tagged image.
 
 <pre class="wp-block-code"><code>
 $ docker build -t debian-vim:latest .
@@ -32,7 +32,7 @@ $ docker build -t debian-vim:latest .
 Sending build context to Docker daemon  2.048kB
 Step 1/3 : FROM debian:10
 10: Pulling from library/debian
-b281ebec60d2: Pull complete 
+b281ebec60d2: Pull complete
 Digest: sha256:1b236b48c1ef66fa08535a5153266f4959bf58f948db3e68f7d678b651d8e33a
 Status: Downloaded newer image for debian:10
  ---> 76e02db62235
@@ -76,8 +76,7 @@ Options:
 ...
 </code></pre>
 
-[Learn more about how Kubernetes CLI commands map to a tool like Docker here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
-
+<strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/">Learn more about how Kubernetes CLI commands map to a tool like Docker here.</a></strong>
 
 
 <h2>Understand Jobs and CronJobs</h2>
@@ -138,10 +137,10 @@ spec:
           restartPolicy: OnFailure
 </code></pre>
 
-Learn more about [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) and [CronJobs](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/).
+Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/job/">Jobs</a></strong> and <strong><a href="https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/">CronJobs</a></strong>.
 
 
-<h2>Understand multi-container Pod design patterns</h2>
+<h2>Understand Multi-Container Pod Design Patterns</h2>
 
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
@@ -194,10 +193,9 @@ spec:
   restartPolicy: OnFailure
 </code></pre>
 
-[Learn more about multi-container pod patterns](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/).
+<strong><a href="https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/">Learn more about multi-container pod patterns.</a></strong>
 
-
-<h2>Utilize persistent and ephemeral volumes</h2>
+<h2>Utilize Persistent and Ephemeral Volumes</h2>
 
 A Kubernetes persistent volume exists outside the lifecycle of any pod that mounts it. Persistent volumes are storage objects managed by the Kubernetes cluster and provisioned from the cluster’s infrastructure (like the host’s filesystem).
 
@@ -312,16 +310,15 @@ Volumes:
 $
 </code></pre>
 
-[Learn more about persistent volumes and persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+<strong><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Learn more about persistent volumes and persistent volume claims.</a></strong>
 
 
-<h2>Practice Drill<h2>
+<h2>Practice Drill</h2>
 
-<li> Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:</li>
+<li>Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:</li>
 
-<pre class="wp-block-code"><code>
-FROM centos/httpd
+<pre class="wp-block-code"><code>FROM centos/httpd
 RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
 </code></pre>
 
-<li> Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.</li>
+<li>Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.</li>
