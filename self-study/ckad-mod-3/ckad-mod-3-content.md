@@ -137,7 +137,7 @@ $
 Learn more about <strong><a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">configuring role-based access control</a></strong>.
 
 
-<h2>Resource Requests, Limits, and LimitRanges</h2>
+<h2>Resource Requests and Limits</h2>
 
 Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the <em>minimum</em> amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
 
