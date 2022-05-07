@@ -172,23 +172,22 @@ Given an existing webserver deployment with two pods and a service, each time cl
 
 <pre class="wp-block-code"><code>$ kubectl get pods,svc -l app=webserver
 
-NAME                            READY   STATUS    RESTARTS   AGE
-pod/webserver-754db6dc6-jrtf4   1/1     Running   0          29s
-pod/webserver-754db6dc6-jsxtt   1/1     Running   0          29s
+NAME READY STATUS RESTARTS AGE
+pod/webserver-754db6dc6-jrtf4 1/1 Running 0 29s
+pod/webserver-754db6dc6-jsxtt 1/1 Running 0 29s
 
-NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
-service/webserver   ClusterIP   10.103.48.81   <none>        80/TCP    24s
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+service/webserver ClusterIP 10.103.48.81 &lt;none&gt; 80/TCP 24s
 
 $ curl 10.103.48.81
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
 
 ...
 
-$
 </code></pre>
 
 Creating another deployment whose pods have the <code>app=webserver</code> label adds those pods as endpoints to the <code>webserver</code> service:
@@ -231,16 +230,16 @@ In the typical canary deployment, a majority of requests made to the service sho
 
 <pre class="wp-block-code"><code>$ curl 10.103.48.81
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
 
 ...
 
 $ curl 10.103.48.81
 
-<html><body><h1>It works!</h1></body></html>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
 $
 </code></pre>
@@ -278,15 +277,15 @@ Now, 100% of all requests go to the new, Apache webserver while the old NGINX we
 
 <pre class="wp-block-code"><code>$ curl 10.103.48.81
 
-<html><body><h1>It works!</h1></body></html>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
 $ curl 10.103.48.81
 
-<html><body><h1>It works!</h1></body></html>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
 $ curl 10.103.48.81
 
-<html><body><h1>It works!</h1></body></html>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
 $
 </code></pre>
