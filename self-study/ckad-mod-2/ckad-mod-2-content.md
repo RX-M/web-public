@@ -9,8 +9,7 @@ A deployment is a controller that ensures an application’s pods run according 
 
 The deployment spec declares the desired state of pod configurations under the pod template. The following example is a deployment of 3 nginx pods using the nginx version 1.16 image:
 
-<pre class="wp-block-code"><code>
-apiVersion: apps/v1
+<pre class="wp-block-code"><code>apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -33,10 +32,9 @@ spec:
 
 Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
 
-The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
+The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code>.
 
-<pre class="wp-block-code"><code>
-$ kubectl create deploy nginx --image=nginx:1.16 --replicas=3
+<pre class="wp-block-code"><code>$ kubectl create deploy nginx --image=nginx:1.16 --replicas=3
 
 deployment.apps/nginx created
 
@@ -50,8 +48,7 @@ $
 
 Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
 
-<pre class="wp-block-code"><code>
-$ kubectl set image deploy nginx nginx=nginx:1.17
+<pre class="wp-block-code"><code>$ kubectl set image deploy nginx nginx=nginx:1.17
 
 deployment.apps/nginx image updated
 
@@ -76,8 +73,7 @@ Kubernetes allows users to undo deployment updates. Deployments can be rolled ba
 
 Using the previous example, let’s look at the revisions available.
 
-<pre class="wp-block-code"><code>
-$ kubectl rollout history deploy nginx
+<pre class="wp-block-code"><code>$ kubectl rollout history deploy nginx
 
 deployment.apps/nginx
 REVISION  CHANGE-CAUSE
@@ -91,8 +87,7 @@ The deployment’s update is now under revision 2. Again, if <code>--record</cod
 
 Next we undo the rollout to a specific revision, watch the status, and check the rollout history.
 
-<pre class="wp-block-code"><code>
-$ kubectl rollout undo deploy nginx --to-revision=1
+<pre class="wp-block-code"><code>$ kubectl rollout undo deploy nginx --to-revision=1
 
 deployment.apps/nginx rolled back
 
@@ -126,8 +121,7 @@ Applications deployed using a controller like a Deployment or statefulSet can be
 
 Changing the <code>replicas</code> key value in the controller’s spec will trigger an update to the application’s current replicaSet that increases (or reduces) the number of pods that run the application. This is done imperatively using <code>kubectl scale</code>:
 
-<pre class="wp-block-code"><code>
-$ kubectl scale deploy redis-prod --replicas=3
+<pre class="wp-block-code"><code>$ kubectl scale deploy redis-prod --replicas=3
 
 deployment.apps/redis-prod scaled
 
@@ -136,8 +130,7 @@ $
 
 Or declaratively by making changes to the controller’s spec’s YAML and applying it to the cluster:
 
-<pre class="wp-block-code"><code>
-$ nano redis-prod.yaml
+<pre class="wp-block-code"><code>$ nano redis-prod.yaml
 
 apiVersion: apps/v1
 kind: Deployment
@@ -177,8 +170,7 @@ A canary deployment is a pattern where new features or updates are exposed to us
 
 Given an existing webserver deployment with two pods and a service, each time clients send a request to the service IP address, one of the original webserver pods returns the response:
 
-<pre class="wp-block-code"><code>
-$ kubectl get pods,svc -l app=webserver
+<pre class="wp-block-code"><code>$ kubectl get pods,svc -l app=webserver
 
 NAME                            READY   STATUS    RESTARTS   AGE
 pod/webserver-754db6dc6-jrtf4   1/1     Running   0          29s
@@ -199,10 +191,9 @@ $ curl 10.103.48.81
 $
 </code></pre>
 
-To achieve a canary deployment in Kubernetes, another deployment with a new version of the application (in this case, a webserver) can
+Creating another deployment whose pods have the <code>app=webserver</code> label adds those pods as endpoints to the <code>webserver</code> service:
 
-<pre class="wp-block-code"><code>
-$ cat webserver-canary.yaml
+<pre class="wp-block-code"><code>$ cat webserver-canary.yaml
 
 apiVersion: apps/v1
 kind: Deployment
@@ -236,10 +227,9 @@ pod/webserver-754db6dc6-jsxtt           1/1     Running   0          6m12s
 pod/webserver-canary-7f9f87794f-r8tnv   1/1     Running   0          11s
 </code></pre>
 
-With the new canary deployment in place and its pods added as endpoints of the original service, a majority of requests made to the service will go to the original pods and a small subset (33% in the case of a service with 3 pods) will go to the canary:
+In the typical canary deployment, a majority of requests made to the service should go to the original pods. The canary deployment should have fewer active pods to enable a portion of that traffic (33% in the case of a service with 3 pods) to be routed to the canary:
 
-<pre class="wp-block-code"><code>
-$ curl 10.103.48.81
+<pre class="wp-block-code"><code>$ curl 10.103.48.81
 
 <!DOCTYPE html>
 <html>
@@ -259,8 +249,7 @@ If a gradual switch to a new version is not needed, then the blue/green strategy
 
 Given the following scenario, with a service backed by NGINX and a "new" webserver backed by Apache webserver:
 
-<pre class="wp-block-code"><code>
-$ kubectl get svc,pods
+<pre class="wp-block-code"><code>$ kubectl get svc,pods
 
 NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP   21h
@@ -276,10 +265,9 @@ pod/webserver-754db6dc6-jsxtt        1/1     Running   0          30m
 $
 </code></pre>
 
-For a blue-green deployment, switching the service's selector (which determines which pods a service send traffic to) ensures that the service goes from the blue backend (NGINX) to the green backend (httpd)
+For a blue-green deployment, switching the service's selector (which determines which pods a service send traffic to) ensures that the service goes from the blue backend (NGINX) to the green backend (httpd).
 
-<pre class="wp-block-code"><code>
-$ kubectl set selector svc webserver app=new-webserver
+<pre class="wp-block-code"><code>$ kubectl set selector svc webserver app=new-webserver
 
 service/webserver selector updated
 
@@ -288,8 +276,7 @@ $
 
 Now, 100% of all requests go to the new, Apache webserver while the old NGINX websever can be safely retired:
 
-<pre class="wp-block-code"><code>
-$ curl 10.103.48.81
+<pre class="wp-block-code"><code>$ curl 10.103.48.81
 
 <html><body><h1>It works!</h1></body></html>
 
@@ -317,8 +304,7 @@ Deploying an application with helm is straightforward. First, identify a chart t
 
 Once you have identified a chart, you need to add that chart as a source to your Helm instance:
 
-<pre class="wp-block-code"><code>
-$ helm repo add bitnami https://charts.bitnami.com/bitnami
+<pre class="wp-block-code"><code>$ helm repo add bitnami https://charts.bitnami.com/bitnami
 
 "bitnami" has been added to your repositories
 
@@ -335,8 +321,7 @@ After adding the chart repository to helm, your <code>helm</code> command can no
 
 If you want to install, say, a NGINX using helm from the recently added repository, you use helm's <code>install</code> command to generate a release of that chart. The release is the grouping of Kubernetes resources generated from the template in the chart. The resources are populated with values provided by the user (using the <code>--set</code> flag or providing a yaml file with values) or the default values of provided by the chart during the installation:
 
-<pre class="wp-block-code"><code>
-$ helm install self-study-nginx bitnami/nginx
+<pre class="wp-block-code"><code>$ helm install self-study-nginx bitnami/nginx
 
 NAME: self-study-nginx
 LAST DEPLOYED: Tue Apr 19 19:20:14 2022
@@ -371,8 +356,7 @@ $
 
 You can easily identify the resources generated by Helm because every resource bears the name of its release once deployed to the cluster:
 
-<pre class="wp-block-code"><code>
-$ kubectl get all --show-labels
+<pre class="wp-block-code"><code>$ kubectl get all --show-labels
 
 NAME                                    READY   STATUS    RESTARTS   AGE   LABELS
 pod/self-study-nginx-7ccd4b56d9-q29bb   1/1     Running   0          73s   app.kubernetes.io/instance=self-study-nginx,app.kubernetes.io/managed-by=Helm,app.kubernetes.io/name=nginx,helm.sh/chart=nginx-10.1.1,pod-template-hash=7ccd4b56d9
@@ -392,8 +376,7 @@ $
 
 Once a release is generated, you can change the parameters by changing values (again using the <code>--set</code> or providing an updated values yaml file) and using Helm's <code>upgrade</code> subcommand:
 
-<pre class="wp-block-code"><code>
-$ helm upgrade self-study-nginx --set service.type=NodePort bitnami/nginx
+<pre class="wp-block-code"><code>$ helm upgrade self-study-nginx --set service.type=NodePort bitnami/nginx
 
 Release "self-study-nginx" has been upgraded. Happy Helming!
 NAME: self-study-nginx
@@ -426,8 +409,7 @@ $
 
 The releases themselves are managed directly by Helm, and can be uninstalled using Helm's <code>uninstall</code> command:
 
-<pre class="wp-block-code"><code>
-$ helm uninstall self-study-nginx
+<pre class="wp-block-code"><code>$ helm uninstall self-study-nginx
 
 release "self-study-nginx" uninstalled
 

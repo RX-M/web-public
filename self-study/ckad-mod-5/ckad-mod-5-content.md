@@ -6,15 +6,15 @@
 <h2>Understand API Deprecations</h2>
 
 As an ongoing project, new features will move through various stages of maturity as Kubernetes continues to grow. Every feature is served by a new API that is registered to the Kubernetes API server. There are 3 stages of maturity for these APIs:
-
+<ul>
 <li>Alpha - These APIs serve features that are highly experimental and not recommended for any production use. Kubernetes includes these Alpha APIs but they must be enabled by setting the appropriate feature gate on the API server. Alpha APIs can either move to beta status or get removed depending on how well the feature is received and used.</li>
 <li>Beta - These APIs serve features that are still in highly active development but considered ready for production use. Beta APIs and features are enabled by default. Depending on their development cycles, Beta APIs can move up through multiple versions between Kubernetes releases or regress back to Alpha for further development.</li>
 <li>Stable - These APIs are highly mature and do not see too many changes between versions. Stable APIs are enabled by default. At this point, stable APIs can only be retired if their feature is no longer necessary or if a new version of the API supplants its use.</li>
+</ul>
 
 You can view all of the APIs registered with your Kubernetes API server using the <code>kubectl api-versions</code> command:
 
-<pre class="wp-block-code"><code>
-$ kubectl api-versions
+<pre class="wp-block-code"><code>$ kubectl api-versions
 
 admissionregistration.k8s.io/v1
 apiextensions.k8s.io/v1
@@ -33,13 +33,13 @@ $
 </code></pre>
 
 API deprecations are a major event in the Kubernetes development cycle and come with many announcements. After a deprecation announcement, the affected features and/or APIs that get deprecated will:
-
+<ul>
 <li>Begin generating warnings in the CLI when invoked or submitted to the Kubernetes API server</li>
 <li>Have their functionality disabled while continuing to generate warnings</li>
 <li>Eventually get removed from the codebase all together, usually within 2-3 releases</li>
+</ul>
 
-<pre class="wp-block-code"><code>
-$ kubectl run -o yaml --dry-run=client pod-with-reqs-limits --requests cpu=64m,memory=256Mi --limits cpu=256m,memory=512Mi --image nginx
+<pre class="wp-block-code"><code>$ kubectl run -o yaml --dry-run=client pod-with-reqs-limits --requests cpu=64m,memory=256Mi --limits cpu=256m,memory=512Mi --image nginx
 
 Flag --requests has been deprecated, has no effect and will be removed in 1.24.
 Flag --limits has been deprecated, has no effect and will be removed in 1.24.
@@ -66,8 +66,7 @@ For existing manifests, the <code>apiVersion</code> line must be changed to a no
 
 The <code>kubectl-convert</code> plugin must be installed separate, with instructions found <strong><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin">here</a></strong>.
 
-<pre class="wp-block-code"><code>
-$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl-convert"
+<pre class="wp-block-code"><code>$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl-convert"
 
 $ sudo install -o root -g root -m 0755 kubectl-convert /usr/local/bin/kubectl-convert
 
@@ -76,8 +75,7 @@ $
 
 Given the following file, which describes a deployment from v1.16 (when deployments were under the old <code>extensions</code> API):
 
-<pre class="wp-block-code"><code>
-$ cat old-deploy.yaml
+<pre class="wp-block-code"><code>$ cat old-deploy.yaml
 
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -102,8 +100,7 @@ $
 
 <code>kubectl-convert</code> can read the file and automatically make the necessary changes to update it to the latest api (<code>apps/v1</code> in 1.23):
 
-<pre class="wp-block-code"><code>
-$ kubectl-convert -f old-deploy.yaml --output-version apps/v1
+<pre class="wp-block-code"><code>$ kubectl-convert -f old-deploy.yaml --output-version apps/v1
 
 apiVersion: apps/v1
 kind: Deployment
@@ -159,9 +156,11 @@ A liveness probe is a health check that tells a kubelet when to restart a contai
 An application may not immediately be ready to accept traffic when its container first starts; a readiness probe informs Kubernetes when it is okay to start sending traffic to a container after it boots. For example, a container of a java application might take minutes to load and may not be ready to accept traffic until it’s fully running. In this scenario, the readiness probe mitigates long loading times.
 
 There are three options for liveness and readiness probes:
+<ul>
 <li>exec - takes a command, an exit code of 0 is success</li>
 <li>httpGet - performs an http get, a 200-399 status is good</li>
 <li>tcpSocket - a successful connection to a specified port is success</li>
+</ul>
 
 Liveness and readiness probes are similarly configured for each container in a pod. For example the following pod manifest has an <code>nginx</code>. container with a liveness probe that runs an http get to the root path to port 80. If the <code>nginx</code> web server replies with a 200 - 399 code then the pod is alive. The liveness probe waits 10 seconds before the first check and periodically checks every 20 seconds.
 
@@ -195,8 +194,7 @@ You can retrieve container logs with the <code>kubectl logs pod_name</code> comm
 
 In this example, we create a pod called <code>logging-pod</code> that outputs the system date and time every second.
 
-<pre class="wp-block-code"><code>
-$ kubectl run logging-pod --image=busybox:latest --command -- /bin/sh -c 'while true; do date; sleep 1; done'
+<pre class="wp-block-code"><code>$ kubectl run logging-pod --image=busybox:latest --command -- /bin/sh -c 'while true; do date; sleep 1; done'
 
 pod/logging-pod created
 
@@ -205,8 +203,7 @@ $
 
 Then the container logs are retrieved with <code>kubectl logs</code>:
 
-<pre class="wp-block-code"><code>
-$ kubectl logs logging-pod
+<pre class="wp-block-code"><code>$ kubectl logs logging-pod
 
 Wed Apr 20 16:31:45 UTC 2022
 Wed Apr 20 16:31:46 UTC 2022
@@ -215,10 +212,12 @@ $
 </code></pre>
 
 Here are other useful container logging options:
+<ul>
 <li><code>--previous</code> - retrieves container logs from the previous instantiation of a container, this is helpful for containers that are crash looping</li>
 <li><code>-f</code> - streams container logs</li>
 <li><code>--since</code> - prints logs since a specific time period e.g. --since 15m</li>
 <li><code>--timestamps</code> - includes timestamps</li>
+</ul>
 
 Learn more about <strong><a href="https://kubernetes.io/docs/concepts/cluster-administration/logging/">container logging</a></strong>.
 
@@ -231,19 +230,18 @@ The Kubernetes metrics server is not installed with the Kubernetes installation 
 
 With the metrics server installed you can view the resources used reported by the kubelets on each pod with <code>kubectl top pods</code>:
 
-<pre class="wp-block-code"><code>
-$ kubectl top pods -n kube-system
+<pre class="wp-block-code"><code>$ kubectl top pods -n kube-system
 
-NAME                                       CPU(cores)   MEMORY(bytes)   
-coredns-64897985d-5gn7r                    1m           11Mi            
-coredns-64897985d-vbl5w                    1m           12Mi            
-etcd-ip-172-31-57-184                      15m          43Mi            
-kube-apiserver-ip-172-31-57-184            52m          276Mi           
-kube-controller-manager-ip-172-31-57-184   10m          45Mi            
-kube-proxy-rw4nw                           2m           10Mi            
-kube-scheduler-ip-172-31-57-184            3m           17Mi            
-metrics-server-6f7946fdd7-dq6hd            4m           13Mi            
-weave-net-tbhqd                            1m           45Mi  
+NAME                                       CPU(cores)   MEMORY(bytes)
+coredns-64897985d-5gn7r                    1m           11Mi
+coredns-64897985d-vbl5w                    1m           12Mi
+etcd-ip-172-31-57-184                      15m          43Mi
+kube-apiserver-ip-172-31-57-184            52m          276Mi
+kube-controller-manager-ip-172-31-57-184   10m          45Mi
+kube-proxy-rw4nw                           2m           10Mi
+kube-scheduler-ip-172-31-57-184            3m           17Mi
+metrics-server-6f7946fdd7-dq6hd            4m           13Mi
+weave-net-tbhqd                            1m           45Mi
 </code></pre>
 
 Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/">the tools for monitoring resources on Kubernetes</a></strong>, <strong><a href="https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/">monitoring</a></strong>, and the <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server">metrics server</a></strong>.
@@ -253,9 +251,11 @@ Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-applica
 
 Debugging running applications in Kubernetes starts by retrieving simple status information about the pods.
 Here are a few places to start looking:
+<ul>
 <li>Pod status - is the pod running, pending, or crash looping?</li>
 <li>Pod restart count - does the pod have many recent restarts?</li>
 <li>Pod resources - is the pod requesting more resources available in its namespace or on its node?</li>
+</ul>
 
 Pod details are retrieved by introspecting the pod with <code>kubectl describe pod pod_name</code>.
 
@@ -263,8 +263,7 @@ Take a look at how common pod issues are debugged using the pod’s description.
 
 Here are key segments in a description of a pending pod:
 
-<pre class="wp-block-code"><code>
-$ kubectl describe pod busybox
+<pre class="wp-block-code"><code>$ kubectl describe pod busybox
 
 Name:         busybox
 Namespace:    default
@@ -275,7 +274,7 @@ IPs:
   IP:  10.32.0.5
 Containers:
   myapp-container:
-    Container ID:  
+    Container ID:
     Image:         busyBOX
   ...
 Conditions:
@@ -299,8 +298,7 @@ The <code>Events</code> section of the description points out the image name is 
 
 Here’s another pending pod:
 
-<pre class="wp-block-code"><code>
-$ kubectl get pods
+<pre class="wp-block-code"><code>$ kubectl get pods
 
 NAME    READY   STATUS    RESTARTS   AGE
 nginx   0/1     Pending   0          2m15s
@@ -309,10 +307,10 @@ $
 </code></pre>
 
 This nginx pod has been pending for over 2 minutes.
+
 Let’s look at the pod’s <code>Events</code>.
 
-<pre class="wp-block-code"><code>
-$ kubectl describe pod nginx | grep -A4 Events
+<pre class="wp-block-code"><code>$ kubectl describe pod nginx | grep -A4 Events
 
 Events:
   Type     Reason            Age                  From               Message
@@ -324,8 +322,7 @@ $
 
 Not enough resources are available in the cluster. We can see if the pod is making a hard resource request by looking at the <code>Containers</code> section of the pod description.
 
-<pre class="wp-block-code"><code>
-$ kubectl describe pod nginx | grep -A10 Containers
+<pre class="wp-block-code"><code>$ kubectl describe pod nginx | grep -A10 Containers
 
 Containers:
   nginx:

@@ -1,10 +1,8 @@
 <!-- CKAD Self-Study Mod 4 -->
 
-
 First, run the command to create the pod:
 
-<pre class="wp-block-code"><code>
-$ kubectl run --generator run-pod/v1 --image nginx nginx-drill
+<pre class="wp-block-code"><code>$ kubectl run --generator run-pod/v1 --image nginx nginx-drill
 
 pod/nginx-drill created
 
@@ -35,8 +33,7 @@ $
 
 Finally, try to send a curl request to the nginx pod using your machine IP address:
 
-<pre class="wp-block-code"><code>
-$ ip a s | head
+<pre class="wp-block-code"><code>$ ip a s | head
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00

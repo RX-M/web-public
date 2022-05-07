@@ -1,32 +1,6 @@
 <!-- CKAD Self-Study Mod 1 -->
 
-Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:
-
-<pre class="wp-block-code"><code>
-$ nano Dockerfile && cat $_
-
-FROM centos/httpd
-RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
-
-$ docker build -t self-study/webserver:v1 .
-
-Sending build context to Docker daemon  3.584kB
-Step 1/2 : FROM centos/httpd
- ---> 2cc07fbb5000
-Step 2/2 : RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
- ---> Running in 2addf467f100
-Removing intermediate container 2addf467f100
- ---> 3c1011807b54
-Successfully built 3c1011807b54
-Successfully tagged self-study/webserver:v1
-
-$
-</code></pre>
-
-Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.:
-
-<pre class="wp-block-code"><code>
-$ nano self-study-pod-1.yaml && cat $_
+<pre class="wp-block-code"><code>$ nano self-study-pod-1.yaml && cat $_
 
 apiVersion: v1
 kind: Pod
@@ -47,18 +21,18 @@ spec:
     - name: logs
       mountPath: /httpd
     command:
-    - /fluent-bit/bin/fluent-bit 
-    - -i 
-    - tail 
-    - -p 
-    - path=/httpd/access_log 
-    - -o 
+    - /fluent-bit/bin/fluent-bit
+    - -i
+    - tail
+    - -p
+    - path=/httpd/access_log
+    - -o
     - stdout
   volumes:
   - name: logs
     emptyDir: {}
 
-$ kubectl apply -f self-study-pod-1.yaml 
+$ kubectl apply -f self-study-pod-1.yaml
 
 pod/self-study-pod-1 created
 
@@ -91,7 +65,7 @@ Fluent Bit v1.9.2
 [2022/04/19 00:14:32] [ info] [input:tail:tail.0] inotify_fs_add(): inode=777359 watch_fd=1 name=/httpd/access_log
 [0] tail.0: [1650327514.381999019, {"log"=>"10.32.0.1 - - [19/Apr/2022:00:18:34 +0000] "GET / HTTP/1.1" 403 8 "-" "curl/7.68.0""}]
 
-$ 
+$
 </code></pre>
 
 RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.

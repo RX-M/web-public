@@ -2,8 +2,7 @@
 
 Create the <code>nginx</code> deployment:
 
-<pre class="wp-block-code"><code>
-$ kubectl create deployment nginx --image=nginx:1.9 --replicas=2 --record
+<pre class="wp-block-code"><code>$ kubectl create deployment nginx --image=nginx:1.9 --replicas=2 --record
 
 deployment.apps/nginx created
 
@@ -12,8 +11,7 @@ $
 
 Update the deployment to use the <code>nginx:latest</code> image:
 
-<pre class="wp-block-code"><code>
-$ kubectl set image deploy nginx nginx=nginx:latest --record
+<pre class="wp-block-code"><code>$ kubectl set image deploy nginx nginx=nginx:latest --record
 
 deployment.apps/nginx image updated
 
