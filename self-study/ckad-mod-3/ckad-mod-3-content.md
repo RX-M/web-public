@@ -368,8 +368,10 @@ Learn more about <strong><a href="https://kubernetes.io/docs/concepts/configurat
 ConfigMaps and Secrets are mounted by Pods as either volumes or environment variables to be used by container in a Pod.
 
 ConfigMaps and Secrets can be used with a pod in two ways:
-Files in a volume
-Environment variables
+<ul>
+ 	<li>Files in a volume</li>
+ 	<li>Environment variables</li>
+</ul>
 
 Secrets can also be used by the kubelet when pulling images for a pod, called an imagePullSecret
 
