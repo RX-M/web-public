@@ -139,7 +139,7 @@ Test the Ingress rules with <code>curl --resolve www.example.com:30111:<your-IP>
 
 <pre class="wp-block-code"><code>$ curl --resolve www.example.com:30111:<Your IP> http://www.example.com:30111
 
-<html><body><h1>It works!</h1></body></html>
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
 $
 </code></pre>
