@@ -1,8 +1,6 @@
 <!-- CKAD Self-Study Mod 5 -->
 
-After you apply the pod, use <code>kubectl get pods</code> to view the status. You will see that the pod is not ready,
-and has a status of Init:ImagePullBackOff. Note that the "Init:" prefix implies that this is a failure with
-the init container not one of the normal containers in the pod.
+After you apply the pod, use <code>kubectl get pods</code> to view the status. You will see that the pod is not ready, and has a status of Init:ImagePullBackOff. Note that the "Init:" prefix implies that this is a failure with the init container not one of the normal containers in the pod.
 
 <pre class="wp-block-code"><code>$ kubectl get pods
 
@@ -12,8 +10,7 @@ debug-pod1   0/1     Init:ImagePullBackOff   0          43s
 $
 </code></pre>
 
-Run <code>kubectl describe pod debug-pod1</code> and look at the events. You will see that the Kubelet was unable to pull
-the specified image using the container manager:
+Run <code>kubectl describe pod debug-pod1</code> and look at the events. You will see that the Kubelet was unable to pull the specified image using the container manager:
 
 <pre class="wp-block-code"><code>$ kubectl describe pods debug-pod1
 
@@ -41,9 +38,7 @@ Events:
 $
 </code></pre>
 
-Take a close look at the init container image name. If you check Docker Hub you will see that no such image exists. The
-init  container image name is incorrect. Change the image name to <code>alpine</code> or <code>alpine:latest</code> to correct
-the issue.
+Take a close look at the init container image name. If you check Docker Hub you will see that no such image exists. The init  container image name is incorrect. Change the image name to <code>alpine</code> or <code>alpine:latest</code> to correct the issue.
 
 <pre class="wp-block-code"><code>$ nano pod-debug-1.yaml && cat pod-debug-1.yaml
 
@@ -69,9 +64,7 @@ spec:
 $
 </code></pre>
 
-You can only edit some of the fields in running pods, and image is not one of them. To apply the fix you will need to
-delete the pod and recreate it. If this pod were created by a deployment or another controller, updating the pod spec
-in the parent resource would perform the update for you.
+You can only edit some of the fields in running pods, and image is not one of them. To apply the fix you will need to delete the pod and recreate it. If this pod were created by a deployment or another controller, updating the pod spec in the parent resource would perform the update for you.
 
 <pre class="wp-block-code"><code>$ kubectl delete -f pod-debug-1.yaml
 
