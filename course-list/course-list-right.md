@@ -66,6 +66,10 @@
 ● Object Oriented Analysis & Design (2-5 Days) <br>
 ● Secure Application Development (2 Days) <br>
 ● Serverless Development with AWS Lambda (3 Days) <br>
+● Rust Foundation (2 Days) <br>
+● Rust Essentials (3 Days) <br>
+● Rust Embedded (2 Days) <br>
+● Rust Intermediate (2 Days) <br>
 <br>
 <br>
 **DATABASE** <br>
