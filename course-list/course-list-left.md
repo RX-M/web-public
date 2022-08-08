@@ -45,6 +45,7 @@
 ● Test Driven Development Using Visual Studio/C#/NUnit (3-5 Days) <br>
 ● Test Driven Development for Managers (1 Day) <br>
 ● Interoperability Testing and the SDLC (2 Days) <br>
+● ArgoCD (1 Day) <br>
 <br>
 <br>
 **CONFIGURATION MANAGEMENT** <br>
