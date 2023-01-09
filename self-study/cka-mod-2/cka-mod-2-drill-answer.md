@@ -2,7 +2,7 @@
 
 Create a deployment named <code>cicd</code> with the <code>jenkins/jenkins:lts</code> image:
 <pre class="wp-block-code"><code>
-$ kubectl create deploy cicd --image jenkins/jenkins:lts
+$ kubectl create deployment cicd --image jenkins/jenkins:lts
 
 deployment.apps/cicd created
 
@@ -16,7 +16,7 @@ $
 Or
 
 <pre class="wp-block-code"><code>
-$ kubectl create deploy cicd --image jenkins/jenkins:lts -o yaml --dry-run > cicddep.yaml
+$ kubectl create deployment cicd --image jenkins/jenkins:lts -o yaml --dry-run > cicddep.yaml
 
 $ nano cicddep.yaml
 </code></pre>

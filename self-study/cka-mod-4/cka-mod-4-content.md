@@ -38,7 +38,7 @@ fivegigpv    5Gi        RWO            Retain           Available               
 $
 </code></pre>
 
-Pods may use persistent volumes directly, but another way to use persistentVolumes (PVs) is through PersistentVolumeClaims. PersistentVolumeClaims (PVCs) are abstract requests for storage that claim persistent volumes. If a PVC finds an existing PV that fulfills its requests (access mode and capacity), then that PV is bound to the PVC. PVCs can also describe PVs as templates that dynamically provision PVs from the desired specifications.
+The primary way to use persistentVolumes (PVs) is through PersistentVolumeClaims. PersistentVolumeClaims (PVCs) are abstract requests for storage that claim persistent volumes. If a PVC finds an existing PV that fulfills its requests (access mode and capacity), then that PV is bound to the PVC. PVCs can also describe PVs as templates that dynamically provision PVs from the desired specifications.
 
 <pre class="wp-block-code"><code>
 $ kubectl get pvc
@@ -49,30 +49,107 @@ app-log-pvc   Bound    app-log-pv   1Gi        RWO,ROX                       85m
 $
 </code></pre>
 
-StorageClasses allow persistent volume claims to dynamically provision PVs. Each storageClass object uses a plugin specific to a storage provider’s backend to create a new PV. The example below shows a basic gp2 storage class for AWS:
+[Learn more about how Kubernetes handles storage](https://kubernetes.io/docs/concepts/storage/).
+
+
+# Storage Classes
+
+StorageClasse objects allow persistent volume claims to dynamically provision PVs. Each storageClass object uses a plugin specific to a storage provider’s backend to create a new PV. The example below shows a storage class for Longhorn:
 
 <pre class="wp-block-code"><code>
+allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: mod4-aws-storageclass
-provisioner: kubernetes.io/aws-ebs
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+  name: longhorn
 parameters:
-  type: gp2
+  dataLocality: disabled
+  fromBackup: ""
+  fsType: ext4
+  numberOfReplicas: "3"
+  staleReplicaTimeout: "30"
+provisioner: driver.longhorn.io
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
 </code></pre>
 
-[Learn more about how Kubernetes handles storage](https://kubernetes.io/docs/concepts/storage/).
+A StorageClass is consumed by declaring the name of the desired storage class in a persistent volume claim's <code>storageClassName</code> key. If a matching StorageClass exists, the backing provisionr will contact the storage backend to provision volume per the parameters set in the PVC. 
+
+</code></pre>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-test
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: longhorn
+</code></pre>
+
+Once the backing storage is created, the provisioner also creates a matching PV. The name of the storage class that created the PV will be recorded as the PV's <code>storageClassName</code>.
+
+</code></pre>
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    longhorn.io/volume-scheduling-error: ""
+    pv.kubernetes.io/provisioned-by: driver.longhorn.io
+  creationTimestamp: "2023-01-09T23:31:14Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-6f945eec-bc1b-4a20-89f1-af3f1b96cbe1
+  resourceVersion: "3486339"
+  uid: e9141b23-b299-4b83-82f8-180f5e98ddfd
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: longhorn-test
+    namespace: default
+    resourceVersion: "3486296"
+    uid: 6f945eec-bc1b-4a20-89f1-af3f1b96cbe1
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeAttributes:
+      dataLocality: disabled
+      fromBackup: ""
+      fsType: ext4
+      numberOfReplicas: "3"
+      staleReplicaTimeout: "30"
+      storage.kubernetes.io/csiProvisionerIdentity: 1672853863767-8081-driver.longhorn.io
+    volumeHandle: pvc-6f945eec-bc1b-4a20-89f1-af3f1b96cbe1
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: longhorn
+  volumeMode: Filesystem
+status:
+  phase: Bound
+</code></pre>
+
+The <code>storageClassName</code> of a Persistent Volume is treated like another identifier. Users creating the PVs themselves in static provisioning workflows can set any value in the <code>storageClassName</code> field of a PV, resulting in a custom storage class. PVCs can use the custom storage class set by the user to help narrow the selection of PVs that the PVC can claim.
+
+[Learn more about Storage Classes in Kubernetes here](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 
 # Persistent Volumes
 
 A persistent volume is a storage object provisioned from the cluster’s infrastructure that is managed by the Kubernetes cluster. Persistent volumes allow storage to remain beyond an individual pod’s lifespan. Persistent volumes describe details of a storage implementation for the cluster, including:
 
-Access modes for the volume
-The total capacity of the volume
-What happens to the data after the volume is unclaimed
-The type of storage
-An optional, custom storage class identifier
+<li>Access modes for the volume</li>
+<li>The total capacity of the volume</li>
+<li>What happens to the data after the volume is unclaimed</li>
+<li>The type of storage</li>
+<li>An optional, storage class identifier declaring which CSI created the PV or a custom value set by the user</li>
 
 The following example shows a statically provisioned persistent volume. This volume is bound to the host’s filesystem at /tmp/pvc and claims 50 gigabytes of storage.
 
@@ -91,7 +168,7 @@ spec:
     path: /tmp/pvc
 </code></pre>
 
-Persistent volumes exist as resources in the cluster that any pod can claim using a standard volume mount or through a persistent volume claim.
+Persistent volumes exist as resources in the cluster that any pod can claim using a standard volume mount or through a persistent volume claim. 
 
 [Learn more about persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
@@ -146,7 +223,7 @@ spec:
       storage: 50Gi
 </code></pre>
 
-The persistent volume claim must find a persistent volume with up to 50 gigabytes of storage and the ReadWriteOnce access mode in its manifest.
+The persistent volume claim must find a persistent volume with up to 50 gigabytes of storage and the ReadWriteOnce access mode in its manifest. The kube-controller-manager is responsible for taking the parameters of the PVC and finding a PV that it can bind to.
 
 [Learn more about persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
 
