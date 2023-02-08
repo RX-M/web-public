@@ -1,7 +1,7 @@
 <!-- CKA Self-Study Mod 4 -->
 
 
-# Kubernetes Storage Classes and Persistent Volumes
+# Understand storage classes, persistent volumes
 
 Volumes are the primary way to configure storage for apps running under Kubernetes. Volumes are declared at the pod level, then mounted at the container level, as shown below:
 
@@ -52,9 +52,11 @@ $
 [Learn more about how Kubernetes handles storage](https://kubernetes.io/docs/concepts/storage/).
 
 
-# Storage Classes
+## Storage Classes
 
-StorageClasse objects allow persistent volume claims to dynamically provision PVs. Each storageClass object uses a plugin specific to a storage provider’s backend to create a new PV. The example below shows a storage class for Longhorn:
+StorageClass objects allow users to dynamically provision PVs through persistent volume claims. Each storageClass object represents a storage backend that can create a new PV. A StorageClass object is usually deployed alongside a Container Storage Interface (CSI) plugin, and provides the interface and agent necessary for a user to successfully request storage for their workload.
+
+The example below shows a storage class for Longhorn:
 
 <pre class="wp-block-code"><code>
 allowVolumeExpansion: true
@@ -75,7 +77,9 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 </code></pre>
 
-A StorageClass is consumed by declaring the name of the desired storage class in a persistent volume claim's <code>storageClassName</code> key. If a matching StorageClass exists, the backing provisionr will contact the storage backend to provision volume per the parameters set in the PVC. 
+The StorageClass object describes a provisioner, which acts as the point of communication between the Kubernetes cluster and the storage backend.
+
+A StorageClass is consumed by declaring the name of the desired storage class in a persistent volume claim's <code>storageClassName</code> key. If a matching StorageClass exists, the backing provisioner will contact the storage backend to provision volume per the parameters set in the PVC. 
 
 </code></pre>
 apiVersion: v1
@@ -141,13 +145,13 @@ The <code>storageClassName</code> of a Persistent Volume is treated like another
 [Learn more about Storage Classes in Kubernetes here](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 
-# Persistent Volumes
+## Persistent Volumes
 
 A persistent volume is a storage object provisioned from the cluster’s infrastructure that is managed by the Kubernetes cluster. Persistent volumes allow storage to remain beyond an individual pod’s lifespan. Persistent volumes describe details of a storage implementation for the cluster, including:
 
 <li>Access modes for the volume</li>
 <li>The total capacity of the volume</li>
-<li>What happens to the data after the volume is unclaimed</li>
+<li>What happens to the data after the volume is unbound</li>
 <li>The type of storage</li>
 <li>An optional, storage class identifier declaring which CSI created the PV or a custom value set by the user</li>
 
@@ -173,7 +177,7 @@ Persistent volumes exist as resources in the cluster that any pod can claim usin
 [Learn more about persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 
-# Volume Access Modes
+# Understand volume mode, access modes and reclaim policies for volumes
 
 Persistent Volumes use the <code>accesModes</code> array to ensure that the resulting volume mounts in a way supported by the resource provider’s filesystem.
 
@@ -204,7 +208,7 @@ spec:
 [Learn more about access modes for volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
 
 
-# Persistent Volume Claims
+# Understand persistent volume claims primitive
 
 A persistent volume claim is a request for storage and is an abstraction of persistent volumes. Persistent volume claims bind to persistent volumes on a number of factors like label selectors, storage class name, storage capacity, and access mode. Persistent volume claims will bind to existing persistent volumes in the cluster that fulfill their requirements or dynamically create persistent volumes using an existing storage class.
 
@@ -228,7 +232,7 @@ The persistent volume claim must find a persistent volume with up to 50 gigabyte
 [Learn more about persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
 
 
-# Configure Applications with Persistent Storage
+# Know how to configure applications with persistent storage
 
 The <code>volumes</code> array under a pod manifest and <code>volumeMounts</code> array in a container manifest configure how applications running under Kubernetes use persistent storage.
 
