@@ -1,44 +1,61 @@
 <!-- CKA Self-Study Mod 1 -->
 
 
-# Provision underlying infrastructure to deploy a Kubernetes cluster
+# Manage role based access control (RBAC)
 
-Kubernetes has several pre-requisites:
+Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.
 
-<ul>
-  <li>For Control Plane nodes, Linux</li>
-  <li>A container runtime</li>
-  <li>Kernel modules that enable networking features like IPv4/IPv6 forwarding or bridge network awareness for IPTables</li>
-  <li>The Node Agent, Kubelet</li>
-</ul>
+Kubernetes uses Role-based access control (RBAC) mechanisms to control the ability of users to perform a specific task on Kubernetes objects. Clusters bootstrapped with kubeadm have RBAC enabled by default.
 
-The operations you need to perform will vary based on your operation system of choice. The following demonstration blocks show the necessary commands for Ubuntu-based systems that use <code>apt</code>.
+Permissions to API resources are granted using Roles and ClusterRoles (the only difference being that clusterRoles apply to the entire cluster while regular roles apply to their namespace). Permissions are scoped to API resources and objects under the API resources. Verbs control what operations can be performed by each role.
 
-For the container runtime (assuming your sources are already configured):
+Roles can be created imperatively using <code>kubectl create role</code>. You can specify the API resources and verbs associated with the permissions the role will grant:
 
 <pre class="wp-block-code"><code>
-$ sudo apt-get update && sudo apt-get install -y containerd.io
+$ kubectl create role default-appmanager --resource pod,deploy,svc,ingresses --verb get,list,watch,create -o yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: default-appmanager
+  namespace: default
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
 </code></pre>
 
-System tools like <code>systemctl</code> can then be used to validate the state of whether those prerequisites are met:
+Roles and clusterRoles are assigned to users and processes using roleBindings and clusterRoleBindings. Rolebindings associate a user, like a service account, with a role. Any permissions granted by a role are passed to the user through the rolebinding.
+
+Rolebindings can also be created imperatively using <code>kubectl create rolebinding</code>. Rolebindings bind roles to users using the <code>--user</code> flag and serviceAccounts using the <code>--serviceaccount</code> flag. The following example binds the default-appmanager role to the default namespace’s default service account:
 
 <pre class="wp-block-code"><code>
-$ sudo systemctl status containerd
+$ kubectl create rolebinding default-appmanager-rb \
+--serviceaccount default:default \
+--role default-appmanager
 
-● containerd.service - containerd container runtime
-     Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: enabled)
-     Active: active (running) since Mon 2023-01-09 16:28:02 UTC; 1h 29min ago
-       Docs: https://containerd.io
-   Main PID: 3905928 (containerd)
-      Tasks: 15
-     Memory: 1.3G
-     CGroup: /system.slice/containerd.service
-             └─3905928 /usr/bin/containerd
+rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
 </code></pre>
 
-Take note that on the exam, things like the container runtime and package sources will already be installed and configured. You will need to be aware of which packages to download as well as any other setup steps for Kernel modules, which are covered in the Kubernetes documentation.
-
-Learn more about [the container runtime and other prerequisites here](https://kubernetes.io/docs/setup/production-environment/container-runtimes/).
+[Learn more about configuring role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 
 # Use Kubeadm to install a basic cluster
@@ -133,6 +150,46 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 <code>kubeadm join</code> has a variety of flags that allow you to influence what type of node you add to your cluster - be sure to familiarize yourself with those flags.
 
 [Learn more about expanding your Kubernetes cluster to improve its availability here](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes)
+
+
+# Provision underlying infrastructure to deploy a Kubernetes cluster
+
+Kubernetes has several pre-requisites:
+
+<ul>
+  <li>For Control Plane nodes, Linux</li>
+  <li>A container runtime</li>
+  <li>Kernel modules that enable networking features like IPv4/IPv6 forwarding or bridge network awareness for IPTables</li>
+  <li>The Node Agent, Kubelet</li>
+</ul>
+
+The operations you need to perform will vary based on your operation system of choice. The following demonstration blocks show the necessary commands for Ubuntu-based systems that use <code>apt</code>.
+
+For the container runtime (assuming your sources are already configured):
+
+<pre class="wp-block-code"><code>
+$ sudo apt-get update && sudo apt-get install -y containerd.io
+</code></pre>
+
+System tools like <code>systemctl</code> can then be used to validate the state of whether those prerequisites are met:
+
+<pre class="wp-block-code"><code>
+$ sudo systemctl status containerd
+
+● containerd.service - containerd container runtime
+     Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-01-09 16:28:02 UTC; 1h 29min ago
+       Docs: https://containerd.io
+   Main PID: 3905928 (containerd)
+      Tasks: 15
+     Memory: 1.3G
+     CGroup: /system.slice/containerd.service
+             └─3905928 /usr/bin/containerd
+</code></pre>
+
+Take note that on the exam, things like the container runtime and package sources will already be installed and configured. You will need to be aware of which packages to download as well as any other setup steps for Kernel modules, which are covered in the Kubernetes documentation.
+
+Learn more about [the container runtime and other prerequisites here](https://kubernetes.io/docs/setup/production-environment/container-runtimes/).
 
 
 # Perform a version upgrade on a Kubernetes cluster using Kubeadm
@@ -273,61 +330,6 @@ Snapshots produced by etcd or etcdctl can then be restored with all of the origi
 [Learn more about performing backup and restore operations for etcd here.](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
 
 
-# Configure Authentication and Authorization
-
-Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.
-
-Kubernetes uses Role-based access control (RBAC) mechanisms to control the ability of users to perform a specific task on Kubernetes objects. Clusters bootstrapped with kubeadm have RBAC enabled by default.
-
-Permissions to API resources are granted using Roles and ClusterRoles (the only difference being that clusterRoles apply to the entire cluster while regular roles apply to their namespace). Permissions are scoped to API resources and objects under the API resources. Verbs control what operations can be performed by each role.
-
-Roles can be created imperatively using <code>kubectl create role</code>. You can specify the API resources and verbs associated with the permissions the role will grant:
-
-<pre class="wp-block-code"><code>
-$ kubectl create role default-appmanager --resource pod,deploy,svc,ingresses --verb get,list,watch,create -o yaml
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: default-appmanager
-  namespace: default
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - pods
-  - services
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - delete
-- apiGroups:
-  - apps
-  resources:
-  - deployments
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - delete
-</code></pre>
-
-Roles and clusterRoles are assigned to users and processes using roleBindings and clusterRoleBindings. Rolebindings associate a user, like a service account, with a role. Any permissions granted by a role are passed to the user through the rolebinding.
-
-Rolebindings can also be created imperatively using <code>kubectl create rolebinding</code>. Rolebindings bind roles to users using the <code>--user</code> flag and serviceAccounts using the <code>--serviceaccount</code> flag. The following example binds the default-appmanager role to the default namespace’s default service account:
-
-<pre class="wp-block-code"><code>
-$ kubectl create rolebinding default-appmanager-rb \
---serviceaccount default:default \
---role default-appmanager
-
-rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
-</code></pre>
-
-[Learn more about configuring role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 
 # Practice Drill
