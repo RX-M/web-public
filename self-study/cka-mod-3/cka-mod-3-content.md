@@ -1,24 +1,14 @@
 <!-- CKA Self-Study Mod 3 -->
 
 
-# Host Networking & CNI Choice
+# Understand host networking configuration on the cluster nodes
 
 A Kubernetes cluster consists of one or more computers that run the Kubernetes agent, kubelet. The Kubelet is responsible for running containers managed by a Kubernetes cluster. It does this by taking pod specifications from the Kubernetes API Server and contacting the appropriate agents, services, and other components to realize the state described by the pod spec. This includes creation of containers, fulfilling of storage requests, and also networking.
 
 Ideally, the nodes in a Kubernetes cluster exist within the same network space (region, datacenter, VPC, subnet, etc.). However, as long as they can "see" each other's containers over the network then that is acceptable. 
 
-The container network in a Kubernetes cluster is maintained by the container network interface (CNI) plugins installed by the cluster administrators. CNI plugins provide: 
 
-<ul>
-  <li>The interface necessary to enable the Kubelet to request pod-level IP addresses for the cluster's containers</li>
-  <li>The virtual infrastructure meant to handle requests between containers in a cluster</li>
-  <li>Additional features like rate limiting, circuit breaking, or network policy to help control the network traffic in a cluster</li>
-</ul>
-
-A CNI plugin must be installed on a Kubernetes cluster before any workloads can run. If the CNI plugin and its components on a node go offline, then that node is considered not ready and tainted - restricting it from running workloads until the CNI plugin is operational.
-
-
-# Network Policy
+# Understand connectivity between Pods
 
 Once a CNI plugin is installed on a cluster, all containers in that cluster can establish connections to and accept connections from each other using their assigned Pod IP addresses. Communications are not restricted by default.
 
@@ -76,7 +66,7 @@ spec:
 Network policies are an essential way to control network access between pods in your cluster. [You can learn more about Kubernetes network policies and how to use them here](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 
-# Services and Other Network Primitives
+# Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
 
 A service is an abstraction of a logical set of pods and a policy that defines inbound and network access. A service uses a selector to target pods by the pods’ label. A service exposes a logical set of pods as a network service providing a single IP address, DNS name, or load balancing to access the pods.
 
@@ -147,7 +137,7 @@ Learn more about:
 <li>[Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/).</li>
 
 
-# Ingress Controllers and Ingress Resources
+# Know how to use Ingress controllers and Ingress resources
 
 The Ingress resource manages external access to Kubernetes services via HTTP and HTTPS routes. An Ingress controller is required to satisfy an Ingress. The Ingress controller reads and implements the rules of the Ingress resource.
 
@@ -228,7 +218,7 @@ Learn more about:
 - [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 
-# Service Discovery with CoreDNS
+# Know how to configure and use CoreDNS
 
 Kubernetes uses CoreDNS for DNS-based service discovery. CoreDNS is flexible and changes can be made in the ConfigMap for CoreDNS.
 
@@ -275,6 +265,18 @@ Learn more about:
 <li>[CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)</li>
 <li>[DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).</li>
 
+
+# Choose an appropriate container network interface plugin
+
+The container network in a Kubernetes cluster is maintained by the container network interface (CNI) plugins installed by the cluster administrators. CNI plugins provide: 
+
+<ul>
+<li>The interface necessary to enable the Kubelet to request pod-level IP addresses for the cluster's containers</li>
+<li>The virtual infrastructure meant to handle requests between containers in a cluster</li>
+<li>Additional features like rate limiting, circuit breaking, or network policy to help control the network traffic in a cluster</li>
+</ul>
+
+A CNI plugin must be installed on a Kubernetes cluster before any workloads can run. If the CNI plugin and its components on a node go offline, then that node is considered not ready and tainted - restricting it from running workloads until the CNI plugin is operational.
 
 
 # Practice Drill
