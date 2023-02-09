@@ -1,7 +1,7 @@
 <!-- CKA Self-Study Mod 2 -->
 
 
-# Deployments, Rolling Updates, and RollBacks
+# Understand deployments and how to perform rolling update and rollbacks
 
 
 ## Deployments
@@ -131,7 +131,7 @@ The deployment is back to using the nginx 1.16 image. The revision number is sto
 [Learn more about rolling back deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision)
 
 
-# Configure Applications
+# Use ConfigMaps and Secrets to configure applications
 
 There are several ways to configure applications running under Kubernetes. One way is to change the command and arguments running in the container using the <code>command</code> and <code>args</code> arrays in a yaml file:
 
@@ -227,7 +227,7 @@ Secrets in the cluster are consumed in the same way as ConfigMaps as either envi
 [Learn more about configuring applications using configMaps to run under Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and [how to influence container commands](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/).
 
 
-# Scale Applications
+# Know how to scale applications
 
 Applications deployed using a controller like a Deployment or statefulSet can be scaled up or down by modifying the number of replicas.
 
@@ -276,7 +276,7 @@ $
 [Learn more about scaling your applications using controllers like deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment).
 
 
-# Self-healing Applications
+# Understand the primitives used to create robust, self-healing, application deployments
 
 A self-healing application in the context of Kubernetes:
 
@@ -357,10 +357,132 @@ If this probe’s livenessProbe ever returns a failure, the kubelet tells the co
 
 Learn about:
 <ul>
-  <li>[Services](https://kubernetes.io/docs/concepts/services-networking/service/)</li>
-  <li>[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)</li>
-  <li>[Details about application probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).</li>
+  <li><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></li>
+  <li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a></li>
+  <li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Details about application probes</a></li>
 </ul>
+
+
+# Understand how resource limits can affect pod scheduling
+
+Workloads in Kubernetes are configured in pods, which define how containers should run in the cluster. Before pods can run their containers, they must be scheduled, or assigned, to one of the nodes in the cluster. This decision is made by the kube-scheduler based on the following factors:
+
+<ul>
+<li>Availability of CPU, memory, and ephemeral storage (based on what is reported by the Kubelet)</li>
+<li>The presence of labels (if the user specified a node selector or affinity)</li>
+<li>The presence of taints on the nodes and whether the pod tolerates those taints</li>
+</ul>
+
+Users have the option of defining resource requests and limits for pods. Resource requests define a minimum amount of CPU, memory, or ephemeral storage that must be available on a node. Resource limits ensure the containers in the pod cannot use more than a given amount of those same types of resources.
+
+The following pod will only run on the cluster if there are are least 4 cores (4000 millicores) of available CPU and 256MB of available ram being reported as available by any Kubelets in the cluster:
+
+<pre class="wp-block-code"><code>
+~$ cat testpod2.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver-resources
+  labels:
+    app: website
+    component: webserver
+    vendor: rx-m
+spec:
+  volumes:
+  - name: log
+    emptyDir: {}
+  containers:
+  - name: webserver
+    image: nginx:1.23.3
+    resources:
+      requests:
+        cpu: 4
+        memory: 256M
+</code></pre>
+
+If none of the Kubelets can fulfill the resource request, the pod goes into a <code>Pending</code> state. This generates an event in the pod's namespace, which you is viewable with <code>kubectl describe pod</code> or <code>kubectl get events</code>.
+
+<pre class="wp-block-code"><code>
+~$ kubectl apply -f testpod2.yaml
+
+pod/webserver-resources created
+
+ubuntu@ip-172-31-18-190:~$ kubectl get pods
+
+NAME                  READY   STATUS    RESTARTS   AGE
+webserver-resources   0/1     Pending   0          3s
+
+ubuntu@ip-172-31-18-190:~$ kubectl describe pod webserver-resources
+
+Name:             webserver-resources
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           app=website
+                  component=webserver
+                  vendor=rx-m
+Annotations:      <none>
+Status:           Pending
+IP:
+IPs:              <none>
+Containers:
+  webserver:
+    Image:      nginx:1.23.3
+    Port:       <none>
+    Host Port:  <none>
+    Requests:
+      cpu:        4
+      memory:     256M
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-fbdq4 (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False
+Volumes:
+  log:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:
+    SizeLimit:  <unset>
+  kube-api-access-fbdq4:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  10s   default-scheduler  0/1 nodes are available: 1 Insufficient cpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod..
+</code></pre>
+
+The following procedures can help a cluster run a pod that cannot be scheduled due to lack of resources:
+
+<ul>
+<li>Adjust the pod resource requests to fit what is available in the cluster</li>
+<li>Scale down (remove pods) other workloads to release resources</li>
+<li>Add an additional node to the cluster to increase workload capacity by presenting more resources</li>
+</ul>
+
+Once a pod is scheduled, the Kubelet thin provisions the requested resources and subtracts the requested amounts from its allocatable resource pool. The only other process that takes requests into account at this point is autoscaling, which uses the resource request to help calculate the scaling threshold. Resource requests cannot be changed on an existing pod: the entire pod much be redeployed with new limits if a change is necessary.
+
+During the lifetime of the pod and its containers, the Kubelet enforces any specified resource limits the pod. This ensures that that the cluster can automatically remove and reschedule the violating pod and its containers. Depending on the resource request and limit configuration, the Pod gets classified in one of three categories:
+
+<ul>
+<li>BestEffort - assigned to pods whose containers do not specify any resource requests or limits</li>
+<li>Burstable - assigned to pods with at least one container that specific a resource request or limit</li>
+<li>Guaranteed - assigned to pods where all containers specify identical resource request and limit values</li>
+</ul>
+
+Depending on this categorization, or Quality of Service (QOS) class, the Kubelet makes a decision on which pods get removed based on this priority: BestEffort -> Burstable -> Guaranteed.
+
+[Learn more about managing container resources here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). There is also [a task page](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/) on the Kubernetes docs that describe to to implement them.
 
 
 # Manifest Management and Common Templating Tools
@@ -368,10 +490,10 @@ Learn about:
 An application deployed on Kubernetes requires many different API resources to function properly, including:
 
 <ul>
-  <li>Deployments or other controllers to run the application pods</li>
-  <li>RBAC resources to ensure that the application can communicate with the API server (if necessary)</li>
-  <li>ConfigMaps and secrets to help configure the application</li>
-  <li>Custom resource definitions (CRDs) and instances of those custom resources</li>
+<li>Deployments or other controllers to run the application pods</li>
+<li>RBAC resources to ensure that the application can communicate with the API server (if necessary)</li>
+<li>ConfigMaps and secrets to help configure the application</li>
+<li>Custom resource definitions (CRDs) and instances of those custom resources</li>
 </ul>
 
 If all documents specifying each of these resources, known as manifests, are deployed together then an application will run successfully. This is feasible for simple applications that are already configured to run in a specific environment, but for more complex and generally available applications, some kind of manifest management and templating tool is necessary.
