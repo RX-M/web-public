@@ -665,4 +665,23 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
-
+- description: ''
+  id: 127
+  level: 2.99
+  name: Chart Patterns
+  topic: Helm
+- description: ''
+  id: 128
+  level: 1
+  name: Overview
+  topic: Helm
+- description: ''
+  id: 129
+  level: 1.99
+  name: Chart Basics
+  topic: Helm
+- description: ''
+  id: 130
+  level: 2
+  name: Templating
+  topic: Helm
