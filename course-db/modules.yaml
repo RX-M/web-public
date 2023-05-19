@@ -114,6 +114,41 @@ Modules:
   level: 1.0
   name: Developing Stateful Stream Processors
   topic: Kafka
+- description: ''
+  id: 128
+  level: 1.0
+  name: Overview
+  topic: Helm
+- description: ''
+  id: 133
+  level: 1.0
+  name: Architecture
+  topic: Istio
+- description: ''
+  id: 142
+  level: 1.0
+  name: Overview
+  topic: Rust
+- description: ''
+  id: 156
+  level: 1.0
+  name: Spark Overview
+  topic: Spark
+- description: ''
+  id: 160
+  level: 1.0
+  name: Overview
+  topic: Linux
+- description: ''
+  id: 174
+  level: 1.0
+  name: Overview
+  topic: Arangodb
+- description: ''
+  id: 180
+  level: 1.0
+  name: '101'
+  topic: Graphql
 - description: Introduction to containers and containerized applications using Docker
   id: 9
   level: 1.1
@@ -191,6 +226,31 @@ Modules:
   level: 1.2
   name: Strings and Numbers
   topic: Python
+- description: ''
+  id: 168
+  level: 1.2
+  name: ArangoDB Query Language
+  topic: Arangodb
+- description: ''
+  id: 178
+  level: 1.2
+  name: Queries & Mutations
+  topic: Graphql
+- description: ''
+  id: 134
+  level: 1.25
+  name: Control Plane
+  topic: Istio
+- description: ''
+  id: 145
+  level: 1.25
+  name: Data Types & Flow Control
+  topic: Rust
+- description: ''
+  id: 161
+  level: 1.25
+  name: Filesystem
+  topic: Linux
 - description: Learn advance usage patterns of functions and methods.
   id: 49
   level: 1.3
@@ -236,12 +296,107 @@ Modules:
   level: 1.5
   name: Testing
   topic: Python
+- description: ''
+  id: 135
+  level: 1.5
+  name: Envoy
+  topic: Istio
+- description: ''
+  id: 148
+  level: 1.5
+  name: Collections
+  topic: Rust
+- description: ''
+  id: 162
+  level: 1.5
+  name: Editing Files
+  topic: Linux
+- description: ''
+  id: 176
+  level: 1.5
+  name: Graphs
+  topic: Arangodb
+- description: ''
+  id: 179
+  level: 1.5
+  name: Schemas & Types
+  topic: Graphql
 - description: Examination of container images, image metadata, and pushing images
     to private registries
   id: 88
   level: 1.6
   name: Images and Registries
   topic: Containers
+- description: ''
+  id: 170
+  level: 1.7
+  name: Basic Administration
+  topic: Arangodb
+- description: ''
+  id: 181
+  level: 1.7
+  name: Best Practices
+  topic: Graphql
+- description: ''
+  id: 149
+  level: 1.75
+  name: Structures, Enumerations, & Pattern Matching
+  topic: Rust
+- description: ''
+  id: 158
+  level: 1.75
+  name: Spark on Kubernetes
+  topic: Spark
+- description: ''
+  id: 129
+  level: 1.99
+  name: Chart Basics
+  topic: Helm
+- description: ''
+  id: 141
+  level: 1.99
+  name: Functions
+  topic: Rust
+- description: ''
+  id: 157
+  level: 1.99
+  name: Observability & Scaling
+  topic: Spark
+- description: ''
+  id: 163
+  level: 1.99
+  name: Shell Operations
+  topic: Linux
+- description: ''
+  id: 130
+  level: 2.0
+  name: Templating
+  topic: Helm
+- description: ''
+  id: 136
+  level: 2.0
+  name: Basic Traffic Management
+  topic: Istio
+- description: ''
+  id: 146
+  level: 2.0
+  name: Methods & Traits
+  topic: Rust
+- description: ''
+  id: 154
+  level: 2.0
+  name: Kubernetes in the Cloud
+  topic: Spark
+- description: ''
+  id: 164
+  level: 2.0
+  name: File Processing
+  topic: Linux
+- description: ''
+  id: 169
+  level: 2.0
+  name: Architecture
+  topic: Arangodb
 - description: Examination of Kubernetes control plane components, etcd, HA models,
     and worker Node agents
   id: 4
@@ -294,6 +449,21 @@ Modules:
   level: 2.2
   name: Collections and Comprehensions
   topic: Python
+- description: ''
+  id: 172
+  level: 2.2
+  name: Data Modeling, Indexing, & Transactions
+  topic: Arangodb
+- description: ''
+  id: 139
+  level: 2.25
+  name: Ownership & Borrowing
+  topic: Rust
+- description: ''
+  id: 159
+  level: 2.25
+  name: Airflow Overview
+  topic: Spark
 - description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
     manifests
   id: 27
@@ -359,6 +529,26 @@ Modules:
   level: 2.5
   name: Reflection
   topic: Go
+- description: ''
+  id: 137
+  level: 2.5
+  name: Ingress
+  topic: Istio
+- description: ''
+  id: 155
+  level: 2.5
+  name: Airflow in Kubernetes
+  topic: Spark
+- description: ''
+  id: 165
+  level: 2.5
+  name: Text Processing
+  topic: Linux
+- description: ''
+  id: 173
+  level: 2.5
+  name: Data Operations
+  topic: Arangodb
 - description: Zero downtime rolling updates for stateless applications using the
     Deployment controller
   id: 11
@@ -376,6 +566,21 @@ Modules:
   level: 2.7
   name: Services
   topic: Kubernetes
+- description: ''
+  id: 175
+  level: 2.7
+  name: Foxx Javascript Microservices
+  topic: Arangodb
+- description: ''
+  id: 150
+  level: 2.75
+  name: Generics
+  topic: Rust
+- description: ''
+  id: 166
+  level: 2.75
+  name: Processes & Job Control
+  topic: Linux
 - description: In-depth examination of the Kubernetes Dashboard
   id: 13
   level: 2.9
@@ -393,12 +598,52 @@ Modules:
   level: 2.99
   name: Observability Overview
   topic: Kubernetes
+- description: ''
+  id: 127
+  level: 2.99
+  name: Chart Patterns
+  topic: Helm
+- description: ''
+  id: 132
+  level: 2.99
+  name: Policy
+  topic: Istio
+- description: ''
+  id: 143
+  level: 2.99
+  name: Packages
+  topic: Rust
+- description: ''
+  id: 153
+  level: 2.99
+  name: Cost Management
+  topic: Spark
+- description: ''
+  id: 167
+  level: 2.99
+  name: Cgroups & Namespaces
+  topic: Linux
 - description: Overview of software defined networking, network policy and ingress
     load balancing
   id: 33
   level: 3.0
   name: Pod Networking Overview
   topic: Kubernetes
+- description: ''
+  id: 138
+  level: 3.0
+  name: Advanced Traffic Management
+  topic: Istio
+- description: ''
+  id: 144
+  level: 3.0
+  name: Errors
+  topic: Rust
+- description: ''
+  id: 177
+  level: 3.0
+  name: Performance Tuning
+  topic: Arangodb
 - description: Examining multi-container Pod architecture, Pod design patterns, and
     best practices for Pods
   id: 28
@@ -421,6 +666,11 @@ Modules:
   level: 3.1
   name: Pandas
   topic: Python
+- description: ''
+  id: 171
+  level: 3.1
+  name: Code
+  topic: Arangodb
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
@@ -448,6 +698,11 @@ Modules:
   level: 3.2
   name: SQL-DB
   topic: Python
+- description: ''
+  id: 151
+  level: 3.25
+  name: Smart Pointers
+  topic: Rust
 - description: 'Software defined networking (SDN) and Kubernetes: networking models,
     network policy, and SDN configuration'
   id: 32
@@ -491,6 +746,16 @@ Modules:
   level: 3.5
   name: Pod Security
   topic: Kubernetes
+- description: ''
+  id: 147
+  level: 3.5
+  name: Concurrency
+  topic: Rust
+- description: ''
+  id: 140
+  level: 3.9
+  name: Testing
+  topic: Rust
 - description: Accessing Kubernetes Pod application logs, configuring logging drivers,
     and strategies for log forwarding
   id: 21
@@ -515,6 +780,16 @@ Modules:
   level: 3.99
   name: Static Analysis
   topic: Kubernetes
+- description: ''
+  id: 131
+  level: 3.99
+  name: Multicluster
+  topic: Istio
+- description: ''
+  id: 152
+  level: 3.99
+  name: Next Steps
+  topic: Rust
 - description: Examines Custom Resource Definitions (CRDs) and how to use them.
   id: 125
   level: 4.0
@@ -603,6 +878,12 @@ Modules:
   level: 4.3
   name: Ingress Load Balancing
   topic: Kubernetes
+- description: 'Best practices for container images including: scanning, image signing,
+    and binary authorization'
+  id: 43
+  level: 4.3
+  name: Image Security
+  topic: Containers
 - description: Kubernetes block storage volumes and block storage CSI features
   id: 6
   level: 4.4
@@ -659,208 +940,3 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
-- description: ''
-  id: 127
-  level: 2.99
-  name: Chart Patterns
-  topic: Helm
-- description: ''
-  id: 128
-  level: 1
-  name: Overview
-  topic: Helm
-- description: ''
-  id: 129
-  level: 1.99
-  name: Chart Basics
-  topic: Helm
-- description: ''
-  id: 130
-  level: 2
-  name: Templating
-  topic: Helm
-- description: ''
-  id: 131
-  level: 3.99
-  name: Multicluster
-  topic: Istio
-- description: ''
-  id: 132
-  level: 2.99
-  name: Policy
-  topic: Istio
-- description: ''
-  id: 133
-  level: 1
-  name: Architecture
-  topic: Istio
-- description: ''
-  id: 134
-  level: 1.25
-  name: Control Plane
-  topic: Istio
-- description: ''
-  id: 135
-  level: 1.5
-  name: Envoy
-  topic: Istio
-- description: ''
-  id: 136
-  level: 2
-  name: Basic Traffic Management
-  topic: Istio
-- description: ''
-  id: 137
-  level: 2.5
-  name: Ingress
-  topic: Istio
-- description: ''
-  id: 138
-  level: 3
-  name: Advanced Traffic Management
-  topic: Istio
-- description: ''
-  id: 139
-  level: 2.25
-  name: Ownership & Borrowing
-  topic: Rust
-- description: ''
-  id: 140
-  level: 3.9
-  name: Testing
-  topic: Rust
-- description: ''
-  id: 141
-  level: 1.99
-  name: Functions
-  topic: Rust
-- description: ''
-  id: 142
-  level: 1
-  name: Overview
-  topic: Rust
-- description: ''
-  id: 143
-  level: 2.99
-  name: Packages
-  topic: Rust
-- description: ''
-  id: 144
-  level: 3
-  name: Errors
-  topic: Rust
-- description: ''
-  id: 145
-  level: 1.25
-  name: Data Types & Flow Control
-  topic: Rust
-- description: ''
-  id: 146
-  level: 2
-  name: Methods & Traits
-  topic: Rust
-- description: ''
-  id: 147
-  level: 3.5
-  name: Concurrency
-  topic: Rust
-- description: ''
-  id: 148
-  level: 1.5
-  name: Collections
-  topic: Rust
-- description: ''
-  id: 149
-  level: 1.75
-  name: Structures, Enumerations, & Pattern Matching
-  topic: Rust
-- description: ''
-  id: 150
-  level: 2.75
-  name: Generics
-  topic: Rust
-- description: ''
-  id: 151
-  level: 3.25
-  name: Smart Pointers
-  topic: Rust
-- description: ''
-  id: 152
-  level: 3.99
-  name: Next Steps
-  topic: Rust
-- description: ''
-  id: 153
-  level: 2.99
-  name: Cost Management
-  topic: Spark
-- description: ''
-  id: 154
-  level: 2
-  name: Kubernetes in the Cloud
-  topic: Spark
-- description: ''
-  id: 155r
-  level: 2.5
-  name: Airflow in Kubernetes
-  topic: Spark
-- description: ''
-  id: 156
-  level: 1
-  name: Spark Overview
-  topic: Spark
-- description: ''
-  id: 157
-  level: 1.99
-  name: Observability & Scaling
-  topic: Spark
-- description: ''
-  id: 158
-  level: 1.75
-  name: Spark on Kubernetes
-  topic: Spark
-- description: ''
-  id: 159
-  level: 2.25
-  name: Airflow Overview
-  topic: Spark
-- description: ''
-  id: 160
-  level: 1
-  name: Overview
-  topic: Linux
-- description: ''
-  id: 161
-  level: 1.25
-  name: Filesystem
-  topic: Linux
-- description: ''
-  id: 162
-  level: 1.5
-  name: Editing Files
-  topic: Linux
-- description: ''
-  id: 163
-  level: 1.99
-  name: Shell Operations
-  topic: Linux
-- description: ''
-  id: 164
-  level: 2
-  name: File Processing
-  topic: Linux
-- description: ''
-  id: 165
-  level: 2.5
-  name: Text Processing
-  topic: Linux
-- description: ''
-  id: 166
-  level: 2.75
-  name: Processes & Job Control
-  topic: Linux
-- description: ''
-  id: 167
-  level: 2.99
-  name: Cgroups & Namespaces
-  topic: Linux
