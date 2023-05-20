@@ -149,6 +149,16 @@ Modules:
   level: 1.0
   name: '101'
   topic: Graphql
+- description: ''
+  id: 196
+  level: 1.0
+  name: Container Introduction
+  topic: Containers
+- description: ''
+  id: 202
+  level: 1.0
+  name: Container Basics
+  topic: Containers
 - description: Introduction to containers and containerized applications using Docker
   id: 9
   level: 1.1
@@ -180,6 +190,11 @@ Modules:
   level: 1.1
   name: Introduction
   topic: Python
+- description: ''
+  id: 194
+  level: 1.1
+  name: Image Introduction
+  topic: Containers
 - description: Understand the basic data types of the Go language.
   id: 53
   level: 1.2
@@ -242,6 +257,11 @@ Modules:
   name: Topics
   topic: Kafka
 - description: ''
+  id: 198
+  level: 1.2
+  name: Controlling Containers
+  topic: Containers
+- description: ''
   id: 134
   level: 1.25
   name: Control Plane
@@ -281,6 +301,11 @@ Modules:
   level: 1.3
   name: Producers & Consumers
   topic: Kafka
+- description: ''
+  id: 199
+  level: 1.3
+  name: Image Registries
+  topic: Containers
 - description: Understand the error package and using errors in your Go code.
   id: 56
   level: 1.4
@@ -296,6 +321,11 @@ Modules:
   level: 1.4
   name: Program Construction
   topic: Python
+- description: ''
+  id: 195
+  level: 1.4
+  name: Container Volumes
+  topic: Containers
 - description: OCI / Docker images including registries and image creation with Dockerfiles
   id: 8
   level: 1.5
@@ -336,6 +366,11 @@ Modules:
   level: 1.5
   name: Failure Modes
   topic: Kafka
+- description: ''
+  id: 203
+  level: 1.5
+  name: Container Networking
+  topic: Containers
 - description: Examination of container images, image metadata, and pushing images
     to private registries
   id: 88
@@ -353,6 +388,11 @@ Modules:
   name: Best Practices
   topic: Graphql
 - description: ''
+  id: 200
+  level: 1.7
+  name: Advanced Container Operations
+  topic: Containers
+- description: ''
   id: 149
   level: 1.75
   name: Structures, Enumerations, & Pattern Matching
@@ -362,6 +402,16 @@ Modules:
   level: 1.75
   name: Spark on Kubernetes
   topic: Spark
+- description: ''
+  id: 201
+  level: 1.8
+  name: Security
+  topic: Containers
+- description: ''
+  id: 197
+  level: 1.9
+  name: Orchestration
+  topic: Containers
 - description: ''
   id: 129
   level: 1.99
@@ -995,4 +1045,3 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
-
