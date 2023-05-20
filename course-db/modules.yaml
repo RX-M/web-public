@@ -237,6 +237,11 @@ Modules:
   name: Queries & Mutations
   topic: Graphql
 - description: ''
+  id: 192
+  level: 1.2
+  name: Topics
+  topic: Kafka
+- description: ''
   id: 134
   level: 1.25
   name: Control Plane
@@ -271,6 +276,11 @@ Modules:
   level: 1.3
   name: Working with Packages
   topic: Python
+- description: ''
+  id: 188
+  level: 1.3
+  name: Producers & Consumers
+  topic: Kafka
 - description: Understand the error package and using errors in your Go code.
   id: 56
   level: 1.4
@@ -321,6 +331,11 @@ Modules:
   level: 1.5
   name: Schemas & Types
   topic: Graphql
+- description: ''
+  id: 186
+  level: 1.5
+  name: Failure Modes
+  topic: Kafka
 - description: Examination of container images, image metadata, and pushing images
     to private registries
   id: 88
@@ -397,6 +412,11 @@ Modules:
   level: 2.0
   name: Architecture
   topic: Arangodb
+- description: ''
+  id: 191
+  level: 2.0
+  name: Streams
+  topic: Kafka
 - description: Examination of Kubernetes control plane components, etcd, HA models,
     and worker Node agents
   id: 4
@@ -439,6 +459,11 @@ Modules:
   level: 2.1
   name: Standard Library
   topic: Python
+- description: ''
+  id: 189
+  level: 2.1
+  name: Schema Registry
+  topic: Kafka
 - description: Explorer using and managing channel objects.
   id: 50
   level: 2.2
@@ -454,6 +479,11 @@ Modules:
   level: 2.2
   name: Data Modeling, Indexing, & Transactions
   topic: Arangodb
+- description: ''
+  id: 190
+  level: 2.2
+  name: Security
+  topic: Kafka
 - description: ''
   id: 139
   level: 2.25
@@ -486,6 +516,11 @@ Modules:
   level: 2.3
   name: Classes and OOP
   topic: Python
+- description: ''
+  id: 187
+  level: 2.3
+  name: Monitoring
+  topic: Kafka
 - description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
     and the Downward API'
   id: 2
@@ -518,6 +553,11 @@ Modules:
   level: 2.4
   name: 'Dockerfiles: Advanced'
   topic: Containers
+- description: ''
+  id: 193
+  level: 2.4
+  name: Zookeeper
+  topic: Kafka
 - description: Overview of all of Kubernetes' controllers for stateless, batch, and
     stateful applications
   id: 12
@@ -644,6 +684,11 @@ Modules:
   level: 3.0
   name: Performance Tuning
   topic: Arangodb
+- description: ''
+  id: 183
+  level: 3.0
+  name: Advanced Stream Processing
+  topic: Kafka
 - description: Examining multi-container Pod architecture, Pod design patterns, and
     best practices for Pods
   id: 28
@@ -671,6 +716,11 @@ Modules:
   level: 3.1
   name: Code
   topic: Arangodb
+- description: ''
+  id: 184
+  level: 3.1
+  name: Debugging and monitoring Stream Processing Applications
+  topic: Kafka
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
@@ -698,6 +748,11 @@ Modules:
   level: 3.2
   name: SQL-DB
   topic: Python
+- description: ''
+  id: 185
+  level: 3.2
+  name: Tuning for Scale and Performance
+  topic: Kafka
 - description: ''
   id: 151
   level: 3.25
@@ -940,3 +995,4 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
+
