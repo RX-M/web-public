@@ -120,12 +120,13 @@ Modules:
   level: 1.0
   name: Developing Stateful Stream Processors
   topic: Kafka
-- description: ''
+- description: Provides a basic overview of the Helm Package Manager for Kubernetes
   id: 128
   level: 1.0
   name: Overview
   topic: Helm
-- description: ''
+- description: Provides a basic overview of the architecture of the Istio Service
+    Mesh
   id: 133
   level: 1.0
   name: Architecture
@@ -145,12 +146,12 @@ Modules:
   level: 1.0
   name: Overview
   topic: Linux
-- description: ''
+- description: Provides a basic overview of ArangoDB and its core user cases
   id: 174
   level: 1.0
   name: Overview
   topic: Arangodb
-- description: ''
+- description: Provides a basic overview of Graphql and its core use cases
   id: 180
   level: 1.0
   name: '101'
@@ -165,7 +166,7 @@ Modules:
   level: 1.0
   name: Container Basics
   topic: Containers
-- description: ''
+- description: A combined introduction to container technologies and orchestration
   id: 221
   level: 1.0
   name: Containers & Orchestration
@@ -545,47 +546,55 @@ Modules:
   level: 1.9
   name: Orchestration
   topic: Containers
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKAD exam
   id: 217
   level: 1.9
   name: CKAD Drills Part 1
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKA exam
   id: 210
   level: 1.91
   name: CKA Drills Part 4
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKA exam
   id: 211
   level: 1.92
   name: CKA Drills Part 3
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKAD exam
   id: 220
   level: 1.92
   name: CKAD Drills Part 2
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKA exam
   id: 212
   level: 1.93
   name: CKA Drills Part 1
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKAD exam
   id: 219
   level: 1.93
   name: CKAD Drills Part 3
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKA exam
   id: 213
   level: 1.94
   name: CKA Drills Part 2
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKAD exam
   id: 218
   level: 1.94
   name: CKAD Drills Part 4
   topic: Kubernetes
-- description: ''
+- description: Examines the basic architecture and interaction with Helm Charts
   id: 129
   level: 1.99
   name: Chart Basics
@@ -611,7 +620,7 @@ Modules:
   level: 2.0
   name: Scheduling
   topic: Kubernetes
-- description: ''
+- description: Explores the practices around creating a Helm chart for an application
   id: 130
   level: 2.0
   name: Templating
@@ -646,12 +655,12 @@ Modules:
   level: 2.0
   name: Streams
   topic: Kafka
-- description: ''
+- description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
   id: 205
   level: 2.0
   name: EKS Overview
   topic: Kubernetes
-- description: ''
+- description: Exploration of the concept of Service Meshes applied to Kubernetes
   id: 209
   level: 2.0
   name: Service Mesh Overview
@@ -718,7 +727,7 @@ Modules:
   level: 2.1
   name: Schema Registry
   topic: Kafka
-- description: ''
+- description: Discussion of optimal practices when using EKS
   id: 208
   level: 2.1
   name: EKS In Practice
@@ -881,12 +890,14 @@ Modules:
   level: 2.5
   name: Data Operations
   topic: Arangodb
-- description: ''
+- description: Discussion of how to control access to EKS clusters through AWS Identity
+    & Access Management
   id: 206
   level: 2.5
   name: EKS & IAM
   topic: Kubernetes
-- description: ''
+- description: Exploration of the integration between EKS, AWS EC2 autoscaling, and
+    how to optimize costs
   id: 207
   level: 2.6
   name: EKS Autoscaling
@@ -952,7 +963,8 @@ Modules:
   level: 2.99
   name: Observability - Metrics
   topic: Kubernetes
-- description: ''
+- description: Discusses additional details in chart building, such as establishing
+    dependencies
   id: 127
   level: 2.99
   name: Chart Patterns
@@ -1015,12 +1027,13 @@ Modules:
   level: 3.0
   name: Advanced Stream Processing
   topic: Kafka
-- description: ''
+- description: Discussion on how communications between Kubernetes Control Plane components
+    can be secured
   id: 216
   level: 3.0
   name: Control Plane Security
   topic: Kubernetes
-- description: ''
+- description: In-depth discussion on the nature of the Kubernetes default scheduler
   id: 222
   level: 3.0
   name: Kube-Scheduler
@@ -1057,22 +1070,26 @@ Modules:
   level: 3.1
   name: Debugging and monitoring Stream Processing Applications
   topic: Kafka
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKS exam
   id: 214
   level: 3.1
   name: CKS Drills Part 1
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKS exam
   id: 215
   level: 3.11
   name: CKS Drills Part 2
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKS exam
   id: 224
   level: 3.13
   name: CKS Drills Part 3
   topic: Kubernetes
-- description: ''
+- description: A 90-minute session of instructor-led, timed drills geared toward the
+    CKS exam
   id: 223
   level: 3.14
   name: CKS Drills Part 4
