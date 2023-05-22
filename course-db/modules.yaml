@@ -402,6 +402,11 @@ Modules:
   name: Program Construction
   topic: Python
 - description: ''
+  id: 182
+  level: 1.4
+  name: Brokers
+  topic: Kafka
+- description: ''
   id: 195
   level: 1.4
   name: Container Volumes
@@ -642,6 +647,16 @@ Modules:
   name: Streams
   topic: Kafka
 - description: ''
+  id: 205
+  level: 2.0
+  name: EKS Overview
+  topic: Kubernetes
+- description: ''
+  id: 209
+  level: 2.0
+  name: Service Mesh Overview
+  topic: Kubernetes
+- description: ''
   id: 228
   level: 2.0
   name: Advanced Deployment Models
@@ -703,6 +718,11 @@ Modules:
   level: 2.1
   name: Schema Registry
   topic: Kafka
+- description: ''
+  id: 208
+  level: 2.1
+  name: EKS In Practice
+  topic: Kubernetes
 - description: ''
   id: 229
   level: 2.1
@@ -861,6 +881,16 @@ Modules:
   level: 2.5
   name: Data Operations
   topic: Arangodb
+- description: ''
+  id: 206
+  level: 2.5
+  name: EKS & IAM
+  topic: Kubernetes
+- description: ''
+  id: 207
+  level: 2.6
+  name: EKS Autoscaling
+  topic: Kubernetes
 - description: ''
   id: 175
   level: 2.7
