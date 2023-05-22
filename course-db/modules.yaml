@@ -159,6 +159,11 @@ Modules:
   level: 1.0
   name: Container Basics
   topic: Containers
+- description: ''
+  id: 221
+  level: 1.0
+  name: Containers & Orchestration
+  topic: Kubernetes
 - description: Introduction to containers and containerized applications using Docker
   id: 9
   level: 1.1
@@ -412,6 +417,46 @@ Modules:
   level: 1.9
   name: Orchestration
   topic: Containers
+- description: ''
+  id: 217
+  level: 1.9
+  name: CKAD Drills Part 1
+  topic: Kubernetes
+- description: ''
+  id: 210
+  level: 1.91
+  name: CKA Drills Part 4
+  topic: Kubernetes
+- description: ''
+  id: 211
+  level: 1.92
+  name: CKA Drills Part 3
+  topic: Kubernetes
+- description: ''
+  id: 220
+  level: 1.92
+  name: CKAD Drills Part 2
+  topic: Kubernetes
+- description: ''
+  id: 212
+  level: 1.93
+  name: CKA Drills Part 1
+  topic: Kubernetes
+- description: ''
+  id: 219
+  level: 1.93
+  name: CKAD Drills Part 3
+  topic: Kubernetes
+- description: ''
+  id: 213
+  level: 1.94
+  name: CKA Drills Part 2
+  topic: Kubernetes
+- description: ''
+  id: 218
+  level: 1.94
+  name: CKAD Drills Part 4
+  topic: Kubernetes
 - description: ''
   id: 129
   level: 1.99
@@ -739,6 +784,16 @@ Modules:
   level: 3.0
   name: Advanced Stream Processing
   topic: Kafka
+- description: ''
+  id: 216
+  level: 3.0
+  name: Control Plane Security
+  topic: Kubernetes
+- description: ''
+  id: 222
+  level: 3.0
+  name: Kube-Scheduler
+  topic: Kubernetes
 - description: Examining multi-container Pod architecture, Pod design patterns, and
     best practices for Pods
   id: 28
@@ -771,6 +826,26 @@ Modules:
   level: 3.1
   name: Debugging and monitoring Stream Processing Applications
   topic: Kafka
+- description: ''
+  id: 214
+  level: 3.1
+  name: CKS Drills Part 1
+  topic: Kubernetes
+- description: ''
+  id: 215
+  level: 3.11
+  name: CKS Drills Part 2
+  topic: Kubernetes
+- description: ''
+  id: 224
+  level: 3.13
+  name: CKS Drills Part 3
+  topic: Kubernetes
+- description: ''
+  id: 223
+  level: 3.14
+  name: CKS Drills PArt 4
+  topic: Kubernetes
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
@@ -1045,3 +1120,4 @@ Modules:
   level: 4.99
   name: Troubleshooting
   topic: Kubernetes
+
