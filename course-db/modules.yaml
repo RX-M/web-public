@@ -146,7 +146,8 @@ Modules:
   level: 1.0
   name: Overview
   topic: Linux
-- description: Provides a basic overview of ArangoDB and its core user cases
+- description: Provides a basic overview of the ArangoDB multi-modal data store and
+    its core user cases
   id: 174
   level: 1.0
   name: Overview
@@ -285,12 +286,12 @@ Modules:
   level: 1.2
   name: Strings and Numbers
   topic: Python
-- description: ''
+- description: Detailed exploration on ArangoDB's querying language
   id: 168
   level: 1.2
   name: ArangoDB Query Language
   topic: Arangodb
-- description: ''
+- description: A look at how to query data and produce meaningful results using GraphQL
   id: 178
   level: 1.2
   name: Queries & Mutations
@@ -327,7 +328,8 @@ Modules:
   level: 1.23
   name: Batch Jobs
   topic: Kubernetes
-- description: ''
+- description: Detailed discussion on how Istio coordinates it various Envoy proxies
+    from a central control plane
   id: 134
   level: 1.25
   name: Control Plane
@@ -438,7 +440,8 @@ Modules:
   level: 1.5
   name: Testing
   topic: Python
-- description: ''
+- description: Discussion on Envoy, the software Istio uses to provide a majority
+    of its capabilities
   id: 135
   level: 1.5
   name: Envoy
@@ -453,12 +456,12 @@ Modules:
   level: 1.5
   name: Editing Files
   topic: Linux
-- description: ''
+- description: Explanation of ArangoDB's Graph Database capabilities
   id: 176
   level: 1.5
   name: Graphs
   topic: Arangodb
-- description: ''
+- description: Exploration of the Schema Types supported by GraphQL
   id: 179
   level: 1.5
   name: Schemas & Types
@@ -499,12 +502,13 @@ Modules:
   level: 1.6
   name: Cloud Native Transactions And Event Sourcing
   topic: Microservices
-- description: ''
+- description: A look at basic administrative operations within ArangoDB, including
+    user management and monitoring
   id: 170
   level: 1.7
   name: Basic Administration
   topic: Arangodb
-- description: ''
+- description: Discussion on GraphQL Best Practices
   id: 181
   level: 1.7
   name: Best Practices
@@ -625,7 +629,8 @@ Modules:
   level: 2.0
   name: Templating
   topic: Helm
-- description: ''
+- description: Exploration of Istio's basic Traffic Management capabilities, focusing
+    on Timeouts, Health Checks, and Fault Injection
   id: 136
   level: 2.0
   name: Basic Traffic Management
@@ -645,7 +650,8 @@ Modules:
   level: 2.0
   name: File Processing
   topic: Linux
-- description: ''
+- description: Discussion on different ArangoDB deployment patterns, infrastructure
+    support, and scaling considerations
   id: 169
   level: 2.0
   name: Architecture
@@ -752,7 +758,8 @@ Modules:
   level: 2.2
   name: Collections and Comprehensions
   topic: Python
-- description: ''
+- description: Examination of ArangoDB's data model, indexing capabilities, and transactional
+    queries
   id: 172
   level: 2.2
   name: Data Modeling, Indexing, & Transactions
@@ -870,7 +877,8 @@ Modules:
   level: 2.5
   name: Reflection
   topic: Go
-- description: ''
+- description: Look at how Istio enables external traffic into the cluster as an Ingress
+    Controller
   id: 137
   level: 2.5
   name: Ingress
@@ -885,7 +893,7 @@ Modules:
   level: 2.5
   name: Text Processing
   topic: Linux
-- description: ''
+- description: Discussion on data access & search optimization in ArangoDB
   id: 173
   level: 2.5
   name: Data Operations
@@ -902,7 +910,8 @@ Modules:
   level: 2.6
   name: EKS Autoscaling
   topic: Kubernetes
-- description: ''
+- description: Exploration of how to expand ArangoDB's API through the use of Foxx
+    Javascript extensions
   id: 175
   level: 2.7
   name: Foxx Javascript Microservices
@@ -969,7 +978,8 @@ Modules:
   level: 2.99
   name: Chart Patterns
   topic: Helm
-- description: ''
+- description: Exploration of Policy-based networking control on the Istio Service
+    Mesh using its own custom resources
   id: 132
   level: 2.99
   name: Policy
@@ -1007,7 +1017,7 @@ Modules:
   level: 3.0
   name: State Design
   topic: Kubernetes
-- description: ''
+- description: Discussion around Istio's Load Balancing and Service Discovery capabilities
   id: 138
   level: 3.0
   name: Advanced Traffic Management
@@ -1017,7 +1027,7 @@ Modules:
   level: 3.0
   name: Errors
   topic: Rust
-- description: ''
+- description: Discussion on how to improve ArangoDB's runtime performance
   id: 177
   level: 3.0
   name: Performance Tuning
@@ -1060,7 +1070,8 @@ Modules:
   level: 3.1
   name: Pandas
   topic: Python
-- description: ''
+- description: Exploration of how to create clients that can interact with ArangoDB
+    programmatically through code
   id: 171
   level: 3.1
   name: Code
@@ -1203,7 +1214,8 @@ Modules:
   level: 3.99
   name: Static Analysis
   topic: Kubernetes
-- description: ''
+- description: Discussion around how to unify two separate Kubernets clusters together
+    using Istio
   id: 131
   level: 3.99
   name: Multicluster
