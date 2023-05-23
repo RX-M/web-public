@@ -389,6 +389,12 @@ Modules:
   level: 1.3
   name: Connectivity And Composition Patterns
   topic: Microservices
+- description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
+    and the Downward API'
+  id: 2
+  level: 1.4
+  name: Application Configuration
+  topic: Kubernetes
 - description: Understand the error package and using errors in your Go code.
   id: 56
   level: 1.4
@@ -698,6 +704,12 @@ Modules:
   level: 2.1
   name: Observability Overview
   topic: Kubernetes
+- description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
+    restore'
+  id: 36
+  level: 2.1
+  name: State Operations
+  topic: Kubernetes
 - description: Learn how to create concurrent functions in Go.
   id: 52
   level: 2.1
@@ -829,12 +841,6 @@ Modules:
   level: 2.33
   name: Ingress Load Balancing
   topic: Kubernetes
-- description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
-    and the Downward API'
-  id: 2
-  level: 2.4
-  name: Application Configuration
-  topic: Kubernetes
 - description: Explore the Golang 3rd party ecosystem.
   id: 48
   level: 2.4
@@ -866,6 +872,12 @@ Modules:
   level: 2.4
   name: Zookeeper
   topic: Kafka
+- description: The StatefulSet application controller and Kubernetes' storage abstraction
+    using Storage Classes, PVs, and PVCs
+  id: 19
+  level: 2.5
+  name: Stateful Workloads
+  topic: Kubernetes
 - description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
     for users and application Pods
   id: 37
@@ -904,6 +916,22 @@ Modules:
   level: 2.5
   name: EKS & IAM
   topic: Kubernetes
+- description: Exposing locally attached storage to application Pods with damanding
+    disk IOPS
+  id: 18
+  level: 2.51
+  name: Local Storage
+  topic: Kubernetes
+- description: Techniques for exposing file storage systems to Kubernetes Pods
+  id: 15
+  level: 2.52
+  name: File Storage
+  topic: Kubernetes
+- description: Kubernetes block storage volumes and block storage CSI features
+  id: 6
+  level: 2.59
+  name: Block Storage
+  topic: Kubernetes
 - description: Exploration of the integration between EKS, AWS EC2 autoscaling, and
     how to optimize costs
   id: 207
@@ -930,6 +958,12 @@ Modules:
   id: 3
   level: 2.9
   name: API Security
+  topic: Kubernetes
+- description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
+    nodes'
+  id: 7
+  level: 2.9
+  name: Cluster Maintenance
   topic: Kubernetes
 - description: 'Examination of the Kubernetes database: etcd; including bootstrapping,
     sizing, backup and restore'
@@ -999,12 +1033,6 @@ Modules:
   level: 2.99
   name: Cgroups & Namespaces
   topic: Linux
-- description: The StatefulSet application controller and Kubernetes' storage abstraction
-    using Storage Classes, PVs, and PVCs
-  id: 19
-  level: 3.0
-  name: Stateful Workloads
-  topic: Kubernetes
 - description: 'Security for stateful Pods: Secret encryption, Pod Security Policies,
     and file permissions in Pods'
   id: 30
@@ -1048,11 +1076,11 @@ Modules:
   level: 3.0
   name: Kube-Scheduler
   topic: Kubernetes
-- description: Exposing locally attached storage to application Pods with damanding
-    disk IOPS
-  id: 18
+- description: Admission controller operations and key implementations in the Kubernetes
+    API Server
+  id: 1
   level: 3.1
-  name: Local Storage
+  name: Admission Control
   topic: Kubernetes
 - description: Overview of Kubernetes API security (RBAC, Namespaces, PSP) and Pod
     security (Security Context, Capabilities, etc.)
@@ -1105,23 +1133,6 @@ Modules:
   level: 3.14
   name: CKS Drills Part 4
   topic: Kubernetes
-- description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
-    nodes'
-  id: 7
-  level: 3.2
-  name: Cluster Maintenance
-  topic: Kubernetes
-- description: Techniques for exposing file storage systems to Kubernetes Pods
-  id: 15
-  level: 3.2
-  name: File Storage
-  topic: Kubernetes
-- description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
-    restore'
-  id: 36
-  level: 3.2
-  name: State Operations
-  topic: Kubernetes
 - description: ''
   id: 111
   level: 3.2
@@ -1167,11 +1178,6 @@ Modules:
   level: 3.3
   name: Networking Modules
   topic: Python
-- description: Kubernetes block storage volumes and block storage CSI features
-  id: 6
-  level: 3.5
-  name: Block Storage
-  topic: Kubernetes
 - description: A look at pod security features and secure pod design approaches.
   id: 124
   level: 3.5
@@ -1187,33 +1193,39 @@ Modules:
   level: 3.8
   name: Runtimes
   topic: Kubernetes
-- description: Admission controller operations and key implementations in the Kubernetes
-    API Server
-  id: 1
-  level: 3.9
-  name: Admission Control
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
+  id: 44
+  level: 3.89
+  name: Static Analysis
   topic: Kubernetes
 - description: Working with API auditing and audit log policies
   id: 5
   level: 3.9
   name: Auditing
   topic: Kubernetes
+- description: 'Best practices for container image security: scanning, image signing,
+    and binary authorization'
+  id: 16
+  level: 3.9
+  name: Image Security
+  topic: Containers
 - description: Using LSM and SecComp to secure pod based services
   id: 38
   level: 3.9
   name: OS Hardening
+  topic: Kubernetes
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
+  id: 46
+  level: 3.9
+  name: Behavioral Analysis
   topic: Kubernetes
 - description: ''
   id: 140
   level: 3.9
   name: Testing
   topic: Rust
-- description: Using unikernels and/or micro-VMs for improved Pod security and hard
-    multi-tenancy in Kubernetes
-  id: 44
-  level: 3.99
-  name: Static Analysis
-  topic: Kubernetes
 - description: Discussion around how to unify two separate Kubernets clusters together
     using Istio
   id: 131
@@ -1246,12 +1258,6 @@ Modules:
   level: 4.1
   name: Network Design
   topic: Kubernetes
-- description: Using unikernels and/or micro-VMs for improved Pod security and hard
-    multi-tenancy in Kubernetes
-  id: 46
-  level: 4.1
-  name: Behavioral Analysis
-  topic: Kubernetes
 - description: ''
   id: 99
   level: 4.1
@@ -1267,9 +1273,3 @@ Modules:
   level: 4.1
   name: C Extensions
   topic: Python
-- description: 'Best practices for container image security: scanning, image signing,
-    and binary authorization'
-  id: 16
-  level: 4.3
-  name: Image Security
-  topic: Containers
