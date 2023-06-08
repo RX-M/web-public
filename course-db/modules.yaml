@@ -16,19 +16,9 @@ Modules:
   name: Cloud Native Transactions
   topic: Microservices
 - description: ''
-  id: 74
-  level: 1.0
-  name: Container Packaging (Deprecated)
-  topic: Microservices
-- description: ''
   id: 75
   level: 1.0
   name: Gateways and Service Meshes
-  topic: Microservices
-- description: ''
-  id: 76
-  level: 1.0
-  name: Image Registries (Deprecated)
   topic: Microservices
 - description: ''
   id: 77
@@ -667,6 +657,12 @@ Modules:
   level: 2.0
   name: Streams
   topic: Kafka
+- description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
+    Node taints and Pod tolerations'
+  id: 204
+  level: 2.0
+  name: Pod Scheduling
+  topic: Kubernetes
 - description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
   id: 205
   level: 2.0
@@ -1215,8 +1211,10 @@ Modules:
   level: 3.9
   name: OS Hardening
   topic: Kubernetes
-- description: Using unikernels and/or micro-VMs for improved Pod security and hard
-    multi-tenancy in Kubernetes
+- description: 'Discussion of how observability grants insight into cluster behavior.
+    Compare and contrast behavior analysis with signature-based analysis
+
+    '
   id: 46
   level: 3.9
   name: Behavioral Analysis
