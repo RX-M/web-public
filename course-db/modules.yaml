@@ -141,12 +141,12 @@ Modules:
   id: 174
   level: 1.0
   name: Overview
-  topic: Arangodb
-- description: Provides a basic overview of Graphql and its core use cases
+  topic: ArangoDB
+- description: Provides a basic overview of GraphQL and its core use cases
   id: 180
   level: 1.0
   name: '101'
-  topic: Graphql
+  topic: GraphQL
 - description: ''
   id: 196
   level: 1.0
@@ -280,12 +280,12 @@ Modules:
   id: 168
   level: 1.2
   name: ArangoDB Query Language
-  topic: Arangodb
+  topic: ArangoDB
 - description: A look at how to query data and produce meaningful results using GraphQL
   id: 178
   level: 1.2
   name: Queries & Mutations
-  topic: Graphql
+  topic: GraphQL
 - description: ''
   id: 192
   level: 1.2
@@ -456,12 +456,12 @@ Modules:
   id: 176
   level: 1.5
   name: Graphs
-  topic: Arangodb
+  topic: ArangoDB
 - description: Exploration of the Schema Types supported by GraphQL
   id: 179
   level: 1.5
   name: Schemas & Types
-  topic: Graphql
+  topic: GraphQL
 - description: ''
   id: 186
   level: 1.5
@@ -503,12 +503,12 @@ Modules:
   id: 170
   level: 1.7
   name: Basic Administration
-  topic: Arangodb
+  topic: ArangoDB
 - description: Discussion on GraphQL Best Practices
   id: 181
   level: 1.7
   name: Best Practices
-  topic: Graphql
+  topic: GraphQL
 - description: ''
   id: 200
   level: 1.7
@@ -651,7 +651,7 @@ Modules:
   id: 169
   level: 2.0
   name: Architecture
-  topic: Arangodb
+  topic: ArangoDB
 - description: ''
   id: 191
   level: 2.0
@@ -771,7 +771,7 @@ Modules:
   id: 172
   level: 2.2
   name: Data Modeling, Indexing, & Transactions
-  topic: Arangodb
+  topic: ArangoDB
 - description: ''
   id: 190
   level: 2.2
@@ -905,7 +905,7 @@ Modules:
   id: 173
   level: 2.5
   name: Data Operations
-  topic: Arangodb
+  topic: ArangoDB
 - description: Discussion of how to control access to EKS clusters through AWS Identity
     & Access Management
   id: 206
@@ -939,7 +939,7 @@ Modules:
   id: 175
   level: 2.7
   name: Foxx Javascript Microservices
-  topic: Arangodb
+  topic: ArangoDB
 - description: ''
   id: 150
   level: 2.75
@@ -1055,7 +1055,7 @@ Modules:
   id: 177
   level: 3.0
   name: Performance Tuning
-  topic: Arangodb
+  topic: ArangoDB
 - description: ''
   id: 183
   level: 3.0
@@ -1099,7 +1099,7 @@ Modules:
   id: 171
   level: 3.1
   name: Code
-  topic: Arangodb
+  topic: ArangoDB
 - description: ''
   id: 184
   level: 3.1
