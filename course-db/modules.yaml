@@ -172,25 +172,25 @@ Modules:
   level: 1.0
   name: Cloud Native Systems Overview
   topic: Microservices
-- description: ''
+- description: An introduction to machine learning.
   id: 245
   level: 1.01
-  name: An introduction to machine learning.
+  name: Machine Learning Overview
   topic: AI
-- description: ''
+- description: Working with numpy and pandas for data processing.
   id: 246
   level: 1.02
-  name: Working with numpy and pandas for data processing.
+  name: NumPy and Pandas
   topic: AI
-- description: ''
+- description: Preparing data for use in machine learning and AI scenarios.
   id: 247
   level: 1.03
-  name: Preparing data for use in machine learning and ai scenarios.
+  name: Data Preparation
   topic: AI
-- description: ''
+- description: Data visualization and exploratory data analysis.
   id: 248
   level: 1.04
-  name: Data visualization and exploratory data analysis.
+  name: Exploratory Data Analysis
   topic: AI
 - description: Introduction to containers and containerized applications using Docker
   id: 9
@@ -244,25 +244,25 @@ Modules:
   level: 1.1
   name: Microservice Communications I - REST
   topic: Microservices
-- description: ''
+- description: Measuring models and exploring loses and metrics.
   id: 249
   level: 1.11
-  name: Measuring models and exploring loses and metrics.
+  name: Measuring Models
   topic: AI
-- description: ''
+- description: Working with linear machine learning models.
   id: 250
   level: 1.12
-  name: Working with linear machine learning models.
+  name: Linear Models
   topic: AI
-- description: ''
+- description: Working with supervised non-linear machine learning models.
   id: 251
   level: 1.13
-  name: Working with supervised non-linear machine learning models.
+  name: 'Nonlinear Models: Supervised'
   topic: AI
-- description: ''
+- description: Working with unsupervised non-linear machine learning models.
   id: 252
   level: 1.14
-  name: Working with unsupervised non-linear machine learning models.
+  name: 'Nonlinear Models: Unsupervised'
   topic: AI
 - description: Overview of all of Kubernetes' controllers for stateless, batch, and
     stateful applications
@@ -352,15 +352,15 @@ Modules:
   level: 1.21
   name: Deployments
   topic: Kubernetes
-- description: ''
+- description: Tuning and experimenting hyperparameters.
   id: 253
   level: 1.21
-  name: Tuning and experimenting hyperparameters.
+  name: Hyperparameter Tuning
   topic: AI
-- description: ''
+- description: An overview of deep learning concepts and tools.
   id: 254
   level: 1.22
-  name: An overview of deep learning concepts and tools.
+  name: Deep Learning Fundamentals
   topic: AI
 - description: Data science workloads and batch applications using Kubernetes Jobs
     and CronJobs
@@ -368,15 +368,15 @@ Modules:
   level: 1.23
   name: Batch Jobs
   topic: Kubernetes
-- description: ''
+- description: Modern deep learning architectures.
   id: 255
   level: 1.23
-  name: Modern deep learning architectures.
+  name: Deep Learning Architectures
   topic: AI
 - description: ''
   id: 256
   level: 1.24
-  name: ''
+  name: Deep Learning with PyTorch
   topic: AI
 - description: Detailed discussion on how Istio coordinates it various Envoy proxies
     from a central control plane
