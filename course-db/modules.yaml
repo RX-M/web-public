@@ -141,12 +141,12 @@ Modules:
   id: 174
   level: 1.0
   name: Overview
-  topic: ArangoDB
-- description: Provides a basic overview of GraphQL and its core use cases
+  topic: Arangodb
+- description: Provides a basic overview of Graphql and its core use cases
   id: 180
   level: 1.0
   name: '101'
-  topic: GraphQL
+  topic: Graphql
 - description: ''
   id: 196
   level: 1.0
@@ -172,6 +172,26 @@ Modules:
   level: 1.0
   name: Cloud Native Systems Overview
   topic: Microservices
+- description: ''
+  id: 245
+  level: 1.01
+  name: An introduction to machine learning.
+  topic: AI
+- description: ''
+  id: 246
+  level: 1.02
+  name: Working with numpy and pandas for data processing.
+  topic: AI
+- description: ''
+  id: 247
+  level: 1.03
+  name: Preparing data for use in machine learning and ai scenarios.
+  topic: AI
+- description: ''
+  id: 248
+  level: 1.04
+  name: Data visualization and exploratory data analysis.
+  topic: AI
 - description: Introduction to containers and containerized applications using Docker
   id: 9
   level: 1.1
@@ -224,6 +244,26 @@ Modules:
   level: 1.1
   name: Microservice Communications I - REST
   topic: Microservices
+- description: ''
+  id: 249
+  level: 1.11
+  name: Measuring models and exploring loses and metrics.
+  topic: AI
+- description: ''
+  id: 250
+  level: 1.12
+  name: Working with linear machine learning models.
+  topic: AI
+- description: ''
+  id: 251
+  level: 1.13
+  name: Working with supervised non-linear machine learning models.
+  topic: AI
+- description: ''
+  id: 252
+  level: 1.14
+  name: Working with unsupervised non-linear machine learning models.
+  topic: AI
 - description: Overview of all of Kubernetes' controllers for stateless, batch, and
     stateful applications
   id: 12
@@ -280,12 +320,12 @@ Modules:
   id: 168
   level: 1.2
   name: ArangoDB Query Language
-  topic: ArangoDB
+  topic: Arangodb
 - description: A look at how to query data and produce meaningful results using GraphQL
   id: 178
   level: 1.2
   name: Queries & Mutations
-  topic: GraphQL
+  topic: Graphql
 - description: ''
   id: 192
   level: 1.2
@@ -312,12 +352,32 @@ Modules:
   level: 1.21
   name: Deployments
   topic: Kubernetes
+- description: ''
+  id: 253
+  level: 1.21
+  name: Tuning and experimenting hyperparameters.
+  topic: AI
+- description: ''
+  id: 254
+  level: 1.22
+  name: An overview of deep learning concepts and tools.
+  topic: AI
 - description: Data science workloads and batch applications using Kubernetes Jobs
     and CronJobs
   id: 10
   level: 1.23
   name: Batch Jobs
   topic: Kubernetes
+- description: ''
+  id: 255
+  level: 1.23
+  name: Modern deep learning architectures.
+  topic: AI
+- description: ''
+  id: 256
+  level: 1.24
+  name: ''
+  topic: AI
 - description: Detailed discussion on how Istio coordinates it various Envoy proxies
     from a central control plane
   id: 134
@@ -456,12 +516,12 @@ Modules:
   id: 176
   level: 1.5
   name: Graphs
-  topic: ArangoDB
+  topic: Arangodb
 - description: Exploration of the Schema Types supported by GraphQL
   id: 179
   level: 1.5
   name: Schemas & Types
-  topic: GraphQL
+  topic: Graphql
 - description: ''
   id: 186
   level: 1.5
@@ -503,12 +563,12 @@ Modules:
   id: 170
   level: 1.7
   name: Basic Administration
-  topic: ArangoDB
+  topic: Arangodb
 - description: Discussion on GraphQL Best Practices
   id: 181
   level: 1.7
   name: Best Practices
-  topic: GraphQL
+  topic: Graphql
 - description: ''
   id: 200
   level: 1.7
@@ -651,7 +711,7 @@ Modules:
   id: 169
   level: 2.0
   name: Architecture
-  topic: ArangoDB
+  topic: Arangodb
 - description: ''
   id: 191
   level: 2.0
@@ -771,7 +831,7 @@ Modules:
   id: 172
   level: 2.2
   name: Data Modeling, Indexing, & Transactions
-  topic: ArangoDB
+  topic: Arangodb
 - description: ''
   id: 190
   level: 2.2
@@ -905,7 +965,7 @@ Modules:
   id: 173
   level: 2.5
   name: Data Operations
-  topic: ArangoDB
+  topic: Arangodb
 - description: Discussion of how to control access to EKS clusters through AWS Identity
     & Access Management
   id: 206
@@ -939,7 +999,7 @@ Modules:
   id: 175
   level: 2.7
   name: Foxx Javascript Microservices
-  topic: ArangoDB
+  topic: Arangodb
 - description: ''
   id: 150
   level: 2.75
@@ -1055,7 +1115,7 @@ Modules:
   id: 177
   level: 3.0
   name: Performance Tuning
-  topic: ArangoDB
+  topic: Arangodb
 - description: ''
   id: 183
   level: 3.0
@@ -1099,7 +1159,7 @@ Modules:
   id: 171
   level: 3.1
   name: Code
-  topic: ArangoDB
+  topic: Arangodb
 - description: ''
   id: 184
   level: 3.1
