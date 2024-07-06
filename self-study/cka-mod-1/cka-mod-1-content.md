@@ -91,7 +91,7 @@ Once installed, <code>kubeadm init</code> will initialize a control plane for yo
 <pre class="wp-block-code"><code>
 $ sudo kubeadm init --cri-socket=unix:///var/run/containerd/containerd.sock
 
-[init] Using Kubernetes version: v1.26.0
+[init] Using Kubernetes version: v1.30.2
 [preflight] Running pre-flight checks
 [preflight] Pulling images required for setting up a Kubernetes cluster
 
@@ -206,7 +206,7 @@ A Kubernetes upgrade entails updates to the components that serve Kubernetes fun
 
 Kubeadm's design allows it to upgrade the control plane components easily, since all it needs to do is change the container versions of each control plane components. It will also perform other tasks, like regenerating certificates or renewing the kubelet configurations. These upgrade operations are driven by the <code>kubeadm upgrade</code> family of commands and subcommands.
 
-Before upgrading Kubernetes, you must choose which version you want to upgrade to. Major API updates occur with minor version releases (e.g. 1.25 to 1.26) while fixes or security patches occur in patch releases (1.26.0 to 1.26.1). Kubeadm only allows movement between one minor version at a time: so a Kubeadm-initialized cluster at version 1.24 can only go to 1.25; if 1.26 is desired, then separate upgrade operation must occur to go to 1.25 to 1.26. The kubeadm binary's version represents the highest version that can be upgraded to (kubeadm 1.25.0 cannot upgrade a cluster to Kubernetes 1.26.0).
+Before upgrading Kubernetes, you must choose which version you want to upgrade to. Major API updates occur with minor version releases (e.g. 1.29 to 1.30) while fixes or security patches occur in patch releases (1.29.0 to 1.29.6). Kubeadm only allows movement between one minor version at a time: so a Kubeadm-initialized cluster at version 1.28 can only go to 1.29; if 1.30 is desired, then separate upgrade operation must occur to go to 1.28 to 1.29. The kubeadm binary's version represents the highest version that can be upgraded to (kubeadm 1.30.0 cannot upgrade a cluster to Kubernetes 1.30.2).
 
 Cluster upgrades involve updating the version of the Kubernetes control plane components and kubelets. In general, the API server determines the version of the Kubernetes cluster and should be the newest component at any given time. The kubelet may be up two minor versions older than the API server. The other control plane components may be up to one minor version older than the API server. The kubectl client may be one version newer or older than the API server.
 
@@ -221,11 +221,15 @@ To upgrade the control-plane node we must do the following:
 
 You may also use <code>kubectl drain</code> to remove any reschedulable workloads from the node you are upgrading. Just be sure to use <code>kubectl uncordon</code> to allow those workloads to come back if necessary.
 
-The following is an example of upgrading a Kubernetes control plane node from Kubernetes v1.25.0 to v1.26.0 on Ubuntu 20.04:
+The following is an example of upgrading a Kubernetes control plane node from Kubernetes v1.29.0 to v1.30.0 on Ubuntu 24.04:
 
-Update the apt repository:
+Change the repository to the latest minor version:
 
 <pre class="wp-block-code"><code>
+$ nano /etc/apt/sources.list.d/kubernetes.list ; cat $_
+
+deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /
+
 $ sudo apt update
 
 …
@@ -233,10 +237,16 @@ $ sudo apt update
 $
 </code></pre>
 
-Install the newer kubeadm version e.g. v1.26.0:
+Install the newer kubeadm version:
 
 <pre class="wp-block-code"><code>
-$ sudo apt install kubeadm=1.26.0-00
+$ apt-cache madison kubeadm
+
+   kubeadm | 1.30.2-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
+   kubeadm | 1.30.1-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
+   kubeadm | 1.30.0-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
+
+$ sudo apt install kubeadm=1.30.0-1.1
 
 …
 
@@ -249,37 +259,24 @@ Run <code>kubeadm upgrade plan</code> with <code>sudo</code> to check and fetch 
 $ sudo kubeadm upgrade plan
 …
 Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
-COMPONENT   CURRENT       AVAILABLE
-kubelet                1 x v1.25.0     v1.26.0
+COMPONENT   NODE              CURRENT   TARGET
+kubelet     ip-172-31-21-68   v1.29.6   v1.30.2
 
 Upgrade to the latest stable version:
 
-COMPONENT                   CURRENT   AVAILABLE
-kube-apiserver                   v1.25.0   v1.26.0
-kube-controller-manager   v1.25.0   v1.26.0
-kube-scheduler                  v1.25.0   v1.26.0
-kube-proxy                         v1.25.0   v1.26.0
-CoreDNS                           1.6.7        1.7.0
-etcd                                    3.5.3-0   3.5.5-1
+COMPONENT                 NODE              CURRENT    TARGET
+kube-apiserver            ip-172-31-21-68   v1.29.0    v1.30.2
+kube-controller-manager   ip-172-31-21-68   v1.29.0    v1.30.2
+kube-scheduler            ip-172-31-21-68   v1.29.0    v1.30.2
+kube-proxy                                  1.29.0     v1.30.2
+CoreDNS                                     v1.11.1    v1.11.1
+etcd                      ip-172-31-21-68   3.5.12-0   3.5.12-0
 
 You can now apply the upgrade by executing the following command:
 
-        kubeadm upgrade apply v1.26.0
+	kubeadm upgrade apply v1.30.2
 
-Note: Before you can perform this upgrade, you have to update kubeadm to v1.26.0.
-
-_____________________________________________________________________
-
-
-The table below shows the current state of component configs as understood by this version of kubeadm.
-Configs that have a "yes" mark in the "MANUAL UPGRADE REQUIRED" column require manual config upgrade or
-resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
-upgrade to is denoted in the "PREFERRED VERSION" column.
-
-API GROUP                 CURRENT VERSION   PREFERRED VERSION   MANUAL UPGRADE REQUIRED
-kubeproxy.config.k8s.io   v1alpha1          v1alpha1            no
-kubelet.config.k8s.io     v1beta1           v1beta1             no
-_____________________________________________________________________
+...
 
 $
 </code></pre>
@@ -287,9 +284,9 @@ $
 The upgrade is executed using <code>kubeadm upgrade apply</code>:
 
 <pre class="wp-block-code"><code>
-$ sudo kubeadm upgrade apply v1.26.0
+$ sudo kubeadm upgrade apply v1.30.0
 …
-[upgrade/successful] SUCCESS! Your cluster was upgraded to "v1.26.0". Enjoy!
+[upgrade/successful] SUCCESS! Your cluster was upgraded to "v1.30.0". Enjoy!
 
 [upgrade/kubelet] Now that your control plane is upgraded, please proceed with upgrading your kubelets if you haven't already done so.
 
@@ -300,10 +297,10 @@ Kubeadm does not affect the Kubelet nor Kubectl, so those must be updated by acq
 Install the corresponding versions of the kubelet and kubectl:
 
 <pre class="wp-block-code"><code>
-$ sudo apt install kubelet=1.26.0-00 kubectl=1.26.0-00
+$ sudo apt install kubelet=1.30.0-1.1 kubectl=1.30.0-1.1
 …
-Setting up kubelet (1.26.0-00) ...
-Setting up kubectl (1.26.0-00) ...
+Setting up kubelet (1.30.0-1.1) ...
+Setting up kubectl (1.30.0-1.1) ...
 </code></pre>
 
 Repeat this across the cluster until all nodes are at the desired versions.

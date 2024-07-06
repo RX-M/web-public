@@ -3,7 +3,7 @@
 First, create a pod spec imperatively using <code>kubectl run</code>
 
 <pre class="wp-block-code"><code>
-$ kubectl run --restart Never --image centos/httpd --dry-run -o yaml mod4drillpod  > mod4drillpod.yaml
+$ kubectl run --restart Never --image docker.io/centos/httpd --dry-run -o yaml mod4drillpod  > mod4drillpod.yaml
 
 $
 </code></pre>
@@ -20,7 +20,7 @@ metadata:
   name: mod4drillpod
 spec:
   containers:
-  - image: centos/httpd
+  - image: docker.io/centos/httpd
     name: mod4drillpod
   volumes:
   - name: apache-logs
@@ -40,7 +40,7 @@ metadata:
   name: mod4drillpod
 spec:
   containers:
-  - image: centos/httpd
+  - image: docker.io/centos/httpd
     name: mod4drillpod
     volumeMounts:
     - name: apache-logs

@@ -19,8 +19,8 @@ To create container images, one must start by defining a series of instructions 
 
 A simple Dockerfile typically looks like this:
 
-<pre class="wp-block-code"><code>FROM debian:10
-RUN apt update & apt install -y vim
+<pre class="wp-block-code"><code>FROM debian:12
+RUN apt update & apt install -y bash
 CMD while true; do which vim; sleep 2; done
 </code></pre>
 
@@ -28,26 +28,18 @@ After defining the instructions to create a container image, the image must be b
 
 <pre class="wp-block-code"><code>$ docker build -t debian-vim:latest .
 
-Sending build context to Docker daemon  2.048kB
-Step 1/3 : FROM debian:10
-10: Pulling from library/debian
-b281ebec60d2: Pull complete
-Digest: sha256:1b236b48c1ef66fa08535a5153266f4959bf58f948db3e68f7d678b651d8e33a
-Status: Downloaded newer image for debian:10
- ---> 76e02db62235
-Step 2/3 : RUN apt update && apt install -y vim
- ---> Running in f0c2f64f0c0c
-
-...
-
-Removing intermediate container f0c2f64f0c0c
- ---> 3d4fab39fd72
-Step 3/3 : CMD while true; do which vim; sleep 2; done
- ---> Running in 8e624b5991b2
-Removing intermediate container 8e624b5991b2
- ---> 479bf18f5ca2
-Successfully built 479bf18f5ca2
-Successfully tagged debian-vim:latest
+[+] Building 5.3s (6/6) FINISHED                                                                                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                              0.0s
+ => => transferring dockerfile: 134B                                                                                                                                              0.0s
+ => [internal] load metadata for docker.io/library/debian:12                                                                                                                      0.3s
+ => [internal] load .dockerignore                                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                                   0.0s
+ => CACHED [1/2] FROM docker.io/library/debian:12@sha256:1dc55ed6871771d4df68d393ed08d1ed9361c577cfeb903cd684a182e8a3e3ae                                                         0.0s
+ => [2/2] RUN apt update && apt install -y bash                                                                                                                                   4.8s
+ => exporting to image                                                                                                                                                            0.1s
+ => => exporting layers                                                                                                                                                           0.1s
+ => => writing image sha256:32c960212cc9851347859089fd26b4e2aea7991e0ccc2c7f6f1d605fe4004ed8                                                                                      0.0s 
+ => => naming to docker.io/library/debian-top:latest
 </code></pre>
 
 Each "build" invocation results in a single tagged image that can the be:
@@ -104,7 +96,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: busybox
+        image: docker.io/busybox:latest
         command:
         - /bin/sh
         - -c
@@ -129,7 +121,7 @@ spec:
         spec:
           containers:
           - name: busybox
-            image: busybox
+            image: docker.io/busybox:latest
             args:
             - /bin/sh
             - -c
@@ -147,15 +139,15 @@ A pod may run one or more containers. Multi-container pods are tightly coupled i
 <ul>
 <li>Sidecar - sidecar containers extend and enhance the "main" container in the pod. The diagram below shows a web server container that saves its logs to a shared filesystem. The log saving sidecar container sends the webserver’s logs to a log aggregator.</li>
 </ul>
-<img src="https://rx-m.com/wp-content/uploads/2020/09/sidecar-containers.png" alt="sidecar" width="500" height="200" />
+
 <ul>
  <li>Ambassador - ambassador containers proxy a pod’s local connection to the outside world. The diagram shows a three-node Redis cluster (1, 2, 3). The ambassador container is a proxy that sends the appropriate reads and writes from the main application container to the Redis cluster. The main application container is configured to connect to a local Redis server since the two containers share the same uts namespace.</li>
 </ul>
-<img src="https://rx-m.com/wp-content/uploads/2020/09/ambassador-containers.png" alt="ambassador" width="500" height="200" />
+
 <ul>
  <li>Adapter - adapter containers standardize and normalize output for remote monitoring systems that require standard data formats. The diagram below shows a monitoring adapter container running an agent that reads the main application’s data, processes it, then exports the normalized data to monitoring systems elsewhere in the network.</li>
 </ul>
-<img src="https://rx-m.com/wp-content/uploads/2020/09/adapter-containers.png" alt="adapter" width="500" height="200" />
+
 
 A multi-container pod is created by specifying one or more additional container entries in a pod manifest. Shown below is an example of a multi-container pod with an <code>nginx</code> main container and an <code>fluent-bit</code> container sidecar in yaml. The nginx container writes its logs to a file at <code>/tmp/nginx/</code>, which is shared between all containers in the pod. The Fluent-Bit container reads the file from the shared directory and outputs it to its own standard output.
 
@@ -166,7 +158,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx:latest
+    image: docker.io/nginx:latest
     volumeMounts:
     - name: shared-vol
       mountPath: /tmp/nginx/    
@@ -175,7 +167,7 @@ spec:
     - -c
     - nginx -g 'daemon off;' > /tmp/nginx/nginx.log
   - name: adapter
-    image: fluent/fluent-bit
+    image: docker.io/fluent/fluent-bit
     command:
     - /fluent-bit/bin/fluent-bit
     - -i
@@ -215,7 +207,7 @@ Let’s see how pods bind to a persistent volume claim and how a persistent volu
 
 The manifest below is for a persistent volume with the following characteristics:
 <ul>
-<li>Label of k8scluster: master</li>
+<li>Label of k8scluster: control</li>
 <li>Storage class name is local</li>
 <li>Storage capacity is 200Mi</li>
 <li>One node can mount the volume as read-write (access mode = ReadWriteOnce)</li>
@@ -228,7 +220,7 @@ kind: PersistentVolume
 metadata:
   name: local-volume
   labels:
-    k8scluster: master
+    k8scluster: control
 spec:
   storageClassName: local
   capacity:
@@ -242,7 +234,7 @@ spec:
 
 In the example above, a persistent volume claim can use one or more of the following to bind to the persistent volume:  label, storage class name, storage capacity, and access mode.
 
-The following example describes a persistent volume claim that binds to the ‘local-volume’ persistent volume by using a selector to select the label <code>k8scluster:master</code>, storage class name of local, and matching storage capacity and access mode.
+The following example describes a persistent volume claim that binds to the ‘local-volume’ persistent volume by using a selector to select the label <code>k8scluster: control</code>, storage class name of local, and matching storage capacity and access mode.
 
 <pre class="wp-block-code"><code>apiVersion: v1
 kind: PersistentVolumeClaim
@@ -257,7 +249,7 @@ spec:
   storageClassName: local
   selector:
     matchLabels:
-      k8scluster: master
+      k8scluster: control
 </code></pre>
 
 After creating the persistent volume and persistent volume claim with <code>kubectl apply -f yaml_file.yaml</code> we can verify the binding but describing the persistent volume and persistent volume claim.
@@ -284,7 +276,7 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: nginx:latest
+      image: docker.io/nginx:latest
       volumeMounts:
         - name: data
           mountPath: /usr/share/nginx/html

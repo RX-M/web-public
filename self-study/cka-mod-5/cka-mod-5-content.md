@@ -13,15 +13,17 @@ To evaluate whether your current cluster follows the control plane as pods patte
 
 <pre class="wp-block-code"><code>
 ~$ kubectl get pods -n kube-system
-NAME                                       READY   STATUS    RESTARTS     AGE
-coredns-787d4945fb-jlgcp                   1/1     Running   1 (8h ago)   32h
-coredns-787d4945fb-rd8d6                   1/1     Running   1 (8h ago)   32h
-etcd-ip-172-31-18-190                      1/1     Running   1 (8h ago)   32h
-kube-apiserver-ip-172-31-18-190            1/1     Running   1 (8h ago)   32h
-kube-controller-manager-ip-172-31-18-190   1/1     Running   1 (8h ago)   32h
-kube-proxy-nn7fp                           1/1     Running   1 (8h ago)   32h
-kube-scheduler-ip-172-31-18-190            1/1     Running   1 (8h ago)   32h
-weave-net-hgshk                            2/2     Running   3 (8h ago)   32h
+
+NAME                                      READY   STATUS    RESTARTS      AGE
+cilium-ngkpt                              1/1     Running   1 (11m ago)   17m
+cilium-operator-65496b9554-vn6z7          1/1     Running   1 (11m ago)   17m
+coredns-7db6d8ff4d-gqnxv                  1/1     Running   0             17m
+coredns-7db6d8ff4d-pr78k                  1/1     Running   0             17m
+etcd-ip-172-31-21-39                      1/1     Running   4 (11m ago)   17m
+kube-apiserver-ip-172-31-21-39            1/1     Running   1 (11m ago)   17m
+kube-controller-manager-ip-172-31-21-39   1/1     Running   1 (11m ago)   17m
+kube-proxy-2mjrc                          1/1     Running   1 (11m ago)   17m
+kube-scheduler-ip-172-31-21-39            1/1     Running   1 (11m ago)   17m
 </code></pre>
 
 Depending on your cluster setup, there may be additional logging agents running as DaemonSets. These act as node-level logging agents that may read the container runtime logs or other system logs. This pattern is not universal, but depending on the type of logger it is very likely you would find them as daemonsets.
@@ -30,9 +32,10 @@ To view the Daemonsets in your cluster, search for the `daemonset` API resource 
 
 <pre class="wp-block-code"><code>
 ~$ kubectl get daemonsets -A
+
 NAMESPACE     NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
-kube-system   kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   32h
-kube-system   weave-net    1         1         1       1            1           <none>                   32h
+kube-system   cilium       1         1         1       1            1           kubernetes.io/os=linux   17m
+kube-system   kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   18m
 </code></pre>
 
 Finally, your pods may implement an additional container specifically for logging purposes. To find these pods, simply look for pods that report more than one container in the <code>kubectl get pod</code> output:
@@ -41,7 +44,7 @@ Finally, your pods may implement an additional container specifically for loggin
 ~$ kubectl get pods
 
 NAME               READY   STATUS    RESTARTS   AGE
-webserver-logged   2/2     Running   0          33m
+webserver-logged   1/1     Running   0          7s
 </code></pre>
 
 You will have to look into each pod and see if they are configured as such. This information is available from the <code>kubectl describe pod</code> output's "Containers" section:
@@ -53,57 +56,30 @@ Name:             webserver-logged
 Namespace:        default
 Priority:         0
 Service Account:  default
-Node:             ip-172-31-18-190/172.31.18.190
-Start Time:       Thu, 09 Feb 2023 01:20:37 +0000
-Labels:           app=website
-                  component=webserver
-                  vendor=rx-m
+Node:             ip-172-31-21-39/172.31.21.39
+Start Time:       Fri, 05 Jul 2024 18:43:17 +0000
+Labels:           run=webserver-logged
 Annotations:      <none>
 Status:           Running
-IP:               10.32.0.4
+IP:               10.0.0.55
 IPs:
-  IP:  10.32.0.4
+  IP:  10.0.0.55
 Containers:
-  webserver:
-    Container ID:  containerd://a5809913eb9cb2d3f74705b4e071d9b773ec5b7884d73ad1bc3bd10e7ed42295
-    Image:         nginx:1.23.3
-    Image ID:      docker.io/library/nginx@sha256:c54fb26749e49dc2df77c6155e8b5f0f78b781b7f0eadd96ecfabdcdfa5b1ec4
-    Port:          <none>
-    Host Port:     <none>
-    Args:
-      /bin/sh
-      -c
-      nginx -g "daemon off;" > /log/server.log 2>&1
+  webserver-logged:
+    Container ID:   containerd://3fec76f28ff636a2a2a5724ca01b764d82eb0b03f5362e7f6185720bd464436c
+    Image:          docker.io/nginx:1.23.3
+    Image ID:       docker.io/library/nginx@sha256:f4e3b6489888647ce1834b601c6c06b9f8c03dee6e097e13ed3e28c01ea3ac8c
+    Port:           <none>
+    Host Port:      <none>
     State:          Running
-      Started:      Thu, 09 Feb 2023 01:20:37 +0000
+      Started:      Fri, 05 Jul 2024 18:43:22 +0000
     Ready:          True
     Restart Count:  0
     Environment:    <none>
     Mounts:
-      /log from log (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-w5wwv (ro)
-  fluent-bit:
-    Container ID:  containerd://93848fa95384c83e742842c15bcd7108f3727d76606d12ecd5a15cf1ec93b4ad
-    Image:         fluent/fluent-bit:1.9.7
-    Image ID:      docker.io/fluent/fluent-bit@sha256:14ffcdfbafba6145348effd470793bca0755ee7d2fed7e75c7689d0ae3e8d135
-    Port:          <none>
-    Host Port:     <none>
-    Command:
-      /fluent-bit/bin/fluent-bit
-      -i
-      tail
-      -p
-      path=/log/*.log
-      -o
-      stdout
-    State:          Running
-      Started:      Thu, 09 Feb 2023 01:20:37 +0000
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /log from log (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-w5wwv (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-fs6sh (ro)
+
+...
 </code></pre>
 
 [Learn more about the logging architecture present in most Kubernetes deployments here](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
@@ -136,17 +112,18 @@ You can also use the <code>kubectl top pods</code> to view the same memory and C
 <pre class="wp-block-code"><code>
 ~$ kubectl top pods -A
 
-NAMESPACE     NAME                                       CPU(cores)   MEMORY(bytes)
-default       webserver-logged                           1m           5Mi
-kube-system   coredns-787d4945fb-jlgcp                   2m           12Mi
-kube-system   coredns-787d4945fb-rd8d6                   2m           12Mi
-kube-system   etcd-ip-172-31-18-190                      17m          93Mi
-kube-system   kube-apiserver-ip-172-31-18-190            32m          239Mi
-kube-system   kube-controller-manager-ip-172-31-18-190   11m          41Mi
-kube-system   kube-proxy-nn7fp                           1m           13Mi
-kube-system   kube-scheduler-ip-172-31-18-190            3m           17Mi
-kube-system   metrics-server-5bbd5b4cd4-fzhk9            3m           14Mi
-kube-system   weave-net-hgshk                            1m           63Mi
+NAMESPACE     NAME                                      CPU(cores)   MEMORY(bytes)   
+default       webserver-logged                          0m           2Mi             
+kube-system   cilium-ngkpt                              14m          298Mi           
+kube-system   cilium-operator-65496b9554-vn6z7          4m           99Mi            
+kube-system   coredns-7db6d8ff4d-gqnxv                  2m           37Mi            
+kube-system   coredns-7db6d8ff4d-pr78k                  2m           33Mi            
+kube-system   etcd-ip-172-31-21-39                      24m          77Mi            
+kube-system   kube-apiserver-ip-172-31-21-39            51m          308Mi           
+kube-system   kube-controller-manager-ip-172-31-21-39   16m          120Mi           
+kube-system   kube-proxy-2mjrc                          1m           62Mi            
+kube-system   kube-scheduler-ip-172-31-21-39            4m           64Mi            
+kube-system   metrics-server-86776f5749-p8m8d           3m           54Mi
 </code></pre>
 
 You can also use the <code>kubectl top pods</code> command with the <code>--containers</code> option to view the same memory and CPU use statistics on a per container basis:
@@ -154,19 +131,18 @@ You can also use the <code>kubectl top pods</code> command with the <code>--cont
 <pre class="wp-block-code"><code>
 ~$ kubectl top pods -A --containers
 
-NAMESPACE     POD                                        NAME                      CPU(cores)   MEMORY(bytes)
-default       webserver-logged                           fluent-bit                1m           2Mi
-default       webserver-logged                           webserver                 0m           2Mi
-kube-system   coredns-787d4945fb-jlgcp                   coredns                   2m           12Mi
-kube-system   coredns-787d4945fb-rd8d6                   coredns                   2m           12Mi
-kube-system   etcd-ip-172-31-18-190                      etcd                      17m          93Mi
-kube-system   kube-apiserver-ip-172-31-18-190            kube-apiserver            32m          239Mi
-kube-system   kube-controller-manager-ip-172-31-18-190   kube-controller-manager   11m          41Mi
-kube-system   kube-proxy-nn7fp                           kube-proxy                1m           13Mi
-kube-system   kube-scheduler-ip-172-31-18-190            kube-scheduler            3m           17Mi
-kube-system   metrics-server-5bbd5b4cd4-fzhk9            metrics-server            3m           14Mi
-kube-system   weave-net-hgshk                            weave                     1m           46Mi
-kube-system   weave-net-hgshk                            weave-npc                 1m           17Mi
+NAMESPACE     POD                                       NAME                      CPU(cores)   MEMORY(bytes)   
+default       webserver-logged                          webserver-logged          0m           2Mi             
+kube-system   cilium-ngkpt                              cilium-agent              14m          298Mi           
+kube-system   cilium-operator-65496b9554-vn6z7          cilium-operator           4m           99Mi            
+kube-system   coredns-7db6d8ff4d-gqnxv                  coredns                   2m           37Mi            
+kube-system   coredns-7db6d8ff4d-pr78k                  coredns                   2m           33Mi            
+kube-system   etcd-ip-172-31-21-39                      etcd                      22m          78Mi            
+kube-system   kube-apiserver-ip-172-31-21-39            kube-apiserver            61m          312Mi           
+kube-system   kube-controller-manager-ip-172-31-21-39   kube-controller-manager   16m          120Mi           
+kube-system   kube-proxy-2mjrc                          kube-proxy                1m           62Mi            
+kube-system   kube-scheduler-ip-172-31-21-39            kube-scheduler            4m           64Mi            
+kube-system   metrics-server-86776f5749-p8m8d           metrics-server            5m           53Mi
 </code></pre>
 
 It is important to remember that the Kubernetes metrics server only provides more basic metrics reporting. For more sophisticated metrics output, there is the custom metrics API. The custom metrics API is populated with query results from one of many adapters tailored for specific metrics backends (like Prometheus). As the CKA stays within the bounds of Kubernetes itself, these are out of scope for the exam.
@@ -206,7 +182,7 @@ spec:
     emptyDir: {}
   containers:
   - name: webserver
-    image: nginx:1.23.3
+    image: docker.io/nginx:1.23.3
     args:
     - /bin/sh
     - -c
@@ -215,7 +191,7 @@ spec:
     - name: log
       mountPath: /log
   - name: fluent-bit
-    image: fluent/fluent-bit:1.9.7
+    image: docker.io/fluent/fluent-bit:1.9.7
     command:
     - /fluent-bit/bin/fluent-bit
     - -i
@@ -238,10 +214,10 @@ pod/webserver-logged created
 
 ~$ kubectl get pods -o wide
 
-NAME               READY   STATUS    RESTARTS   AGE   IP          NODE               NOMINATED NODE   READINESS GATES
-webserver-logged   2/2     Running   0          3s    10.32.0.4   ip-172-31-18-190   <none>           <none>
+NAME               READY   STATUS    RESTARTS   AGE   IP           NODE              NOMINATED NODE   READINESS GATES
+webserver-logged   2/2     Running   0          6s    10.0.0.215   ip-172-31-21-39   <none>           <none>
 
-~$ curl 10.32.0.4:80
+~$ curl 10.0.0.215:80
 
 ... Welcome to nginx!...
 
@@ -259,13 +235,13 @@ Fluent Bit v1.9.7
 * Fluent Bit is a CNCF sub-project under the umbrella of Fluentd
 * https://fluentbit.io
 
-[2023/02/09 01:20:37] [ info] [fluent bit] version=1.9.7, commit=265783ebe9, pid=1
-[2023/02/09 01:20:37] [ info] [storage] version=1.2.0, type=memory-only, sync=normal, checksum=disabled, max_chunks_up=128
-[2023/02/09 01:20:37] [ info] [cmetrics] version=0.3.5
-[2023/02/09 01:20:37] [ info] [sp] stream processor started
-[2023/02/09 01:20:37] [ info] [input:tail:tail.0] inotify_fs_add(): inode=1036058 watch_fd=1 name=/log/server.log
-[2023/02/09 01:20:37] [ info] [output:stdout:stdout.0] worker #0 started
-[0] tail.0: [1675905647.814285446, {"log"=>"10.32.0.1 - - [09/Feb/2023:01:20:47 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.81.0" "-""}]
+[2024/07/05 18:53:54] [ info] [fluent bit] version=1.9.7, commit=265783ebe9, pid=1
+[2024/07/05 18:53:54] [ info] [storage] version=1.2.0, type=memory-only, sync=normal, checksum=disabled, max_chunks_up=128
+[2024/07/05 18:53:54] [ info] [cmetrics] version=0.3.5
+[2024/07/05 18:53:54] [ info] [sp] stream processor started
+[2024/07/05 18:53:54] [ info] [input:tail:tail.0] inotify_fs_add(): inode=2159449 watch_fd=1 name=/log/server.log
+[2024/07/05 18:53:54] [ info] [output:stdout:stdout.0] worker #0 started
+[0] tail.0: [1720205650.616114331, {"log"=>"10.0.0.246 - - [05/Jul/2024:18:54:10 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/8.5.0" "-""}]
 
 ~$
 </code></pre>

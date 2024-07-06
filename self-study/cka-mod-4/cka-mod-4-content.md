@@ -163,6 +163,7 @@ kind: PersistentVolume
 metadata:
   name: fivegigpv
 spec:
+  storageClassName: manual
   capacity:
     storage: 5Gi
   accessModes:
@@ -172,7 +173,7 @@ spec:
     path: /tmp/pvc
 </code></pre>
 
-Persistent volumes exist as resources in the cluster that any pod can claim using a standard volume mount or through a persistent volume claim. 
+Persistent volumes exist as resources in the cluster that any pod can claim using a persistent volume claim. 
 
 [Learn more about persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
@@ -194,6 +195,7 @@ kind: PersistentVolume
 metadata:
   name: app-pv
 spec:
+  storageClassName: manual
   capacity:
     storage: 50Gi
   accessModes:
@@ -220,6 +222,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: app-pvc
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
@@ -227,7 +230,7 @@ spec:
       storage: 50Gi
 </code></pre>
 
-The persistent volume claim must find a persistent volume with up to 50 gigabytes of storage and the ReadWriteOnce access mode in its manifest. The kube-controller-manager is responsible for taking the parameters of the PVC and finding a PV that it can bind to.
+The persistent volume claim must find a persistent volume with up to 50 gigabytes of storage and the ReadWriteOnce access mode in its manifest. It will only be matched with any persistent volumes within the manual storage class (as declared by the PV's own storageClassName key). The kube-controller-manager is responsible for taking the parameters of the PVC and finding a PV that it can bind to.
 
 [Learn more about persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
 

@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.16
+        image: docker.io/nginx:1.16
 </code></pre>
 
 
@@ -42,7 +42,7 @@ Updates to the deployment’s pod template trigger a rolling update. When a depl
 The following example creates a deployment of nginx pods with 3 replicas. The deployment’s rollout status and history are verified with <code>kubectl rollout</code> .
 
 <pre class="wp-block-code"><code>
-$ kubectl create deployment nginx --image=nginx:1.16 --replicas=3
+$ kubectl create deployment nginx --image=docker.io/nginx:1.16 --replicas=3
 
 deployment.apps/nginx created
 
@@ -62,7 +62,7 @@ $
 Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
 
 <pre class="wp-block-code"><code>
-$ kubectl set image deployment nginx nginx=nginx:1.17
+$ kubectl set image deployment nginx nginx=docker.io/nginx:1.17
 
 deployment.apps/nginx image updated
 
@@ -263,7 +263,7 @@ spec:
         app: redis-prod
     spec:
       containers:
-      - image: redis:4.0
+      - image: docker.io/redis:4.0
         name: redis
 
 $ kubectl apply -f redis-prod.yaml
@@ -394,7 +394,7 @@ spec:
     emptyDir: {}
   containers:
   - name: webserver
-    image: nginx:1.23.3
+    image: docker.io/nginx:1.23.3
     resources:
       requests:
         cpu: 4
@@ -564,9 +564,9 @@ As long as all of the files mentioned are colocated in the same directory, the <
 $ ls -l
 
 total 12
--rw-rw-r-- 1 ubuntu ubuntu 111 Jan  9 17:03 kustomization.yaml
--rw-rw-r-- 1 ubuntu ubuntu 418 Jan  9 17:03 test-run.yaml
--rw-rw-r-- 1 ubuntu ubuntu  49 Jan  9 16:58 test-vars.env
+-rw-rw-r-- 1 ubuntu ubuntu 111 Jul  5 18:01 kustomization.yaml
+-rw-rw-r-- 1 ubuntu ubuntu 410 Jul  5 18:02 test-run.yaml
+-rw-rw-r-- 1 ubuntu ubuntu  49 Jul  5 18:02 test-vars.env
 
 $ kubectl kustomize ./
 
@@ -612,155 +612,6 @@ The main advantage of kustomize is that no other tools are necessary - it is bui
 [Learn more about Kustomize from the Kubernetes Documentation here](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
 
 
-## Helm
-
-Helm is a very popular option for distributing Kubernetes applications. A series of templatized manifests are packaged into a single deployment artifact called a chart. This chart can be downloaded and distributed much more easily than a series of manifests. At install time, the chart can be supplied with a series of values meant to populate the template. This is driven by the <code>helm</code> command, which handles the rendering of chart manifests and submission to the Kubernetes API.
-
-The most basic form of a Helm chart consists of the following directory structure:
-
-<pre class="wp-block-code"><code>
-$ ls -lR simplechart/
-
-simplechart/:
-total 8
--rw-rw-r-- 1 ubuntu ubuntu   48 Jan  9 17:27 Chart.yaml
-drwxrwxr-x 2 ubuntu ubuntu 4096 Jan  9 17:27 templates
-
-simplechart/templates:
-total 4
--rw-rw-r-- 1 ubuntu ubuntu 368 Jan  9 17:27 deployment.yaml
-</code></pre>
-
-The Chart.yaml presents the identity and other metadata of the chart, allowing tools like <code>helm</code> to properly handle them.
-
-<pre class="wp-block-code"><code>
-$ cat simplechart/Chart.yaml 
-
-apiVersion: v2
-name: simplechart
-version: 0.1.0
-</code></pre>
-
-A template directory is also present, which will hold one or more templatized manifests to be filled in, or rendered, by Helm at install time.
-
-Here, there is only one template for a deployment:
-
-<pre class="wp-block-code"><code>
-$ cat simplechart/templates/deployment.yaml 
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: simplechart
-  name: simplechart
-spec:
-  replicas: {{ .Values.replicas }}
-  selector:
-    matchLabels:
-      app: simplechart
-  template:
-    metadata:
-      labels:
-        app: simplechart
-    spec:
-      containers:
-      - image: nginx
-        name: nginx
-        ports:
-        - containerPort: 80
-</code></pre>
-
-This deployment's <code>replicas</code> key has been templatized to accept a parameter, or value, at install time. This template line gets replaced when the <code>helm install</code> command is passed with a value. 
-
-Here, we run that command set use the <code>--set replicas=1</code> option to provide the value for the templatized <code>replicas</code> key. Values can also be provided declaratively using a file called <code>values.yaml</code>:
-
-<pre class="wp-block-code"><code>
-$ helm install simplerelease2 ./simplechart/ --set replicas=1 --debug
-
-install.go:192: [debug] Original chart version: ""
-install.go:209: [debug] CHART PATH: /home/ubuntu/simplechart
-
-client.go:128: [debug] creating 1 resource(s)
-NAME: simplerelease2
-LAST DEPLOYED: Mon Jan  9 17:34:16 2023
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-USER-SUPPLIED VALUES:
-replicas: 1
-
-COMPUTED VALUES:
-replicas: 1
-
-HOOKS:
-MANIFEST:
----
-# Source: simplechart/templates/deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: simplechart
-  name: simplechart
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: simplechart
-  template:
-    metadata:
-      labels:
-        app: simplechart
-    spec:
-      containers:
-      - image: nginx
-        name: nginx
-        ports:
-        - containerPort: 80
-</code></pre>
-
-The manifest was rendered with <code>replicas: 1</code> per the template and supplied value. In addition to rendering the templates, Helm also submits those generated manifests to the Kubernetes API:
-
-<pre class="wp-block-code"><code>
-$ kubectl get all
-
-NAME                               READY   STATUS    RESTARTS   AGE
-pod/simplechart-85786b6496-2c4kd   1/1     Running   0          102s
-
-NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   67m
-
-NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/simplechart   1/1     1            1           102s
-
-NAME                                     DESIRED   CURRENT   READY   AGE
-replicaset.apps/simplechart-85786b6496   1         1         1       102s
-</code></pre>
-
-The install process creates a release of the Helm chart, which can be updated or removed as a single unit using Helm:
-
-<pre class="wp-block-code"><code>
-$ helm ls
-
-NAME          	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART            	APP VERSION
-simplerelease2	default  	1       	2023-01-09 17:34:16.622395997 +0000 UTC	deployed	simplechart-0.1.0	           
-ubuntu@labsys:~$ 
-
-$ helm uninstall simplerelease2
-
-release "simplerelease2" uninstalled
-
-ubuntu@labsys:~$ kubectl get all
-
-NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   68m
-</code></pre>
-
-[Become familiar with the Helm website, which you can access during the exam, here](https://helm.sh/).
-
-
 # Practice Drill
 
-Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>jenkins/jenkins:lts</code> image.
+Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>docker.io/jenkins/jenkins:lts</code> image.

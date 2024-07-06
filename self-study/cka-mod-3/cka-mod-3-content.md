@@ -283,6 +283,6 @@ A CNI plugin must be installed on a Kubernetes cluster before any workloads can 
 
 Run the following command:
 
-<code>kubectl run --image nginx nginx-drill</code>
+<code>kubectl run --image docker.io/nginx nginx-drill</code>
 
 Create a NodePort service that allows you to send a curl request to the nginx-drill pod at port 80 through your machine’s IP address.

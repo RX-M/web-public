@@ -3,7 +3,7 @@
 First, run the command to create the pod:
 
 <pre class="wp-block-code"><code>
-$ kubectl run --image nginx nginx-drill
+$ kubectl run --image docker.io/nginx nginx-drill
 
 pod/nginx-drill created
 

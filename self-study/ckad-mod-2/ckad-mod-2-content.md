@@ -27,14 +27,14 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.16
+        image: docker.io/nginx:1.16
 </code></pre>
 
 Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
 
 The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code>.
 
-<pre class="wp-block-code"><code>$ kubectl create deploy nginx --image=nginx:1.16 --replicas=3
+<pre class="wp-block-code"><code>$ kubectl create deploy nginx --image=docker.io/nginx:1.16 --replicas=3
 
 deployment.apps/nginx created
 
@@ -149,7 +149,7 @@ spec:
         app: redis-prod
     spec:
       containers:
-      - image: redis:4.0
+      - image: docker.io/redis:4.0
         name: redis
 
 $ kubectl apply -f redis-prod.yaml
@@ -209,7 +209,7 @@ spec:
         app: webserver
     spec:
       containers:
-      - image: httpd
+      - image: docker.io/httpd:latest
         name: httpd
 
 $ kubectl apply -f webserver-canary.yaml
