@@ -2,7 +2,7 @@
 
 First, run the command to create the pod:
 
-<pre class="wp-block-code"><code>$ kubectl run --generator run-pod/v1 --image nginx nginx-drill
+<pre class="wp-block-code"><code>$ kubectl run --image nginx nginx-drill
 
 pod/nginx-drill created
 
@@ -24,9 +24,9 @@ After exposing the pod, list the services. You will see the nginx-drill NodePort
 <pre class="wp-block-code"><code>
 $ kubectl get svc
 
-NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
-kubernetes        ClusterIP   10.96.0.1        <none>        443/TCP        33d
-nginx-drill       NodePort    10.101.103.201   <none>        80:32402/TCP   10s
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+kubernetes         ClusterIP   10.96.0.1        <none>        443/TCP        55m
+nginx-drill        NodePort    10.106.33.204    <none>        80:32072/TCP   53s
 
 $
 </code></pre>
@@ -35,18 +35,18 @@ Finally, try to send a curl request to the nginx pod using your machine IP addre
 
 <pre class="wp-block-code"><code>$ ip a s | head
 
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
+    inet6 ::1/128 scope host noprefixroute 
        valid_lft forever preferred_lft forever
-2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:0c:29:b3:d9:13 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.229.134/24 brd 192.168.229.255 scope global ens33
-       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:85:82:8f brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 metric 100 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 84885sec preferred_lft 84885sec
 
-$ curl 192.168.229.134:32402
+$ curl 10.0.2.15:32072
 
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;

@@ -2,10 +2,10 @@
 
 After you apply the pod, use <code>kubectl get pods</code> to view the status. You will see that the pod is not ready, and has a status of Init:ImagePullBackOff. Note that the "Init:" prefix implies that this is a failure with the init container not one of the normal containers in the pod.
 
-<pre class="wp-block-code"><code>$ kubectl get pods
+<pre class="wp-block-code"><code>$ kubectl get pods debug-pod1
 
-NAME         READY   STATUS                  RESTARTS   AGE
-debug-pod1   0/1     Init:ImagePullBackOff   0          43s
+NAME         READY   STATUS              RESTARTS   AGE
+debug-pod1   0/1     Init:ErrImagePull   0          17s
 
 $
 </code></pre>
@@ -14,33 +14,35 @@ Run <code>kubectl describe pod debug-pod1</code> and look at the events. You wil
 
 <pre class="wp-block-code"><code>$ kubectl describe pods debug-pod1
 
-Name:         debug-pod1
-Namespace:    default
-Priority:     0
-Node:         sept-b/192.168.229.155
-Start Time:   Thu, 10 Sep 2020 10:36:05 -0700
-Labels:       app=debug-pod1
-Annotations:  <none>
-Status:       Pending
+Name:             debug-pod1
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             labsys/10.0.2.15
+Start Time:       Sat, 13 Jul 2024 01:16:48 +0000
+Labels:           app=debug-pod1
+Annotations:      <none>
+Status:           Pending
+IP:               10.0.0.92
 
 ...
 
 Events:
   Type     Reason     Age                From               Message
   ----     ------     ----               ----               -------
-  Normal   Scheduled  83s                default-scheduler  Successfully assigned default/debug-pod1 to sept-b
-  Normal   Pulling    42s (x3 over 82s)  kubelet, sept-b    Pulling image "alpinelatest"
-  Warning  Failed     40s (x3 over 80s)  kubelet, sept-b    Failed to pull image "alpinelatest": rpc error: code = Unknown desc = Error response from daemon: pull access denied for alpinelatest, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-  Warning  Failed     40s (x3 over 80s)  kubelet, sept-b    Error: ErrImagePull
-  Normal   BackOff    12s (x4 over 79s)  kubelet, sept-b    Back-off pulling image "alpinelatest"
-  Warning  Failed     12s (x4 over 79s)  kubelet, sept-b    Error: ImagePullBackOff
+  Normal   Scheduled  54s                default-scheduler  Successfully assigned default/debug-pod1 to labsys
+  Normal   BackOff    25s (x2 over 52s)  kubelet            Back-off pulling image "alpinelatest"
+  Warning  Failed     25s (x2 over 52s)  kubelet            Error: ImagePullBackOff
+  Normal   Pulling    11s (x3 over 53s)  kubelet            Pulling image "alpinelatest"
+  Warning  Failed     10s (x3 over 53s)  kubelet            Failed to pull image "alpinelatest": failed to pull and unpack image "docker.io/library/alpinelatest:latest": failed to resolve reference "docker.io/library/alpinelatest:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     10s (x3 over 53s)  kubelet            Error: ErrImagePull
 
 $
 </code></pre>
 
 Take a close look at the init container image name. If you check Docker Hub you will see that no such image exists. The init  container image name is incorrect. Change the image name to <code>alpine</code> or <code>alpine:latest</code> to correct the issue.
 
-<pre class="wp-block-code"><code>$ nano pod-debug-1.yaml && cat pod-debug-1.yaml
+<pre class="wp-block-code"><code>$ nano pod-debug-1.yaml ; cat $_
 
 apiVersion: v1
 kind: Pod
@@ -88,5 +90,7 @@ $
 </code></pre>
 
 You can display the pod logs with <code>kubectl logs</code> to verify the log output from the init container.
+
+You can visit RX-M's own <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/">bust-a-kube</a></strong> repository to get additional practice while you prepare.
 
 RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.

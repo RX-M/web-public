@@ -1,30 +1,36 @@
 <!-- CKAD Self-Study Mod 3 -->
 
-Create the <code>nginx</code> deployment:
+Create the <code>my-sa</code> ServiceAccount:
 
-<pre class="wp-block-code"><code>$ kubectl create deployment nginx --image=nginx:1.9 --replicas=2 --record
-
-deployment.apps/nginx created
+<pre class="wp-block-code"><code>$ kubectl create serviceaccount my-sa
 
 $
 </code></pre>
 
 Update the deployment to use the <code>nginx:latest</code> image:
 
-<pre class="wp-block-code"><code>$ kubectl set image deploy nginx nginx=nginx:latest --record
+<pre class="wp-block-code"><code>$ nano mysapod.yaml ; cat $_
 
-deployment.apps/nginx image updated
-
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mysapod
+  name: mysapod
+spec:
+  containers:
+  - image: rxmllc/hostinfo:latest
+    name: mysapod.yaml
+  serviceAccountName: my-sa
+ 
 $
 </code></pre>
 
-Undo the image update and rollback the deployment to use the <code>nginx:1.9</code> image:
+Apply the pod and you can see the ServiceAccoutn assignment under something like `kubectl describe`:
 
-<pre class="wp-block-code"><code>
-$ kubectl rollout undo deploy nginx
-deployment.apps/nginx rolled back
+<pre class="wp-block-code"><code>$ kubectl describe pod mysapod | grep Service
 
-$
+Service Account:  my-sa
 </code></pre>
 
 

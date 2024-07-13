@@ -13,7 +13,7 @@ $
 
 Or
 
-<pre class="wp-block-code"><code>$ kubectl create deploy cicd --image jenkins/jenkins:lts -o yaml --dry-run > cicddep.yaml
+<pre class="wp-block-code"><code>$ kubectl create deploy cicd --image jenkins/jenkins:lts -o yaml --dry-run=client > cicddep.yaml
 
 $ nano cicddep.yaml
 </code></pre>

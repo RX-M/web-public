@@ -29,7 +29,7 @@ $ kubectl get svc
 
 NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 kubernetes        ClusterIP   10.96.0.1        <none>        443/TCP        33d
-webserver         ClusterIP   10.103.175.171   <none>        80/TCP         4s
+webserver         ClusterIP   10.103.153.224   <none>        80/TCP         4s
 
 $
 </code></pre>
@@ -39,31 +39,35 @@ Services select pods using labels, and for each pod creates an endpoint resource
 <pre class="wp-block-code"><code>$ kubectl get endpoints webserver
 
 NAME        ENDPOINTS      AGE
-webserver   10.32.0.8:80   43s
+webserver   10.0.0.15:80   16s
 
 $ kubectl get pods -o wide -l app=webserver
 
-NAME                        READY   STATUS    RESTARTS   AGE   IP          NODE     NOMINATED NODE   READINESS GATES
-webserver-d698d7bd6-ktxvn   1/1     Running   0          83s   10.32.0.8   ubuntu   <none>           <none>
+NAME                         READY   STATUS    RESTARTS   AGE   IP          NODE     NOMINATED NODE   READINESS GATES
+webserver-7bc769cd4c-g5nc4   1/1     Running   0          28s   10.0.0.15   labsys   <none>           <none>
 
 $
 </code></pre>
 
 Ingresses are another resource that interact with services. Ingresses bind services to external endpoints that an Ingress controller on the cluster then exposes to the outside world. Ingresses reference services directly in their manifests, as shown here:
 
-<pre class="wp-block-code"><code>apiVersion: networking.k8s.io/v1beta1
+<pre class="wp-block-code"><code>apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: webserver-ingress
   annotations:
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
       - path: /testpath
+        pathType: Prefix
         backend:
-          serviceName: webserver
-          servicePort: 80
+          service:
+            name: webserver
+            port: 
+              number: 80
 </code></pre>
 
 On the docs, you can learn more about <strong><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></strong>, <strong><a href="https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors">Endpoints</a></strong>, and <strong><a href="https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/">EndpointSlices</a></strong>.
@@ -75,15 +79,9 @@ The Ingress resource manages external access to Kubernetes services via HTTP and
 
 Use the following command to set up an Ingress Controller in your Kubernetes cluster:
 
-<pre class="wp-block-code"><code>$ kubectl apply -f https://rx-m-k8s.s3-us-west-2.amazonaws.com/ingress-drill-setup.yaml
+<pre class="wp-block-code"><code>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml
 
-namespace/nginx-ingress created
-serviceaccount/nginx-ingress created
-clusterrole.rbac.authorization.k8s.io/nginx-ingress created
-service/nginx-ingress created
-clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress created
-secret/default-server-secret created
-deployment.apps/nginx-ingress created
+...
 
 $
 </code></pre>
@@ -108,14 +106,14 @@ $
 
 Create the following Ingress resource for the <code>apache-webserver</code> service that controls traffic to the host domain www.example.com, exposes an http prefix path to /, routes all traffic sent to www.example.com:30111/ to the <code>apache-webserver</code> service on port 80:
 
-<pre class="wp-block-code"><code>$ nano apache-webserver-ingress.yaml && apache-webserver-ingress.yaml
+<pre class="wp-block-code"><code>$ nano apache-webserver-ingress.yaml ; cat $_
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: apache-weberver-ingress
 spec:
-  ingressClass: nginx
+  ingressClassName: nginx
   rules:
   - host: www.example.com
     http:
@@ -132,12 +130,18 @@ $ kubectl apply -f apache-webserver-ingress.yaml
 
 ingress.networking.k8s.io/apached-webserver-ingress created
 
+$ kubectl get svc -n ingress-nginx
+
+NAME                                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+ingress-nginx-controller             NodePort    10.98.227.120   <none>        80:31614/TCP,443:31264/TCP   84s
+ingress-nginx-controller-admission   ClusterIP   10.107.88.176   <none>        443/TCP                      84s
+
 $
 </code></pre>
 
-Test the Ingress rules with <code>curl --resolve www.example.com:30111:<your-IP> http://www.example.com:30111/</code>:
+Test the Ingress rules with <code>curl --resolve www.example.com:31614:$(hostname -i) http://www.example.com:31614/</code>:
 
-<pre class="wp-block-code"><code>$ curl --resolve www.example.com:30111:<Your IP> http://www.example.com:30111
+<pre class="wp-block-code"><code>$ curl --resolve www.example.com:31614:$(hostname -i) http://www.example.com:31614
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
@@ -175,7 +179,7 @@ If you add <code>- Egress</code> to the <code>policyTypes</code> section of the 
 
 To allow incoming traffic to pods in the affected namespace, you must add the <code>ingress</code> key into the network policy's spec. Under that key, you can define one or more rules that define what pods, namespaces, or IP Ranges (CIDRs).
 
-The following Network Policy spec allows Ingress traffic from all pods within the <code>10.0.0.0/8</code> CIDR block (covering IP addresses ranging from 10.0.0.0 to 10.255.255.255) that are labeled with the key-value pair <code>network=approved</code>:
+The following Network Policy spec allows Ingress traffic from all pods within the <code>10.0.0.0/8</code> CIDR block (covering IP addresses ranging from 10.0.0.0 to 10.255.255.255):
 
 <pre class="wp-block-code"><code>apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -190,9 +194,7 @@ spec:
   - from:
     - ipBlock:
         cidr: 10.0.0.0/8
-      podSelector:
-        matchLabels:
-          network: approved
+
 </code></pre>
 
 Network policies are an essential way to control network access between pods in your cluster. You can learn more about <strong><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes network policies</a></strong> and how to use them.

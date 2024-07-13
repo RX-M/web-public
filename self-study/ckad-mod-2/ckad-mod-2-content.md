@@ -172,14 +172,15 @@ Given an existing webserver deployment with two pods and a service, each time cl
 
 <pre class="wp-block-code"><code>$ kubectl get pods,svc -l app=webserver
 
-NAME READY STATUS RESTARTS AGE
-pod/webserver-754db6dc6-jrtf4 1/1 Running 0 29s
-pod/webserver-754db6dc6-jsxtt 1/1 Running 0 29s
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/webserver-557f5b46fd-bdsfs         1/1     Running   0          16s
+pod/webserver-557f5b46fd-dm9rg         1/1     Running   0          16s
+pod/webserver-canary-78c74979f-5nmwf   1/1     Running   0          106s
 
-NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
-service/webserver ClusterIP 10.103.48.81 &lt;none&gt; 80/TCP 24s
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/webserver   ClusterIP   10.104.77.88   <none>        80/TCP    8s
 
-$ curl 10.103.48.81
+$ curl 10.104.77.88
 
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -217,18 +218,19 @@ $ kubectl apply -f webserver-canary.yaml
 deployment.apps/webserver-canary created
 
 $ kubectl get svc,pods -l app=webserver
-NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
-service/webserver   ClusterIP   10.103.48.81   <none>        80/TCP    6m7s
 
-NAME                                    READY   STATUS    RESTARTS   AGE
-pod/webserver-754db6dc6-jrtf4           1/1     Running   0          6m12s
-pod/webserver-754db6dc6-jsxtt           1/1     Running   0          6m12s
-pod/webserver-canary-7f9f87794f-r8tnv   1/1     Running   0          11s
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/webserver   ClusterIP   10.104.77.88   <none>        80/TCP    60s
+
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/webserver-557f5b46fd-bdsfs         1/1     Running   0          68s
+pod/webserver-557f5b46fd-dm9rg         1/1     Running   0          68s
+pod/webserver-canary-78c74979f-kwhtm   1/1     Running   0          7s
 </code></pre>
 
 In the typical canary deployment, a majority of requests made to the service should go to the original pods. The canary deployment should have fewer active pods to enable a portion of that traffic (33% in the case of a service with 3 pods) to be routed to the canary:
 
-<pre class="wp-block-code"><code>$ curl 10.103.48.81
+<pre class="wp-block-code"><code>$ curl 10.104.77.88
 
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -237,7 +239,7 @@ In the typical canary deployment, a majority of requests made to the service sho
 
 ...
 
-$ curl 10.103.48.81
+$ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
@@ -250,16 +252,16 @@ Given the following scenario, with a service backed by NGINX and a "new" webserv
 
 <pre class="wp-block-code"><code>$ kubectl get svc,pods
 
-NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP   21h
-service/webserver    ClusterIP   10.103.48.81   <none>        80/TCP    30m
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/webserver   ClusterIP   10.104.77.88   <none>        80/TCP    2m54s
 
-NAME                                 READY   STATUS    RESTARTS   AGE
-pod/new-webserver-869b87b4c7-4vsvw   1/1     Running   0          19s
-pod/new-webserver-869b87b4c7-6x8sh   1/1     Running   0          18s
-pod/new-webserver-869b87b4c7-8nqrh   1/1     Running   0          18s
-pod/webserver-754db6dc6-jrtf4        1/1     Running   0          30m
-pod/webserver-754db6dc6-jsxtt        1/1     Running   0          30m
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/new-webserver-58bd87898c-59b8s     1/1     Running   0          13s
+pod/new-webserver-58bd87898c-fmmhq     1/1     Running   0          13s
+pod/new-webserver-58bd87898c-w64gm     1/1     Running   0          13s
+pod/webserver-557f5b46fd-bdsfs         1/1     Running   0          3m2s
+pod/webserver-557f5b46fd-dm9rg         1/1     Running   0          3m2s
+pod/webserver-canary-78c74979f-kwhtm   1/1     Running   0          2m1s
 
 $
 </code></pre>
@@ -275,15 +277,15 @@ $
 
 Now, 100% of all requests go to the new, Apache webserver while the old NGINX websever can be safely retired:
 
-<pre class="wp-block-code"><code>$ curl 10.103.48.81
+<pre class="wp-block-code"><code>$ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
-$ curl 10.103.48.81
+$ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
-$ curl 10.103.48.81
+$ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 
@@ -301,7 +303,9 @@ Helm take the concept of an application package and applies it to Kubernetes. Th
 
 Deploying an application with helm is straightforward. First, identify a chart that you want to install. Common chart repositories include artifacthub.io, which in provides as a central space to find charts.
 
-Once you have identified a chart, you need to add that chart as a source to your Helm instance:
+If you do not already have Helm installed, use the instructions from their documentation (which is available to you during the exam!): https://helm.sh/docs/intro/install/
+
+Once you have identified a chart, you need to add that chart as a source to your Helm instance: 
 
 <pre class="wp-block-code"><code>$ helm repo add bitnami https://charts.bitnami.com/bitnami
 
@@ -323,18 +327,17 @@ If you want to install, say, a NGINX using helm from the recently added reposito
 <pre class="wp-block-code"><code>$ helm install self-study-nginx bitnami/nginx
 
 NAME: self-study-nginx
-LAST DEPLOYED: Tue Apr 19 19:20:14 2022
+LAST DEPLOYED: Sat Jul 13 00:28:53 2024
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 NOTES:
 CHART NAME: nginx
-CHART VERSION: 10.1.1
-APP VERSION: 1.21.6
+CHART VERSION: 18.1.4
+APP VERSION: 1.27.0
 
 ** Please be patient while the chart is being deployed **
-
 NGINX can be accessed through the following DNS name from within your cluster:
 
     self-study-nginx.default.svc.cluster.local (port 80)
@@ -350,25 +353,34 @@ To access NGINX from outside the cluster, follow the steps below:
     export SERVICE_IP=$(kubectl get svc --namespace default self-study-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
     echo "http://${SERVICE_IP}:${SERVICE_PORT}"
 
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - cloneStaticSiteFromGit.gitSync.resources
+  - resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+⚠ SECURITY WARNING: Original containers have been substituted. This Helm chart was designed, tested, and validated on multiple platforms using a specific set of Bitnami and Tanzu Application Catalog containers. Substituting other containers is likely to cause degraded security and performance, broken chart features, and missing environment variables.
+
+Substituted images detected:
+  - %!s(<nil>)/:%!s(<nil>)
+
 $
 </code></pre>
 
 You can easily identify the resources generated by Helm because every resource bears the name of its release once deployed to the cluster:
 
-<pre class="wp-block-code"><code>$ kubectl get all --show-labels
+<pre class="wp-block-code"><code>$ kubectl get all -l app.kubernetes.io/managed-by=Helm
 
-NAME                                    READY   STATUS    RESTARTS   AGE   LABELS
-pod/self-study-nginx-7ccd4b56d9-q29bb   1/1     Running   0          73s   app.kubernetes.io/instance=self-study-nginx,app.kubernetes.io/managed-by=Helm,app.kubernetes.io/name=nginx,helm.sh/chart=nginx-10.1.1,pod-template-hash=7ccd4b56d9
+NAME                                    READY   STATUS    RESTARTS   AGE
+pod/self-study-nginx-7465568b8d-9w7xt   1/1     Running   0          46s
 
-NAME                       TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE   LABELS
-service/kubernetes         ClusterIP      10.96.0.1      <none>        443/TCP        19h   component=apiserver,provider=kubernetes
-service/self-study-nginx   LoadBalancer   10.99.49.207   <pending>     80:30959/TCP   73s   app.kubernetes.io/instance=self-study-nginx,app.kubernetes.io/managed-by=Helm,app.kubernetes.io/name=nginx,helm.sh/chart=nginx-10.1.1
+NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+service/self-study-nginx   LoadBalancer   10.104.94.141   <pending>     80:32680/TCP,443:30438/TCP   46s
 
-NAME                               READY   UP-TO-DATE   AVAILABLE   AGE   LABELS
-deployment.apps/self-study-nginx   1/1     1            1           73s   app.kubernetes.io/instance=self-study-nginx,app.kubernetes.io/managed-by=Helm,app.kubernetes.io/name=nginx,helm.sh/chart=nginx-10.1.1
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/self-study-nginx   1/1     1            1           46s
 
-NAME                                          DESIRED   CURRENT   READY   AGE   LABELS
-replicaset.apps/self-study-nginx-7ccd4b56d9   1         1         1       73s   app.kubernetes.io/instance=self-study-nginx,app.kubernetes.io/managed-by=Helm,app.kubernetes.io/name=nginx,helm.sh/chart=nginx-10.1.1,pod-template-hash=7ccd4b56d9
+NAME                                          DESIRED   CURRENT   READY   AGE
+replicaset.apps/self-study-nginx-7465568b8d   1         1         1       46s
 
 $
 </code></pre>
@@ -379,18 +391,17 @@ Once a release is generated, you can change the parameters by changing values (a
 
 Release "self-study-nginx" has been upgraded. Happy Helming!
 NAME: self-study-nginx
-LAST DEPLOYED: Tue Apr 19 19:24:14 2022
+LAST DEPLOYED: Sat Jul 13 00:29:57 2024
 NAMESPACE: default
 STATUS: deployed
 REVISION: 2
 TEST SUITE: None
 NOTES:
 CHART NAME: nginx
-CHART VERSION: 10.1.1
-APP VERSION: 1.21.6
+CHART VERSION: 18.1.4
+APP VERSION: 1.27.0
 
 ** Please be patient while the chart is being deployed **
-
 NGINX can be accessed through the following DNS name from within your cluster:
 
     self-study-nginx.default.svc.cluster.local (port 80)
@@ -403,6 +414,16 @@ To access NGINX from outside the cluster, follow the steps below:
     export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
     echo "http://${NODE_IP}:${NODE_PORT}"
 
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - cloneStaticSiteFromGit.gitSync.resources
+  - resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+
+⚠ SECURITY WARNING: Original containers have been substituted. This Helm chart was designed, tested, and validated on multiple platforms using a specific set of Bitnami and Tanzu Application Catalog containers. Substituting other containers is likely to cause degraded security and performance, broken chart features, and missing environment variables.
+
+Substituted images detected:
+  - %!s(<nil>)/:%!s(<nil>)
+
 $
 </code></pre>
 
@@ -412,16 +433,124 @@ The releases themselves are managed directly by Helm, and can be uninstalled usi
 
 release "self-study-nginx" uninstalled
 
-$ kubectl get all
+$ kubectl get all -l app.kubernetes.io/managed-by=Helm
 
-NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   19h
+No resources found in default namespace.
 
 $
 </code></pre>
 
 
 Learn more about the <strong><a href="https://helm.sh/docs/">Helm package manager and its use</a></strong>.
+
+
+## Kustomize
+
+Kustomize is a component of <code>kubectl</code> that enables users to generate a generic set of Kubernetes specifications and environment-specific overrides to deploy an application.
+
+At the heart of Kustomize is the <code>kustomization.yaml</code>. This defines a variety of parameters and manifests to be combined:
+
+<pre class="wp-block-code"><code>$ cat kustomization.yaml 
+
+namespace: test
+resources:
+- test-run.yaml
+configMapGenerator:
+- name: app-env-vars
+  files:
+  - test-vars.env
+</code></pre>
+
+This YAML file will generate manifests bound for the <code>test</code> namespace. It will insert these values into a manifest with the file name <code>test-run.yaml</code>. In addition to the namespace parameter, it will also generate a configmap with the contents of another file, <code>test-vars.env</code>, as its data.
+
+The <code>test-run.yaml</code> defines a Job resource whose containers will mount the configmap app-env-vars (which will be generated by kustomize)
+
+<pre class="wp-block-code"><code>$ cat test-run.yaml
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-run
+spec:
+  template:
+    spec:
+      containers:
+      - image: reg.internal:4500/sampler:stable
+        name: test-run
+        command:
+        - test
+        - -c
+        - /config/test-vars.env
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - configMap:
+          name: app-env-vars
+        name: config
+</code></pre>
+
+And the <code>test-vars.env</code> is the file to be stored in the generated configmap:
+
+<pre class="wp-block-code"><code>
+$ cat test-vars.env 
+PARAM_1="true"
+PARAM_2="outdoor"
+PARAM_3="short"
+</code></pre>
+
+As long as all of the files mentioned are colocated in the same directory, the <code>kubectl kustomize</code> command can be invoked:
+
+<pre class="wp-block-code"><code>
+$ ls -l
+
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 111 Jul  13 00:31 kustomization.yaml
+-rw-rw-r-- 1 ubuntu ubuntu 410 Jul  13 00:31 test-run.yaml
+-rw-rw-r-- 1 ubuntu ubuntu  49 Jul  13 00:31 test-vars.env
+
+$ kubectl kustomize ./
+
+apiVersion: v1
+data:
+  test-vars.env: |
+    PARAM_1="true"
+    PARAM_2="outdoor"
+    PARAM_3="short"
+kind: ConfigMap
+metadata:
+  name: app-env-vars-777chm5mf2
+  namespace: test
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-run
+  namespace: test
+spec:
+  template:
+    spec:
+      containers:
+      - command:
+        - test
+        - -c
+        - /config/test-vars.env
+        image: reg.internal:4500/sampler:stable
+        name: test-run
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - configMap:
+          name: app-env-vars-777chm5mf2
+        name: config
+</code></pre>
+
+Here, two manifests have been generated: one for the ConfigMap (which received an automatically generated name) and a modified version of the Job manifest, which has the namespace inserted and the generated configmap name.
+
+The main advantage of kustomize is that no other tools are necessary - it is built into the <code>kubectl</code> binary.
+
+[Learn more about Kustomize from the Kubernetes Documentation here](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
 
 
 <h2>Practice Drill</h2>

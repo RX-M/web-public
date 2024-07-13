@@ -19,27 +19,21 @@ authentication.k8s.io/v1
 authorization.k8s.io/v1
 autoscaling/v1
 autoscaling/v2
-autoscaling/v2beta1
-autoscaling/v2beta2
 batch/v1
-batch/v1beta1
 certificates.k8s.io/v1
+cilium.io/v2
+cilium.io/v2alpha1
 coordination.k8s.io/v1
 discovery.k8s.io/v1
-discovery.k8s.io/v1beta1
 events.k8s.io/v1
-events.k8s.io/v1beta1
-flowcontrol.apiserver.k8s.io/v1beta1
-flowcontrol.apiserver.k8s.io/v1beta2
+flowcontrol.apiserver.k8s.io/v1
+flowcontrol.apiserver.k8s.io/v1beta3
 networking.k8s.io/v1
 node.k8s.io/v1
-node.k8s.io/v1beta1
 policy/v1
-policy/v1beta1
 rbac.authorization.k8s.io/v1
 scheduling.k8s.io/v1
 storage.k8s.io/v1
-storage.k8s.io/v1beta1
 v1
 
 $
@@ -51,24 +45,25 @@ The resources available to your cluster are viewable with <code>kubectl api-reso
 resources you can create in a cluster:
 
 <pre class="wp-block-code"><code>$ kubectl api-resources
-NAME                              SHORTNAMES   APIVERSION                             NAMESPACED   KIND
-bindings                                       v1                                     true         Binding
-componentstatuses                 cs           v1                                     false        ComponentStatus
-configmaps                        cm           v1                                     true         ConfigMap
-endpoints                         ep           v1                                     true         Endpoints
-events                            ev           v1                                     true         Event
-limitranges                       limits       v1                                     true         LimitRange
-namespaces                        ns           v1                                     false        Namespace
-nodes                             no           v1                                     false        Node
-persistentvolumeclaims            pvc          v1                                     true         PersistentVolumeClaim
-persistentvolumes                 pv           v1                                     false        PersistentVolume
-pods                              po           v1                                     true         Pod
-podtemplates                                   v1                                     true         PodTemplate
-replicationcontrollers            rc           v1                                     true         ReplicationController
-resourcequotas                    quota        v1                                     true         ResourceQuota
-secrets                                        v1                                     true         Secret
-serviceaccounts                   sa           v1                                     true         ServiceAccount
-services                          svc          v1                                     true         Service
+
+NAME                                SHORTNAMES                          APIVERSION                        NAMESPACED   KIND
+bindings                                                                v1                                true         Binding
+componentstatuses                   cs                                  v1                                false        ComponentStatus
+configmaps                          cm                                  v1                                true         ConfigMap
+endpoints                           ep                                  v1                                true         Endpoints
+events                              ev                                  v1                                true         Event
+limitranges                         limits                              v1                                true         LimitRange
+namespaces                          ns                                  v1                                false        Namespace
+nodes                               no                                  v1                                false        Node
+persistentvolumeclaims              pvc                                 v1                                true         PersistentVolumeClaim
+persistentvolumes                   pv                                  v1                                false        PersistentVolume
+pods                                po                                  v1                                true         Pod
+podtemplates                                                            v1                                true         PodTemplate
+replicationcontrollers              rc                                  v1                                true         ReplicationController
+resourcequotas                      quota                               v1                                true         ResourceQuota
+secrets                                                                 v1                                true         Secret
+serviceaccounts                     sa                                  v1                                true         ServiceAccount
+services                            svc                                 v1                                true         Service
 
 ...
 
@@ -93,8 +88,11 @@ Roles can be created imperatively using <code>kubectl create role</code>. You ca
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
+  creationTimestamp: "2024-07-13T00:41:33Z"
   name: default-appmanager
   namespace: default
+  resourceVersion: "5570"
+  uid: 9520451d-ff5e-4c33-ade1-097e0cdde1ce
 rules:
 - apiGroups:
   - ""
@@ -106,7 +104,6 @@ rules:
   - list
   - watch
   - create
-  - delete
 - apiGroups:
   - apps
   resources:
@@ -116,7 +113,15 @@ rules:
   - list
   - watch
   - create
-  - delete
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+  - create
 
 $
 </code></pre>
@@ -148,14 +153,14 @@ metadata:
 spec:
   containers:
   - name: ckad-resource-container
-    image: my-app:v3.3
+    image: docker.io/rxmllc/hostinfo:latest
     resources:
       limits:
         cpu: "1"
-        memory: “1Gi”
+        memory: "1Gi"
       requests:
         cpu: "0.5"
-        memory: “500Mi”
+        memory: "500Mi"
 </code></pre>
 
 Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/">pod resource requests/limits</a></strong>.
@@ -183,7 +188,9 @@ spec:
 
 Once defined, the limitrange can be found within the description.
 
-<pre class="wp-block-code"><code>$ kubectl apply -f limitrange.yaml
+<pre class="wp-block-code"><code>$ kubectl create ns limited
+
+$ kubectl apply -f limitrange.yaml
 
 limitrange/cpu-limit created
 
@@ -213,13 +220,13 @@ metadata:
   annotations:
     kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
       webserver; cpu limit for container webserver'
-  creationTimestamp: "2022-04-19T23:35:55Z"
+  creationTimestamp: "2024-07-13T00:43:33Z"
   labels:
     run: webserver
   name: webserver
   namespace: limited
-  resourceVersion: "105825"
-  uid: f9132086-5b4d-4c05-a7e3-991cf8227360
+  resourceVersion: "5801"
+  uid: 22713391-e55c-4db2-a61c-2c37daae66dd
 spec:
   containers:
   - image: nginx
@@ -273,7 +280,7 @@ Resource Quotas
   Name:     pod-limit
   Resource  Used  Hard
   --------  ---   ---
-  pods      5     3
+  pods      1     3
 
 No LimitRange resource.
 
@@ -319,8 +326,11 @@ data:
   foo: bar
 kind: ConfigMap
 metadata:
+  creationTimestamp: "2024-07-13T00:45:08Z"
   name: ckad-example-config
   namespace: default
+  resourceVersion: "6068"
+  uid: dddda66f-44d3-4276-a513-470c0a4e0a52
 
 $
 </code></pre>

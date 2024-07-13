@@ -109,7 +109,7 @@ At the end of this job, there would be 20 completed pods. Obtaining the containe
 CronJobs are jobs with a schedule and are used to automate tasks. The following CronJob manifest creates a CronJob that runs every minute and outputs the date to the container’s standard out.
 
 <pre class="wp-block-code"><code>
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: cron-job
@@ -310,10 +310,16 @@ Learn more about <strong><a href="https://kubernetes.io/docs/concepts/storage/pe
 <!-- Drill 1 -->
 
 Build an image using the following Dockerfile tagged <code>self-study/webserver:v1</code>:</li>
-<pre class="wp-block-code"><code>FROM centos/httpd
+<pre class="wp-block-code"><code>FROM docker.io/centos/httpd
 RUN /bin/sh -c "echo welcome" > /usr/share/httpd/noindex/index.html
 </code></pre>
 
 <!-- Drill 2 -->
 
 Define a pod named <code>self-study-pod-1</code> which has one container named <code>primary</code> running the <code>self-study/webserver:v1</code> image you just built. The <code>primary</code> container should have an ephemeral volume named <code>share</code> mounted at <code>/var/log/httpd</code>. This pod should also have an adapter container named <code>logger</code> running the <code>fluent/fluent-bit:1.9.2</code> image that mounts volume the <code>share</code> volume at <code>/httpd</code> and runs the command <code>/fluent-bit/bin/fluent-bit -i tail -p path=/httpd/access_log -o stdout</code>.
+
+If you built the image in Docker and run containerd as your container runtime, run the following commands to transfer the image:
+
+<pre class="wp-block-code"><code>sudo docker save docker.io/self-study/webserver:v1 -o chlg-img.tar
+sudo ctr -n k8s.io image import chlg-img.tar
+</code></pre>

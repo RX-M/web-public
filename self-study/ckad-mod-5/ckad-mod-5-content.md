@@ -22,10 +22,6 @@ apiregistration.k8s.io/v1
 apps/v1
 authentication.k8s.io/v1
 authorization.k8s.io/v1
-autoscaling/v1
-autoscaling/v2
-autoscaling/v2beta1
-autoscaling/v2beta2
 
 ...
 
@@ -39,7 +35,13 @@ API deprecations are a major event in the Kubernetes development cycle and come 
 <li>Eventually get removed from the codebase all together, usually within 2-3 releases</li>
 </ul>
 
-<pre class="wp-block-code"><code>$ kubectl run -o yaml --dry-run=client pod-with-reqs-limits --requests cpu=64m,memory=256Mi --limits cpu=256m,memory=512Mi --image nginx
+<strong><a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/">The API Deprecation page on the Kubernetes docs</a></strong> shows a list of upcoming deprecations.
+
+You will usually see warnings in the client regarding deprecations: here is one from prior to 1.24 regarding the previous ability to set resource requests in kubectl:
+
+N.B: Depending on your version, this command may not work anymore but it still illustrates a deprecation notice well.
+
+<pre class="wp-block-code"><code>$ kubectl run -o yaml --dry-run=client pod-with-reqs-limits --image nginx
 
 Flag --requests has been deprecated, has no effect and will be removed in 1.24.
 Flag --limits has been deprecated, has no effect and will be removed in 1.24.
@@ -205,8 +207,8 @@ Then the container logs are retrieved with <code>kubectl logs</code>:
 
 <pre class="wp-block-code"><code>$ kubectl logs logging-pod
 
-Wed Apr 20 16:31:45 UTC 2022
-Wed Apr 20 16:31:46 UTC 2022
+Sat Jul 13 01:08:34 UTC 2024
+Sat Jul 13 01:08:35 UTC 2024
 
 $
 </code></pre>
@@ -232,16 +234,17 @@ With the metrics server installed you can view the resources used reported by th
 
 <pre class="wp-block-code"><code>$ kubectl top pods -n kube-system
 
-NAME                                       CPU(cores)   MEMORY(bytes)
-coredns-64897985d-5gn7r                    1m           11Mi
-coredns-64897985d-vbl5w                    1m           12Mi
-etcd-ip-172-31-57-184                      15m          43Mi
-kube-apiserver-ip-172-31-57-184            52m          276Mi
-kube-controller-manager-ip-172-31-57-184   10m          45Mi
-kube-proxy-rw4nw                           2m           10Mi
-kube-scheduler-ip-172-31-57-184            3m           17Mi
-metrics-server-6f7946fdd7-dq6hd            4m           13Mi
-weave-net-tbhqd                            1m           45Mi
+NAME                               CPU(cores)   MEMORY(bytes)   
+cilium-drdlf                       12m          315Mi           
+cilium-operator-65496b9554-tzh4g   3m           98Mi            
+coredns-7db6d8ff4d-2sgbz           1m           13Mi            
+coredns-7db6d8ff4d-p2mh8           1m           57Mi            
+etcd-labsys                        15m          97Mi            
+kube-apiserver-labsys              58m          289Mi           
+kube-controller-manager-labsys     12m          63Mi            
+kube-proxy-zw9lj                   2m           62Mi            
+kube-scheduler-labsys              2m           65Mi            
+metrics-server-86776f5749-pj25p    4m           13Mi
 </code></pre>
 
 Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/">the tools for monitoring resources on Kubernetes</a></strong>, <strong><a href="https://kubernetes.io/blog/2017/05/kubernetes-monitoring-guide/">monitoring</a></strong>, and the <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server">metrics server</a></strong>.
@@ -261,35 +264,60 @@ Pod details are retrieved by introspecting the pod with <code>kubectl describe p
 
 Take a look at how common pod issues are debugged using the pod’s description.
 
-Here are key segments in a description of a pending pod:
+Here's a description of a pending pod:
 
-<pre class="wp-block-code"><code>$ kubectl describe pod busybox
+<pre class="wp-block-code"><code>$ kubectl describe pod in-cluster-client-pod
 
-Name:         busybox
-Namespace:    default
-...
-Status:       Pending
-IP:           10.32.0.5
+Name:             in-cluster-client-pod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             labsys/10.0.2.15
+Start Time:       Sat, 13 Jul 2024 01:12:42 +0000
+Labels:           run=in-cluster-client-pod
+Annotations:      <none>
+Status:           Pending
+IP:               10.0.0.232
 IPs:
-  IP:  10.32.0.5
+  IP:  10.0.0.232
 Containers:
-  myapp-container:
-    Container ID:
-    Image:         busyBOX
-  ...
+  in-cluster-client-pod:
+    Container ID:   
+    Image:          busyBOX:latest
+    Image ID:       
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       InvalidImageName
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-h2d7z (ro)
 Conditions:
-  Type              Status
-  Initialized       True
-  Ready             False
-  ContainersReady   False
-  PodScheduled      True
-...
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-h2d7z:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type     Reason         Age              From               Message
-  ----     ------         ----             ----               -------
-  Normal   Scheduled      10s              default-scheduler  Successfully assigned default/busybox to ubuntu
-  Warning  InspectFailed  9s (x2 over 9s)  kubelet, ubuntu     Failed to apply default image tag "busyBOX": couldn't parse image reference "busyBOX": invalid reference format: repository name must be lowercase
-  Warning  Failed         9s (x2 over 9s)  kubelet, ubuntu     Error: InvalidImageName
+  Type     Reason         Age               From               Message
+  ----     ------         ----              ----               -------
+  Normal   Scheduled      10s               default-scheduler  Successfully assigned default/in-cluster-client-pod to labsys
+  Warning  InspectFailed  9s (x2 over 10s)  kubelet            Failed to apply default image tag "busyBOX:latest": couldn't parse image name "busyBOX:latest": invalid reference format: repository name (library/busyBOX) must be lowercase
+  Warning  Failed         9s (x2 over 10s)  kubelet            Error: InvalidImageName
 
 $
 </code></pre>
@@ -298,10 +326,10 @@ The <code>Events</code> section of the description points out the image name is 
 
 Here’s another pending pod:
 
-<pre class="wp-block-code"><code>$ kubectl get pods
+<pre class="wp-block-code"><code>$ kubectl get pod nginx
 
 NAME    READY   STATUS    RESTARTS   AGE
-nginx   0/1     Pending   0          2m15s
+nginx   0/1     Pending   0          2m
 
 $
 </code></pre>
@@ -313,35 +341,16 @@ Let’s look at the pod’s <code>Events</code>.
 <pre class="wp-block-code"><code>$ kubectl describe pod nginx | grep -A4 Events
 
 Events:
-  Type     Reason            Age                  From               Message
-  ----     ------            ----                 ----               -------
-  Warning  FailedScheduling  76s (x4 over 3m54s)  default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  20s   default-scheduler  0/1 nodes are available: persistentvolumeclaim "local-pvc" not found. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
 
 $
 </code></pre>
 
-Not enough resources are available in the cluster. We can see if the pod is making a hard resource request by looking at the <code>Containers</code> section of the pod description.
+No pvc (persistent volume claim) found. The pod is referencing one that does not exist (or does exist, but is not in the `Bound` state) so the pod stays pending. 
 
-<pre class="wp-block-code"><code>$ kubectl describe pod nginx | grep -A10 Containers
-
-Containers:
-  nginx:
-    Image:      nginx
-    Port:       <none>
-    Host Port:  <none>
-    Limits:
-      cpu:     2
-      memory:  2Gi
-    Requests:
-      cpu:        1500m
-      memory:     1536Mi
-
-$
-</code></pre>
-
-The pod is requesting 1500m of cpu. There are no nodes in the cluster with 1500m free of cpu so the pod stays pending. There are a few ways to resolve this issue: reduce the container’s cpu request, free up cpu on a cluster node, or add a new worker node to the cluster.
-
-Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/">application debugging</a></strong>.
+Learn more about <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/">application debugging on this docs page</a></strong>.
 
 
 <h2>Practice Drill</h2>
