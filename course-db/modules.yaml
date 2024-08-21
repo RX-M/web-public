@@ -5,126 +5,26 @@ Modules:
   level: 1.0
   name: Kubernetes Overview
   topic: Kubernetes
-- description: Approaches, reviews domain-driven design and resilience patterns.
-  id: 72
+- description: Learn about the history and basic usage of the Go language.
+  id: 58
   level: 1.0
-  name: Brown Field Microservices
-  topic: Microservices
-- description: ''
-  id: 73
-  level: 1.0
-  name: Cloud Native Transactions
-  topic: Microservices
-- description: ''
-  id: 75
-  level: 1.0
-  name: Gateways and Service Meshes
-  topic: Microservices
-- description: ''
-  id: 77
-  level: 1.0
-  name: Kubernetes Services and Networking
-  topic: Microservices
-- description: ''
-  id: 78
-  level: 1.0
-  name: Microservice Communications I - APIs
-  topic: Microservices
-- description: ''
-  id: 79
-  level: 1.0
-  name: Microservice Communications II - RPC
-  topic: Microservices
-- description: ''
-  id: 80
-  level: 1.0
-  name: Microservice Communications III - Messaging
-  topic: Microservices
-- description: ''
-  id: 81
-  level: 1.0
-  name: Microservice Operability
-  topic: Microservices
-- description: ''
-  id: 82
-  level: 1.0
-  name: Microservice Orchestration
-  topic: Microservices
-- description: ''
-  id: 83
-  level: 1.0
-  name: Microservice Overview
-  topic: Microservices
-- description: ''
-  id: 84
-  level: 1.0
-  name: Software Delivery Pipelines
-  topic: Microservices
-- description: ''
-  id: 85
-  level: 1.0
-  name: Observability Overview
-  topic: Microservices
-- description: ''
-  id: 86
-  level: 1.0
-  name: Stateless Services and Polyglot Persistence
-  topic: Microservices
-- description: Learn the basic components of Kafka and how they programatically relate.
-  id: 91
-  level: 1.0
-  name: Overview of Kafka Development
-  topic: Kafka
-- description: Learn the Producer client API.
-  id: 92
-  level: 1.0
-  name: Building Producers
-  topic: Kafka
-- description: Learn the Consumer client API.
-  id: 93
-  level: 1.0
-  name: Building Consumers
-  topic: Kafka
-- description: Learn the Connector API.
-  id: 94
-  level: 1.0
-  name: Developing Connectors
-  topic: Kafka
-- description: Learn how Producers can be resilant to Kafka failures.
-  id: 95
-  level: 1.0
-  name: Managing Failure Modes in Producers
-  topic: Kafka
-- description: Learn how Consumers can be resilant to Kafka failuers.
-  id: 96
-  level: 1.0
-  name: Managing Failure Modes in Consumers
-  topic: Kafka
-- description: Learn the Stream API.
-  id: 97
-  level: 1.0
-  name: Developing Stream Processors
-  topic: Kafka
-- description: Learn about state management when using the Stream API.
-  id: 98
-  level: 1.0
-  name: Developing Stateful Stream Processors
-  topic: Kafka
+  name: Go Overview
+  topic: Go
 - description: Provides a basic overview of the Helm Package Manager for Kubernetes
   id: 128
   level: 1.0
-  name: Overview
+  name: Helm Overview
   topic: Helm
 - description: Provides a basic overview of the architecture of the Istio Service
     Mesh
   id: 133
   level: 1.0
-  name: Architecture
+  name: Istio Architecture
   topic: Istio
 - description: ''
   id: 142
   level: 1.0
-  name: Overview
+  name: Rust Overview
   topic: Rust
 - description: ''
   id: 156
@@ -134,19 +34,19 @@ Modules:
 - description: ''
   id: 160
   level: 1.0
-  name: Overview
+  name: Linux Overview
   topic: Linux
 - description: Provides a basic overview of the ArangoDB multi-modal data store and
     its core user cases
   id: 174
   level: 1.0
-  name: Overview
-  topic: Arangodb
-- description: Provides a basic overview of Graphql and its core use cases
+  name: ArangoDB Overview
+  topic: ArangoDB
+- description: Provides a basic overview of GraphQL and its core use cases
   id: 180
   level: 1.0
-  name: '101'
-  topic: Graphql
+  name: GraphQL Overview
+  topic: GraphQL
 - description: ''
   id: 196
   level: 1.0
@@ -174,23 +74,8 @@ Modules:
   topic: Microservices
 - description: An introduction to machine learning.
   id: 245
-  level: 1.01
+  level: 1.0
   name: Machine Learning Overview
-  topic: AI
-- description: Working with numpy and pandas for data processing.
-  id: 246
-  level: 1.02
-  name: NumPy and Pandas
-  topic: AI
-- description: Preparing data for use in machine learning and AI scenarios.
-  id: 247
-  level: 1.03
-  name: Data Preparation
-  topic: AI
-- description: Data visualization and exploratory data analysis.
-  id: 248
-  level: 1.04
-  name: Exploratory Data Analysis
   topic: AI
 - description: Introduction to containers and containerized applications using Docker
   id: 9
@@ -201,7 +86,7 @@ Modules:
     manifests
   id: 27
   level: 1.1
-  name: Pod Basics
+  name: Kubernetes Pod Basics
   topic: Kubernetes
 - description: Introduction to containers, image building with Dockerfiles and using
     image registries
@@ -209,25 +94,20 @@ Modules:
   level: 1.1
   name: Container Jump Start
   topic: Containers
-- description: Learn about the history and basic usage of the Go language.
-  id: 58
-  level: 1.1
-  name: Go Overview
-  topic: Go
 - description: Learn how to design and refactor Go code.
   id: 61
   level: 1.1
-  name: Methods and Interfaces
+  name: Methods and Interfaces in Go
   topic: Go
 - description: Learn about syntax and flow control in Go.
   id: 69
   level: 1.1
-  name: Syntax and Flow Control
+  name: Syntax and Flow Control in Go
   topic: Go
 - description: ''
   id: 109
   level: 1.1
-  name: Introduction
+  name: Python Introduction
   topic: Python
 - description: ''
   id: 194
@@ -237,22 +117,27 @@ Modules:
 - description: ''
   id: 225
   level: 1.1
-  name: Logs and log management
+  name: Microservice Logs and Log Management
   topic: Microservices
 - description: ''
   id: 231
   level: 1.1
   name: Microservice Communications I - REST
   topic: Microservices
+- description: Working with numpy and pandas for data processing.
+  id: 246
+  level: 1.1
+  name: NumPy and Pandas
+  topic: AI
 - description: Measuring models and exploring loses and metrics.
   id: 249
   level: 1.11
-  name: Measuring Models
+  name: Measuring Machine Learning Models
   topic: AI
 - description: Working with linear machine learning models.
   id: 250
   level: 1.12
-  name: Linear Models
+  name: Linear Machine Learning Models
   topic: AI
 - description: Working with supervised non-linear machine learning models.
   id: 251
@@ -268,17 +153,17 @@ Modules:
     stateful applications
   id: 12
   level: 1.2
-  name: Controllers
+  name: Kubernetes Controllers
   topic: Kubernetes
 - description: Understand the basic data types of the Go language.
   id: 53
   level: 1.2
-  name: Data Types
+  name: Data Types in Go
   topic: Go
 - description: How to develop functions in Go.
   id: 57
   level: 1.2
-  name: Functions
+  name: Functions in Go
   topic: Go
 - description: Learn how to organize and share Go code using modules.
   id: 62
@@ -288,69 +173,64 @@ Modules:
 - description: Learn how to create Go packages.
   id: 64
   level: 1.2
-  name: Package Managment
+  name: Package Managment in Go
   topic: Go
 - description: Learn how Go packages, libraries, and main (drivers) programs work
     in Go.
   id: 65
   level: 1.2
-  name: Program Construction
+  name: Program Construction in Go
   topic: Go
 - description: Learn how to create user defined types in Go.
   id: 71
   level: 1.2
-  name: User Defined Types
+  name: User Defined Types in Go
   topic: Go
 - description: ''
   id: 107
   level: 1.2
-  name: Flow Control
+  name: Flow Control in Python
   topic: Python
 - description: ''
   id: 108
   level: 1.2
-  name: Functions
+  name: Python Functions
   topic: Python
 - description: ''
   id: 121
   level: 1.2
-  name: Strings and Numbers
+  name: Strings and Numbers in Python
   topic: Python
 - description: Detailed exploration on ArangoDB's querying language
   id: 168
   level: 1.2
   name: ArangoDB Query Language
-  topic: Arangodb
+  topic: ArangoDB
 - description: A look at how to query data and produce meaningful results using GraphQL
   id: 178
   level: 1.2
   name: Queries & Mutations
-  topic: Graphql
-- description: ''
-  id: 192
-  level: 1.2
-  name: Topics
-  topic: Kafka
+  topic: GraphQL
 - description: ''
   id: 198
   level: 1.2
   name: Controlling Containers
   topic: Containers
 - description: ''
-  id: 233
-  level: 1.2
-  name: Microservice Communications II - RPC
-  topic: Microservices
-- description: ''
   id: 238
   level: 1.2
   name: Cloud Native Communications Patterns
   topic: Microservices
+- description: Preparing data for use in machine learning and AI scenarios.
+  id: 247
+  level: 1.2
+  name: Data Preparation
+  topic: AI
 - description: Zero downtime rolling updates for stateless applications using the
     Deployment controller
   id: 11
   level: 1.21
-  name: Deployments
+  name: Kubernetes Deployments
   topic: Kubernetes
 - description: Tuning and experimenting hyperparameters.
   id: 253
@@ -366,7 +246,7 @@ Modules:
     and CronJobs
   id: 10
   level: 1.23
-  name: Batch Jobs
+  name: Batch Jobs in Kubernetes
   topic: Kubernetes
 - description: Modern deep learning architectures.
   id: 255
@@ -387,7 +267,7 @@ Modules:
 - description: ''
   id: 145
   level: 1.25
-  name: Data Types & Flow Control
+  name: Rust Data Types & Flow Control
   topic: Rust
 - description: ''
   id: 161
@@ -397,33 +277,28 @@ Modules:
 - description: Expose Pods to clients using Kubernetes Services and DNS
   id: 31
   level: 1.3
-  name: Services
+  name: Kubernetes Services
   topic: Kubernetes
 - description: Learn advance usage patterns of functions and methods.
   id: 49
   level: 1.3
-  name: Advanced Functions and Methods
+  name: Advanced Functions and Methods in Go
   topic: Go
 - description: ''
   id: 105
   level: 1.3
-  name: Errors and Exceptions
+  name: Errors and Exceptions in Python
   topic: Python
 - description: ''
   id: 106
   level: 1.3
-  name: File IO
+  name: File IO in Python
   topic: Python
 - description: ''
   id: 123
   level: 1.3
-  name: Working with Packages
+  name: Working with Packages in Python
   topic: Python
-- description: ''
-  id: 188
-  level: 1.3
-  name: Producers & Consumers
-  topic: Kafka
 - description: ''
   id: 199
   level: 1.3
@@ -432,39 +307,39 @@ Modules:
 - description: ''
   id: 232
   level: 1.3
-  name: Container Packaging
+  name: Container Packaging (Go or Python)
   topic: Microservices
 - description: ''
   id: 239
   level: 1.3
-  name: Connectivity And Composition Patterns
+  name: Microservice Connectivity And Composition Patterns
   topic: Microservices
+- description: Data visualization and exploratory data analysis.
+  id: 248
+  level: 1.3
+  name: Exploratory Data Analysis
+  topic: AI
 - description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
     and the Downward API'
   id: 2
   level: 1.4
-  name: Application Configuration
+  name: Application Configuration in K8s
   topic: Kubernetes
 - description: Understand the error package and using errors in your Go code.
   id: 56
   level: 1.4
-  name: Error Handling
+  name: Error Handling in Go
   topic: Go
 - description: Learn how to write tests in Go.
   id: 70
   level: 1.4
-  name: Testing
+  name: Testing with Go
   topic: Go
 - description: ''
   id: 117
   level: 1.4
-  name: Program Construction
+  name: Program Construction in Python
   topic: Python
-- description: ''
-  id: 182
-  level: 1.4
-  name: Brokers
-  topic: Kafka
 - description: ''
   id: 195
   level: 1.4
@@ -478,7 +353,7 @@ Modules:
 - description: ''
   id: 240
   level: 1.4
-  name: Data Management Patterns
+  name: Data Management Patterns in Microservices
   topic: Microservices
 - description: OCI / Docker images including registries and image creation with Dockerfiles
   id: 8
@@ -489,15 +364,15 @@ Modules:
     best practices for Pods
   id: 28
   level: 1.5
-  name: Pod Architecture
+  name: Kubernetes Pod Architecture
   topic: Kubernetes
 - description: ''
   id: 122
   level: 1.5
-  name: Testing
+  name: Testing in Python
   topic: Python
-- description: Discussion on Envoy, the software Istio uses to provide a majority
-    of its capabilities
+- description: Discussion on Envoy, the software Istio uses to provide many of its
+    capabilities
   id: 135
   level: 1.5
   name: Envoy
@@ -505,7 +380,7 @@ Modules:
 - description: ''
   id: 148
   level: 1.5
-  name: Collections
+  name: Collections in Rust
   topic: Rust
 - description: ''
   id: 162
@@ -515,18 +390,13 @@ Modules:
 - description: Explanation of ArangoDB's Graph Database capabilities
   id: 176
   level: 1.5
-  name: Graphs
-  topic: Arangodb
+  name: Graphs in ArrangoDB
+  topic: ArangoDB
 - description: Exploration of the Schema Types supported by GraphQL
   id: 179
   level: 1.5
   name: Schemas & Types
-  topic: Graphql
-- description: ''
-  id: 186
-  level: 1.5
-  name: Failure Modes
-  topic: Kafka
+  topic: GraphQL
 - description: ''
   id: 203
   level: 1.5
@@ -535,12 +405,12 @@ Modules:
 - description: ''
   id: 226
   level: 1.5
-  name: Metrics and Autoscaling
+  name: Microservice Metrics and Autoscaling
   topic: Microservices
 - description: ''
   id: 241
   level: 1.5
-  name: Event-driven Architecture Patterns
+  name: Event-driven Microservice Architecture Patterns
   topic: Microservices
 - description: Examination of container images, image metadata, and pushing images
     to private registries
@@ -551,7 +421,7 @@ Modules:
 - description: ''
   id: 227
   level: 1.6
-  name: Service Mesh and Tracing
+  name: Service Mesh and Tracing Microservices
   topic: Microservices
 - description: ''
   id: 235
@@ -562,13 +432,13 @@ Modules:
     user management and monitoring
   id: 170
   level: 1.7
-  name: Basic Administration
-  topic: Arangodb
+  name: ArrangoDB Basic Administration
+  topic: ArangoDB
 - description: Discussion on GraphQL Best Practices
   id: 181
   level: 1.7
   name: Best Practices
-  topic: Graphql
+  topic: GraphQL
 - description: ''
   id: 200
   level: 1.7
@@ -587,82 +457,34 @@ Modules:
 - description: ''
   id: 201
   level: 1.8
-  name: Security
+  name: Container Security
   topic: Containers
 - description: Lightweight Kubernetes cluster multitenancy using Namespaces, Quotas,
-    and LimtRanges
+    and LimitRanges
   id: 20
   level: 1.9
-  name: Namespaces
+  name: Kubernetes Namespaces
   topic: Kubernetes
 - description: 'Storage abstractions in Kubernetes: Persistent Volumes (PVs), Persistent
     Volume Claims (PVCs), and Storage Classes'
   id: 26
   level: 1.9
-  name: State Primitives
+  name: State Primitives in Kubernetes
   topic: Kubernetes
 - description: ''
   id: 197
   level: 1.9
   name: Orchestration
   topic: Containers
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKAD exam
-  id: 217
-  level: 1.9
-  name: CKAD Drills Part 1
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKA exam
-  id: 210
-  level: 1.91
-  name: CKA Drills Part 4
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKA exam
-  id: 211
-  level: 1.92
-  name: CKA Drills Part 3
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKAD exam
-  id: 220
-  level: 1.92
-  name: CKAD Drills Part 2
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKA exam
-  id: 212
-  level: 1.93
-  name: CKA Drills Part 1
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKAD exam
-  id: 219
-  level: 1.93
-  name: CKAD Drills Part 3
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKA exam
-  id: 213
-  level: 1.94
-  name: CKA Drills Part 2
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKAD exam
-  id: 218
-  level: 1.94
-  name: CKAD Drills Part 4
-  topic: Kubernetes
 - description: Examines the basic architecture and interaction with Helm Charts
   id: 129
   level: 1.99
-  name: Chart Basics
+  name: Helm Chart Basics
   topic: Helm
 - description: ''
   id: 141
   level: 1.99
-  name: Functions
+  name: Rust Functions
   topic: Rust
 - description: ''
   id: 157
@@ -678,8 +500,58 @@ Modules:
     Node taints and Pod tolerations'
   id: 29
   level: 2.0
-  name: Scheduling
+  name: Pod Scheduling in Kubernetes
   topic: Kubernetes
+- description: Approaches, reviews domain-driven design and resilience patterns.
+  id: 72
+  level: 2.0
+  name: Brown Field Microservices
+  topic: Microservices
+- description: ''
+  id: 73
+  level: 2.0
+  name: Cloud Native Transactions
+  topic: Microservices
+- description: ''
+  id: 75
+  level: 2.0
+  name: Gateways and Service Meshes
+  topic: Microservices
+- description: ''
+  id: 77
+  level: 2.0
+  name: Kubernetes Services and Networking
+  topic: Microservices
+- description: ''
+  id: 81
+  level: 2.0
+  name: Microservice Operability
+  topic: Microservices
+- description: ''
+  id: 82
+  level: 2.0
+  name: Microservice Orchestration
+  topic: Microservices
+- description: ''
+  id: 83
+  level: 2.0
+  name: Microservice Overview
+  topic: Microservices
+- description: ''
+  id: 84
+  level: 2.0
+  name: Software Delivery Pipelines
+  topic: Microservices
+- description: ''
+  id: 85
+  level: 2.0
+  name: Observability Overview
+  topic: Microservices
+- description: ''
+  id: 86
+  level: 2.0
+  name: Stateless Services and Polyglot Persistence
+  topic: Microservices
 - description: Explores the practices around creating a Helm chart for an application
   id: 130
   level: 2.0
@@ -694,7 +566,7 @@ Modules:
 - description: ''
   id: 146
   level: 2.0
-  name: Methods & Traits
+  name: Rust Methods & Traits
   topic: Rust
 - description: ''
   id: 154
@@ -710,18 +582,13 @@ Modules:
     support, and scaling considerations
   id: 169
   level: 2.0
-  name: Architecture
-  topic: Arangodb
-- description: ''
-  id: 191
-  level: 2.0
-  name: Streams
-  topic: Kafka
+  name: ArangoDB Architecture
+  topic: ArangoDB
 - description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
     Node taints and Pod tolerations'
   id: 204
   level: 2.0
-  name: Pod Scheduling
+  name: Kubernetes Pod Scheduling
   topic: Kubernetes
 - description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
   id: 205
@@ -736,13 +603,25 @@ Modules:
 - description: ''
   id: 228
   level: 2.0
-  name: Advanced Deployment Models
+  name: Advanced Microservice Deployment Models
   topic: Microservices
 - description: ''
   id: 242
   level: 2.0
-  name: Aggregates
+  name: Microservice Aggregates
   topic: Microservices
+- description: 'Learn about FoundationDB''s elastically scalable services: proxies,
+    log servers, storage servers, and more.'
+  id: 262
+  level: 2.0
+  name: FoundationDB Architecture
+  topic: FoundationDB
+- description: 'Learn about the features of FoundationDB, including: transactions,
+    consistency, performance, scalability, and elasticity.'
+  id: 263
+  level: 2.0
+  name: FoundationDB Overview
+  topic: FoundationDB
 - description: Examination of Kubernetes control plane components, etcd, HA models,
     and worker Node agents
   id: 4
@@ -752,19 +631,13 @@ Modules:
 - description: In-depth examination of the Kubernetes Dashboard
   id: 13
   level: 2.1
-  name: Dashboard
-  topic: Kubernetes
-- description: 'Overview the aspects of Observability: Logging, metrics, and tracing
-    and implementations in Kubernetes'
-  id: 24
-  level: 2.1
-  name: Observability Overview
+  name: Kubernetes Dashboard
   topic: Kubernetes
 - description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
     restore'
   id: 36
   level: 2.1
-  name: State Operations
+  name: State Operations in Kubernetes
   topic: Kubernetes
 - description: Learn how to create concurrent functions in Go.
   id: 52
@@ -787,19 +660,29 @@ Modules:
   name: The Go Standard Library
   topic: Go
 - description: ''
+  id: 78
+  level: 2.1
+  name: Microservice Communications I - APIs
+  topic: Microservices
+- description: Learn the basic components of Kafka and how they programmatically relate.
+  id: 91
+  level: 2.1
+  name: Overview of Kafka Development
+  topic: Kafka
+- description: ''
   id: 104
   level: 2.1
-  name: Data
+  name: Data in Python
   topic: Python
 - description: ''
   id: 120
   level: 2.1
-  name: Standard Library
+  name: Python Standard Library
   topic: Python
 - description: ''
-  id: 189
+  id: 188
   level: 2.1
-  name: Schema Registry
+  name: Kafka Producers & Consumers
   topic: Kafka
 - description: Discussion of optimal practices when using EKS
   id: 208
@@ -809,38 +692,58 @@ Modules:
 - description: ''
   id: 229
   level: 2.1
-  name: GitOps
+  name: GitOps with Microservices
   topic: Microservices
 - description: ''
   id: 243
   level: 2.1
-  name: Operational Patterns
+  name: Microservice Operational Patterns
   topic: Microservices
 - description: Explorer using and managing channel objects.
   id: 50
   level: 2.2
-  name: Channels as First Class Values
+  name: Channels as First Class Values in Go
   topic: Go
+- description: ''
+  id: 79
+  level: 2.2
+  name: Microservice Communications II - RPC
+  topic: Microservices
+- description: Learn the Producer client API.
+  id: 92
+  level: 2.2
+  name: Building Producers in Kafka
+  topic: Kafka
+- description: Learn the Consumer client API.
+  id: 93
+  level: 2.2
+  name: Building Consumers in Kafka
+  topic: Kafka
+- description: Learn the Connector API.
+  id: 94
+  level: 2.2
+  name: Developing Connectors in Kafka
+  topic: Kafka
 - description: ''
   id: 103
   level: 2.2
-  name: Collections and Comprehensions
+  name: Collections and Comprehensions in Python
   topic: Python
 - description: Examination of ArangoDB's data model, indexing capabilities, and transactional
     queries
   id: 172
   level: 2.2
-  name: Data Modeling, Indexing, & Transactions
-  topic: Arangodb
+  name: Data Modeling, Indexing, & Transactions in ArrangoDB
+  topic: ArangoDB
 - description: ''
-  id: 190
+  id: 192
   level: 2.2
-  name: Security
+  name: Kafka Topics
   topic: Kafka
 - description: ''
   id: 244
   level: 2.2
-  name: Migration Patterns
+  name: Microservice Migration Patterns
   topic: Microservices
 - description: ''
   id: 139
@@ -861,8 +764,13 @@ Modules:
 - description: Learning how to control asynchronous Go routines with the context package.
   id: 51
   level: 2.3
-  name: Context
+  name: Context in Go
   topic: Go
+- description: ''
+  id: 80
+  level: 2.3
+  name: Microservice Communications III - Messaging
+  topic: Microservices
 - description: 'Introduction to building container images with Dockerfiles including:
     Dockerfile syntax, caching, and build options'
   id: 89
@@ -872,12 +780,17 @@ Modules:
 - description: ''
   id: 102
   level: 2.3
-  name: Classes and OOP
+  name: Classes and OOP in Python
   topic: Python
 - description: ''
-  id: 187
+  id: 182
   level: 2.3
-  name: Monitoring
+  name: Kafka Brokers
+  topic: Kafka
+- description: ''
+  id: 186
+  level: 2.3
+  name: Failure Modes in Kafka
   topic: Kafka
 - description: Overview of software defined networking, network policy and ingress
     load balancing
@@ -889,28 +802,28 @@ Modules:
     policies, patterns, and limitations'
   id: 39
   level: 2.32
-  name: Network Policy
+  name: Kubernetes Network Policy
   topic: Kubernetes
 - description: 'Kubernetes ingress load balancing: concepts, rules, primitives, TLS
     termination, and rate limiting'
   id: 40
   level: 2.33
-  name: Ingress Load Balancing
+  name: Ingress Load Balancing in Kubernetes
   topic: Kubernetes
 - description: Explore the Golang 3rd party ecosystem.
   id: 48
   level: 2.4
   name: Go's 3rd Party Ecosystem
   topic: Go
-- description: Learn how to debug Go programs, techniiques and tools like Delve.
+- description: Learn how to debug Go programs, techniques, and tools like Delve.
   id: 54
   level: 2.4
-  name: Debugging
+  name: Go Debugging
   topic: Go
 - description: Learn how to use the Go profiling tools.
   id: 55
   level: 2.4
-  name: Profiling and Performance
+  name: Go Profiling and Performance
   topic: Go
 - description: Learn about the http package from the Go standard library.
   id: 59
@@ -923,27 +836,42 @@ Modules:
   level: 2.4
   name: 'Dockerfiles: Advanced'
   topic: Containers
+- description: Learn how Producers can be resilient to Kafka failures.
+  id: 95
+  level: 2.4
+  name: Managing Failure Modes in Kafka Producers
+  topic: Kafka
+- description: Learn how Consumers can be resilient to Kafka failures.
+  id: 96
+  level: 2.4
+  name: Managing Failure Modes in Kafka Consumers
+  topic: Kafka
+- description: ''
+  id: 189
+  level: 2.4
+  name: Kafka Schema Registry
+  topic: Kafka
 - description: ''
   id: 193
   level: 2.4
-  name: Zookeeper
+  name: Using Zookeeper with Kafka
   topic: Kafka
 - description: The StatefulSet application controller and Kubernetes' storage abstraction
     using Storage Classes, PVs, and PVCs
   id: 19
   level: 2.5
-  name: Stateful Workloads
+  name: Stateful Workloads in Kubernetes
   topic: Kubernetes
 - description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
     for users and application Pods
   id: 37
   level: 2.5
-  name: RBAC
+  name: Kubernetes RBAC
   topic: Kubernetes
 - description: Learn about the reflection package from the Go standard library.
   id: 66
   level: 2.5
-  name: Reflection
+  name: Go Reflection
   topic: Go
 - description: Look at how Istio enables external traffic into the cluster as an Ingress
     Controller
@@ -964,46 +892,60 @@ Modules:
 - description: Discussion on data access & search optimization in ArangoDB
   id: 173
   level: 2.5
-  name: Data Operations
-  topic: Arangodb
+  name: ArrangoDB Data Operations
+  topic: ArangoDB
+- description: ''
+  id: 191
+  level: 2.5
+  name: Kafka Streams
+  topic: Kafka
 - description: Discussion of how to control access to EKS clusters through AWS Identity
     & Access Management
   id: 206
   level: 2.5
   name: EKS & IAM
   topic: Kubernetes
-- description: Exposing locally attached storage to application Pods with damanding
+- description: Exposing locally attached storage to application Pods with demanding
     disk IOPS
   id: 18
   level: 2.51
-  name: Local Storage
+  name: Local Storage in Kubernetes
   topic: Kubernetes
 - description: Techniques for exposing file storage systems to Kubernetes Pods
   id: 15
   level: 2.52
-  name: File Storage
+  name: File Storage in Kubernetes
   topic: Kubernetes
 - description: Kubernetes block storage volumes and block storage CSI features
   id: 6
   level: 2.59
-  name: Block Storage
+  name: Block Storage in Kubernetes
   topic: Kubernetes
+- description: Learn the Stream API.
+  id: 97
+  level: 2.6
+  name: Developing Kafka Stream Processors
+  topic: Kafka
+- description: Learn about state management when using the Stream API.
+  id: 98
+  level: 2.6
+  name: Developing Stateful Kafka Stream Processors
+  topic: Kafka
 - description: Exploration of the integration between EKS, AWS EC2 autoscaling, and
     how to optimize costs
   id: 207
   level: 2.6
   name: EKS Autoscaling
   topic: Kubernetes
-- description: Exploration of how to expand ArangoDB's API through the use of Foxx
-    Javascript extensions
+- description: Exploration of how to expand ArangoDB's API using Foxx JavaScript extensions
   id: 175
   level: 2.7
-  name: Foxx Javascript Microservices
-  topic: Arangodb
+  name: Extend ArrangoDB using Foxx Javascript Microservices
+  topic: ArangoDB
 - description: ''
   id: 150
   level: 2.75
-  name: Generics
+  name: Rust Generics
   topic: Rust
 - description: ''
   id: 166
@@ -1013,13 +955,13 @@ Modules:
 - description: Guidance and best practices for building secure microservice APIs
   id: 3
   level: 2.9
-  name: API Security
+  name: Kubernetes API Security
   topic: Kubernetes
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
   id: 7
   level: 2.9
-  name: Cluster Maintenance
+  name: Kubernetes Cluster Maintenance
   topic: Kubernetes
 - description: 'Examination of the Kubernetes database: etcd; including bootstrapping,
     sizing, backup and restore'
@@ -1031,24 +973,30 @@ Modules:
     discovery and cluster components (optional)
   id: 35
   level: 2.9
-  name: Troubleshooting
+  name: Troubleshooting Kubernetes Workloads
   topic: Kubernetes
 - description: ''
   id: 230
   level: 2.9
   name: Software Supply Chain Security
   topic: Microservices
+- description: 'Overview the aspects of Observability: Logging, metrics, and tracing
+    and implementations in Kubernetes'
+  id: 24
+  level: 2.95
+  name: Observability Overview
+  topic: Kubernetes
+- description: Kubernetes metrics APIs, the Metrics Server, and using metrics to power
+    Pod autoscaling
+  id: 22
+  level: 2.97
+  name: Observability - Metrics
+  topic: Kubernetes
 - description: Accessing Kubernetes Pod application logs, configuring logging drivers,
     and strategies for log forwarding
   id: 21
-  level: 2.97
-  name: Observability - Logging
-  topic: Kubernetes
-- description: Implementing tracing solutions in distributed orchestration systems
-    using containers and Kubernetes
-  id: 23
   level: 2.98
-  name: Observability - Tracing
+  name: Observability - Logging
   topic: Kubernetes
 - description: Templating for Kubernetes application manifests using the kustomize
     command line utility
@@ -1056,17 +1004,17 @@ Modules:
   level: 2.99
   name: Kustomize
   topic: Kubernetes
-- description: Kubernetes metrics APIs, the Metrics Server, and using metrics to power
-    Pod autoscaling
-  id: 22
+- description: Implementing tracing solutions in distributed orchestration systems
+    using containers and Kubernetes
+  id: 23
   level: 2.99
-  name: Observability - Metrics
+  name: Observability - Tracing
   topic: Kubernetes
 - description: Discusses additional details in chart building, such as establishing
     dependencies
   id: 127
   level: 2.99
-  name: Chart Patterns
+  name: Helm Chart Patterns
   topic: Helm
 - description: Exploration of Policy-based networking control on the Istio Service
     Mesh using its own custom resources
@@ -1077,7 +1025,7 @@ Modules:
 - description: ''
   id: 143
   level: 2.99
-  name: Packages
+  name: Packages in Rust
   topic: Rust
 - description: ''
   id: 153
@@ -1093,13 +1041,13 @@ Modules:
     and file permissions in Pods'
   id: 30
   level: 3.0
-  name: State Security
+  name: State Security in Kubernetes
   topic: Kubernetes
 - description: 'Kubernetes volumes: concepts and types; using volumes with the StatefulSet
     controller'
   id: 34
   level: 3.0
-  name: State Design
+  name: State Design in Kubernetes
   topic: Kubernetes
 - description: Discussion around Istio's Load Balancing and Service Discovery capabilities
   id: 138
@@ -1109,105 +1057,92 @@ Modules:
 - description: ''
   id: 144
   level: 3.0
-  name: Errors
+  name: Errors in Rust
   topic: Rust
 - description: Discussion on how to improve ArangoDB's runtime performance
   id: 177
   level: 3.0
-  name: Performance Tuning
-  topic: Arangodb
+  name: ArrangoDB Performance Tuning
+  topic: ArangoDB
 - description: ''
   id: 183
   level: 3.0
-  name: Advanced Stream Processing
+  name: Advanced Stream Processing in Kafka
   topic: Kafka
 - description: Discussion on how communications between Kubernetes Control Plane components
     can be secured
   id: 216
   level: 3.0
-  name: Control Plane Security
+  name: Kubernetes Control Plane Security
   topic: Kubernetes
 - description: In-depth discussion on the nature of the Kubernetes default scheduler
   id: 222
   level: 3.0
-  name: Kube-Scheduler
+  name: Kubernetes Scheduler In-Depth
   topic: Kubernetes
+- description: Learn how to use FoundationDB data models to store application data
+    mapped to keys and values.
+  id: 257
+  level: 3.0
+  name: Basic Data Modeling in FoundationDB
+  topic: FoundationDB
 - description: Admission controller operations and key implementations in the Kubernetes
     API Server
   id: 1
   level: 3.1
-  name: Admission Control
+  name: Kubernetes Admission Control
   topic: Kubernetes
 - description: Overview of Kubernetes API security (RBAC, Namespaces, PSP) and Pod
     security (Security Context, Capabilities, etc.)
   id: 87
   level: 3.1
-  name: Security Overview
+  name: Kuberntes Security Overview
   topic: Kubernetes
 - description: ''
   id: 115
   level: 3.1
-  name: Numpy
+  name: Python Numpy
   topic: Python
 - description: ''
   id: 116
   level: 3.1
-  name: Pandas
+  name: Python - Pandas
   topic: Python
 - description: Exploration of how to create clients that can interact with ArangoDB
     programmatically through code
   id: 171
   level: 3.1
-  name: Code
-  topic: Arangodb
+  name: Code Clients for ArrangoDB
+  topic: ArangoDB
 - description: ''
-  id: 184
+  id: 187
   level: 3.1
-  name: Debugging and monitoring Stream Processing Applications
+  name: Monitoring Kafka
   topic: Kafka
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKS exam
-  id: 214
+- description: ''
+  id: 190
   level: 3.1
-  name: CKS Drills Part 1
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKS exam
-  id: 215
-  level: 3.11
-  name: CKS Drills Part 2
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKS exam
-  id: 224
-  level: 3.13
-  name: CKS Drills Part 3
-  topic: Kubernetes
-- description: A 90-minute session of instructor-led, timed drills geared toward the
-    CKS exam
-  id: 223
-  level: 3.14
-  name: CKS Drills Part 4
-  topic: Kubernetes
+  name: Kafka Security
+  topic: Kafka
 - description: ''
   id: 111
   level: 3.2
-  name: Multitasking
+  name: Multitasking in Python
   topic: Python
 - description: ''
   id: 118
   level: 3.2
-  name: Scapy
+  name: Python Scapy
   topic: Python
 - description: ''
   id: 119
   level: 3.2
-  name: SQL-DB
+  name: Python SQL-DB
   topic: Python
 - description: ''
-  id: 185
+  id: 184
   level: 3.2
-  name: Tuning for Scale and Performance
+  name: Debugging and monitoring Stream Processing Applications
   topic: Kafka
 - description: ''
   id: 151
@@ -1217,48 +1152,53 @@ Modules:
 - description: ''
   id: 110
   level: 3.3
-  name: Jinja
+  name: Jinja in Python
   topic: Python
 - description: ''
   id: 112
   level: 3.3
-  name: netconf restconf
+  name: netconf restconf in Python
   topic: Python
 - description: ''
   id: 113
   level: 3.3
-  name: Networking Features
+  name: Python Networking Features
   topic: Python
 - description: ''
   id: 114
   level: 3.3
-  name: Networking Modules
+  name: Python Networking Modules
   topic: Python
+- description: ''
+  id: 185
+  level: 3.3
+  name: Tuning for Scale and Performance
+  topic: Kafka
 - description: A look at pod security features and secure pod design approaches.
   id: 124
   level: 3.5
-  name: Pod Security
+  name: Kubernetes Pod Security
   topic: Kubernetes
 - description: ''
   id: 147
   level: 3.5
-  name: Concurrency
+  name: Rust Concurrency
   topic: Rust
-- description: Examination of kubernetes OS based and VM based container runtime solutions
+- description: Examination of Kubernetes OS based and VM based container runtime solutions
   id: 45
   level: 3.8
-  name: Runtimes
+  name: Kubernetes Runtime Security
   topic: Kubernetes
 - description: Using unikernels and/or micro-VMs for improved Pod security and hard
     multi-tenancy in Kubernetes
   id: 44
   level: 3.89
-  name: Static Analysis
+  name: Static Analysis of K8s Manifests
   topic: Kubernetes
 - description: Working with API auditing and audit log policies
   id: 5
   level: 3.9
-  name: Auditing
+  name: Auditing in Kubernetes
   topic: Kubernetes
 - description: 'Best practices for container image security: scanning, image signing,
     and binary authorization'
@@ -1266,25 +1206,23 @@ Modules:
   level: 3.9
   name: Image Security
   topic: Containers
-- description: Using LSM and SecComp to secure pod based services
+- description: Using LSM and SecComp to secure pod-based services
   id: 38
   level: 3.9
-  name: OS Hardening
+  name: OS Hardening and K8s Pods
   topic: Kubernetes
-- description: 'Discussion of how observability grants insight into cluster behavior.
-    Compare and contrast behavior analysis with signature-based analysis
-
-    '
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
   id: 46
   level: 3.9
-  name: Behavioral Analysis
+  name: Behavioral Analysis in Kubernetes
   topic: Kubernetes
 - description: ''
   id: 140
   level: 3.9
-  name: Testing
+  name: Testing in Rust
   topic: Rust
-- description: Discussion around how to unify two separate Kubernets clusters together
+- description: Discussion around how to unify two separate Kubernetes clusters together
     using Istio
   id: 131
   level: 3.99
@@ -1293,28 +1231,58 @@ Modules:
 - description: ''
   id: 152
   level: 3.99
-  name: Next Steps
+  name: Next Steps in Rust
   topic: Rust
 - description: 'Securing the Kubernetes API using TLS: best practices and common mistakes
     are discussed'
   id: 41
   level: 4.0
-  name: Control Plane TLS
+  name: Kubernetes Control Plane TLS
   topic: Kubernetes
 - description: Examines Custom Resource Definitions (CRDs) and how to use them.
   id: 125
   level: 4.0
-  name: CRDs Overview
+  name: Kubernetes CRDs Overview
   topic: Kubernetes
 - description: Explores cloud native approaches to software supply chain security.
   id: 126
   level: 4.0
-  name: Supply Chain Security
+  name: Software Supply Chain Security
   topic: Kubernetes
+- description: Learn effective data modeling in FoundationDB to ensure efficient access
+    patterns and transaction management.
+  id: 258
+  level: 4.0
+  name: FoundationDB Data Modeling in Depth
+  topic: FoundationDB
+- description: Learn about FoundationDB's conflict detection algorithm, common errors,
+    the recovery process, and using probes for debugging.
+  id: 259
+  level: 4.0
+  name: Debugging and Troubleshooting FoundationDB Applications
+  topic: FoundationDB
+- description: Explore how FoundationDB's transactions empower developers to maintain
+    integrity constraints.
+  id: 260
+  level: 4.0
+  name: FoundationDB Consistency
+  topic: FoundationDB
+- description: Learn about redundancy options, regions, satellites, and understand
+    failure scenarios.
+  id: 261
+  level: 4.0
+  name: FoundationDB Options
+  topic: FoundationDB
+- description: Understand the use of asynchrony, futures, call backs, and watches
+    in FoundationDB.
+  id: 264
+  level: 4.0
+  name: Futures, Watches and Streaming in FoundationDB
+  topic: FoundationDB
 - description: Securing Kubernetes clusters with zone-based architecture and firewalls
   id: 42
   level: 4.1
-  name: Network Design
+  name: Network Design and K8s
   topic: Kubernetes
 - description: ''
   id: 99
@@ -1324,10 +1292,11 @@ Modules:
 - description: ''
   id: 100
   level: 4.1
-  name: Anaconda_intro
+  name: Anaconda Intro for Python
   topic: Python
 - description: ''
   id: 101
   level: 4.1
-  name: C Extensions
+  name: C Extensions in Python
   topic: Python
+
