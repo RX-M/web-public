@@ -1086,6 +1086,18 @@ Modules:
   level: 3.0
   name: Basic Data Modeling in FoundationDB
   topic: FoundationDB
+- description: Understanding the power range operations bring to a key value store
+    and explore the various range operations available in FDB.
+  id: 265
+  level: 3.0
+  name: Design Considerations for Range Based Key/Value Stores
+  topic: FoundationDB
+- description: Dig into the nuts and bolts of FoundationDB's distributed architecture,
+    data storage and transaction processing components.
+  id: 269
+  level: 3.0
+  name: FoundationDB Architecture Deep Dive
+  topic: FoundationDB
 - description: Admission controller operations and key implementations in the Kubernetes
     API Server
   id: 1
@@ -1278,6 +1290,44 @@ Modules:
   id: 264
   level: 4.0
   name: Futures, Watches and Streaming in FoundationDB
+  topic: FoundationDB
+- description: Explore techniques and best practices for mapping domain-based data
+    models to FoundationDB.
+  id: 266
+  level: 4.0
+  name: Best Practices Data Modeling on FoundationDB
+  topic: FoundationDB
+- description: Learn how to create operations that maximize the benefits of FDB distributed
+    transactions, working in harmony with the FDB transaction architecture.
+  id: 267
+  level: 4.0
+  name: Distributed Transactions in Depth
+  topic: FoundationDB
+- description: Explore effective data design, modeling, and transaction patterns for
+    FDB.
+  id: 268
+  level: 4.0
+  name: FoundationDB Design Patterns
+  topic: FoundationDB
+- description: Learn how FDB can fail and how it is designed to self-heal along with
+    expected recovery times and what to do when things go wrong.
+  id: 270
+  level: 4.0
+  name: FoundationDB Failure Modes and Recovery Mechanisms
+  topic: FoundationDB
+- description: FDB is designed to self-tune, this module digs into the details of
+    data distribution and discusses the support for elastic scaling of the FDB cluster
+    itself.
+  id: 271
+  level: 4.0
+  name: FoundationDB Cluster Scaling and Data Distribution
+  topic: FoundationDB
+- description: FoundationDB supports "Fearless Disaster Recovery", this module delves
+    into the synchronous and asynchronous replication features of FDB and the various
+    Region, Data Center, and Satellite modes available.
+  id: 272
+  level: 4.0
+  name: Building Multi-Site Solutions with FoundationDB
   topic: FoundationDB
 - description: Securing Kubernetes clusters with zone-based architecture and firewalls
   id: 42
