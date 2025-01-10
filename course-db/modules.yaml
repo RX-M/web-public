@@ -584,12 +584,6 @@ Modules:
   level: 2.0
   name: ArangoDB Architecture
   topic: ArangoDB
-- description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
-    Node taints and Pod tolerations'
-  id: 204
-  level: 2.0
-  name: Kubernetes Pod Scheduling
-  topic: Kubernetes
 - description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
   id: 205
   level: 2.0
