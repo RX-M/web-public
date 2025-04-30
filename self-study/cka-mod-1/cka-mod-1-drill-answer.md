@@ -37,4 +37,4 @@ $
 
 As another exercise, try to create another role that can create network policies and bind the role to the same <code>networker</code>user.
 
-RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps; we offer open enrollments and private engagements for teams or organizations.
+RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps or test prep sessions; we offer open enrollments and private engagements for teams or organizations.
