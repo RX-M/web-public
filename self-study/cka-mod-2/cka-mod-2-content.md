@@ -1,7 +1,7 @@
 <!-- CKA Self-Study Mod 2 -->
 
 
-# Understand deployments and how to perform rolling update and rollbacks
+# Understand application deployments and how to perform rolling updates and rollbacks
 
 
 ## Deployments
@@ -227,7 +227,7 @@ Secrets in the cluster are consumed in the same way as ConfigMaps as either envi
 [Learn more about configuring applications using configMaps to run under Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and [how to influence container commands](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/).
 
 
-# Know how to scale applications
+# Configure workload autoscaling
 
 Applications deployed using a controller like a Deployment or statefulSet can be scaled up or down by modifying the number of replicas.
 
@@ -237,8 +237,6 @@ Changing the <code>replicas</code> key value in the controller’s spec will tri
 $ kubectl scale deploy redis-prod --replicas=3
 
 deployment.apps/redis-prod scaled
-
-$
 </code></pre>
 
 Or declaratively by making changes to the controller’s spec’s YAML and applying it to the cluster:
@@ -269,11 +267,19 @@ spec:
 $ kubectl apply -f redis-prod.yaml
 
 deployment.apps/redis-prod configured
-
-$
 </code></pre>
 
 [Learn more about scaling your applications using controllers like deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment).
+
+The Horizontal Pod Autoscaler (HPA) can be used to update a Deployment or StatefulSet with the goal of automatically scaling the workload to match demand, or load. The Controller Manager will query metrics from either the resource metrics API (for per-pod resource metrics), or the custom metrics API (for all other metrics) and compare the current resource utilization against the metrics threshold specified in an HPA definition to determine scaling.
+
+The simplest way to express an HPA using the resource metrics API is using the <code>autoscale</code> command, for example:
+
+<pre class="wp-block-code"><code>
+$ kubectl autoscale deployment redis-prod --cpu-percent=80 --min=5 --max=10
+</code></pre>
+
+For more details about pod autoscaling, see the [Kubernetes documentation on HPAs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 # Understand the primitives used to create robust, self-healing, application deployments
@@ -305,8 +311,6 @@ deployment.apps/apache-prod created
 $ kubectl expose deploy apache-prod --port 80
 
 service/apache-prod exposed
-
-$
 </code></pre>
 
 This creates a deployment, which ensures at least a single copy of the application runs at all times and a service that maintains the consistent network identity.
@@ -363,7 +367,7 @@ Learn about:
 </ul>
 
 
-# Understand how resource limits can affect pod scheduling
+# Configure Pod admission and scheduling (limits, node affinity, etc.)
 
 Workloads in Kubernetes are configured in pods, which define how containers should run in the cluster. Before pods can run their containers, they must be scheduled, or assigned, to one of the nodes in the cluster. This decision is made by the kube-scheduler based on the following factors:
 
@@ -483,6 +487,14 @@ During the lifetime of the pod and its containers, the Kubelet enforces any spec
 Depending on this categorization, or Quality of Service (QOS) class, the Kubelet makes a decision on which pods get removed based on this priority: BestEffort -> Burstable -> Guaranteed.
 
 [Learn more about managing container resources here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). There is also [a task page](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/) on the Kubernetes docs that describe to to implement them.
+
+
+# Practice Drill
+
+Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>docker.io/jenkins/jenkins:lts</code> image.
+
+
+# CONTENT FROM BEFORE FEB 2025 REMAINS BELOW IN CASE THE EXAM INCLUDES IT IN THE FUTURE
 
 
 # Manifest Management and Common Templating Tools
@@ -610,8 +622,3 @@ Here, two manifests have been generated: one for the ConfigMap (which received a
 The main advantage of kustomize is that no other tools are necessary - it is built into the <code>kubectl</code> binary.
 
 [Learn more about Kustomize from the Kubernetes Documentation here](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
-
-
-# Practice Drill
-
-Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>docker.io/jenkins/jenkins:lts</code> image.

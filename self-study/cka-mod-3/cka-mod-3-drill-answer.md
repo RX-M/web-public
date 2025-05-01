@@ -6,8 +6,6 @@ First, run the command to create the pod:
 $ kubectl run --image docker.io/nginx nginx-drill
 
 pod/nginx-drill created
-
-$
 </code></pre>
 
 Then, use <code>kubectl expose</code> with the <code>--type NodePort</code> flag to create a nodePort service imperatively. Make sure to expose the pod since that is the was created by the initial run command:
@@ -16,8 +14,6 @@ Then, use <code>kubectl expose</code> with the <code>--type NodePort</code> flag
 $ kubectl expose --type NodePort --port 80 pod nginx-drill
 
 service/nginx-drill exposed
-
-$
 </code></pre>
 
 After exposing the pod, list the services. You will see the nginx-drill NodePort service maps port 80 to a port within the 30000 range:
@@ -28,8 +24,6 @@ $ kubectl get svc
 NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 kubernetes        ClusterIP   10.96.0.1        <none>        443/TCP        33d
 nginx-drill       NodePort    10.101.103.201   <none>        80:32402/TCP   10s
-
-$
 </code></pre>
 
 Finally, try to send a curl request to the nginx pod using your machine IP address:
@@ -75,8 +69,6 @@ Commercial support is available at
 &lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
-$
 </code></pre>
 
 

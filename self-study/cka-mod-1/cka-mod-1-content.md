@@ -323,7 +323,7 @@ Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
 # Use Helm and Kustomize to install cluster components
 
-### Helm
+## Helm
 
 A popular method of deploying applications or cluster components on Kubernetes is through the use of templating tools like Helm. These tools allow users to specify all of the components of an application meant to run on Kubernetes in a series of templated YAML files. Tools like Helm take these templated YAML files, populate them with user-defined values, and deploy all of those resources together.
 
@@ -415,7 +415,7 @@ service/kubernetes   ClusterIP   10.96.0.1            443/TCP   19h
 Learn more about the [Helm package manager and its use](https://helm.sh/docs/).
 
 
-### Kustomize
+## Kustomize
 
 Kustomize is a standalone tool to customize Kubernetes objects through a kustomization file. Since 1.14, kubectl also supports the management of Kubernetes objects using a kustomization file. To view resources found in a directory containing a kustomization file, run the following command: <code>kubectl kustomize <kustomization_directory></code>
 
@@ -515,7 +515,7 @@ These interfaces are implemented as either:
 - or daemon (CRI, CSI)
 
 
-### CRI
+## CRI
 
 CRI enables pluggable container runtimes in Kubernetes. Kubelet previously had integral support for Docker and Rocket (rkt). CRI Consists of:
 
@@ -527,12 +527,12 @@ CRI enables pluggable container runtimes in Kubernetes. Kubelet previously had i
 Kubelet calls the container runtime (or a shim) over a Unix socket. Depending on your container runtime of choice, you will need to supply the appropriate value for the <code>--cri-socket</code> option: <code>sudo kubeadm init --cri-socket=unix:///var/run/containerd/containerd.sock</code>
 
 
-### CNI
+## CNI
 
 Kubernetes kubelets create Pods, which requires the kubelet to configure pod networking. The CNI plugin is selected by passing kubelet the <code>--network-plugin=cni</code> command-line option. Kubelet reads a file from <code>--cni-conf-dir</code> (default <code>/etc/cni/net.d</code>) and uses the CNI configuration from that file to set up each pod’s network. The CNI configuration file must match the CNI specification. Any required CNI plugins referenced by the configuration must be present in <code>--cni-bin-dir</code> (default <code>/opt/cni/bin</code>). It is the CNI plugin’s responsibility to, among other things, assign IP addresses to pods in the cluster. Different CNI plugins will achieve this in different ways.
 
 
-### CSI
+## CSI
 
 CSI is a standard for exposing block and file storage systems to containerized workloads on container orchestration systems like Kubernetes. Allows third parties to write and deploy plugins exposing new storage systems in Kubernetes without ever having to touch the core Kubernetes code.
 
