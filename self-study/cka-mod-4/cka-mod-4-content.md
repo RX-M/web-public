@@ -1,58 +1,7 @@
 <!-- CKA Self-Study Mod 4 -->
 
 
-# Understand storage classes, persistent volumes
-
-Volumes are the primary way to configure storage for apps running under Kubernetes. Volumes are declared at the pod level, then mounted at the container level, as shown below:
-
-<pre class="wp-block-code"><code>
-apiVersion: v1
-kind: Pod
-metadata:
-  name: cka-volumes
-spec:
-  restartPolicy: OnFailure
-  containers:
-    - name: cka-volume
-      image: alpine
-      command:
-      - top
-      volumeMounts:
-      - name: applogs
-        mountPath: /logs
-  volumes:
-    - name: applogs
-      hostPath:
-        path: /tmp/app/logs
-</code></pre>
-
-Most volume lifespans are tied to the pods they are configured for, and usually expire when the pod is removed. To decouple storage from pod lifecycles, Kubernetes has persistentVolumes objects. PersistentVolumes are resources within the cluster that provide storage that persists outside of pod lifespans.
-
-<pre class="wp-block-code"><code>
-$ kubectl get pv
-
-NAME         CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                 STORAGECLASS   REASON   AGE
-app-log-pv   1Gi        RWO,ROX        Retain           Bound       default/app-log-pvc                           89m
-fivegigpv    5Gi        RWO            Retain           Available                                                 78m
-
-$
-</code></pre>
-
-The primary way to use persistentVolumes (PVs) is through PersistentVolumeClaims. PersistentVolumeClaims (PVCs) are abstract requests for storage that claim persistent volumes. If a PVC finds an existing PV that fulfills its requests (access mode and capacity), then that PV is bound to the PVC. PVCs can also describe PVs as templates that dynamically provision PVs from the desired specifications.
-
-<pre class="wp-block-code"><code>
-$ kubectl get pvc
-
-NAME          STATUS   VOLUME       CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-app-log-pvc   Bound    app-log-pv   1Gi        RWO,ROX                       85m
-
-$
-</code></pre>
-
-[Learn more about how Kubernetes handles storage](https://kubernetes.io/docs/concepts/storage/).
-
-
-## Storage Classes
+# Implement storage classes and dynamic volume provisioning
 
 StorageClass objects allow users to dynamically provision PVs through persistent volume claims. Each storageClass object represents a storage backend that can create a new PV. A StorageClass object is usually deployed alongside a Container Storage Interface (CSI) plugin, and provides the interface and agent necessary for a user to successfully request storage for their workload.
 
@@ -77,7 +26,7 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 </code></pre>
 
-The StorageClass object describes a provisioner, which acts as the point of communication between the Kubernetes cluster and the storage backend.
+The StorageClass object describes a <code>provisioner</code>, which acts as the point of communication between the Kubernetes cluster and the storage backend.
 
 A StorageClass is consumed by declaring the name of the desired storage class in a persistent volume claim's <code>storageClassName</code> key. If a matching StorageClass exists, the backing provisioner will contact the storage backend to provision volume per the parameters set in the PVC. 
 
@@ -145,7 +94,78 @@ The <code>storageClassName</code> of a Persistent Volume is treated like another
 [Learn more about Storage Classes in Kubernetes here](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 
-## Persistent Volumes
+# Configure volume types, access modes and reclaim policies
+
+
+## Volume Types
+
+Volumes are the primary way to configure storage for apps running under Kubernetes. Certain volume types, PersistentVolumes, PersistentVolumeClaims, ConfigMaps and Secrets, etc. are valid entries under the <code>volumes</code> array. The Kubernetes documentation describes the <a href="https://kubernetes.io/docs/concepts/storage/volumes/#volume-types" target="_blank" rel="noreferrer noopener">types of volumes</a> that are valid. Each volume entry is given a name. Volumes are declared at the pod level, then mounted at the container level, as shown below:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cka-volumes
+spec:
+  restartPolicy: OnFailure
+  containers:
+    - name: cka-volume
+      image: alpine
+      command:
+      - top
+      volumeMounts:
+      - name: applogs
+        mountPath: /logs
+  volumes:
+    - name: applogs
+      hostPath:
+        path: /tmp/app/logs
+</code></pre>
+
+Most volume lifespans are tied to the pods they are configured for, and usually expire when the pod is removed. To decouple storage from pod lifecycles, Kubernetes has persistentVolumes objects. PersistentVolumes are resources within the cluster that provide storage that persists outside of pod lifespans.
+
+The primary way to use PersistentVolumes (PVs) is through PersistentVolumeClaims.
+
+
+## PV / PVC Access Modes, Volume Modes, and Reclaim Policies
+
+Persistent Volumes use the <code>accesModes</code> array to ensure that the resulting volume mounts in a way supported by the resource provider’s filesystem. There are three access modes supported by Kubernetes:
+
+<li><code>ReadWriteOnce</code> (<code>RWO</code>) – A single node may mount volume with read-write permissions</li>
+<li><code>ReadOnlyMany</code> (<code>ROX</code>) – Many nodes may mount the volume with read-only permissions</li>
+<li><code>ReadWriteMany</code> (<code>RWX</code>) – Many nodes may mount the volume with read-write permissions</li>
+
+<p>Kubernetes also supports two <code>volumeModes</code> for persistent volumes: <code>Filesystem</code> (default) and <code>Block</code>. With <code>Filesystem</code>, the volume in mounted into a directory whereas the <code>Block</code> type presents the volume as a block device without a filesystem.</p>
+
+<p>Below is an example of a persistent volume that allows <code>ReadWriteOnce</code> and <code>ReadOnlyMany</code> access modes and a <code>Retain</code> reclaim policy:</p>
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/app/logs"
+</code></pre>
+
+<a href="https://kubernetes.io/docs/concepts/storage/">Learn more about how Kubernetes handles storage</a> as well as persistent volume attributes:
+
+<li><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes" target="_blank" rel="noreferrer noopener">Access modes</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaim-policy" target="_blank" rel="noreferrer noopener">Reclaim policies</a></li>
+
+
+# Manage persistent volumes and persistent volume claims
+
+
+## Persistent Volume (PV)
 
 A persistent volume is a storage object provisioned from the cluster’s infrastructure that is managed by the Kubernetes cluster. Persistent volumes allow storage to remain beyond an individual pod’s lifespan. Persistent volumes describe details of a storage implementation for the cluster, including:
 
@@ -170,7 +190,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /tmp/pvc
+    path: /tmp/pv
 </code></pre>
 
 Persistent volumes exist as resources in the cluster that any pod can claim using a persistent volume claim. 
@@ -178,39 +198,7 @@ Persistent volumes exist as resources in the cluster that any pod can claim usin
 [Learn more about persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 
-# Understand volume mode, access modes and reclaim policies for volumes
-
-Persistent Volumes use the <code>accesModes</code> array to ensure that the resulting volume mounts in a way supported by the resource provider’s filesystem.
-
-There are three access modes supported by Kubernetes:
-ReadWriteOnce (RWO) – A single node may mount volume with read-write permissions
-ReadOnlyMany (ROX) – Many nodes may mount the volume with read-only permissions
-ReadWriteMany (RWX) – Many nodes may mount the volume with read-write permissions
-
-Below is an example of a persistent volume that allows ReadWriteOnce and ReadOnlyMany access modes
-
-<pre class="wp-block-code"><code>
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: app-pv
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 50Gi
-  accessModes:
-    - ReadWriteOnce
-    - ReadOnlyMany
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: "/app/logs"
-</code></pre>
-
-
-[Learn more about access modes for volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
-
-
-# Understand persistent volume claims primitive
+## Persistent Volume Claim (PVC)
 
 A persistent volume claim is a request for storage and is an abstraction of persistent volumes. Persistent volume claims bind to persistent volumes on a number of factors like label selectors, storage class name, storage capacity, and access mode. Persistent volume claims will bind to existing persistent volumes in the cluster that fulfill their requirements or dynamically create persistent volumes using an existing storage class.
 
@@ -235,15 +223,13 @@ The persistent volume claim must find a persistent volume with up to 50 gigabyte
 [Learn more about persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
 
 
-# Know how to configure applications with persistent storage
+## Using Volumes with Pods
 
 The <code>volumes</code> array under a pod manifest and <code>volumeMounts</code> array in a container manifest configure how applications running under Kubernetes use persistent storage.
 
-Entries under the <code>volumes</code> array in a pod manifest declare what storage plugins or objects a pod has available for its containers to use as storage. Certain volume types, persistent volumes, persistent volume claims, configMaps and secrets are all valid entries under the <code>volumes</code> array. Each volume entry is given a name.
+Entries under the <code>volumes</code> array in a pod manifest declare what storage plugins or objects a pod has available for its containers to use as storage. Containers under pods use the <code>volumeMounts</code> array to mount any volumes made available by the pod. The container references the volume by the name configured on the pod level.
 
-Containers under pods use the <code>volumeMounts</code> array to mount any volumes made available by the pod. The container references the volume by the name configured on the pod level.
-
-The example below shows a pod configured to expose a host directory and the persistent volume claim example above for its containers to use:
+The example below shows a pod configured to mount the PersistentVolumeClaim example above for its containers to use:
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
@@ -260,20 +246,13 @@ spec:
       volumeMounts:
       - name: app-logs
         mountPath: /logs
-      - name: app-certs
-        mountPath: /certs
   volumes:
     - name: app-logs
       persistentVolumeClaim:
         claimName: app-log-pvc
-    - name: app-certs
-      hostPath:
-        path: /etc/ssl/certs
 </code></pre>
 
-This example uses a persistentVolumeClaim to store application log data and also mounts a hostPath to use certificates of its host.
-
-Learn more about persistent storage with your applications on Kubernetes using:
+This example uses a persistentVolumeClaim to store application log data. Learn more about volumes with your applications on Kubernetes using:
 <li>[Basic volume plugins](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)</li>
 <li>[Persistent volumes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/).</li>
 
