@@ -6,7 +6,6 @@ First, run the command:
 $ kubectl run --restart Never --image redis:0.2 redispod
 
 pod/redispod created
-$
 </code></pre>
 
 Kubernetes reports that it successfully created the object. Now list the events in the current namespace with <code>kubectl get events</code>:
@@ -20,8 +19,6 @@ $ kubectl get events | grep redispod
 2s          Warning   Failed      pod/redispod   Error: ErrImagePull
 16s         Normal    BackOff     pod/redispod   Back-off pulling image "redis:0.2"
 16s         Warning   Failed      pod/redispod   Error: ImagePullBackOff
-
-$
 </code></pre>
 
 We see that the node’s container runtime could not find an image redis:0.2. As instructed, write these events to a file:
@@ -37,11 +34,7 @@ $ cat /tmp/troubleshooting-answer.txt
 57s         Warning   Failed      pod/redispod   Error: ErrImagePull
 45s         Normal    BackOff     pod/redispod   Back-off pulling image "redis:0.2"
 33s         Warning   Failed      pod/redispod   Error: ImagePullBackOff
-
-$
 </code></pre>
 
 
 As an additional exercise, fix the <code>redispod</code> above using the <code>redis:latest</code> image.
-
-RX-M can provide more help with preparing for the CKA exam in one of our CKA bootcamps; we offer open enrollments and private engagements for teams or organizations.
