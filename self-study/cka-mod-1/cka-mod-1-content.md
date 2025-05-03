@@ -195,6 +195,7 @@ Change the repository to the latest minor version and update the indexes:
 <pre class="wp-block-code"><code>
 $ nano /etc/apt/sources.list.d/kubernetes.list ; cat $_
 
+# Edit the URL, changing v1.31 to v1.32
 deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /
 
 $ sudo apt update
@@ -207,11 +208,10 @@ Install the newer kubeadm version:
 <pre class="wp-block-code"><code>
 $ apt-cache madison kubeadm
 
-   kubeadm | 1.30.2-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
    kubeadm | 1.30.1-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
    kubeadm | 1.30.0-1.1 | https://pkgs.k8s.io/core:/stable:/v1.30/deb  Packages
 
-$ sudo apt install kubeadm=1.32.0-1.1
+$ sudo apt install kubeadm=1.32.1-1.1
 
 ...
 </code></pre>
@@ -230,16 +230,16 @@ kubelet     labsys    v1.31.5   v1.32.1
 Upgrade to the latest stable version:
 
 COMPONENT                 NODE      CURRENT    TARGET
-kube-apiserver            labsys    v1.31.0    v1.32.1
-kube-controller-manager   labsys    v1.31.0    v1.32.1
-kube-scheduler            labsys    v1.31.0    v1.32.1
-kube-proxy                          1.31.0     v1.32.1
+kube-apiserver            labsys    v1.31.5    v1.32.1
+kube-controller-manager   labsys    v1.31.5    v1.32.1
+kube-scheduler            labsys    v1.31.5    v1.32.1
+kube-proxy                          v1.31.5    v1.32.1
 CoreDNS                             v1.11.3    v1.11.3
 etcd                      labsys    3.5.15-0   3.5.16-0
 
 You can now apply the upgrade by executing the following command:
 
-	kubeadm upgrade apply v1.32.1
+        kubeadm upgrade apply v1.32.1
 
 ...
 </code></pre>
@@ -261,12 +261,12 @@ Kubeadm does not affect the Kubelet nor Kubectl, so those must be updated by acq
 Install the corresponding versions of the kubelet and kubectl:
 
 <pre class="wp-block-code"><code>
-$ sudo apt install kubelet=1.32.0-1.1 kubectl=1.32.0-1.1
+$ sudo apt install kubelet=1.32.1-1.1 kubectl=1.32.1-1.1
 
 ...
 
-Setting up kubelet (1.32.0-1.1) ...
-Setting up kubectl (1.32.0-1.1) ...
+Setting up kubelet (1.32.1-1.1) ...
+Setting up kubectl (1.32.1-1.1) ...
 </code></pre>
 
 Repeat this across the cluster until all nodes are at the desired versions.
