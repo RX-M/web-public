@@ -2,25 +2,6 @@
 
 # Practice Drill
 
-<ul>
-<li>Create a pod named <code>seccomp-drill</code> that uses the following SecComp profile:</li>
-  <ul>
-  <li>Name the seccomp profile <code>auditing.json</code></li>
-  <li>The pod should use the <code>httpd:latest</code> image</li>
-
-<pre class="wp-block-code"><code>
-{
-    "defaultAction": "SCMP_ACT_ERRNO"
-}
-</code></pre></ul>
-</ul>
-
-<pre class="wp-block-code"><code>
-{
-    "defaultAction": "SCMP_ACT_ERRNO"
-}
-</code></pre>
-
 Create <code>/var/lib/kubelet/seccomp/profiles</code> and the <code>auditing.json</code> file under it:
 
 <pre class="wp-block-code"><code>

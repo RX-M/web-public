@@ -1,13 +1,13 @@
 # CKS Self-Study Mod 1
 
 
-## Using Network Security Policies to restrict cluster level access
+# Using Network security policies to restrict cluster level access
 
 Network Policies are crucial to controlling pod-to-pod access in a cluster. Network policies enable cluster administrators to enforce:
 
 <ul>
 <li>Pod to Pod communication within and between namespaces in the cluster (Can be done by port or by label)</li>
-<li>Pod to other destinations, like certain CIDR blocks (0.0.0.0, 172.168.0.0/16, 10.255.255.255/32)</li>
+<li>Pod to other destinations, like certain CIDR blocks (<code>0.0.0.0</code>, <code>172.168.0.0/16</code>, <code>10.255.255.255/32</code>)</li>
 </ul>
 
 When a network policy is put into place in a namespace, by default, all incoming traffic to pods within that namespace (AKA ingress) is blocked while all outgoing traffic (called Egress) remains unblocked. Additional rules to block egress or allow ingress to certain pods must be present:
@@ -54,7 +54,7 @@ spec:
 Network policies are an essential way to control network access between pods in your cluster. You can learn more about Kubernetes network policies and how to use them [here](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 
-## Use CIS benchmark to review the security configuration of Kubernetes components
+# Use CIS benchmark to review the security configuration of Kubernetes components
 
 The Center for Internet Security (CIS) publishes documents known as CIS Benchmarks, which cover many common security configurations for popular systems, including Kubernetes. The CIS benchmark for Kubernetes provides guidance on how to establish the best possible security posture for your Kubernetes control plane components.  These include:
 
@@ -125,7 +125,7 @@ Your query returns no result, so that means your API Server is complying with th
 Make sure to check back often since the CIS Benchmark may add or change guidelines as new security issues are identified. The CIS Benchmark for Kubernetes is available [here](https://www.cisecurity.org/benchmark/kubernetes/) for free with sign-up.
 
 
-## Properly set up Ingress objects with security control
+# Properly set up Ingress objects with TLS
 
 The Kubernetes Ingress subsystem (not to be confused with network policy ingress) provides external access to workloads running in your cluster through the use of a software load balancer managed by Kubernetes. The Ingress subsystem consists of three parts:
 
@@ -194,7 +194,7 @@ spec:
 Ingress rules backed by TLS termination must use a <code>tls</code> type of secret in the same namespace in order to successfully receive a client's request. Once TLS is terminated at the Ingress load balancer, all data is passed within the cluster as plaintext until the response from the service is returned to the client. TLS termination ensures that traffic to and from services that may not be able to handle TLS still benefit.
 
 
-## Protect Node Metadata and endpoints
+# Protect node metadata and endpoints
 
 Public cloud services like AWS, GCE, Azure, or Linode provide ways of exposing node metadata (such as metrics, labels, or other information) to applications running on them. The way these metadata are presented depends on the public cloud provider, but they can include:
 
@@ -228,7 +228,84 @@ This way, all pods in the namespace this network policy is deployed in are able 
 As for creating the network policy, you can learn more about network policies [here](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
 
 
-## Minimize the use of, and access to GUI elements
+# Verify platform binaries before deploying
+
+Supply chain attacks can affect all pieces of software, including Kubernetes. Whenever you install Kubernetes, whether through a package manager like <code>apt</code> or <code>yum</code> or the binaries from GitHub, you want to be sure that the binaries you use for your control plane or worker nodes are the genuine deal.
+
+Every Kubernetes binary package for a given version is published with a matching sha512 hash.
+
+After you download one of the binary packages from one of the changelog documents, use the <code>sha512sum</code> tool in conjunction with the published SHA512 hash on the release page to verify that the file you downloaded is the same one the Kubernetes team produced for the release.
+
+An example of such a workflow is as follows:
+
+<li>Download one of the release packages from the Kubernetes website or GitHub</li>
+<li>Start the <code>sha512sum</code> tool with the <code>--check</code> or <code>-c</code> options</li>
+<li>Enter the published sha512 hash from the <a href="https://github.com/kubernetes/kubernetes/releases" target="_blank" rel="noreferrer noopener">releases page</a>, followed by the name of the file you downloaded</li>
+<li>If the sha512 hash matches that calculated from the provided file, the <code>sha512sum</code> tool will report <code>OK</code> and you can be sure of the files authenticity</li>
+
+<pre class="wp-block-code"><code>
+$ wget -q https://dl.k8s.io/v1.32.4/kubernetes-server-linux-amd64.tar.gz
+
+$ sha512sum -c
+
+# Copy/paste the sha from the release page followed by the filename of the archive:
+06c42d365aa4336881c81893d415a9f2be61857f9db36425e2a6d58fb016b4c1dbe2c51b98848adbbedb0f624f6648d1e93f65b2c94224d683f679754b108409 kubernetes-server-linux-amd64.tar.gz
+
+kubernetes-server-linux-amd64.tar.gz: OK
+
+# Once you get the "OK" you can use ctrl + c to exit:
+^C
+</code></pre>
+
+Download links to all of the Kubernetes release packages are available on the release notes page [here](https://kubernetes.io/docs/setup/release/).
+
+As of Kubernetes 1.24 the release process signs all binary artifacts (tarballs, SPDX files, standalone binaries) using cosign's keyless signing. Verifying a binary can be done with a few shell commands. First download the binary, signature, and certificate:
+
+<pre class="wp-block-code"><code>
+$ URL=https://dl.k8s.io/release/v1.32.4/bin/linux/amd64
+$ BINARY=kube-apiserver
+
+$ FILES=(
+    "$BINARY"
+    "$BINARY.sig"
+    "$BINARY.cert"
+)
+
+$ for FILE in "${FILES&#91;@]}"; do
+    curl -SfL --retry 3 --retry-delay 3 "$URL/$FILE" -o "$FILE"
+done
+</code></pre>
+
+Use cosign to verify the binary:
+
+<pre class="wp-block-code"><code>
+$ cosign verify-blob "$BINARY" \
+  --signature "$BINARY".sig \
+  --certificate "$BINARY".cert \
+  --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com \
+  --certificate-oidc-issuer https://accounts.google.com
+
+Verified OK
+</code></pre>
+
+Container images for Kubernetes components are also signed and can be verified using cosign; more about that <a href="https://kubernetes.io/docs/tasks/administer-cluster/verify-signed-artifacts/#verifying-image-signatures" target="_blank" rel="noreferrer noopener">here</a>.
+
+
+# Practice Drill
+
+Test your knowledge with the following drill:
+
+<ul>
+<li>Create a new namespace named <code>self-study</code>.</li>
+<li>In that namespace, create a network policy that prevents all incoming and outgoing pod traffic.</li>
+<li>Finally, create a network policy in the appropriate namespace that allows pods from namespaces labeled <code>approved=true</code> to communicate with all pods in the <code>self-study</code> namespace.</li>
+</ul>
+
+
+# CONTENT FROM BEFORE AUGUST 2024 REMAINS BELOW IN CASE THE EXAM INCLUDES IT IN THE FUTURE
+
+
+# Minimize the use of, and access to GUI elements
 
 In 2018, attackers breached and exploited Tesla's Kubernetes infrastructure by exploiting an insecurely configured Kubernetes Dashboard GUI. After the breach, the attackers secured one of Tesla's AWS account keys and deployed crypto-mining software in their infrastructure. There was a combination of factors that led to this breach:
 
@@ -285,46 +362,3 @@ rules:
 This role grants a user enough permission to view non-sensitive resources in the cluster but still create workloads using the Kubernetes dashboard.
 
 This domain topic is very involved with Kubernetes Role-based access control, which you can learn more about [here](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-
-
-## Verifying platform binaries before deploying
-
-Supply chain attacks can affect all pieces of software, including Kubernetes. Whenever you install Kubernetes, whether through a package manager like <code>apt</code> or <code>yum</code> or the binaries from GitHub, you want to be sure that the binaries you use for your control plane or worker nodes are the genuine deal.
-
-Every Kubernetes binary package for a given version is published with a matching sha512 hash.
-
-After you download one of the binary packages from one of the changelog documents, use the <code>sha512sum</code> tool in conjunction with the published SHA512 hash on the release page to verify that the file you downloaded is the same one the Kubernetes team produced for the release.
-
-An example of such a workflow is as follows:
-
-- Download one of the release packages from the Kubernetes website or GitHub
-- Start the <code>sha512sum</code> tool with the <code>--check</code> or <code>-c</code> options
-- Enter the published sha512 hash from the release page, followed by the name of the file you downloaded
-- If the sha512 hash matches that calculated from the provided file, the <code>sha512sum</code> tool will report <code>OK</code> and you can be sure of the files authenticity.
-
-<pre class="wp-block-code"><code>
-$ wget -q https://dl.k8s.io/v1.23.5/kubernetes-server-linux-amd64.tar.gz
-
-$ sha512sum -c
-
-063ad74fb1463ee7a7bf4fb746eef1e02980c170cfa89c93444bee0841a84133bdbe91035f6608ece15096fec3e0c9aa50ebdc2b15ce589d86e2f07d10a1d747 kubernetes-server-linux-amd64.tar.gz
-
-kubernetes-server-linux-amd64.tar.gz: OK
-
-^C
-
-$
-</code></pre>
-
-Download links to all of the Kubernetes release packages are available on the release notes page [here](https://kubernetes.io/docs/setup/release/).
-
-
-## Practice Drill
-
-Test your knowledge with the following drill:
-
-<ul>
-<li>Create a new namespace named <code>self-study</code>.</li>
-<li>In that namespace, create a network policy that prevents all incoming and outgoing pod traffic.</li>
-<li>Finally, create a network policy in the appropriate namespace that allows pods from namespaces labeled <code>approved=true</code> to communicate with all pods in the <code>self-study</code> namespace.</li>
-</ul>

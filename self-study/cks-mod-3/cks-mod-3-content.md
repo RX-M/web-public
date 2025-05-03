@@ -1,7 +1,7 @@
 # CKS Self-Study Mod 3
 
 
-## Minimize Host OS Footprint
+# Minimize host OS footprint
 
 This topic pertains to ensuring that the Kubernetes cluster does not tie itself too closely to its host infrastructure, exposing it to threats that specifically target the machines (virtual or otherwise). The pattern most susceptible to host OS-based attacks is the use of the <code>hostPath</code> volume. HostPath volumes expose host-level directories to the containers running within pods. This has two threats:
 
@@ -10,7 +10,7 @@ This topic pertains to ensuring that the Kubernetes cluster does not tie itself 
 <li>Containers deployed by bad actors can affect host machines by writing potentially malicious or damaging data into the mounted directories.</li>
 </ul>
 
-The primary way to mitigate threats posed by hostPaths is to mount them as readOnly on the container side and readable only by the Kubelet user on the host machine. This ensures that only the directories managed by the Kubelet are writable and that containers being deployed on the machines cannot affect the host.
+The primary way to mitigate threats posed by hostPaths is to mount them as readOnly on the container side and readable only by the kubelet user on the host machine. This ensures that only the directories managed by the kubelet are writable and that containers being deployed on the machines cannot affect the host.
 
 An example of a hostPath mounted as read-only in a container can be found on the manifest in the <code>kube-apiserver</code> in a cluster deployed using the <code>kubeadm</code> tool:
 
@@ -47,7 +47,7 @@ HostPaths are only one aspect of securing your workloads on Kubernetes and are o
 Additional pod security standard settings can be found on the [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) page.
 
 
-## Minimize IAM roles
+# Use least-privilege identity and access management
 
 This topic refers to managing access control on the infrastructure level, specifically for Kubernetes clusters with components that interact with the infrastructure. These include:
 
@@ -210,12 +210,12 @@ Below is the example IAM role required for the AWS EBS CSI driver that allows th
 }
 </code></pre>
 
-Note that the principle of least privilege also applies to the Kubernetes role-based access control (RBAC) system.
+Note that the principle of least privilege also applies to the Kubernetes role based access control (RBAC) system.
 
 For more information on the principle of least privilege, check out the AWS documentation on the principle of least privilege [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege). For a concrete example of controlling IAM for your cluster, the Kubernetes KOPS provisioning tool gives a [good breakdown of using IAM rules and granting permissions within specified boundaries](https://github.com/kubernetes/kops/blob/master/docs/iam_roles.md).
 
 
-## Minimize external access to the network
+# Minimize external access to the network
 
 The infrastructure that runs the Kubernetes cluster presents its own set of attack vectors, namely access to the machines. Common machine attacks that occur after network infiltration include:
 
@@ -294,18 +294,21 @@ It is important to consider the possibility of data exfiltration, so it is reaso
 To find more information on securing a Kubernetes cluster, see the Kubernetes documentation page on [securing a Kubernetes cluster](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/).
 
 
-## Appropriately use kernel hardening tools such as AppArmor, seccomp
+# Appropriately use kernel hardening tools such as AppArmor, seccomp
 
 Container-based technologies rely on the ability to access resources on the host machine and make system calls (syscalls) to the host kernel. There are two technologies that can help improve a system's security stance: AppArmor and Seccomp profiles. Kubernetes supports the use of AppArmor profiles and seccomp capabilities as defined within the Pod security context.
 
-AppArmor is a system-level module that must be enabled for workloads to take advantage of them. Many Linux distributions deployed on cloud infrastructure will have their own set of AppArmor modules. Container runtimes, like Docker, also have a default profile that is installed when the runtime is installed:
+
+## AppArmor
+
+AppArmor is a system-level module that must be enabled for workloads to take advantage of them. Many Linux distributions deployed on cloud infrastructure will have their own set of AppArmor modules. Container runtimes also have a default profile that is installed when the runtime is installed:
 
 <pre class="wp-block-code"><code>
-~$ cat /sys/module/apparmor/parameters/enabled
+$ cat /sys/module/apparmor/parameters/enabled
 
 Y
 
-~$ sudo aa-status
+$ sudo aa-status
 
 apparmor module is loaded.
 36 profiles are loaded.
@@ -390,33 +393,38 @@ apparmor module is loaded.
    /snap/amazon-ssm-agent/5163/amazon-ssm-agent (40540) snap.amazon-ssm-agent.amazon-ssm-agent
    /snap/amazon-ssm-agent/5163/ssm-agent-worker (40775) snap.amazon-ssm-agent.amazon-ssm-agent
 0 processes are unconfined but have a profile defined.
-
 </code></pre>
 
-To use apparmor profiles, Kubernetes pods can declare an annotation under <code>container.apparmor.security.beta.kubernetes.io/unconfined-capall</code>.
+AppArmor profiles can be specified at the pod level or the container level using the <code>securityContext</code> object in a pod spec by specifying the type of profile (and optionally the name of the profile):
 
-The complete annotation broken down reads:
+<pre class="wp-block-code"><code>
+  securityContext:
+    appArmorProfile:
+      type: &lt;profile&gt;     # Only required when the type is "Localhost"
+</code></pre>
+
+<code>&lt;profile></code> specifies which policy (1 of 3 forms):
 
 <ul>
-<li><code>container.apparmor.security.beta.kubernetes.io/<container_name></code> the complete annotation key</li>
-<li><code>container_name</code> is your containers name as defined under <code>pod.spec.containers.name</code></li>
-<li><code>profile_ref</code> specifies which policy (1 of 3 forms)</li>
-  <ul>
-  <li><code>runtime/default</code> -- docker/containerd (aka docker-default)</li>
-  <li><code>localhost/<profilename></code> -- local to node (ex. <code>localhost/docker-default</code>)</li>
-  <li><code>unconfined</code> -- no profile applied</li>
-  </ul>
+<li><code>RuntimeDefault</code> - use the runtime's default profile</li>
+<li><code>Localhost</code>&nbsp;- use a profile loaded on the host<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><code>localhostProfile</code> - the name of a profile loaded on the node that should be used</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><code>localhostProfile</code> - the name of a profile loaded on the node that should be used</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<li><code>Unconfined</code> - no profile applied</li>
 </ul>
 
-The following spec describes a pod named <code>apparmor-pod</code> with a container in it named <code>apparmor-container</code>. To the
-<code>apparmor-container</code> container the docker-default apparmor profile found on the host will be applied:
+The following spec describes a pod named <code>apparmor-pod</code> with a container in it named <code>apparmor-container</code>. To the <code>apparmor-container</code> container the runtime's default AppArmor profile found on the host will be applied:
 
 <pre class="wp-block-code"><code>
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    container.apparmor.security.beta.kubernetes.io/apparmor-container: localhost/docker-default
   labels:
     run: apparmor-pod
   name: apparmor-pod
@@ -426,14 +434,17 @@ spec:
     - tail
     - -f
     - /dev/null
-    image: ubuntu:18.04
+    image: ubuntu:24.04
     name: apparmor-container
     securityContext:
-      capabilities:
-        add: ["ALL"]
+      appArmorProfile:
+        type: RuntimeDefault
 </code></pre>
 
 For more information on applying AppArmor to your pods, see the [Kubernetes Documentation page on applying AppArmor profiles](https://kubernetes.io/docs/tutorials/clusters/apparmor/). Also, the [GitLab Apparmor documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation) can be referred to for additional information on using AppArmor in general.
+
+
+## Seccomp
 
 In addition to AppArmor, Seccomp profiles can be declared for pods to restrict the system calls that can be made by containers. Seccomp profiles are described in JSON objects. Most container runtimes have some kind of default seccomp profile, which is fairly permissive. The simplest seccomp profiles can be as short as the following example presented by the Kubernetes documentation:
 
@@ -446,12 +457,10 @@ In addition to AppArmor, Seccomp profiles can be declared for pods to restrict t
 This seccomp profile will simply log any syscall activity made by the container under <code>/var/log/syslog</code>. The seccomp profiles must be made available to the Kubelet by placing a seccomp profile within the Kubelet's directory. In a <code>kubeadm</code> cluster, that would be <code>/var/lib/kubelet/seccomp/profiles</code>:
 
 <pre class="wp-block-code"><code>
-~$ sudo ls -l /var/lib/kubelet/seccomp/profiles
+$ sudo ls -l /var/lib/kubelet/seccomp/profiles
 
 total 4
 -rw-r--r-- 1 root root 40 Sep 22 09:41 audit.json
-
-~$
 </code></pre>
 
 In versions 1.19 and above, Seccomp profiles are implemented by describing a seccomp profile under the pod's <code>securityContext</code> spec:
