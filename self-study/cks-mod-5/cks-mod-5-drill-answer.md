@@ -1,12 +1,7 @@
 <!-- CKS Self-Study Mod 5 -->
 
-Modify the following Pod Specification to conform with the [Kubernetes Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/) Restrict category in these ways:
-
-<li>Running all containers as Non-root<li>
-<li>Seccomp profile to the runtime default<li>
-<li>Ensure no Host Namespaces are used<li>
-<li>Privilege Escalation should be disabled<li>
-
+Modify the following Pod Specification to conform with the [Kubernetes Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/) Restrict category
+...
 <pre class="wp-block-code"><code>
 apiVersion: v1
 kind: Pod
@@ -53,13 +48,13 @@ spec:
 The pod must be deployable on your cluster and should be in the <code>Running</code> state for this drill to be considered complete.
 
 <pre class="wp-block-code"><code>
-~$ kubectl apply -f practicecks.yaml
+$ kubectl apply -f practicecks.yaml
 
 pod/pod-security-practice created
 
-~$ kubectl get pods
+$ kubectl get pods
 
-~$ kubectl describe pod pod-security-practice
+$ kubectl describe pod pod-security-practice
 
 Name:         pod-security-practice
 Namespace:    default
@@ -110,8 +105,4 @@ Events:
   Normal  Pulled     13s   kubelet            Container image "rxmllc/trash-levels:1.1" already present on machine
   Normal  Created    13s   kubelet            Created container pod-security-practice
   Normal  Started    13s   kubelet            Started container pod-security-practice
-
-~$
 </code></pre>
-
-RX-M can provide more help with preparing for the CKS exam in one of our CKS bootcamps; we offer open enrollments and private engagements for teams or organizations.

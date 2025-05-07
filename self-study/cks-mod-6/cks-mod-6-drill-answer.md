@@ -19,7 +19,7 @@ Create a deployment named <code>secure-webserver</code> that:
 You can optionally create most of the specification using <code>kubectl create</code>:
 
 <pre class="wp-block-code"><code>
-~$ kubectl create deploy secure-webserver --replicas=3 --image=rxmllc/trash-levels:1.1,alpine:3.13.6 -o yaml --dry-run=client
+$ kubectl create deploy secure-webserver --replicas=3 --image=rxmllc/trash-levels:1.1,alpine:3.13.6 -o yaml --dry-run=client
 
 apiVersion: apps/v1
 kind: Deployment
@@ -110,5 +110,3 @@ spec:
 </code></pre>
 
 Remember that volumes must be secured separately from the root filesystem, so do not forget to set <code>readOnly</code> on them separately if your application does not need to write to them!
-
-RX-M can provide more help with preparing for the CKS exam in one of our CKS bootcamps; we offer open enrollments and private engagements for teams or organizations.

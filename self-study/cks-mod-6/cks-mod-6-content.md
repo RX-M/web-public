@@ -1,7 +1,7 @@
 # CKS Self-Study Mod 6
 
 
-## Perform behavior analytics of syscall process and file activities at the host and container level to detect malicious activities
+# Perform behavioral analytics to detect malicious activities
 
 Containerized applications still need to make system calls, or syscalls, at some point during their lifetimes. Tools that can track those syscalls, like Falco, sysdig, and even the more basic strace and ftrace, enable security administrators to detect, log, and analyze syscalls.
 
@@ -68,7 +68,7 @@ Do note that this approach is different from abstracting or Kernel syscalls thro
 To learn more about Falco and how you can use it to monitor the behavior of all application syscall activity, check [here](https://falco.org/docs/examples/#write-to-directory-holding-system-binaries).
 
 
-## Detect threats within the physical infrastructure, apps, networks, data, users, and workloads
+# Detect threats within the physical infrastructure, apps, networks, data, users, and workloads
 
 This topic requires an awareness of ways to identify threats based on various symptoms in the infrastructure that can only be retrieved from infrastructure component logs, like <code>journalctl</code> or even the <code>systemctl status</code> outputs for various services.
 
@@ -91,7 +91,7 @@ There are four major phases according to the [CNCF Cloud Native Security whitepa
 Deploying logging and auditing infrastructure and securing all parts of the above phases is essential to improving your cloud-native security stance. To learn more about how to perform threat modeling, look through the [CNCF TAG Security project assessment repository on GitHub](https://github.com/cncf/tag-security/tree/main/assessments/projects) to see recommendations made to various projects regarding security improvements.
 
 
-## Detect all phases of attack regardless of where it occurs and how it spreads
+# Investigate and identify phases of attack and bad actors within the environment
 
 Many threats manifest in the following ways:
 
@@ -109,10 +109,7 @@ Understanding where these attacks can come from is a key part of the knowledge r
 
 Reviewing case studies is the best way to prepare yourself for questions that fall under this topic's coverage. Optive has [a good breakdown of a Kubernetes cluster's attack surface](https://www.optiv.com/insights/source-zero/blog/kubernetes-attack-surface) on their website that exposes many of the factors you should be aware of when it comes to securing Kubernetes and preparing for the CKS.
 
-
-## Perform deep analytical investigation and identification of bad actors within an environment
-
-Like in the previous two topics, bad actors tend to leave the following clues that hint at their presence within a system:
+Bad actors tend to leave the following clues that hint at their presence within a system:
 
 - Artifacts and resources that do not follow established naming schemes
 - Unusual references to artifacts in specification or configuration files
@@ -121,7 +118,7 @@ Like in the previous two topics, bad actors tend to leave the following clues th
 User behavior is best tracked by some kind of auditing mechanism, which produces a log of a request and, most critically, includes who made the request. Many Linux systems keep track of such behavior in an audit log. For example, on an Ubuntu 18.04 system, the <code>/var/log/auth.log</code> and its derivatives provide some information on connections being made to the machine:
 
 <pre class="wp-block-code"><code>
-~$ cat /var/log/auth.log
+$ cat /var/log/auth.log
 
 Oct 10 13:04:12 oct-b dbus-daemon[587]: [system] Rejected send message, 1 matched rules; type="error", sender=":1.40" (uid=1000 pid=1237 comm="/usr/bin/pulseaudio --start --log-target=syslog " label="unconfined") interface="(unset)" member="(unset)" error name="org.bluez.MediaEndpoint1.Error.NotImplemented" requested_reply="0" destination=":1.218" (uid=0 pid=76962 comm="/usr/lib/bluetooth/bluetoothd " label="unconfined")
 Oct 10 13:04:12 oct-b dbus-daemon[587]: [system] Rejected send message, 1 matched rules; type="error", sender=":1.40" (uid=1000 pid=1237 comm="/usr/bin/pulseaudio --start --log-target=syslog " label="unconfined") interface="(unset)" member="(unset)" error name="org.bluez.MediaEndpoint1.Error.NotImplemented" requested_reply="0" destination=":1.218" (uid=0 pid=76962 comm="/usr/lib/bluetooth/bluetoothd " label="unconfined")
@@ -136,7 +133,7 @@ Here, you can see that a user, <code>root</code>, is included with a <code>uid</
 You will read about it later in this module, but if you want to see more information about auditing in Kubernetes, see the [documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/).
 
 
-## Ensure immutability of containers at runtime
+# Ensure immutability of containers at runtime
 
 This topic requires an understanding of how to ensure containers that are running in your Kubernetes cluster cannot impose lasting changes to their filesystems.
 
@@ -166,7 +163,7 @@ spec:
 When this pod is created, any write requests sent to the container are rejected:
 
 <pre class="wp-block-code"><code>
-~$ kubectl exec rofspod -- touch /tmp/hello
+$ kubectl exec rofspod -- touch /tmp/hello
 
 touch: /tmp/hello: Read-only file system
 command terminated with exit code 1
@@ -177,7 +174,8 @@ The <code>readOnlyRootFilesystem</code> only protects the filesystem packaged wi
 The following pod spec exposes a host directory to containers in the pod and mounts it to the container that has a <code>readOnlyRootFilesystem</code> <code>securityContext</code> key set to <code>true</code>:
 
 <pre class="wp-block-code"><code>
-~$ cat roho-fspod.yaml
+$ cat roho-fspod.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -205,9 +203,9 @@ spec:
 The container is allowed to write to the host directory:
 
 <pre class="wp-block-code"><code>
-~$ kubectl exec rohofspod -- touch /tmp/hostpath/hello
+$ kubectl exec rohofspod -- touch /tmp/hostpath/hello
 
-~$ ls -l /tmp/pod
+$ ls -l /tmp/pod
 
 total 0
 -rw-r--r-- 1 root root 0 Oct 10 13:31 hello
@@ -246,7 +244,7 @@ Pods that use secrets or configmaps to populate files in the filesystem already 
 To learn more about the settings you can use to ensure your containers are immutable while they run under Kubernetes, check out [the Pod SecurityContext page on the Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 
-## Use Audit Logs to monitor access
+# Use Kubernetes audit logs to monitor access
 
 The Kubernetes API Server has the ability to generate sophisticated access events to help users audit their cluster usage. When configured properly, the cluster audits the activities generated by users, by applications that use the Kubernetes API, and by the control plane itself. The main purpose of auditing is to help detect abnormal or otherwise unusual activity that could indicate a breach, whether it is in progress or happened recently.
 
@@ -297,7 +295,7 @@ Once in place, requests get logged in JSON format:
 To learn more about how to enable auditing capabilities in Kubernetes, check out [the Kubernetes documentation page on auditing](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/).
 
 
-## Practice Drill
+# Practice Drill
 
 Create a deployment named <code>secure-webserver</code> that:
 

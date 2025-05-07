@@ -191,7 +191,15 @@ spec:
               number: 80
 </code></pre>
 
-Ingress rules backed by TLS termination must use a <code>tls</code> type of secret in the same namespace in order to successfully receive a client's request. Once TLS is terminated at the Ingress load balancer, all data is passed within the cluster as plaintext until the response from the service is returned to the client. TLS termination ensures that traffic to and from services that may not be able to handle TLS still benefit.
+Ingress rules backed by TLS termination must use a <code>tls</code> type of secret in the same namespace in order to successfully receive a client's request, for example:
+
+<pre class="wp-block-code"><code>
+$ kubectl create secret tls tls-termination --key key.pem --cert cert.pem
+</code></pre>
+
+Once TLS is terminated at the Ingress load balancer, all data is passed within the cluster as plaintext until the response from the service is returned to the client. TLS termination ensures that traffic to and from services that may not be able to handle TLS still benefit.
+
+Learn more about using [TLS with Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls).
 
 
 # Protect node metadata and endpoints
