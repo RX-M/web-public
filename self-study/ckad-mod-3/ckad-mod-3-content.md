@@ -1,15 +1,16 @@
 <!-- CKAD Self-Study Mod 3 -->
 
-<h1>Application Environment Configuration and Security</h1>
+# Application Environment Configuration and Security
 
 
-<h2>Discover and Use Resources that Extend Kubernetes</h2>
+# Discover and Use Resources that Extend Kubernetes
 
 A Kubernetes cluster's functionality is extended by registering additional APIs to the API Server. Custom APIs usually bring their own set of custom resources which can be specified. If your cluster has been expanded to include custom resource definitions, there are two primary ways to identify them.
 
 First is to see the list of APIs that have been registered, which you can see with <code>kubectl api-versions</code>:
-
-<pre class="wp-block-code"><code>$ kubectl api-versions
+`
+<pre class="wp-block-code"><code>
+$ kubectl api-versions
 
 admissionregistration.k8s.io/v1
 apiextensions.k8s.io/v1
@@ -35,8 +36,6 @@ rbac.authorization.k8s.io/v1
 scheduling.k8s.io/v1
 storage.k8s.io/v1
 v1
-
-$
 </code></pre>
 
 Any additional APIs you have installed as part of various cluster extensions, like operators,
@@ -44,7 +43,8 @@ Any additional APIs you have installed as part of various cluster extensions, li
 The resources available to your cluster are viewable with <code>kubectl api-resources</code>, which shows the kinds of
 resources you can create in a cluster:
 
-<pre class="wp-block-code"><code>$ kubectl api-resources
+<pre class="wp-block-code"><code>
+$ kubectl api-resources
 
 NAME                                SHORTNAMES                          APIVERSION                        NAMESPACED   KIND
 bindings                                                                v1                                true         Binding
@@ -66,14 +66,12 @@ serviceaccounts                     sa                                  v1      
 services                            svc                                 v1                                true         Service
 
 ...
-
-$
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/">custom resource definitions</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/" target="_blank" rel="noreferrer noopener">custom resource definitions</a>.
 
 
-<h2>Understanding Authentication, Authorization and Admission Control</h2>
+# Understand authentication, authorization and admission control
 
 Roles, ClusterRoles, RoleBinding and ClusterRoleBindings control user account permissions that control how they interact with resources deployed in the cluster. ClusterRoles and ClusterRoleBindings are non-namespaced resources. Roles and RoleBindings sets permissions and bind permissions in a specific namespace.
 
@@ -83,7 +81,8 @@ Permissions to API resources are granted using Roles and ClusterRoles (the only 
 
 Roles can be created imperatively using <code>kubectl create role</code>. You can specify the API resources and verbs associated with the permissions the role will grant:
 
-<pre class="wp-block-code"><code>$ kubectl create role default-appmanager --resource pod,deploy,svc,ingresses --verb get,list,watch,create -o yaml
+<pre class="wp-block-code"><code>
+$ kubectl create role default-appmanager --resource pod,deploy,svc,ingresses --verb get,list,watch,create -o yaml
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -122,27 +121,24 @@ rules:
   - list
   - watch
   - create
-
-$
 </code></pre>
 
 Roles and clusterRoles are assigned to users and processes using roleBindings and clusterRoleBindings. Rolebindings associate a user, like a service account, with a role. Any permissions granted by a role are passed to the user through the rolebinding.
 
 Rolebindings can also be created imperatively using <code>kubectl create rolebinding</code>. Rolebindings bind roles to users using the <code>--user</code> flag and serviceAccounts using the <code>--serviceaccount</code> flag. The following example binds the default-appmanager role to the default namespace’s default service account:
 
-<pre class="wp-block-code"><code>$ kubectl create rolebinding default-appmanager-rb \
+<pre class="wp-block-code"><code>
+$ kubectl create rolebinding default-appmanager-rb \
 --serviceaccount default:default \
 --role default-appmanager
 
 rolebinding.rbac.authorization.k8s.io/default-appmanager-rb created
-
-$
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">configuring role-based access control</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/" target="_blank" rel="noreferrer noopener">configuring role-based access control</a>.
 
 
-<h2>Resource Requests and Limits</h2>
+# Understand requests, limits, quotas
 
 Resource requests and limits are set on a per-container basis within a pod. By specifying a resource request we tell the Kubernetes scheduler the <em>minimum</em> amount of each resource (CPU and memory) a container will need. By specifying limits, we set up cgroup constraints on the node where the process runs. An example of setting requests/limits looks like:
 
@@ -166,87 +162,7 @@ spec:
 Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/">pod resource requests/limits</a></strong>.
 
 
-<h2>LimitRanges</h2>
-
-Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits.
-
-LimitRanges must be defined in YAML, and can ensure that either CPU or memory constraints are enforced within the namespace:
-
-<pre class="wp-block-code"><code>apiVersion: v1
-kind: LimitRange
-metadata:
-  name: cpu-limit
-  namespace: limited
-spec:
-  limits:
-  - max:
-      cpu: "512m"
-    min:
-      cpu: "64m"
-    type: Container
-</code></pre>
-
-Once defined, the limitrange can be found within the description.
-
-<pre class="wp-block-code"><code>$ kubectl create ns limited
-
-$ kubectl apply -f limitrange.yaml
-
-limitrange/cpu-limit created
-
-$ kubectl describe namespace limited
-
-Name:         limited
-Labels:       kubernetes.io/metadata.name=limited
-Annotations:  <none>
-Status:       Active
-
-No resource quota.
-
-Resource Limits
- Type       Resource  Min  Max   Default Request  Default Limit  Max Limit/Request Ratio
- ----       --------  ---  ---   ---------------  -------------  -----------------------
- Container  cpu       64m  512m  512m             512m           -
-
-</code></pre>
-
-Once a limitrange like the one described is in place, any pods you create will have that limit injected into their containers:
-
-<pre class="wp-block-code"><code>$ kubectl run -n limited --image nginx -o yaml webserver
-
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
-      webserver; cpu limit for container webserver'
-  creationTimestamp: "2024-07-13T00:43:33Z"
-  labels:
-    run: webserver
-  name: webserver
-  namespace: limited
-  resourceVersion: "5801"
-  uid: 22713391-e55c-4db2-a61c-2c37daae66dd
-spec:
-  containers:
-  - image: nginx
-    imagePullPolicy: Always
-    name: webserver
-    resources:
-      limits:
-        cpu: 512m
-      requests:
-        cpu: 512m
-
-...
-
-$
-</code></pre>
-
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/policy/limit-range/">LimitRanges</a></strong> and how they enforce resource constraints in your namespaces.
-
-
-<h2>Namespace Quotas</h2>
+## Namespace Quotas
 
 In addition to limiting resources for containers in pods, users also have options to control the resources on the Kubernetes namespace level.
 
@@ -283,11 +199,9 @@ Resource Quotas
   pods      1     3
 
 No LimitRange resource.
-
-$
 </code></pre>
 
-Once create, quotas are visible in the describe output for a given namespace.
+Once created, quotas are visible in the describe output for a given namespace.
 
 As this quota has hard enforcement, any requests that would violate a quota in a namespace is rejected, generating an error:
 
@@ -302,16 +216,94 @@ deployment.apps/webserver created
 $ kubectl run webserver-new --image httpd
 
 Error from server (Forbidden): pods "webserver-new" is forbidden: exceeded quota: pod-limit, requested: pods=1, used: pods=3, limited: pods=3
-
-$
 </code></pre>
 
 Quotas are a great way of limiting the resource pools within namespaces.
 
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">resource quotas for namespaces</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/" target="_blank" rel="noreferrer noopener">resource quotas for namespaces</a>.
 
 
-<h2>ConfigMaps</h2>
+# Define resource requirements
+
+Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits.
+
+LimitRanges must be defined in YAML, and can ensure that either CPU or memory constraints are enforced within the namespace:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit
+  namespace: limited
+spec:
+  limits:
+  - max:
+      cpu: "512m"
+    min:
+      cpu: "64m"
+    type: Container
+</code></pre>
+
+Once defined, the limitrange can be found within the description.
+
+<pre class="wp-block-code"><code>
+$ kubectl create ns limited
+
+$ kubectl apply -f limitrange.yaml
+
+limitrange/cpu-limit created
+
+$ kubectl describe namespace limited
+
+Name:         limited
+Labels:       kubernetes.io/metadata.name=limited
+Annotations:  <none>
+Status:       Active
+
+No resource quota.
+
+Resource Limits
+ Type       Resource  Min  Max   Default Request  Default Limit  Max Limit/Request Ratio
+ ----       --------  ---  ---   ---------------  -------------  -----------------------
+ Container  cpu       64m  512m  512m             512m           -
+</code></pre>
+
+Once a limitrange like the one described is in place, any pods you create will have that limit injected into their containers:
+
+<pre class="wp-block-code"><code>
+$ kubectl run -n limited --image nginx -o yaml webserver
+
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
+      webserver; cpu limit for container webserver'
+  creationTimestamp: "2024-07-13T00:43:33Z"
+  labels:
+    run: webserver
+  name: webserver
+  namespace: limited
+  resourceVersion: "5801"
+  uid: 22713391-e55c-4db2-a61c-2c37daae66dd
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: webserver
+    resources:
+      limits:
+        cpu: 512m
+      requests:
+        cpu: 512m
+
+...
+</code></pre>
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/policy/limit-range/" target="_blank" rel="noreferrer noopener">LimitRanges</a> and how they enforce resource constraints in your namespaces.
+
+
+# Understand ConfigMaps
 
 ConfigMaps are decoupled configuration artifacts keeping containerized applications portable.
 The ConfigMap API resource provides mechanisms to inject containers with configuration data while
@@ -319,7 +311,8 @@ keeping containers agnostic of Kubernetes. A ConfigMap can be used to store fine
 
 There are multiple ways to create a ConfigMap: from a directory upload, a file, or from literal values in command line as shown in the following example:
 
-<pre class="wp-block-code"><code>$ kubectl create configmap ckad-example-config --from-literal foo=bar -o yaml
+<pre class="wp-block-code"><code>
+$ kubectl create configmap ckad-example-config --from-literal foo=bar -o yaml
 
 apiVersion: v1
 data:
@@ -331,20 +324,19 @@ metadata:
   namespace: default
   resourceVersion: "6068"
   uid: dddda66f-44d3-4276-a513-470c0a4e0a52
-
-$
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">ConfigMaps</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/" target="_blank" rel="noreferrer noopener">ConfigMaps</a>.
 
 
-<h2>Secrets</h2>
+# Create and consume Secrets
 
 Secrets hold sensitive information, such as passwords, OAuth tokens, and SSH keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or a Docker image!
 
 There are three types of secrets, explained by the <code>--help</code> flag:
 
-<pre class="wp-block-code"><code>$ kubectl create secret --help
+<pre class="wp-block-code"><code>
+$ kubectl create secret --help
 
 Create a secret using specified subcommand.
 Available Commands:
@@ -355,7 +347,8 @@ Available Commands:
 
 Example of creating a secret imperatively:
 
-<pre class="wp-block-code"><code>$ kubectl create secret generic my-secret --from-literal=username=ckad-user --from-literal=password="Char1!3-K!10-Alpha-D31ta" -o yaml
+<pre class="wp-block-code"><code>
+$ kubectl create secret generic my-secret --from-literal=username=ckad-user --from-literal=password="Char1!3-K!10-Alpha-D31ta" -o yaml
 
 apiVersion: v1
 data:
@@ -366,14 +359,12 @@ metadata:
   name: my-secret
   namespace: default
 type: Opaque
-
-$
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/configuration/secret/">secrets</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/concepts/configuration/secret/" target="_blank" rel="noreferrer noopener">secrets</a>.
 
 
-<h2>Mounting ConfigMaps/Secrets as Volumes or Environment Variables</h2>
+# Mounting ConfigMaps/Secrets as volumes or environment variables
 
 ConfigMaps and Secrets are mounted by Pods as either volumes or environment variables to be used by container in a Pod.
 
@@ -387,7 +378,8 @@ Secrets can also be used by the kubelet when pulling images for a pod, called an
 
 The following Pod manifest mounts the ConfigMap ckad-example-config as a volume to the <code>/etc/myapp</code> directory in the container and uses a secret called ""<code>ckad-training-docker-token</code>" as an imagePullSecret:
 
-<pre class="wp-block-code"><code>apiVersion: v1
+<pre class="wp-block-code"><code>
+apiVersion: v1
 kind: Pod
 metadata:
   name: pod-config
@@ -408,24 +400,27 @@ spec:
 
 Learn more about mounting:
 <ul>
-<li><strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">ConfigMaps</a></strong></li>
-<li><strong><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></strong></li>
+<li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/" target="_blank" rel="noreferrer noopener">ConfigMaps</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/secret/" target="_blank" rel="noreferrer noopener">Secrets</a></li>
 </ul>
 
-<h2>Service Accounts</h2>
+
+# Understand Service Accounts
 
 Service Accounts are users managed by the Kubernetes API that provide processes in a pod with an identity in the cluster. Service Accounts are bound to a set of credentials stored as secrets in the same namespace in the cluster. Every container in a pod within a namespace inherits credentials from their designated service account.
 
 Service Accounts are entirely managed by the API, and are created by making API calls to the Kubernetes API server. <code>kubectl</code> automates the process of creating service accounts with the <code>create</code> subcommand. The example below shows an imperative command that creates a serviceAccount called <code>ckadexample</code> under the namespace called <code>ckadtraining</code>:
 
-<pre class="wp-block-code"><code>$ kubectl create namespace ckadtraining
+<pre class="wp-block-code"><code>
+$ kubectl create namespace ckadtraining
 
 $ kubectl create serviceaccount ckadexample --namespace ckadtraining
 </code></pre>
 
 A service account has no permissions within the cluster by default. The service account must be bound to a role that defines its permissions using a rolebinding. The following example creates a role that allows our new service account to view pods within the ckadtraining namespace and a rolebinding that grants those permissions to the ckadexample SA:
 
-<pre class="wp-block-code"><code>$ kubectl create role ckadsarole\
+<pre class="wp-block-code"><code>
+$ kubectl create role ckadsarole\
 --namespace ckadtraining \
 --verb=get,list,watch \
  --resource=pods
@@ -434,14 +429,12 @@ $ kubectl create rolebinding ckadsarolebinding \
 --namespace ckadtraining \
 --role=mysarole \
 --serviceaccount=ckadtraining:ckadexample
-
-$
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">Service Accounts</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" target="_blank" rel="noreferrer noopener">Service Accounts</a>.
 
 
-<h2>SecurityContext</h2>
+# Understand Application Security (SecurityContexts, Capabilities, etc.)
 
 This is a setting in a PodSpec that enhances security for one or all of the containers in a pod and have the following settings:
 <ul>
@@ -458,7 +451,8 @@ This is a setting in a PodSpec that enhances security for one or all of the cont
 
 SecurityContext settings can be set for the pod and/or each container in the pod, for example:
 
-<pre class="wp-block-code"><code>apiVersion: v1
+<pre class="wp-block-code"><code>
+apiVersion: v1
 kind: Pod
 metadata:
   name: ckad-training-pod
@@ -473,9 +467,9 @@ spec:
         add: ["NET_ADMIN"]
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">SecurityContexts</a></strong>.
+Learn more about <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank" rel="noreferrer noopener">SecurityContexts</a>.
 
 
-<h2>Practice Drill</h2>
+# Practice Drill
 
-Create a pod that runs the <code>nginx</code> image and uses a ServiceAccount called <code>my-sa</code>.
+Create a pod that runs the <code>docker.io/nginx:latest</code> image and uses a ServiceAccount called <code>my-sa</code>.

@@ -2,11 +2,10 @@
 
 First, run the command to create the pod:
 
-<pre class="wp-block-code"><code>$ kubectl run --image nginx nginx-drill
+<pre class="wp-block-code"><code>
+$ kubectl run --image nginx nginx-drill
 
 pod/nginx-drill created
-
-$
 </code></pre>
 
 Then, use <code>kubectl expose</code> with the <code>--type NodePort</code> flag to create a nodePort service imperatively. Make sure to expose the pod since that is the was created by the initial run command:
@@ -15,8 +14,6 @@ Then, use <code>kubectl expose</code> with the <code>--type NodePort</code> flag
 $ kubectl expose --type NodePort --port 80 pod nginx-drill
 
 service/nginx-drill exposed
-
-$
 </code></pre>
 
 After exposing the pod, list the services. You will see the nginx-drill NodePort service maps port 80 to a port within the 30000 range:
@@ -27,8 +24,6 @@ $ kubectl get svc
 NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 kubernetes         ClusterIP   10.96.0.1        <none>        443/TCP        55m
 nginx-drill        NodePort    10.106.33.204    <none>        80:32072/TCP   53s
-
-$
 </code></pre>
 
 Finally, try to send a curl request to the nginx pod using your machine IP address:
@@ -73,11 +68,7 @@ Commercial support is available at
 &lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-
-$
 </code></pre>
 
 
 As another exercise, create a ClusterIP service called <code>other-svc</code> using <code>kubectl create</code> and use a label selector to associate it with the nginx-drill deployment created above.
-
-RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.

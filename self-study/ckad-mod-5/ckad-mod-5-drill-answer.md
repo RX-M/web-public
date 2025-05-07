@@ -1,16 +1,16 @@
 <!-- CKAD Self-Study Mod 5 -->
 
-After you apply the pod, use <code>kubectl get pods</code> to view the status. You will see that the pod is not ready, and has a status of Init:ImagePullBackOff. Note that the "Init:" prefix implies that this is a failure with the init container not one of the normal containers in the pod.
+After you apply the pod, use <code>kubectl get pods</code> to view the status.
 
 <pre class="wp-block-code"><code>$ kubectl get pods debug-pod1
 
 NAME         READY   STATUS              RESTARTS   AGE
 debug-pod1   0/1     Init:ErrImagePull   0          17s
-
-$
 </code></pre>
 
-Run <code>kubectl describe pod debug-pod1</code> and look at the events. You will see that the Kubelet was unable to pull the specified image using the container manager:
+You will see that the pod is not ready, and has a status of <code>Init:ImagePullBackOff</code>. Note that the "<code>Init:</code>" prefix implies that this is a failure with the init container not one of the normal containers in the pod.
+
+Run <code>kubectl describe pod debug-pod1</code> and look at the events. You will see that the kubelet was unable to pull the specified image using the container manager:
 
 <pre class="wp-block-code"><code>$ kubectl describe pods debug-pod1
 
@@ -36,13 +36,12 @@ Events:
   Normal   Pulling    11s (x3 over 53s)  kubelet            Pulling image "alpinelatest"
   Warning  Failed     10s (x3 over 53s)  kubelet            Failed to pull image "alpinelatest": failed to pull and unpack image "docker.io/library/alpinelatest:latest": failed to resolve reference "docker.io/library/alpinelatest:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
   Warning  Failed     10s (x3 over 53s)  kubelet            Error: ErrImagePull
-
-$
 </code></pre>
 
 Take a close look at the init container image name. If you check Docker Hub you will see that no such image exists. The init  container image name is incorrect. Change the image name to <code>alpine</code> or <code>alpine:latest</code> to correct the issue.
 
-<pre class="wp-block-code"><code>$ nano pod-debug-1.yaml ; cat $_
+<pre class="wp-block-code"><code>
+$ nano pod-debug-1.yaml ; cat $_
 
 apiVersion: v1
 kind: Pod
@@ -62,35 +61,27 @@ spec:
     image: busybox
     command: ["/bin/sh", "-c"]
     args: ["tail -f /dev/null"]
-
-$
 </code></pre>
 
 You can only edit some of the fields in running pods, and image is not one of them. To apply the fix you will need to delete the pod and recreate it. If this pod were created by a deployment or another controller, updating the pod spec in the parent resource would perform the update for you.
 
-<pre class="wp-block-code"><code>$ kubectl delete -f pod-debug-1.yaml
+<pre class="wp-block-code"><code>
+$ kubectl delete -f pod-debug-1.yaml
 
 pod "debug-pod1" deleted
 
 $ kubectl apply -f pod-debug-1.yaml
 
 pod/debug-pod1 created
-
-$
 </code></pre>
 
 Check the pod status with <code>kubectl get pods</code> and you should see the pod running:
 
-<pre class="wp-block-code"><code>$ kubectl get pods debug-pod1
+<pre class="wp-block-code"><code>
+$ kubectl get pods debug-pod1
 
 NAME         READY   STATUS    RESTARTS   AGE
 debug-pod1   1/1     Running   0          36s
-
-$
 </code></pre>
 
-You can display the pod logs with <code>kubectl logs</code> to verify the log output from the init container.
-
-You can visit RX-M's own <strong><a href="https://kubernetes.io/docs/tasks/debug-application-cluster/">bust-a-kube</a></strong> repository to get additional practice while you prepare.
-
-RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.
+You can display the pod logs with <code>kubectl logs</code> to verify the log output from the init container. You can visit RX-M's own <a href="https://kubernetes.io/docs/tasks/debug-application-cluster/" target="_blank" rel="noreferrer noopener">bust-a-kube</a> repository to get additional practice to help you prepare.

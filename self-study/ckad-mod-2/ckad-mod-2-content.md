@@ -1,170 +1,11 @@
 <!-- CKAD Self-Study Mod 2 -->
 
-<h1>Application Deployment</h1>
+# Application Deployment
 
 
-<h2>Deployments and Rolling Updates</h2>
+# Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)
 
-A deployment is a controller that ensures an application’s pods run according to a desired state. Deployments create and control replicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state to the Kubernetes API server. The API server compares the current state to the desired state (stored in etcd). If the current and desired states differ, the Kubernetes API server tells the kubelet(s) to make deployment changes to match the desired state.
-
-The deployment spec declares the desired state of pod configurations under the pod template. The following example is a deployment of 3 nginx pods using the nginx version 1.16 image:
-
-<pre class="wp-block-code"><code>apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    run: nginx
-  name: nginx
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      run: nginx
-  template:
-    metadata:
-      labels:
-        run: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: docker.io/nginx:1.16
-</code></pre>
-
-Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
-
-The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code>.
-
-<pre class="wp-block-code"><code>$ kubectl create deploy nginx --image=docker.io/nginx:1.16 --replicas=3
-
-deployment.apps/nginx created
-
-$ kubectl rollout status deploy nginx
-
-deployment "nginx" successfully rolled out
-
-
-$
-</code></pre>
-
-Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
-
-<pre class="wp-block-code"><code>$ kubectl set image deploy nginx nginx=nginx:1.17
-
-deployment.apps/nginx image updated
-
-$ kubectl rollout status deploy nginx
-
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-deployment "nginx" successfully rolled out
-
-$
-</code></pre>
-
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployments</a></strong> and <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment">updating deployments</a></strong>.
-
-
-<h2>Deployments and Rollbacks</h2>
-
-Kubernetes allows users to undo deployment updates. Deployments can be rolled back to a previous version with <code>kubectl rollout undo deploy <deployment_name></code> or you can specify a specific revision.
-
-Using the previous example, let’s look at the revisions available.
-
-<pre class="wp-block-code"><code>$ kubectl rollout history deploy nginx
-
-deployment.apps/nginx
-REVISION  CHANGE-CAUSE
-1         <none>
-2         <none>
-
-$
-</code></pre>
-
-The deployment’s update is now under revision 2. Again, if <code>--record</code> was not used to annotate then <code>none</code> would be listed under the <code>CHANGE-CAUSE</code> column.
-
-Next we undo the rollout to a specific revision, watch the status, and check the rollout history.
-
-<pre class="wp-block-code"><code>$ kubectl rollout undo deploy nginx --to-revision=1
-
-deployment.apps/nginx rolled back
-
-$ kubectl rollout status deploy nginx
-
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
-deployment "nginx" successfully rolled out
-
-$ kubectl rollout history deploy nginx
-
-deployment.apps/nginx
-REVISION  CHANGE-CAUSE
-2         <none>
-3         <none>
-
-$
-</code></pre>
-
-The deployment is back to using the nginx 1.16 image.
-
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision">rolling back deployments</a></strong>.
-
-
-<h2>Scale Applications</h2>
-
-Applications deployed using a controller like a Deployment or statefulSet can be scaled up or down by modifying the number of replicas.
-
-Changing the <code>replicas</code> key value in the controller’s spec will trigger an update to the application’s current replicaSet that increases (or reduces) the number of pods that run the application. This is done imperatively using <code>kubectl scale</code>:
-
-<pre class="wp-block-code"><code>$ kubectl scale deploy redis-prod --replicas=3
-
-deployment.apps/redis-prod scaled
-
-$
-</code></pre>
-
-Or declaratively by making changes to the controller’s spec’s YAML and applying it to the cluster:
-
-<pre class="wp-block-code"><code>$ nano redis-prod.yaml
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: redis-prod
-  name: redis-prod
-spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: redis-prod
-  template:
-    metadata:
-      labels:
-        app: redis-prod
-    spec:
-      containers:
-      - image: docker.io/redis:4.0
-        name: redis
-
-$ kubectl apply -f redis-prod.yaml
-
-deployment.apps/redis-prod configured
-
-$
-</code></pre>
-
-Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment">scaling your applications using controllers like deployments</a></strong>.
-
-
-<h2>Deployment Patterns</h2>
-
-As you have seen, deployments when combined with services, can expose new application features and updates to users with little downtime. That combination allows a basic Kubernetes clusters to perform things like canary or blue/green deployments.
+Deployments when combined with services, can expose new application features and updates to users with little downtime. That combination allows a basic Kubernetes clusters to perform things like canary or blue/green deployments.
 
 A canary deployment is a pattern where new features or updates are exposed to users gradually. A canary deployment can be achieved by taking a service backed by a deployment and adding additional pods with the updated code to that service (whether they are standalone pods or another deployment).
 
@@ -242,8 +83,6 @@ In the typical canary deployment, a majority of requests made to the service sho
 $ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
-
-$
 </code></pre>
 
 If a gradual switch to a new version is not needed, then the blue/green strategy can be implemented instead. In a blue/green strategy, the network endpoint (the service) is instructed to send all traffic to new versions of the application that serve as the back end.
@@ -262,8 +101,6 @@ pod/new-webserver-58bd87898c-w64gm     1/1     Running   0          13s
 pod/webserver-557f5b46fd-bdsfs         1/1     Running   0          3m2s
 pod/webserver-557f5b46fd-dm9rg         1/1     Running   0          3m2s
 pod/webserver-canary-78c74979f-kwhtm   1/1     Running   0          2m1s
-
-$
 </code></pre>
 
 For a blue-green deployment, switching the service's selector (which determines which pods a service send traffic to) ensures that the service goes from the blue backend (NGINX) to the green backend (httpd).
@@ -271,8 +108,6 @@ For a blue-green deployment, switching the service's selector (which determines 
 <pre class="wp-block-code"><code>$ kubectl set selector svc webserver app=new-webserver
 
 service/webserver selector updated
-
-$
 </code></pre>
 
 Now, 100% of all requests go to the new, Apache webserver while the old NGINX websever can be safely retired:
@@ -288,14 +123,160 @@ $ curl 10.104.77.88
 $ curl 10.104.77.88
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+Learn more about <a href="https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/" target="_blank" rel="noreferrer noopener">blue/green deployments</a> and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment" target="_blank" rel="noreferrer noopener">canary deployments</a>.
+
+
+# Understand Deployments and how to perform rolling updates
+
+A deployment is a controller that ensures an application’s pods run according to a desired state. Deployments create and control replicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state to the Kubernetes API server. The API server compares the current state to the desired state (stored in etcd). If the current and desired states differ, the Kubernetes API server tells the kubelet(s) to make deployment changes to match the desired state.
+
+The deployment spec declares the desired state of pod configurations under the pod template. The following example is a deployment of 3 nginx pods using the nginx version 1.16 image:
+
+<pre class="wp-block-code"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: nginx
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/nginx:1.16
+</code></pre>
+
+Updates to the deployment’s pod template trigger a gradual update. When a deployment’s pod template is updated, a new replicaSet is created that then creates new pods based on the updated pod spec. When the new pods are created, the previous version’s replicaSet is scaled to zero to remove the old pods. This strategy is known as a rolling update.
+
+The following example creates a deployment of nginx pods with 3 replicas. The <code>--record</code> option annotates and saves the <code>kubectl</code> command for future reference. The deployment’s rollout status and history are verified with <code>kubectl rollout</code>.
+
+<pre class="wp-block-code"><code>$ kubectl create deploy nginx --image=docker.io/nginx:1.16 --replicas=3
+
+deployment.apps/nginx created
+
+$ kubectl rollout status deploy nginx
+
+deployment "nginx" successfully rolled out
+</code></pre>
+
+Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
+
+<pre class="wp-block-code"><code>$ kubectl set image deploy nginx nginx=nginx:1.17
+
+deployment.apps/nginx image updated
+
+$ kubectl rollout status deploy nginx
+
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
+deployment "nginx" successfully rolled out
+</code></pre>
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment" target="_blank" rel="noreferrer noopener">deployments</a> and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment">updating deployments</a>.
+
+
+## Deployments and Rollbacks
+
+Kubernetes allows users to undo deployment updates. Deployments can be rolled back to a previous version with <code>kubectl rollout undo deploy <deployment_name></code> or you can specify a specific revision.
+
+Using the previous example, let’s look at the revisions available.
+
+<pre class="wp-block-code"><code>$ kubectl rollout history deploy nginx
+
+deployment.apps/nginx
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+</code></pre>
+
+The deployment’s update is now under revision 2. Again, if <code>--record</code> was not used to annotate then <code>none</code> would be listed under the <code>CHANGE-CAUSE</code> column.
+
+Next we undo the rollout to a specific revision, watch the status, and check the rollout history.
+
+<pre class="wp-block-code"><code>$ kubectl rollout undo deploy nginx --to-revision=1
+
+deployment.apps/nginx rolled back
+
+$ kubectl rollout status deploy nginx
+
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
+deployment "nginx" successfully rolled out
+
+$ kubectl rollout history deploy nginx
+
+deployment.apps/nginx
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
 
 $
 </code></pre>
 
-Learn more about <strong><a href="https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/">blue/green deployments</a></strong> and <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment">canary deployments</a></strong>.
+The deployment is back to using the nginx 1.16 image.
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision" target="_blank" rel="noreferrer noopener">rolling back deployments</a>.
 
 
-<h2>Use the Helm Package Manager to Deploy Existing Packages</h2>
+## Scaling Deployments
+
+Applications deployed using a controller like a Deployment or statefulSet can be scaled up or down by modifying the number of replicas.
+
+Changing the <code>replicas</code> key value in the controller’s spec will trigger an update to the application’s current replicaSet that increases (or reduces) the number of pods that run the application. This is done imperatively using <code>kubectl scale</code>:
+
+<pre class="wp-block-code"><code>$ kubectl scale deploy redis-prod --replicas=3
+
+deployment.apps/redis-prod scaled
+</code></pre>
+
+Or declaratively by making changes to the controller’s spec’s YAML and applying it to the cluster:
+
+<pre class="wp-block-code"><code>$ nano redis-prod.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis-prod
+  name: redis-prod
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: redis-prod
+  template:
+    metadata:
+      labels:
+        app: redis-prod
+    spec:
+      containers:
+      - image: docker.io/redis:4.0
+        name: redis
+
+$ kubectl apply -f redis-prod.yaml
+
+deployment.apps/redis-prod configured
+</code></pre>
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment" target="_blank" rel="noreferrer noopener">scaling your applications using controllers like deployments</a>.
+
+
+# Use the Helm package manager to deploy existing packages
 
 A popular method of deploying applications on Kubernetes is through the use of templating tools like Helm. These tools allow users to specify all of the components of an application meant to run on Kubernetes in a series of templated YAML files. Tools like Helm take these templated YAML files, populate them with user-defined values, and deploy all of those resources together.
 
@@ -316,8 +297,6 @@ $ helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "bitnami" chart repository
 Update Complete. ⎈Happy Helming!⎈
-
-$
 </code></pre>
 
 After adding the chart repository to helm, your <code>helm</code> command can now search and install charts from the selected repository.
@@ -362,8 +341,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 
 Substituted images detected:
   - %!s(<nil>)/:%!s(<nil>)
-
-$
 </code></pre>
 
 You can easily identify the resources generated by Helm because every resource bears the name of its release once deployed to the cluster:
@@ -381,8 +358,6 @@ deployment.apps/self-study-nginx   1/1     1            1           46s
 
 NAME                                          DESIRED   CURRENT   READY   AGE
 replicaset.apps/self-study-nginx-7465568b8d   1         1         1       46s
-
-$
 </code></pre>
 
 Once a release is generated, you can change the parameters by changing values (again using the <code>--set</code> or providing an updated values yaml file) and using Helm's <code>upgrade</code> subcommand:
@@ -423,8 +398,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 
 Substituted images detected:
   - %!s(<nil>)/:%!s(<nil>)
-
-$
 </code></pre>
 
 The releases themselves are managed directly by Helm, and can be uninstalled using Helm's <code>uninstall</code> command:
@@ -436,21 +409,20 @@ release "self-study-nginx" uninstalled
 $ kubectl get all -l app.kubernetes.io/managed-by=Helm
 
 No resources found in default namespace.
-
-$
 </code></pre>
 
 
-Learn more about the <strong><a href="https://helm.sh/docs/">Helm package manager and its use</a></strong>.
+Learn more about the <a href="https://helm.sh/docs/" target="_blank" rel="noreferrer noopener">Helm package manager and its use</a>.
 
 
-## Kustomize
+# Kustomize
 
 Kustomize is a component of <code>kubectl</code> that enables users to generate a generic set of Kubernetes specifications and environment-specific overrides to deploy an application.
 
 At the heart of Kustomize is the <code>kustomization.yaml</code>. This defines a variety of parameters and manifests to be combined:
 
-<pre class="wp-block-code"><code>$ cat kustomization.yaml 
+<pre class="wp-block-code"><code>
+$ cat kustomization.yaml 
 
 namespace: test
 resources:
@@ -463,9 +435,10 @@ configMapGenerator:
 
 This YAML file will generate manifests bound for the <code>test</code> namespace. It will insert these values into a manifest with the file name <code>test-run.yaml</code>. In addition to the namespace parameter, it will also generate a configmap with the contents of another file, <code>test-vars.env</code>, as its data.
 
-The <code>test-run.yaml</code> defines a Job resource whose containers will mount the configmap app-env-vars (which will be generated by kustomize)
+The <code>test-run.yaml</code> defines a Job resource whose containers will mount the configmap app-env-vars (which will be generated by kustomize).
 
-<pre class="wp-block-code"><code>$ cat test-run.yaml
+<pre class="wp-block-code"><code>
+$ cat test-run.yaml
 
 apiVersion: batch/v1
 kind: Job
@@ -493,7 +466,8 @@ spec:
 And the <code>test-vars.env</code> is the file to be stored in the generated configmap:
 
 <pre class="wp-block-code"><code>
-$ cat test-vars.env 
+$ cat test-vars.env
+
 PARAM_1="true"
 PARAM_2="outdoor"
 PARAM_3="short"
@@ -553,6 +527,6 @@ The main advantage of kustomize is that no other tools are necessary - it is bui
 [Learn more about Kustomize from the Kubernetes Documentation here](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
 
 
-<h2>Practice Drill</h2>
+# Practice Drill
 
 Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>jenkins/jenkins:lts</code> image.

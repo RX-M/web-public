@@ -2,38 +2,44 @@
 
 Create the <code>my-sa</code> ServiceAccount:
 
-<pre class="wp-block-code"><code>$ kubectl create serviceaccount my-sa
+<pre class="wp-block-code"><code>
+$ kubectl create serviceaccount my-sa
 
-$
 </code></pre>
 
-Update the deployment to use the <code>nginx:latest</code> image:
+Update the create and update a pod to use the <code>docker.io/nginx:latest</code> image:
 
-<pre class="wp-block-code"><code>$ nano mysapod.yaml ; cat $_
+<pre class="wp-block-code"><code>
+$ kubectl run mypod --image docker.io/nginx:latest -o yaml --dry-run=client > mysapod.yaml
+
+$ nano mysapod.yaml && cat $_
 
 apiVersion: v1
 kind: Pod
 metadata:
+  creationTimestamp: null
   labels:
-    run: mysapod
-  name: mysapod
+    run: mypod
+  name: mypod
 spec:
   containers:
-  - image: rxmllc/hostinfo:latest
-    name: mysapod.yaml
-  serviceAccountName: my-sa
- 
-$
+  - image: docker.io/nginx:latest
+    name: mypod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  serviceAccountName: my-sa     # Add this
+status: {}
 </code></pre>
 
-Apply the pod and you can see the ServiceAccoutn assignment under something like `kubectl describe`:
+Apply the pod and you can see the ServiceAccount assignment with <code>kubectl describe</code>:
 
-<pre class="wp-block-code"><code>$ kubectl describe pod mysapod | grep Service
+<pre class="wp-block-code"><code>
+$ kubectl apply -f mysapod.yaml
+
+pod/mypod created
+
+$ kubectl describe pod mysapod | grep -i service
 
 Service Account:  my-sa
 </code></pre>
-
-
-As an additional exercise, try creating a pod that binds to a persistent volume claim and create the necessary Kubernetes objects.
-
-RX-M can provide more help with preparing for the CKAD exam in one of our CKAD bootcamps; we offer open enrollments and private engagements for teams or organizations.

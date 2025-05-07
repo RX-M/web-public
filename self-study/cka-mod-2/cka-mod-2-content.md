@@ -55,8 +55,6 @@ $ kubectl rollout history deploy nginx
 deployment.apps/nginx
 REVISION    CHANGE-CAUSE
 1           none
-
-$
 </code></pre>
 
 Next, update the deployment to use the nginx version 1.17 image. This update will trigger a rolling update. A new replicaSet will be created and the pods under old replicaSets will be terminated (scaled to 0). After updating the deployment, check the rollout status immediately to capture the rolling update.
@@ -74,8 +72,6 @@ Waiting for deployment "nginx" rollout to finish: 2 out of 3 new replicas have b
 Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
 Waiting for deployment "nginx" rollout to finish: 1 old replicas are pending termination...
 deployment "nginx" successfully rolled out
-
-$
 </code></pre>
 
 [Learn more about deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [updating deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment).
@@ -94,8 +90,6 @@ deployment.apps/nginx
 REVISION  CHANGE-CAUSE
 1         none
 2         none
-
-$
 </code></pre>
 
 The deployment’s update is now under revision 2.
@@ -122,13 +116,11 @@ deployment.apps/nginx
 REVISION  CHANGE-CAUSE
 2         none
 3         none
-
-$
 </code></pre>
 
 The deployment is back to using the nginx 1.16 image. The revision number is stored as an annotation on both the deployment and the ReplicaSets.
 
-[Learn more about rolling back deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision)
+[Learn more about rolling back deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-to-a-previous-revision).
 
 
 # Use ConfigMaps and Secrets to configure applications

@@ -1,8 +1,9 @@
 <!-- CKAD Self-Study Mod 1 -->
 
-<h1>Application Design and Build</h1>
+# Application Design and Build
 
-<h2>Define, Build, and Modify Container Images</h2>
+
+# Define, build and modify container images
 
 All workloads on Kubernetes run as containers created from container images. With containers, the deployment of applications becomes fast, reliable, and repeatable. It is up to the developer to know how to define, build, and modify container images meant to run on a Kubernetes cluster.
 
@@ -70,7 +71,47 @@ Options:
 Learn more about how <strong><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/">Kubernetes CLI commands map to a tool like Docker here.</a></strong>
 
 
-<h2>Understand Jobs and CronJobs</h2>
+## Choose and use the right workload resource (Deployment, DaemonSet, CronJob, etc.)
+
+
+## Deployments
+
+Kubernetes uses a family of API resources known as controllers to enforce some kind of desired state on the Kubernetes cluster. The desired state could be a number of pods run across the cluster, or they can be other states like ensuring persistent volumes are bound to persistent volume claims. Controller resources on Kubernetes are managed by some kind of controller component (an example being the kube-controller-manager). These controller components watch the API for their managed resource and take actions to reconcile any differences between the desired state of the user and the current running state of the cluster.
+
+A deployment is a controller resource that ensures a specified number and version of pods run on the Kubernetes cluster. Deployments create and control ReplicaSets, which create and remove pods according to the deployment’s desired state. Kubelets report the current state of the pods to the Kubernetes API server. The kube-controller-manager compares the current state to the desired state (based on the deployment spec). If the current and desired states differ, the kube-controller-manager makes requests to the API Server to reconcile the differences.
+
+The deployment spec declares the desired state of pod configurations under the pod template. The following example is a deployment of 3 nginx pods using the nginx version 1.16 image:
+
+<pre class="wp-block-code"><code>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: nginx
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/nginx:1.16
+</code></pre>
+
+The following example creates a deployment of nginx pods with 3 replicas with the <code>create</code> command:
+
+<pre class="wp-block-code"><code>
+$ kubectl create deployment nginx --image=docker.io/nginx:1.16 --replicas=3
+</code></pre>
+
+
+## Jobs and CronJobs
 
 Jobs complete tasks from start to finish. A job is complete when the pod finishes the task and the pod exits successfully on completion.
 
@@ -132,7 +173,7 @@ spec:
 Learn more about <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/job/">Jobs</a></strong> and <strong><a href="https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/">CronJobs</a></strong>.
 
 
-<h2>Understand Multi-Container Pod Design Patterns</h2>
+# Understand multi-container Pod design patterns (e.g. sidecar, init and others)
 
 A pod may run one or more containers. Multi-container pods are tightly coupled in that the containers are co-located, co-scheduled and the containers share the same <code>network</code>, <code>uts</code>, and <code>ipc</code> namespaces. There are three patterns of multi-container pods:
 
@@ -188,7 +229,7 @@ spec:
 Learn more about <strong><a href="https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/">multi-container pod patterns</a></strong>.
 
 
-<h2>Utilize Persistent and Ephemeral Volumes</h2>
+# • Utilize persistent and ephemeral volumes
 
 A Kubernetes persistent volume exists outside the lifecycle of any pod that mounts it. Persistent volumes are storage objects managed by the Kubernetes cluster and provisioned from the cluster’s infrastructure (like the host’s filesystem).
 
@@ -263,8 +304,6 @@ $ kubectl describe pvc local-pvc | grep -A1 Status
 
 Status:        Bound
 Volume:        local-volume
-
-$
 </code></pre>
 
 Now let’s create a pod that binds to the persistent volume claim. The following pod manifest binds to the persistent volume claim by name and mounts the volume to the container’s <code>/usr/share/nginx/html</code> directory.
@@ -298,14 +337,12 @@ Volumes:
   data:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
     ClaimName:  local-pvc
-
-$
 </code></pre>
 
 Learn more about <strong><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">persistent volumes and persistent volume claims</a></strong>.
 
 
-<h2>Practice Drills</h2>
+# Practice Drills
 
 <!-- Drill 1 -->
 
