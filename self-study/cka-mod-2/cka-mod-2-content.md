@@ -481,6 +481,147 @@ Depending on this categorization, or Quality of Service (QOS) class, the Kubelet
 [Learn more about managing container resources here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). There is also [a task page](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/) on the Kubernetes docs that describe to to implement them.
 
 
+## Namespace Quotas
+
+In addition to limiting resources for containers in pods, users also have options to control the resources on the Kubernetes namespace level.
+
+Namespace quotas are API objects that place limits on:
+
+<ul>
+<li>The number of certain resources, like pods or services, inside a namespace</li>
+<li>The total utilization of certain machine resources, like cpu or memory, by containers within pods of the namespace</li>
+</ul>
+
+Quotas are enforced in two different ways:
+<ul>
+<li>Soft - where a warning is presented to the client if a request that violates the quota is made</li>
+<li>Hard - where a request that violates the quota is rejected</li>
+</ul>
+
+Quotas can be placed by defining a specification for the quota inside a given namespace, which can be done using <code>kubectl create quota</code>:
+
+<pre class="wp-block-code"><code>$ kubectl create quota --hard pods=3 pod-limit
+
+resourcequota/pod-limit created
+
+$ kubectl describe namespace default
+
+Name:         default
+Labels:       kubernetes.io/metadata.name=default
+Annotations:  <none>
+Status:       Active
+
+Resource Quotas
+  Name:     pod-limit
+  Resource  Used  Hard
+  --------  ---   ---
+  pods      1     3
+
+No LimitRange resource.
+</code></pre>
+
+Once created, quotas are visible in the describe output for a given namespace.
+
+As this quota has hard enforcement, any requests that would violate a quota in a namespace is rejected, generating an error:
+
+<pre class="wp-block-code"><code>$ kubectl get pods
+
+No resources found in default namespace.
+
+$ kubectl create deploy webserver --replicas=3 --image nginx
+
+deployment.apps/webserver created
+
+$ kubectl run webserver-new --image httpd
+
+Error from server (Forbidden): pods "webserver-new" is forbidden: exceeded quota: pod-limit, requested: pods=1, used: pods=3, limited: pods=3
+</code></pre>
+
+Quotas are a great way of limiting the resource pools within namespaces.
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/" target="_blank" rel="noreferrer noopener">resource quotas for namespaces</a>.
+
+
+## LimitRanges
+
+Users who have control over their namespaces can also define a LimitRange, which is an API object that ensures pods maintain a minimum and maximum value for certain resources. This is enforced using a validating webhook that either rejects pods whose containers violate the set resource limits for their containers or inserts a limit into all containers of a pod that do not define any resource limits.
+
+LimitRanges must be defined in YAML, and can ensure that either CPU or memory constraints are enforced within the namespace:
+
+<pre class="wp-block-code"><code>
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit
+  namespace: limited
+spec:
+  limits:
+  - max:
+      cpu: "512m"
+    min:
+      cpu: "64m"
+    type: Container
+</code></pre>
+
+Once defined, the limitrange can be found within the description.
+
+<pre class="wp-block-code"><code>
+$ kubectl create ns limited
+
+$ kubectl apply -f limitrange.yaml
+
+limitrange/cpu-limit created
+
+$ kubectl describe namespace limited
+
+Name:         limited
+Labels:       kubernetes.io/metadata.name=limited
+Annotations:  <none>
+Status:       Active
+
+No resource quota.
+
+Resource Limits
+ Type       Resource  Min  Max   Default Request  Default Limit  Max Limit/Request Ratio
+ ----       --------  ---  ---   ---------------  -------------  -----------------------
+ Container  cpu       64m  512m  512m             512m           -
+</code></pre>
+
+Once a limitrange like the one described is in place, any pods you create will have that limit injected into their containers:
+
+<pre class="wp-block-code"><code>
+$ kubectl run -n limited --image nginx -o yaml webserver
+
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
+      webserver; cpu limit for container webserver'
+  creationTimestamp: "2024-07-13T00:43:33Z"
+  labels:
+    run: webserver
+  name: webserver
+  namespace: limited
+  resourceVersion: "5801"
+  uid: 22713391-e55c-4db2-a61c-2c37daae66dd
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: webserver
+    resources:
+      limits:
+        cpu: 512m
+      requests:
+        cpu: 512m
+
+...
+</code></pre>
+
+Learn more about <a href="https://kubernetes.io/docs/concepts/policy/limit-range/" target="_blank" rel="noreferrer noopener">LimitRanges</a> and how they enforce resource constraints in your namespaces.
+
+
 # Practice Drill
 
 Create a deployment with five replicas named <code>cicd</code> that creates pods that run the <code>docker.io/jenkins/jenkins:lts</code> image.

@@ -84,4 +84,4 @@ NAME         READY   STATUS    RESTARTS   AGE
 debug-pod1   1/1     Running   0          36s
 </code></pre>
 
-You can display the pod logs with <code>kubectl logs</code> to verify the log output from the init container. You can visit RX-M's own <a href="https://kubernetes.io/docs/tasks/debug-application-cluster/" target="_blank" rel="noreferrer noopener">bust-a-kube</a> repository to get additional practice to help you prepare.
+You can display the pod logs with <code>kubectl logs</code> to verify the log output from the init container.

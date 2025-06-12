@@ -150,11 +150,15 @@ Learn more about and keep track of the <a href="https://kubernetes.io/docs/refe
 
 A liveness probe is a health check that tells a kubelet when to restart a container. Liveness probes help catch locks where an application seems to be running but can not proceed. Implementing a liveness probe in a deployment is a start to making a self-healing application.
 
-An application may not immediately be ready to accept traffic when its container first starts; a readiness probe informs Kubernetes when it is okay to start sending traffic to a container after it boots. For example, a container of a java application might take minutes to load and may not be ready to accept traffic until it’s fully running. In this scenario, the readiness probe mitigates long loading times.
+An application may not immediately be ready to accept traffic from clients or peers when its container first starts; a readiness probe informs Kubernetes when it is okay to start sending traffic to a container after it boots. For example, a container of a java application might take minutes to load and may not be ready to accept traffic until it’s fully running.
 
-There are three options for liveness and readiness probes:
+In that same scenario, the startup probe mitigates long loading times, preventing liveness and/or readiness probes from failing too early.
+
+There are several options for liveness, readiness, and startup probes:
+
 <ul>
 <li>exec - takes a command, an exit code of 0 is success</li>
+<li>grpc – takes a port, uses the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md" target="_blank" rel="noreferrer noopener">API Deprecation process</a></li>
 <li>httpGet - performs an http get, a 200-399 status is good</li>
 <li>tcpSocket - a successful connection to a specified port is success</li>
 </ul>
@@ -350,3 +354,5 @@ Apply the <code>problem.yaml</code> manifest to your cluster using the following
 <pre class="wp-block-code"><code>kubectl apply -f https://raw.githubusercontent.com/RX-M/bust-a-kube/master/workload-1/problem.yaml</code></pre>
 
 The pod must be in the running state with all containers ready for this problem to be considered resolved.
+
+This practice drill comes from RX-M's own <a href="https://github.com/RX-M/bust-a-kube" target="_blank" rel="noreferrer noopener">bust-a-kube</a> repository. You can visit the repo to get additional practice to help you prepare.
