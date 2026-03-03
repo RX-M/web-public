@@ -1,121 +1,14 @@
 Modules:
-- description: Introduction to containers and containerized applications using Docker
-  id: 9
-  level: 1.0
-  name: Containers Overview
-  topic: Containers
-- description: Introduction to Kubernetes architecture and the concepts of how Kubernetes
-    deploys applications
-  id: 25
-  level: 1.0
-  name: Kubernetes Overview
-  topic: Kubernetes
-- description: Learn about the history and basic usage of the Go language.
-  id: 58
-  level: 1.0
-  name: Go Overview
-  topic: Go
-- description: Provides a basic overview of the Helm Package Manager for Kubernetes
-  id: 128
-  level: 1.0
-  name: Helm Overview
-  topic: Helm
-- description: Provides a basic overview of the architecture of the Istio Service
-    Mesh
-  id: 133
-  level: 1.0
-  name: Istio Architecture
-  topic: Istio
-- description: ''
-  id: 142
-  level: 1.0
-  name: Rust Overview
-  topic: Rust
-- description: ''
-  id: 156
-  level: 1.0
-  name: Spark Overview
-  topic: Spark
-- description: ''
-  id: 160
-  level: 1.0
-  name: Linux Overview
-  topic: Linux
-- description: Provides a basic overview of the ArangoDB multi-modal data store and
-    its core user cases
-  id: 174
-  level: 1.0
-  name: ArangoDB Overview
-  topic: ArangoDB
-- description: Provides a basic overview of GraphQL and its core use cases
-  id: 180
-  level: 1.0
-  name: GraphQL Overview
-  topic: GraphQL
-- description: ''
-  id: 196
-  level: 1.0
-  name: Container Introduction
-  topic: Containers
-- description: ''
-  id: 202
-  level: 1.0
-  name: Container Basics
-  topic: Containers
-- description: A combined introduction to container technologies and orchestration
-  id: 221
-  level: 1.0
-  name: Containers & Orchestration
-  topic: Kubernetes
-- description: ''
-  id: 236
-  level: 1.0
-  name: Observability
-  topic: Microservices
-- description: ''
-  id: 237
-  level: 1.0
-  name: Cloud Native Systems Overview
-  topic: Microservices
-- description: An introduction to machine learning.
-  id: 245
-  level: 1.0
-  name: Machine Learning Overview
-  topic: AI
-- description: A look at the concept of an Agent-to-Agent (A2A) protocol and a survey
-    at its current ecosystem
-  id: 273
-  level: 1.0
-  name: Multi Agent Overview
-  topic: AI
-- description: An exploration of how to run Agentic AI on Kubernetes using the open-source
-    kagent framework
-  id: 275
-  level: 1.0
-  name: KAgent Overview
-  topic: AI
-- description: Discussing the ongoing development of MCP, including trends, new research,
-    and advanced operations trends (multi-tenant and cross-platform)
-  id: 286
-  level: 1.0
-  name: The Future of MCP
-  topic: AI
-- description: A high-level look at the principles and use cases of the Model Context
-    Protocol (MCP)
-  id: 287
-  level: 1.0
-  name: Model Context Protocol (MCP) Overview
-  topic: AI
-- description: Fundamental discussion on Agentic architectures and its primary considerations
-  id: 292
-  level: 1.0
-  name: Agent Architectures
-  topic: AI
 - description: A high-level discussion on the core patterns, design approaches, and
     current implementation patterns of AI systems
   id: 293
   level: 1.0
   name: AI Architecture Overview
+  topic: AI
+- description: ''
+  id: 381
+  level: 1.0
+  name: AI Gateway Overview
   topic: AI
 - description: An exploration of how to plan and implement governance models for AI
     usage across an organization
@@ -123,58 +16,26 @@ Modules:
   level: 1.0
   name: AI Governance and Strategy
   topic: AI
-- description: An exploration on how to instrument AI/ML systems to provide feedback
-    loops that address potential issues like model drift
-  id: 303
-  level: 1.0
-  name: Observability & Monitoring for AI
-  topic: AI
-- description: An exploration of core AWS AI/ML services and describe their primary
-    function within a typical machine learning workflow
-  id: 305
-  level: 1.0
-  name: AWS AI/ML Overview
-  topic: AI
-- description: A review of the AI training & deployment pipeline and how AWS Offerings
-    fulfill each of them
-  id: 309
-  level: 1.0
-  name: Deploying Models
-  topic: AI
 - description: A discussion on observability and how it ties in with AI/ML systems
   id: 310
   level: 1.0
   name: AI Observability
   topic: AI
-- description: A high-level discussion on the tools, hosted services, and overall
-    state of Generative AI in general
-  id: 319
+- description: ''
+  id: 382
   level: 1.0
-  name: Generative AI Ecosystem
+  name: AI Routing Concerns (e.g. pricing, performance, safety, and others)
   topic: AI
-- description: A discussion of prevailing approaches to generative modeling and their
-    associated mathematical formulations
-  id: 320
+- description: ''
+  id: 384
   level: 1.0
-  name: Generative AI Model Types
+  name: AI Security Considerations
   topic: AI
-- description: A look into the various modalities and capabilities of generative AI
-    models and some current examples of them
-  id: 321
+- description: A look into roles and examples of Generative AI, Large Language Models
+    (LLMs), co-pilots, and AI-powered tools
+  id: 348
   level: 1.0
-  name: GenAI Modalities and Applications
-  topic: AI
-- description: A high-level discussion of the purpose of Generative AI, its current
-    capabilities, use cases, and available services providing it
-  id: 322
-  level: 1.0
-  name: Generative AI Overview
-  topic: AI
-- description: Exploring the hardware considerations when serving LLMs and the options
-    available for providing LLM inference
-  id: 325
-  level: 1.0
-  name: Serving Language Models
+  name: AI in Software Development
   topic: AI
 - description: A discussion highlighting AI/ML attack surfaces across the full pipeline,
     who might attack them, and mapping out the various points of vulnerability
@@ -182,11 +43,195 @@ Modules:
   level: 1.0
   name: AI/ML Threat Landscape & Taxonomy
   topic: AI
+- description: An exploration of core AWS AI/ML services and describe their primary
+    function within a typical machine learning workflow
+  id: 305
+  level: 1.0
+  name: AWS AI/ML Overview
+  topic: AI
+- description: ''
+  id: 200
+  level: 1.7
+  name: Advanced Container Operations
+  topic: Containers
+- description: Learn advance usage patterns of functions and methods.
+  id: 49
+  level: 1.3
+  name: Advanced Functions and Methods in Go
+  topic: Go
+- description: Fundamental discussion on Agentic architectures and its primary considerations
+  id: 292
+  level: 1.0
+  name: Agent Architectures
+  topic: AI
+- description: ''
+  id: 415
+  level: 1.0
+  name: Agent Architectures and Execution Models
+  topic: AI
+- description: A discussion on the prevailing tools, techniques, and service options
+    in Agentic AI
+  id: 353
+  level: 1.0
+  name: Agentic AI Ecosystem
+  topic: AI
+- description: ''
+  id: 387
+  level: 1.0
+  name: Agentic Design Patterns Overview
+  topic: AI
+- description: A discussion on strategies meant to optimize requests to agentic systems
+    to get the most value out of the system
+  id: 357
+  level: 1.0
+  name: Agentic Prompting Strategies
+  topic: AI
+- description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
+    and the Downward API'
+  id: 2
+  level: 1.4
+  name: Application Configuration in K8s
+  topic: Kubernetes
+- description: A look at basic administrative operations within ArangoDB, including
+    user management and monitoring
+  id: 170
+  level: 1.7
+  name: ArangoDB Basic Administration
+  topic: ArangoDB
+- description: Provides a basic overview of the ArangoDB multi-modal data store and
+    its core user cases
+  id: 174
+  level: 1.0
+  name: ArangoDB Overview
+  topic: ArangoDB
+- description: Detailed exploration on ArangoDB's querying language
+  id: 168
+  level: 1.2
+  name: ArangoDB Query Language
+  topic: ArangoDB
+- description: Data science workloads and batch applications using Kubernetes Jobs
+    and CronJobs
+  id: 10
+  level: 1.2
+  name: Batch Jobs in Kubernetes
+  topic: Kubernetes
+- description: Discussion on GraphQL Best Practices
+  id: 181
+  level: 1.7
+  name: Best Practices
+  topic: GraphQL
+- description: ''
+  id: 238
+  level: 1.2
+  name: Cloud Native Communications Patterns
+  topic: Microservices
+- description: ''
+  id: 237
+  level: 1.0
+  name: Cloud Native Systems Overview
+  topic: Microservices
+- description: ''
+  id: 235
+  level: 1.6
+  name: Cloud Native Transactions and Event Sourcing
+  topic: Microservices
+- description: ''
+  id: 148
+  level: 1.5
+  name: Collections in Rust
+  topic: Rust
+- description: ''
+  id: 202
+  level: 1.0
+  name: Container Basics
+  topic: Containers
+- description: ''
+  id: 196
+  level: 1.0
+  name: Container Introduction
+  topic: Containers
+- description: ''
+  id: 203
+  level: 1.5
+  name: Container Networking
+  topic: Containers
+- description: ''
+  id: 232
+  level: 1.3
+  name: Container Packaging (Go or Python)
+  topic: Microservices
+- description: ''
+  id: 201
+  level: 1.8
+  name: Container Security
+  topic: Containers
+- description: ''
+  id: 195
+  level: 1.4
+  name: Container Volumes
+  topic: Containers
+- description: A combined introduction to container technologies and orchestration
+  id: 221
+  level: 1.0
+  name: Containers & Orchestration
+  topic: Kubernetes
+- description: Introduction to containers and containerized applications using Docker
+  id: 9
+  level: 1.0
+  name: Containers Overview
+  topic: Containers
+- description: ''
+  id: 198
+  level: 1.2
+  name: Controlling Containers
+  topic: Containers
+- description: ''
+  id: 240
+  level: 1.4
+  name: Data Management Patterns in Microservices
+  topic: Microservices
+- description: Understand the basic data types of the Go language.
+  id: 53
+  level: 1.2
+  name: Data Types in Go
+  topic: Go
 - description: A discussion on primary threats posed against AI/ML Systems and defensive
     design patterns that can mitigate them
   id: 338
   level: 1.0
   name: Defensive Techniques & Design Patterns
+  topic: AI
+- description: A review of the AI training & deployment pipeline and how AWS Offerings
+    fulfill each of them
+  id: 309
+  level: 1.0
+  name: Deploying Models
+  topic: AI
+- description: ''
+  id: 162
+  level: 1.5
+  name: Editing Files in Linux
+  topic: Linux
+- description: Discussion on Envoy, the software Istio uses to provide many of its
+    capabilities
+  id: 135
+  level: 1.5
+  name: Envoy
+  topic: Istio
+- description: Understand the error package and using errors in your Go code.
+  id: 56
+  level: 1.4
+  name: Error Handling in Go
+  topic: Go
+- description: ''
+  id: 105
+  level: 1.3
+  name: Errors and Exceptions in Python
+  topic: Python
+- description: ''
+  id: 386
+  level: 1.0
+  name: Evaluation, Enforcement, and Observability in AI Gateways
   topic: AI
 - description: Exploring the critical evaluations necessary for implementing AI/ML
     Systems Defense
@@ -200,11 +245,309 @@ Modules:
   level: 1.0
   name: Evasion & Adversarial Examples
   topic: AI
+- description: ''
+  id: 241
+  level: 1.5
+  name: Event-driven Microservice Architecture Patterns
+  topic: Microservices
+- description: ''
+  id: 106
+  level: 1.3
+  name: File IO in Python
+  topic: Python
+- description: ''
+  id: 107
+  level: 1.2
+  name: Flow Control in Python
+  topic: Python
+- description: ''
+  id: 406
+  level: 1.0
+  name: From Human-Centric SDLC to AI-Augmented Systems Design
+  topic: AI
+- description: How to develop functions in Go.
+  id: 57
+  level: 1.2
+  name: Functions in Go
+  topic: Go
+- description: ''
+  id: 409
+  level: 1.0
+  name: 'Future SDLC: Governance, Risk, and Reality'
+  topic: AI
+- description: A look into the various modalities and capabilities of generative AI
+    models and some current examples of them
+  id: 321
+  level: 1.0
+  name: GenAI Modalities and Applications
+  topic: AI
+- description: A high-level discussion on the tools, hosted services, and overall
+    state of Generative AI in general
+  id: 319
+  level: 1.0
+  name: Generative AI Ecosystem
+  topic: AI
+- description: A discussion of prevailing approaches to generative modeling and their
+    associated mathematical formulations
+  id: 320
+  level: 1.0
+  name: Generative AI Model Types
+  topic: AI
+- description: A high-level discussion of the purpose of Generative AI, its current
+    capabilities, use cases, and available services providing it
+  id: 322
+  level: 1.0
+  name: Generative AI Overview
+  topic: AI
+- description: Learn how to organize and share Go code using modules.
+  id: 62
+  level: 1.2
+  name: Go Modules
+  topic: Go
+- description: Learn about the history and basic usage of the Go language.
+  id: 58
+  level: 1.0
+  name: Go Overview
+  topic: Go
 - description: An exploration on why AI security and governance must cover the full
     model lifecycle
   id: 341
   level: 1.0
   name: Governance & Secure Architecture for Deployment
+  topic: AI
+- description: Provides a basic overview of GraphQL and its core use cases
+  id: 180
+  level: 1.0
+  name: GraphQL Overview
+  topic: GraphQL
+- description: Explanation of ArangoDB's Graph Database capabilities
+  id: 176
+  level: 1.5
+  name: Graphs in ArangoDB
+  topic: ArangoDB
+- description: Provides a basic overview of the Helm Package Manager for Kubernetes
+  id: 128
+  level: 1.0
+  name: Helm Overview
+  topic: Helm
+- description: ''
+  id: 408
+  level: 1.0
+  name: Humans as Agent Orchestrators
+  topic: AI
+- description: ''
+  id: 194
+  level: 1.1
+  name: Image Introduction
+  topic: Containers
+- description: ''
+  id: 199
+  level: 1.3
+  name: Image Registries
+  topic: Containers
+- description: OCI / Docker images including registries and image creation with Dockerfiles
+  id: 8
+  level: 1.2
+  name: Images Overview
+  topic: Containers
+- description: Examination of container images, image metadata, and pushing images
+    to private registries
+  id: 88
+  level: 1.6
+  name: Images and Registries
+  topic: Containers
+- description: ''
+  id: 414
+  level: 1.0
+  name: Introduction to AI Agents and Multi-Agent Systems
+  topic: AI
+- description: A high-level exploration on Agentic AI systems
+  id: 352
+  level: 1.0
+  name: Introduction to Agentic AI
+  topic: AI
+- description: Provides a basic overview of the architecture of the Istio Service
+    Mesh
+  id: 133
+  level: 1.0
+  name: Istio Architecture
+  topic: Istio
+- description: Detailed discussion on how Istio coordinates it various Envoy proxies
+    from a central control plane
+  id: 134
+  level: 1.3
+  name: Istio Control Plane
+  topic: Istio
+- description: An exploration of how to run Agentic AI on Kubernetes using the open-source
+    kagent framework
+  id: 275
+  level: 1.0
+  name: KAgent Overview
+  topic: AI
+- description: Overview of all of Kubernetes' controllers for stateless, batch, and
+    stateful applications
+  id: 12
+  level: 1.2
+  name: Kubernetes Controllers
+  topic: Kubernetes
+- description: Zero downtime rolling updates for stateless applications using the
+    Deployment controller
+  id: 11
+  level: 1.2
+  name: Kubernetes Deployments
+  topic: Kubernetes
+- description: Lightweight Kubernetes cluster multitenancy using Namespaces, Quotas,
+    and LimitRanges
+  id: 20
+  level: 1.9
+  name: Kubernetes Namespaces
+  topic: Kubernetes
+- description: Introduction to Kubernetes architecture and the concepts of how Kubernetes
+    deploys applications
+  id: 25
+  level: 1.0
+  name: Kubernetes Overview
+  topic: Kubernetes
+- description: Examining multi-container Pod architecture, Pod design patterns, and
+    best practices for Pods
+  id: 28
+  level: 1.5
+  name: Kubernetes Pod Architecture
+  topic: Kubernetes
+- description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
+    manifests
+  id: 27
+  level: 1.1
+  name: Kubernetes Pod Basics
+  topic: Kubernetes
+- description: Expose Pods to clients using Kubernetes Services and DNS
+  id: 31
+  level: 1.3
+  name: Kubernetes Services
+  topic: Kubernetes
+- description: A discussion on the feedback loop and metrics to consider when evaluating
+    LLMs after training for further improvement
+  id: 424
+  level: 1.0
+  name: LLM Evaluation
+  topic: AI
+- description: A high-level exploration of Large Language Models (LLMs), their core
+    principles, use cases, and implementations
+  id: 360
+  level: 1.0
+  name: LLM Overview
+  topic: AI
+- description: A discussion on the techniques used and concepts involved in improving
+    an LLM's capability with more specialized tasks via fine tuning
+  id: 423
+  level: 1.0
+  name: LLM Post Training
+  topic: AI
+- description: An exploration of the steps involved in preparing data for eventual
+    integration (training) into an LLM system
+  id: 422
+  level: 1.0
+  name: LLM Pre Training
+  topic: AI
+- description: ''
+  id: 411
+  level: 1.0
+  name: Linkerd security and observability features
+  topic: AI
+- description: ''
+  id: 161
+  level: 1.3
+  name: Linux Filesystem
+  topic: Linux
+- description: ''
+  id: 160
+  level: 1.0
+  name: Linux Overview
+  topic: Linux
+- description: An introduction to machine learning.
+  id: 245
+  level: 1.0
+  name: Machine Learning Overview
+  topic: AI
+- description: Learn how to design and refactor Go code.
+  id: 61
+  level: 1.1
+  name: Methods and Interfaces in Go
+  topic: Go
+- description: ''
+  id: 234
+  level: 1.4
+  name: Microservice Communication III - Messaging
+  topic: Microservices
+- description: ''
+  id: 231
+  level: 1.1
+  name: Microservice Communications I - REST
+  topic: Microservices
+- description: ''
+  id: 239
+  level: 1.3
+  name: Microservice Connectivity and Composition Patterns
+  topic: Microservices
+- description: ''
+  id: 225
+  level: 1.1
+  name: Microservice Logs and Log Management
+  topic: Microservices
+- description: ''
+  id: 226
+  level: 1.5
+  name: Microservice Metrics and Autoscaling
+  topic: Microservices
+- description: A high-level look at the principles and use cases of the Model Context
+    Protocol (MCP)
+  id: 287
+  level: 1.0
+  name: Model Context Protocol (MCP) Overview
+  topic: AI
+- description: A look at the concept of an Agent-to-Agent (A2A) protocol and a survey
+    at its current ecosystem
+  id: 273
+  level: 1.0
+  name: Multi Agent Overview
+  topic: AI
+- description: ''
+  id: 236
+  level: 1.0
+  name: Observability
+  topic: Microservices
+- description: A look into the techniques, strategies, and tools involved with maintaining
+    a good feedback look in a RAG-enhanced LLM system
+  id: 366
+  level: 1.0
+  name: Observability & Continuous Evaluation
+  topic: AI
+- description: An exploration on how to instrument AI/ML systems to provide feedback
+    loops that address potential issues like model drift
+  id: 303
+  level: 1.0
+  name: Observability & Monitoring for AI
+  topic: AI
+- description: ''
+  id: 197
+  level: 1.9
+  name: Orchestration
+  topic: Containers
+- description: Learn how to create Go packages.
+  id: 64
+  level: 1.2
+  name: Package Management in Go
+  topic: Go
+- description: A discussion on performance and costs involved when implementing a
+    RAG-enhanced LLM system
+  id: 365
+  level: 1.0
+  name: Performance & Cost Engineering
+  topic: AI
+- description: ''
+  id: 385
+  level: 1.0
+  name: Policy-Based Considerations
   topic: AI
 - description: An introduction to AI privacy, its motivation, and the methods for
     establishing AI privacy
@@ -212,12 +555,17 @@ Modules:
   level: 1.0
   name: Privacy in AI Systems
   topic: AI
-- description: A look into roles and examples of Generative AI, Large Language Models
-    (LLMs), co-pilots, and AI-powered tools
-  id: 348
-  level: 1.0
-  name: AI in Software Development
-  topic: AI
+- description: Learn how Go packages, libraries, and main (drivers) programs work
+    in Go.
+  id: 65
+  level: 1.2
+  name: Program Construction in Go
+  topic: Go
+- description: ''
+  id: 117
+  level: 1.4
+  name: Program Construction in Python
+  topic: Python
 - description: An exploration of basic prompting techniques that maximize the value
     of outputs from an LLM
   id: 350
@@ -229,53 +577,53 @@ Modules:
   level: 1.0
   name: Prompt Engineering for Text-to-Image Models
   topic: AI
-- description: A high-level exploration on Agentic AI systems
-  id: 352
-  level: 1.0
-  name: Introduction to Agentic AI
-  topic: AI
-- description: A discussion on the prevailing tools, techniques, and service options
-    in Agentic AI
-  id: 353
-  level: 1.0
-  name: Agentic AI Ecosystem
-  topic: AI
-- description: A discussion on strategies meant to optimize requests to agentic systems
-    to get the most value out of the system
-  id: 357
-  level: 1.0
-  name: Agentic Prompting Strategies
-  topic: AI
-- description: An exploration of considerations, techniques, and tools meant to establish
-    a good baseline of safety in Agentic systems
-  id: 358
-  level: 1.0
-  name: Safety Mechanisms for Agents
-  topic: AI
-- description: A high-level exploration of Large Language Models (LLMs), their core
-    principles, use cases, and implementations
-  id: 360
-  level: 1.0
-  name: LLM Overview
-  topic: AI
 - description: A discussion on strategies and techniques that improve the relevance
     and overall value of outputs gained from a RAG-enhanced LLM system
   id: 364
   level: 1.0
   name: Prompting Patterns for RAG
   topic: AI
-- description: A discussion on performance and costs involved when implementing a
-    RAG-enhanced LLM system
-  id: 365
+- description: ''
+  id: 108
+  level: 1.2
+  name: Python Functions
+  topic: Python
+- description: ''
+  id: 109
+  level: 1.1
+  name: Python Introduction
+  topic: Python
+- description: A look at how to query data and produce meaningful results using GraphQL
+  id: 178
+  level: 1.2
+  name: Queries & Mutations
+  topic: GraphQL
+- description: ''
+  id: 377
   level: 1.0
-  name: Performance & Cost Engineering
+  name: Retrieval-Augmented Context (RAG Fundamentals)
   topic: AI
-- description: A look into the techniques, strategies, and tools involved with maintaining
-    a good feedback look in a RAG-enhanced LLM system
-  id: 366
+- description: ''
+  id: 145
+  level: 1.3
+  name: Rust Data Types & Flow Control
+  topic: Rust
+- description: ''
+  id: 142
   level: 1.0
-  name: Observability & Continuous Evaluation
+  name: Rust Overview
+  topic: Rust
+- description: An exploration of considerations, techniques, and tools meant to establish
+    a good baseline of safety in Agentic systems
+  id: 358
+  level: 1.0
+  name: Safety Mechanisms for Agents
   topic: AI
+- description: Exploration of the Schema Types supported by GraphQL
+  id: 179
+  level: 1.5
+  name: Schemas & Types
+  topic: GraphQL
 - description: A security-focused discussion around the overall safety of a RAG-enhanced
     LLM system and how to implement it effectively
   id: 367
@@ -283,44 +631,73 @@ Modules:
   name: Security, Evaluation & Guardrails, Compliance & Data Lifecycle
   topic: AI
 - description: ''
-  id: 373
+  id: 227
+  level: 1.6
+  name: Service Mesh and Tracing Microservices
+  topic: Microservices
+- description: Exploring the hardware considerations when serving LLMs and the options
+    available for providing LLM inference
+  id: 325
   level: 1.0
-  name: What Is Context Engineering
+  name: Serving Language Models
+  topic: AI
+- description: Discussing Small Language Models (SLMs) and their emerging role in
+    edge and resource-constrained computing environments
+  id: 332
+  level: 1.1
+  name: Small Language Models - Overview
   topic: AI
 - description: ''
-  id: 377
+  id: 156
   level: 1.0
-  name: Retrieval-Augmented Context (RAG Fundamentals)
+  name: Spark Overview
+  topic: Spark
+- description: ''
+  id: 158
+  level: 1.8
+  name: Spark on Kubernetes
+  topic: Spark
+- description: 'Storage abstractions in Kubernetes: Persistent Volumes (PVs), Persistent
+    Volume Claims (PVCs), and Storage Classes'
+  id: 26
+  level: 1.9
+  name: State Primitives in Kubernetes
+  topic: Kubernetes
+- description: ''
+  id: 121
+  level: 1.2
+  name: Strings and Numbers in Python
+  topic: Python
+- description: ''
+  id: 149
+  level: 1.8
+  name: Structures, Enumerations, & Pattern Matching in Rust
+  topic: Rust
+- description: Learn about syntax and flow control in Go.
+  id: 69
+  level: 1.1
+  name: Syntax and Flow Control in Go
+  topic: Go
+- description: ''
+  id: 122
+  level: 1.5
+  name: Testing in Python
+  topic: Python
+- description: Learn how to write tests in Go.
+  id: 70
+  level: 1.4
+  name: Testing with Go
+  topic: Go
+- description: Discussing the ongoing development of MCP, including trends, new research,
+    and advanced operations trends (multi-tenant and cross-platform)
+  id: 286
+  level: 1.0
+  name: The Future of MCP
   topic: AI
 - description: ''
-  id: 381
+  id: 407
   level: 1.0
-  name: AI Gateway Overview
-  topic: AI
-- description: ''
-  id: 382
-  level: 1.0
-  name: AI Routing Concerns (e.g. pricing, performance, safety, and others)
-  topic: AI
-- description: ''
-  id: 384
-  level: 1.0
-  name: AI Security Considerations
-  topic: AI
-- description: ''
-  id: 385
-  level: 1.0
-  name: Policy-Based Considerations
-  topic: AI
-- description: ''
-  id: 386
-  level: 1.0
-  name: Evaluation, Enforcement, and Observability in AI Gateways
-  topic: AI
-- description: ''
-  id: 387
-  level: 1.0
-  name: Agentic Design Patterns Overview
+  name: The Goose Project
   topic: AI
 - description: ''
   id: 400
@@ -332,581 +709,37 @@ Modules:
   level: 1.0
   name: UI/UX Security Overview
   topic: AI
-- description: ''
-  id: 406
-  level: 1.0
-  name: From Human-Centric SDLC to AI-Augmented Systems Design
-  topic: AI
-- description: ''
-  id: 407
-  level: 1.0
-  name: The Goose Project
-  topic: AI
-- description: ''
-  id: 408
-  level: 1.0
-  name: Humans as Agent Orchestrators
-  topic: AI
-- description: ''
-  id: 409
-  level: 1.0
-  name: 'Future SDLC: Governance, Risk, and Reality'
-  topic: AI
-- description: ''
-  id: 411
-  level: 1.0
-  name: Linkerd security and observability features
-  topic: AI
-- description: ''
-  id: 414
-  level: 1.0
-  name: Introduction to AI Agents and Multi-Agent Systems
-  topic: AI
-- description: ''
-  id: 415
-  level: 1.0
-  name: Agent Architectures and Execution Models
-  topic: AI
-- description: An exploration of the steps involved in preparing data for eventual
-    integration (training) into an LLM system
-  id: 422
-  level: 1.0
-  name: LLM Pre Training
-  topic: AI
-- description: A discussion on the techniques used and concepts involved in improving
-    an LLM's capability with more specialized tasks via fine tuning
-  id: 423
-  level: 1.0
-  name: LLM Post Training
-  topic: AI
-- description: A discussion on the feedback loop and metrics to consider when evaluating
-    LLMs after training for further improvement
-  id: 424
-  level: 1.0
-  name: LLM Evaluation
-  topic: AI
-- description: Defining Kubernetes Pods, Pod lifecycles, and pod creation using YAML
-    manifests
-  id: 27
-  level: 1.1
-  name: Kubernetes Pod Basics
-  topic: Kubernetes
-- description: Learn how to design and refactor Go code.
-  id: 61
-  level: 1.1
-  name: Methods and Interfaces in Go
-  topic: Go
-- description: Learn about syntax and flow control in Go.
-  id: 69
-  level: 1.1
-  name: Syntax and Flow Control in Go
-  topic: Go
-- description: ''
-  id: 109
-  level: 1.1
-  name: Python Introduction
-  topic: Python
-- description: ''
-  id: 194
-  level: 1.1
-  name: Image Introduction
-  topic: Containers
-- description: ''
-  id: 225
-  level: 1.1
-  name: Microservice Logs and Log Management
-  topic: Microservices
-- description: ''
-  id: 231
-  level: 1.1
-  name: Microservice Communications I - REST
-  topic: Microservices
-- description: Discussing Small Language Models (SLMs) and their emerging role in
-    edge and resource-constrained computing environments
-  id: 332
-  level: 1.1
-  name: Small Language Models - Overview
-  topic: AI
-- description: OCI / Docker images including registries and image creation with Dockerfiles
-  id: 8
-  level: 1.2
-  name: Images Overview
-  topic: Containers
-- description: Data science workloads and batch applications using Kubernetes Jobs
-    and CronJobs
-  id: 10
-  level: 1.2
-  name: Batch Jobs in Kubernetes
-  topic: Kubernetes
-- description: Zero downtime rolling updates for stateless applications using the
-    Deployment controller
-  id: 11
-  level: 1.2
-  name: Kubernetes Deployments
-  topic: Kubernetes
-- description: Overview of all of Kubernetes' controllers for stateless, batch, and
-    stateful applications
-  id: 12
-  level: 1.2
-  name: Kubernetes Controllers
-  topic: Kubernetes
-- description: Understand the basic data types of the Go language.
-  id: 53
-  level: 1.2
-  name: Data Types in Go
-  topic: Go
-- description: How to develop functions in Go.
-  id: 57
-  level: 1.2
-  name: Functions in Go
-  topic: Go
-- description: Learn how to organize and share Go code using modules.
-  id: 62
-  level: 1.2
-  name: Go Modules
-  topic: Go
-- description: Learn how to create Go packages.
-  id: 64
-  level: 1.2
-  name: Package Management in Go
-  topic: Go
-- description: Learn how Go packages, libraries, and main (drivers) programs work
-    in Go.
-  id: 65
-  level: 1.2
-  name: Program Construction in Go
-  topic: Go
 - description: Learn how to create user defined types in Go.
   id: 71
   level: 1.2
   name: User Defined Types in Go
   topic: Go
 - description: ''
-  id: 107
-  level: 1.2
-  name: Flow Control in Python
-  topic: Python
-- description: ''
-  id: 108
-  level: 1.2
-  name: Python Functions
-  topic: Python
-- description: ''
-  id: 121
-  level: 1.2
-  name: Strings and Numbers in Python
-  topic: Python
-- description: Detailed exploration on ArangoDB's querying language
-  id: 168
-  level: 1.2
-  name: ArangoDB Query Language
-  topic: ArangoDB
-- description: A look at how to query data and produce meaningful results using GraphQL
-  id: 178
-  level: 1.2
-  name: Queries & Mutations
-  topic: GraphQL
-- description: ''
-  id: 198
-  level: 1.2
-  name: Controlling Containers
-  topic: Containers
-- description: ''
-  id: 238
-  level: 1.2
-  name: Cloud Native Communications Patterns
-  topic: Microservices
-- description: Expose Pods to clients using Kubernetes Services and DNS
-  id: 31
-  level: 1.3
-  name: Kubernetes Services
-  topic: Kubernetes
-- description: Learn advance usage patterns of functions and methods.
-  id: 49
-  level: 1.3
-  name: Advanced Functions and Methods in Go
-  topic: Go
-- description: ''
-  id: 105
-  level: 1.3
-  name: Errors and Exceptions in Python
-  topic: Python
-- description: ''
-  id: 106
-  level: 1.3
-  name: File IO in Python
-  topic: Python
+  id: 373
+  level: 1.0
+  name: What Is Context Engineering
+  topic: AI
 - description: ''
   id: 123
   level: 1.3
   name: Working with Packages in Python
   topic: Python
-- description: Detailed discussion on how Istio coordinates it various Envoy proxies
-    from a central control plane
-  id: 134
-  level: 1.3
-  name: Istio Control Plane
-  topic: Istio
 - description: ''
-  id: 145
-  level: 1.3
-  name: Rust Data Types & Flow Control
-  topic: Rust
-- description: ''
-  id: 161
-  level: 1.3
-  name: Linux Filesystem
-  topic: Linux
-- description: ''
-  id: 199
-  level: 1.3
-  name: Image Registries
-  topic: Containers
-- description: ''
-  id: 232
-  level: 1.3
-  name: Container Packaging (Go or Python)
-  topic: Microservices
-- description: ''
-  id: 239
-  level: 1.3
-  name: Microservice Connectivity and Composition Patterns
-  topic: Microservices
-- description: 'Dynamic Kubernetes application configuration using: ConfigMaps, Secrets,
-    and the Downward API'
-  id: 2
-  level: 1.4
-  name: Application Configuration in K8s
-  topic: Kubernetes
-- description: Understand the error package and using errors in your Go code.
-  id: 56
-  level: 1.4
-  name: Error Handling in Go
-  topic: Go
-- description: Learn how to write tests in Go.
-  id: 70
-  level: 1.4
-  name: Testing with Go
-  topic: Go
-- description: ''
-  id: 117
-  level: 1.4
-  name: Program Construction in Python
-  topic: Python
-- description: ''
-  id: 195
-  level: 1.4
-  name: Container Volumes
-  topic: Containers
-- description: ''
-  id: 234
-  level: 1.4
-  name: Microservice Communication III - Messaging
-  topic: Microservices
-- description: ''
-  id: 240
-  level: 1.4
-  name: Data Management Patterns in Microservices
-  topic: Microservices
-- description: Examining multi-container Pod architecture, Pod design patterns, and
-    best practices for Pods
-  id: 28
-  level: 1.5
-  name: Kubernetes Pod Architecture
-  topic: Kubernetes
-- description: ''
-  id: 122
-  level: 1.5
-  name: Testing in Python
-  topic: Python
-- description: Discussion on Envoy, the software Istio uses to provide many of its
-    capabilities
-  id: 135
-  level: 1.5
-  name: Envoy
-  topic: Istio
-- description: ''
-  id: 148
-  level: 1.5
-  name: Collections in Rust
-  topic: Rust
-- description: ''
-  id: 162
-  level: 1.5
-  name: Editing Files in Linux
-  topic: Linux
-- description: Explanation of ArangoDB's Graph Database capabilities
-  id: 176
-  level: 1.5
-  name: Graphs in ArangoDB
-  topic: ArangoDB
-- description: Exploration of the Schema Types supported by GraphQL
-  id: 179
-  level: 1.5
-  name: Schemas & Types
-  topic: GraphQL
-- description: ''
-  id: 203
-  level: 1.5
-  name: Container Networking
-  topic: Containers
-- description: ''
-  id: 226
-  level: 1.5
-  name: Microservice Metrics and Autoscaling
-  topic: Microservices
-- description: ''
-  id: 241
-  level: 1.5
-  name: Event-driven Microservice Architecture Patterns
-  topic: Microservices
-- description: Examination of container images, image metadata, and pushing images
-    to private registries
-  id: 88
-  level: 1.6
-  name: Images and Registries
-  topic: Containers
-- description: ''
-  id: 227
-  level: 1.6
-  name: Service Mesh and Tracing Microservices
-  topic: Microservices
-- description: ''
-  id: 235
-  level: 1.6
-  name: Cloud Native Transactions and Event Sourcing
-  topic: Microservices
-- description: A look at basic administrative operations within ArangoDB, including
-    user management and monitoring
-  id: 170
-  level: 1.7
-  name: ArangoDB Basic Administration
-  topic: ArangoDB
-- description: Discussion on GraphQL Best Practices
-  id: 181
-  level: 1.7
-  name: Best Practices
-  topic: GraphQL
-- description: ''
-  id: 200
-  level: 1.7
-  name: Advanced Container Operations
-  topic: Containers
-- description: ''
-  id: 149
-  level: 1.8
-  name: Structures, Enumerations, & Pattern Matching in Rust
-  topic: Rust
-- description: ''
-  id: 158
-  level: 1.8
-  name: Spark on Kubernetes
-  topic: Spark
-- description: ''
-  id: 201
-  level: 1.8
-  name: Container Security
-  topic: Containers
-- description: Lightweight Kubernetes cluster multitenancy using Namespaces, Quotas,
-    and LimitRanges
-  id: 20
-  level: 1.9
-  name: Kubernetes Namespaces
-  topic: Kubernetes
-- description: 'Storage abstractions in Kubernetes: Persistent Volumes (PVs), Persistent
-    Volume Claims (PVCs), and Storage Classes'
-  id: 26
-  level: 1.9
-  name: State Primitives in Kubernetes
-  topic: Kubernetes
-- description: ''
-  id: 197
-  level: 1.9
-  name: Orchestration
-  topic: Containers
-- description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
-    Node taints and Pod tolerations'
-  id: 29
+  id: 369
   level: 2.0
-  name: Pod Scheduling in Kubernetes
-  topic: Kubernetes
-- description: Approaches, reviews domain-driven design and resilience patterns.
-  id: 72
-  level: 2.0
-  name: Brown Field Microservices
-  topic: Microservices
-- description: ''
-  id: 73
-  level: 2.0
-  name: Cloud Native Transactions
-  topic: Microservices
-- description: ''
-  id: 75
-  level: 2.0
-  name: Gateways and Service Meshes
-  topic: Microservices
-- description: ''
-  id: 77
-  level: 2.0
-  name: Kubernetes Services and Networking
-  topic: Microservices
-- description: ''
-  id: 81
-  level: 2.0
-  name: Microservice Operability
-  topic: Microservices
-- description: ''
-  id: 82
-  level: 2.0
-  name: Microservice Orchestration
-  topic: Microservices
-- description: ''
-  id: 83
-  level: 2.0
-  name: Microservice Overview
-  topic: Microservices
-- description: ''
-  id: 84
-  level: 2.0
-  name: Software Delivery Pipelines
-  topic: Microservices
-- description: ''
-  id: 85
-  level: 2.0
-  name: Observability Overview
-  topic: Microservices
-- description: ''
-  id: 86
-  level: 2.0
-  name: Stateless Services and Polyglot Persistence
-  topic: Microservices
-- description: Examines the basic architecture and interaction with Helm Charts
-  id: 129
-  level: 2.0
-  name: Helm Chart Basics
-  topic: Helm
-- description: Explores the practices around creating a Helm chart for an application
-  id: 130
-  level: 2.0
-  name: Helm Templating
-  topic: Helm
-- description: Exploration of Istio's basic Traffic Management capabilities, focusing
-    on Timeouts, Health Checks, and Fault Injection
-  id: 136
-  level: 2.0
-  name: Basic Traffic Management in Istio
-  topic: Istio
-- description: ''
-  id: 141
-  level: 2.0
-  name: Rust Functions
-  topic: Rust
-- description: ''
-  id: 146
-  level: 2.0
-  name: Rust Methods & Traits
-  topic: Rust
-- description: ''
-  id: 154
-  level: 2.0
-  name: Kubernetes in the Cloud
-  topic: Spark
-- description: ''
-  id: 157
-  level: 2.0
-  name: Spark Observability & Scaling
-  topic: Spark
-- description: ''
-  id: 163
-  level: 2.0
-  name: Shell Operations in Linux
-  topic: Linux
-- description: ''
-  id: 164
-  level: 2.0
-  name: File Processing in Linux
-  topic: Linux
-- description: Discussion on different ArangoDB deployment patterns, infrastructure
-    support, and scaling considerations
-  id: 169
-  level: 2.0
-  name: ArangoDB Architecture
-  topic: ArangoDB
-- description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
-  id: 205
-  level: 2.0
-  name: EKS Overview
-  topic: Kubernetes
-- description: Exploration of the concept of Service Meshes applied to Kubernetes
-  id: 209
-  level: 2.0
-  name: Service Mesh Overview
-  topic: Kubernetes
-- description: ''
-  id: 228
-  level: 2.0
-  name: Advanced Microservice Deployment Models
-  topic: Microservices
-- description: ''
-  id: 242
-  level: 2.0
-  name: Microservice Aggregates
-  topic: Microservices
-- description: Working with numpy and pandas for data processing.
-  id: 246
-  level: 2.0
-  name: NumPy and Pandas
+  name: AI Agents and the Agent Loop
   topic: AI
-- description: An overview of deep learning concepts and tools.
-  id: 254
+- description: A look into how current CI/CD workflows can work for AI development,
+    training, and ongoing maintenance
+  id: 300
   level: 2.0
-  name: Deep Learning Fundamentals
+  name: AI CI/CD
   topic: AI
-- description: 'Learn about FoundationDB''s elastically scalable services: proxies,
-    log servers, storage servers, and more.'
-  id: 262
+- description: Examining practices for AI models and agents that promote easy long-term
+    maintenance and operational sustainability
+  id: 302
   level: 2.0
-  name: FoundationDB Architecture
-  topic: FoundationDB
-- description: 'Learn about the features of FoundationDB, including: transactions,
-    consistency, performance, scalability, and elasticity.'
-  id: 263
-  level: 2.0
-  name: FoundationDB Overview
-  topic: FoundationDB
-- description: A technical dive covering the components of a LangChain-powered system
-  id: 276
-  level: 2.0
-  name: LangChain Components
-  topic: AI
-- description: A high-level look at LangChain, its development considerations, use
-    cases, and its place in LLM application development
-  id: 277
-  level: 2.0
-  name: LangChain Fundamentals
-  topic: AI
-- description: Exploring the client-side perspective of the model context protocol
-  id: 283
-  level: 2.0
-  name: MCP Clients
-  topic: AI
-- description: A look at how servers provide the fundamental building blocks for adding
-    context to language models via MCP
-  id: 289
-  level: 2.0
-  name: MCP Servers
-  topic: AI
-- description: Technical exploration of how MCP clients and servers communicate and
-    their implementation
-  id: 290
-  level: 2.0
-  name: MCP Sessions
-  topic: AI
-- description: Exploring the coordination mechanisms, orchestration frameworks, and
-    communication patterns between multiple AI agents
-  id: 295
-  level: 2.0
-  name: Multi-Agent Collaboration
+  name: AI Lifecycle Management
   topic: AI
 - description: A discussion and survey of tools and platforms for AI model and agent
     lifecycle management
@@ -926,34 +759,11 @@ Modules:
   level: 2.0
   name: AI Security
   topic: AI
-- description: A look into how current CI/CD workflows can work for AI development,
-    training, and ongoing maintenance
-  id: 300
+- description: A look into the various risk frameworks, regulations, and legislation
+    that apply to AI systems
+  id: 346
   level: 2.0
-  name: AI CI/CD
-  topic: AI
-- description: Exploring how to apply GitOps principles to ML and agent system deployments
-  id: 301
-  level: 2.0
-  name: GitOps for AI
-  topic: AI
-- description: Examining practices for AI models and agents that promote easy long-term
-    maintenance and operational sustainability
-  id: 302
-  level: 2.0
-  name: AI Lifecycle Management
-  topic: AI
-- description: An AWS-specific look into the primary parts of an AI/ML Architecture
-    and the services that provide them
-  id: 304
-  level: 2.0
-  name: AWS AI/ML Architecture
-  topic: AI
-- description: A discussion on AWS-hosted options for Data Storage at all parts of
-    the AI/ML Pipeline
-  id: 308
-  level: 2.0
-  name: AI/ML Data Storage Pipelines
+  name: AI Security and Privacy Overview
   topic: AI
 - description: A look into the AWS-hosted offerings that support AI/ML model training
     workflows
@@ -961,59 +771,17 @@ Modules:
   level: 2.0
   name: AI Training Models
   topic: AI
-- description: A high-level overview of the processes and techniques of fine-tuning
-    LLMs to produce more specific outputs
-  id: 316
+- description: A discussion on AWS-hosted options for Data Storage at all parts of
+    the AI/ML Pipeline
+  id: 308
   level: 2.0
-  name: Fine-Tuning Overview
+  name: AI/ML Data Storage Pipelines
   topic: AI
-- description: A discussion on the ecosystem of open-source tools that facilitate
-    the development of GenAI applications
-  id: 318
+- description: An AWS-specific look into the primary parts of an AI/ML Architecture
+    and the services that provide them
+  id: 304
   level: 2.0
-  name: GenAI Development Tools
-  topic: AI
-- description: A mid-level technical discussion into the architecture that allows
-    large language models to transform inputs into relevant outputs
-  id: 323
-  level: 2.0
-  name: LLM Architecture
-  topic: AI
-- description: A discussion on the field of Natural Language Processing (NLP) and
-    its current applications with LLMs
-  id: 326
-  level: 2.0
-  name: LLMs and NLP
-  topic: AI
-- description: A discussion on infrastructure requirements and infrastructure for
-    serving LLMs at scale (featuring Kubernetes, Ray, and vLLM)
-  id: 327
-  level: 2.0
-  name: LLM Deployments at Scale
-  topic: AI
-- description: A look into what language models are, how they are used, and the common
-    libraries associated with them
-  id: 328
-  level: 2.0
-  name: Language Models and Applications
-  topic: AI
-- description: A look into Retrieval Augmented Generation (RAG) and how it helps enable
-    ad-hoc information gathering for LLMs
-  id: 330
-  level: 2.0
-  name: Retrieval Augmented Generation Overview
-  topic: AI
-- description: An exploration of attacks on AI and various mitigation strategies and
-    defenses against those attacks
-  id: 335
-  level: 2.0
-  name: Attacks and Defenses for LLMs
-  topic: AI
-- description: A discussion on secure software development and AI-related considerations
-    for designing secure AI systems
-  id: 336
-  level: 2.0
-  name: Secure Coding Practices for AI
+  name: AWS AI/ML Architecture
   topic: AI
 - description: A look into the AI-related considerations when implementing Access
     Control
@@ -1021,47 +789,21 @@ Modules:
   level: 2.0
   name: Access Control for AI
   topic: AI
-- description: Exploring the types of attacks that focus on acquiring data from a
-    model
-  id: 342
+- description: ''
+  id: 228
   level: 2.0
-  name: Model & Data Confidentiality Attacks
-  topic: AI
-- description: Discussing various frameworks for AI risk management with a focus on
-    the NIST AI Risk Management Framework
-  id: 343
-  level: 2.0
-  name: NIST Artificial Intelligence Risk Management Framework
-  topic: AI
-- description: A discussion of security issues associated with LLM applications and
-    the difficulties in securing them
-  id: 345
-  level: 2.0
-  name: Securing LLM-Based Applications
-  topic: AI
-- description: A look into the various risk frameworks, regulations, and legislation
-    that apply to AI systems
-  id: 346
-  level: 2.0
-  name: AI Security and Privacy Overview
-  topic: AI
-- description: Exploring the vulnerabilities and currently known attacks that threaten
-    an AI data supply chain and how to mitigate them
-  id: 347
-  level: 2.0
-  name: Data Supply Chain & Poisoning Attacks
-  topic: AI
+  name: Advanced Microservice Deployment Models
+  topic: Microservices
 - description: Exploring methods of prompting with LLMs that encourage cost-effectiveness,
     efficiency, and produce more effective outputs
   id: 349
   level: 2.0
   name: Advanced Prompting Techniques for LLMs
   topic: AI
-- description: An exploration of the tools (such as LangChain or function callers)
-    work within the Agentic framework
-  id: 354
+- description: ''
+  id: 417
   level: 2.0
-  name: LLM Tools and Structured Output
+  name: Agent Lifecycle Management with Pods, Jobs, and Controllers
   topic: AI
 - description: A discussion on how agents within an Agentic system can retain awareness
     of previous actions and how to set it up
@@ -1069,27 +811,10 @@ Modules:
   level: 2.0
   name: Agent Memory, Observation, and Planning
   topic: AI
-- description: An exploration on the protocols agents use in an Agentic system to
-    work together
-  id: 356
-  level: 2.0
-  name: Communication Protocols for Agents
-  topic: AI
-- description: A look into the tools and techniques necessary for effective evaluation
-    of an Agentic system's performance
-  id: 359
-  level: 2.0
-  name: Testing and Diagnostics for Agents
-  topic: AI
 - description: ''
-  id: 369
+  id: 418
   level: 2.0
-  name: AI Agents and the Agent Loop
-  topic: AI
-- description: ''
-  id: 370
-  level: 2.0
-  name: Core Agent Skill Types
+  name: Agent Orchestration Patterns and Inter-Agent Communication
   topic: AI
 - description: ''
   id: 372
@@ -1097,459 +822,141 @@ Modules:
   name: Agent Skill Orchestration
   topic: AI
 - description: ''
-  id: 374
-  level: 2.0
-  name: Tokenization, Windows, and the Economics of Context
-  topic: AI
+  id: 159
+  level: 2.3
+  name: Airflow Overview
+  topic: Spark
 - description: ''
-  id: 378
+  id: 155
+  level: 2.5
+  name: Airflow in Kubernetes
+  topic: Spark
+- description: Discussion on different ArangoDB deployment patterns, infrastructure
+    support, and scaling considerations
+  id: 169
   level: 2.0
-  name: Memory, State, and Temporal Context
-  topic: AI
-- description: ''
-  id: 379
+  name: ArangoDB Architecture
+  topic: ArangoDB
+- description: Discussion on data access & search optimization in ArangoDB
+  id: 173
+  level: 2.5
+  name: ArangoDB Data Operations
+  topic: ArangoDB
+- description: An exploration of attacks on AI and various mitigation strategies and
+    defenses against those attacks
+  id: 335
   level: 2.0
-  name: Tool Context and Model-Tool Boundaries
+  name: Attacks and Defenses for LLMs
   topic: AI
-- description: ''
-  id: 380
+- description: Exploration of Istio's basic Traffic Management capabilities, focusing
+    on Timeouts, Health Checks, and Fault Injection
+  id: 136
   level: 2.0
-  name: Evaluating and Evolving Context Designs
-  topic: AI
-- description: ''
-  id: 383
-  level: 2.0
-  name: Safety and Security
-  topic: AI
-- description: ''
-  id: 388
-  level: 2.0
-  name: Pipeline Pattern
-  topic: AI
-- description: ''
-  id: 389
-  level: 2.0
-  name: Routing Pattern
-  topic: AI
-- description: ''
-  id: 390
-  level: 2.0
-  name: Parallelization Pattern
-  topic: AI
-- description: ''
-  id: 391
-  level: 2.0
-  name: Reflection Pattern
-  topic: AI
-- description: ''
-  id: 392
-  level: 2.0
-  name: Tool Use Pattern
-  topic: AI
-- description: ''
-  id: 393
-  level: 2.0
-  name: Planning Pattern
-  topic: AI
-- description: ''
-  id: 394
-  level: 2.0
-  name: Multi-Agent Collaboration Pattern
-  topic: AI
-- description: ''
-  id: 395
-  level: 2.0
-  name: Memory Management Patterns
-  topic: AI
-- description: ''
-  id: 396
-  level: 2.0
-  name: Goal Setting and Monitoring Pattern
-  topic: AI
-- description: ''
-  id: 397
-  level: 2.0
-  name: Exception Handling and Recovery Pattern
-  topic: AI
-- description: ''
-  id: 398
-  level: 2.0
-  name: Human-in-the-Loop Pattern
-  topic: AI
-- description: ''
-  id: 401
-  level: 2.0
-  name: UIs with the MCP Apps Pattern
-  topic: AI
-- description: ''
-  id: 403
-  level: 2.0
-  name: Single-Agent LLM Systems
-  topic: AI
-- description: ''
-  id: 412
-  level: 2.0
-  name: Linkerd observability features for MCP traffic
-  topic: AI
-- description: ''
-  id: 416
-  level: 2.0
-  name: Kubernetes as an Agent Runtime Platform
-  topic: AI
-- description: ''
-  id: 417
-  level: 2.0
-  name: Agent Lifecycle Management with Pods, Jobs, and Controllers
-  topic: AI
-- description: ''
-  id: 418
-  level: 2.0
-  name: Agent Orchestration Patterns and Inter-Agent Communication
-  topic: AI
-- description: ''
-  id: 419
-  level: 2.0
-  name: 'Scaling Agents: Concurrency, Parallelism, and Resource Management'
-  topic: AI
-- description: Examination of Kubernetes control plane components, etcd, HA models,
-    and worker Node agents
-  id: 4
-  level: 2.1
-  name: Kubernetes Architecture
+  name: Basic Traffic Management in Istio
+  topic: Istio
+- description: Kubernetes block storage volumes and block storage CSI features
+  id: 6
+  level: 2.6
+  name: Block Storage in Kubernetes
   topic: Kubernetes
-- description: In-depth examination of the Kubernetes Dashboard
-  id: 13
-  level: 2.1
-  name: Kubernetes Dashboard
-  topic: Kubernetes
-- description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
-    restore'
-  id: 36
-  level: 2.1
-  name: State Operations in Kubernetes
-  topic: Kubernetes
+- description: Approaches, reviews domain-driven design and resilience patterns.
+  id: 72
+  level: 2.0
+  name: Brown Field Microservices
+  topic: Microservices
+- description: Learn the Consumer client API.
+  id: 93
+  level: 2.2
+  name: Building Consumers in Kafka
+  topic: Kafka
+- description: Learn the Producer client API.
+  id: 92
+  level: 2.2
+  name: Building Producers in Kafka
+  topic: Kafka
 - description: Learn how to create concurrent functions in Go.
   id: 52
   level: 2.1
   name: CSP and Go Routines
   topic: Go
-- description: Learn the best practices when developing Go programs.
-  id: 60
-  level: 2.1
-  name: Idiomatic Go
-  topic: Go
-- description: Review of the Go language for those with basic knowledge of Go.
-  id: 67
-  level: 2.1
-  name: Review of Go
-  topic: Go
-- description: Learn about the Go standard library.
-  id: 68
-  level: 2.1
-  name: The Go Standard Library
-  topic: Go
-- description: ''
-  id: 78
-  level: 2.1
-  name: Microservice Communications I - APIs
-  topic: Microservices
-- description: Learn the basic components of Kafka and how they programmatically relate.
-  id: 91
-  level: 2.1
-  name: Overview of Kafka Development
-  topic: Kafka
-- description: ''
-  id: 104
-  level: 2.1
-  name: Data in Python
-  topic: Python
-- description: ''
-  id: 120
-  level: 2.1
-  name: Python Standard Library
-  topic: Python
-- description: ''
-  id: 188
-  level: 2.1
-  name: Kafka Producers & Consumers
-  topic: Kafka
-- description: Discussion of optimal practices when using EKS
-  id: 208
-  level: 2.1
-  name: EKS In Practice
-  topic: Kubernetes
-- description: ''
-  id: 229
-  level: 2.1
-  name: GitOps with Microservices
-  topic: Microservices
-- description: ''
-  id: 243
-  level: 2.1
-  name: Microservice Operational Patterns
-  topic: Microservices
-- description: Preparing data for use in machine learning and AI scenarios.
-  id: 247
-  level: 2.1
-  name: Data Preparation
-  topic: AI
-- description: Modern deep learning architectures.
-  id: 255
-  level: 2.1
-  name: Deep Learning Architectures
-  topic: AI
 - description: Explorer using and managing channel objects.
   id: 50
   level: 2.2
   name: Channels as First Class Values in Go
   topic: Go
 - description: ''
-  id: 79
-  level: 2.2
-  name: Microservice Communications II - RPC
+  id: 102
+  level: 2.3
+  name: Classes and OOP in Python
+  topic: Python
+- description: ''
+  id: 73
+  level: 2.0
+  name: Cloud Native Transactions
   topic: Microservices
-- description: Learn the Producer client API.
-  id: 92
-  level: 2.2
-  name: Building Producers in Kafka
-  topic: Kafka
-- description: Learn the Consumer client API.
-  id: 93
-  level: 2.2
-  name: Building Consumers in Kafka
-  topic: Kafka
-- description: Learn the Connector API.
-  id: 94
-  level: 2.2
-  name: Developing Connectors in Kafka
-  topic: Kafka
 - description: ''
   id: 103
   level: 2.2
   name: Collections and Comprehensions in Python
   topic: Python
-- description: Examination of ArangoDB's data model, indexing capabilities, and transactional
-    queries
-  id: 172
-  level: 2.2
-  name: Data Modeling, Indexing, & Transactions in ArangoDB
-  topic: ArangoDB
-- description: ''
-  id: 192
-  level: 2.2
-  name: Kafka Topics
-  topic: Kafka
-- description: ''
-  id: 244
-  level: 2.2
-  name: Microservice Migration Patterns
-  topic: Microservices
-- description: Data visualization and exploratory data analysis.
-  id: 248
-  level: 2.2
-  name: Exploratory Data Analysis
+- description: An exploration on the protocols agents use in an Agentic system to
+    work together
+  id: 356
+  level: 2.0
+  name: Communication Protocols for Agents
   topic: AI
-- description: ''
-  id: 256
-  level: 2.2
-  name: Deep Learning with PyTorch
-  topic: AI
-- description: 'Software defined networking (SDN) and Kubernetes: networking models,
-    network policy, and SDN configuration'
-  id: 32
-  level: 2.3
-  name: Software Defined Networking
-  topic: Kubernetes
-- description: Overview of software defined networking, network policy and ingress
-    load balancing
-  id: 33
-  level: 2.3
-  name: Pod Networking Overview
-  topic: Kubernetes
-- description: 'Kubernetes Network Policy concepts and primitives: ingress and egress
-    policies, patterns, and limitations'
-  id: 39
-  level: 2.3
-  name: Kubernetes Network Policy
-  topic: Kubernetes
-- description: 'Kubernetes ingress load balancing: concepts, rules, primitives, TLS
-    termination, and rate limiting'
-  id: 40
-  level: 2.3
-  name: Ingress Load Balancing in Kubernetes
-  topic: Kubernetes
 - description: Learning how to control asynchronous Go routines with the context package.
   id: 51
   level: 2.3
   name: Context in Go
   topic: Go
 - description: ''
-  id: 80
-  level: 2.3
-  name: Microservice Communications III - Messaging
-  topic: Microservices
-- description: 'Introduction to building container images with Dockerfiles including:
-    Dockerfile syntax, caching, and build options'
-  id: 89
-  level: 2.3
-  name: 'Dockerfiles: Basics'
-  topic: Containers
-- description: ''
-  id: 102
-  level: 2.3
-  name: Classes and OOP in Python
-  topic: Python
-- description: ''
-  id: 139
-  level: 2.3
-  name: Ownership & Borrowing in Rust
-  topic: Rust
-- description: ''
-  id: 159
-  level: 2.3
-  name: Airflow Overview
-  topic: Spark
-- description: ''
-  id: 182
-  level: 2.3
-  name: Kafka Brokers
-  topic: Kafka
-- description: ''
-  id: 186
-  level: 2.3
-  name: Failure Modes in Kafka
-  topic: Kafka
-- description: Measuring models and exploring loses and metrics.
-  id: 249
-  level: 2.3
-  name: Measuring Machine Learning Models
+  id: 370
+  level: 2.0
+  name: Core Agent Skill Types
   topic: AI
-- description: Working with linear machine learning models.
-  id: 250
-  level: 2.3
-  name: Linear Machine Learning Models
-  topic: AI
-- description: Explore the Golang 3rd party ecosystem.
-  id: 48
-  level: 2.4
-  name: Go's 3rd Party Ecosystem
-  topic: Go
-- description: Learn how to debug Go programs, techniques, and tools like Delve.
-  id: 54
-  level: 2.4
-  name: Go Debugging
-  topic: Go
-- description: Learn how to use the Go profiling tools.
-  id: 55
-  level: 2.4
-  name: Go Profiling and Performance
-  topic: Go
-- description: Learn about the http package from the Go standard library.
-  id: 59
-  level: 2.4
-  name: The Go Http Library
-  topic: Go
-- description: 'Advanced patterns using Dockerfiles: multistage and automated builds,
-    advanced syntax, and best practices'
-  id: 90
-  level: 2.4
-  name: 'Dockerfiles: Advanced'
-  topic: Containers
-- description: Learn how Producers can be resilient to Kafka failures.
-  id: 95
-  level: 2.4
-  name: Managing Failure Modes in Kafka Producers
-  topic: Kafka
-- description: Learn how Consumers can be resilient to Kafka failures.
-  id: 96
-  level: 2.4
-  name: Managing Failure Modes in Kafka Consumers
-  topic: Kafka
-- description: ''
-  id: 189
-  level: 2.4
-  name: Kafka Schema Registry
-  topic: Kafka
-- description: ''
-  id: 193
-  level: 2.4
-  name: Using Zookeeper with Kafka
-  topic: Kafka
-- description: Working with supervised non-linear machine learning models.
-  id: 251
-  level: 2.4
-  name: 'Nonlinear Models: Supervised'
-  topic: AI
-- description: Techniques for exposing file storage systems to Kubernetes Pods
-  id: 15
-  level: 2.5
-  name: File Storage in Kubernetes
-  topic: Kubernetes
-- description: Exposing locally attached storage to application Pods with demanding
-    disk IOPS
-  id: 18
-  level: 2.5
-  name: Local Storage in Kubernetes
-  topic: Kubernetes
-- description: The StatefulSet application controller and Kubernetes' storage abstraction
-    using Storage Classes, PVs, and PVCs
-  id: 19
-  level: 2.5
-  name: Stateful Workloads in Kubernetes
-  topic: Kubernetes
-- description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
-    for users and application Pods
-  id: 37
-  level: 2.5
-  name: Kubernetes RBAC
-  topic: Kubernetes
-- description: Learn about the reflection package from the Go standard library.
-  id: 66
-  level: 2.5
-  name: Go Reflection
-  topic: Go
-- description: Look at how Istio enables external traffic into the cluster as an Ingress
-    Controller
-  id: 137
-  level: 2.5
-  name: Istio Ingress
-  topic: Istio
-- description: ''
-  id: 155
-  level: 2.5
-  name: Airflow in Kubernetes
-  topic: Spark
-- description: ''
-  id: 165
-  level: 2.5
-  name: Text Processing in Linux
-  topic: Linux
-- description: Discussion on data access & search optimization in ArangoDB
-  id: 173
-  level: 2.5
-  name: ArangoDB Data Operations
+- description: Examination of ArangoDB's data model, indexing capabilities, and transactional
+    queries
+  id: 172
+  level: 2.2
+  name: Data Modeling, Indexing, & Transactions in ArangoDB
   topic: ArangoDB
-- description: ''
-  id: 191
-  level: 2.5
-  name: Kafka Streams
-  topic: Kafka
-- description: Discussion of how to control access to EKS clusters through AWS Identity
-    & Access Management
-  id: 206
-  level: 2.5
-  name: EKS & IAM
-  topic: Kubernetes
-- description: Working with unsupervised non-linear machine learning models.
-  id: 252
-  level: 2.5
-  name: 'Nonlinear Models: Unsupervised'
+- description: Preparing data for use in machine learning and AI scenarios.
+  id: 247
+  level: 2.1
+  name: Data Preparation
   topic: AI
-- description: Kubernetes block storage volumes and block storage CSI features
-  id: 6
-  level: 2.6
-  name: Block Storage in Kubernetes
-  topic: Kubernetes
+- description: Exploring the vulnerabilities and currently known attacks that threaten
+    an AI data supply chain and how to mitigate them
+  id: 347
+  level: 2.0
+  name: Data Supply Chain & Poisoning Attacks
+  topic: AI
+- description: ''
+  id: 104
+  level: 2.1
+  name: Data in Python
+  topic: Python
+- description: Modern deep learning architectures.
+  id: 255
+  level: 2.1
+  name: Deep Learning Architectures
+  topic: AI
+- description: An overview of deep learning concepts and tools.
+  id: 254
+  level: 2.0
+  name: Deep Learning Fundamentals
+  topic: AI
+- description: ''
+  id: 256
+  level: 2.2
+  name: Deep Learning with PyTorch
+  topic: AI
+- description: Learn the Connector API.
+  id: 94
+  level: 2.2
+  name: Developing Connectors in Kafka
+  topic: Kafka
 - description: Learn the Stream API.
   id: 97
   level: 2.6
@@ -1560,16 +967,54 @@ Modules:
   level: 2.6
   name: Developing Stateful Kafka Stream Processors
   topic: Kafka
+- description: 'Advanced patterns using Dockerfiles: multistage and automated builds,
+    advanced syntax, and best practices'
+  id: 90
+  level: 2.4
+  name: 'Dockerfiles: Advanced'
+  topic: Containers
+- description: 'Introduction to building container images with Dockerfiles including:
+    Dockerfile syntax, caching, and build options'
+  id: 89
+  level: 2.3
+  name: 'Dockerfiles: Basics'
+  topic: Containers
+- description: Discussion of how to control access to EKS clusters through AWS Identity
+    & Access Management
+  id: 206
+  level: 2.5
+  name: EKS & IAM
+  topic: Kubernetes
 - description: Exploration of the integration between EKS, AWS EC2 autoscaling, and
     how to optimize costs
   id: 207
   level: 2.6
   name: EKS Autoscaling
   topic: Kubernetes
-- description: Tuning and experimenting hyperparameters.
-  id: 253
-  level: 2.6
-  name: Hyperparameter Tuning
+- description: Discussion of optimal practices when using EKS
+  id: 208
+  level: 2.1
+  name: EKS In Practice
+  topic: Kubernetes
+- description: Basic overview of the AWS Elastic Kubernetes Service (EKS) offering
+  id: 205
+  level: 2.0
+  name: EKS Overview
+  topic: Kubernetes
+- description: ''
+  id: 380
+  level: 2.0
+  name: Evaluating and Evolving Context Designs
+  topic: AI
+- description: ''
+  id: 397
+  level: 2.0
+  name: Exception Handling and Recovery Pattern
+  topic: AI
+- description: Data visualization and exploratory data analysis.
+  id: 248
+  level: 2.2
+  name: Exploratory Data Analysis
   topic: AI
 - description: Exploration of how to expand ArangoDB's API using Foxx JavaScript extensions
   id: 175
@@ -1577,19 +1022,156 @@ Modules:
   name: Extend ArangoDB using Foxx JavaScript Microservices
   topic: ArangoDB
 - description: ''
-  id: 150
-  level: 2.8
-  name: Rust Generics
-  topic: Rust
+  id: 186
+  level: 2.3
+  name: Failure Modes in Kafka
+  topic: Kafka
 - description: ''
-  id: 166
-  level: 2.8
-  name: Processes & Job Control in Linux
+  id: 164
+  level: 2.0
+  name: File Processing in Linux
   topic: Linux
+- description: Techniques for exposing file storage systems to Kubernetes Pods
+  id: 15
+  level: 2.5
+  name: File Storage in Kubernetes
+  topic: Kubernetes
+- description: A high-level overview of the processes and techniques of fine-tuning
+    LLMs to produce more specific outputs
+  id: 316
+  level: 2.0
+  name: Fine-Tuning Overview
+  topic: AI
+- description: 'Learn about FoundationDB''s elastically scalable services: proxies,
+    log servers, storage servers, and more.'
+  id: 262
+  level: 2.0
+  name: FoundationDB Architecture
+  topic: FoundationDB
+- description: 'Learn about the features of FoundationDB, including: transactions,
+    consistency, performance, scalability, and elasticity.'
+  id: 263
+  level: 2.0
+  name: FoundationDB Overview
+  topic: FoundationDB
+- description: ''
+  id: 75
+  level: 2.0
+  name: Gateways and Service Meshes
+  topic: Microservices
+- description: A discussion on the ecosystem of open-source tools that facilitate
+    the development of GenAI applications
+  id: 318
+  level: 2.0
+  name: GenAI Development Tools
+  topic: AI
+- description: Exploring how to apply GitOps principles to ML and agent system deployments
+  id: 301
+  level: 2.0
+  name: GitOps for AI
+  topic: AI
+- description: ''
+  id: 229
+  level: 2.1
+  name: GitOps with Microservices
+  topic: Microservices
+- description: Learn how to debug Go programs, techniques, and tools like Delve.
+  id: 54
+  level: 2.4
+  name: Go Debugging
+  topic: Go
+- description: Learn how to use the Go profiling tools.
+  id: 55
+  level: 2.4
+  name: Go Profiling and Performance
+  topic: Go
+- description: Learn about the reflection package from the Go standard library.
+  id: 66
+  level: 2.5
+  name: Go Reflection
+  topic: Go
+- description: Explore the Golang 3rd party ecosystem.
+  id: 48
+  level: 2.4
+  name: Go's 3rd Party Ecosystem
+  topic: Go
+- description: ''
+  id: 396
+  level: 2.0
+  name: Goal Setting and Monitoring Pattern
+  topic: AI
+- description: Examines the basic architecture and interaction with Helm Charts
+  id: 129
+  level: 2.0
+  name: Helm Chart Basics
+  topic: Helm
+- description: Explores the practices around creating a Helm chart for an application
+  id: 130
+  level: 2.0
+  name: Helm Templating
+  topic: Helm
+- description: ''
+  id: 398
+  level: 2.0
+  name: Human-in-the-Loop Pattern
+  topic: AI
+- description: Tuning and experimenting hyperparameters.
+  id: 253
+  level: 2.6
+  name: Hyperparameter Tuning
+  topic: AI
+- description: Learn the best practices when developing Go programs.
+  id: 60
+  level: 2.1
+  name: Idiomatic Go
+  topic: Go
+- description: 'Kubernetes ingress load balancing: concepts, rules, primitives, TLS
+    termination, and rate limiting'
+  id: 40
+  level: 2.3
+  name: Ingress Load Balancing in Kubernetes
+  topic: Kubernetes
+- description: Look at how Istio enables external traffic into the cluster as an Ingress
+    Controller
+  id: 137
+  level: 2.5
+  name: Istio Ingress
+  topic: Istio
+- description: ''
+  id: 182
+  level: 2.3
+  name: Kafka Brokers
+  topic: Kafka
+- description: ''
+  id: 188
+  level: 2.1
+  name: Kafka Producers & Consumers
+  topic: Kafka
+- description: ''
+  id: 189
+  level: 2.4
+  name: Kafka Schema Registry
+  topic: Kafka
+- description: ''
+  id: 191
+  level: 2.5
+  name: Kafka Streams
+  topic: Kafka
+- description: ''
+  id: 192
+  level: 2.2
+  name: Kafka Topics
+  topic: Kafka
 - description: Guidance and best practices for building secure microservice APIs
   id: 3
   level: 2.9
   name: Kubernetes API Security
+  topic: Kubernetes
+- description: Examination of Kubernetes control plane components, etcd, HA models,
+    and worker Node agents
+  id: 4
+  level: 2.1
+  name: Kubernetes Architecture
   topic: Kubernetes
 - description: 'Kubernetes day 2 operations covered: version upgrades and adding infrastructure
     nodes'
@@ -1597,12 +1179,419 @@ Modules:
   level: 2.9
   name: Kubernetes Cluster Maintenance
   topic: Kubernetes
-- description: 'Examination of the Kubernetes database: etcd; including bootstrapping,
-    sizing, backup and restore'
-  id: 14
-  level: 2.9
-  name: etcd
+- description: In-depth examination of the Kubernetes Dashboard
+  id: 13
+  level: 2.1
+  name: Kubernetes Dashboard
   topic: Kubernetes
+- description: 'Kubernetes Network Policy concepts and primitives: ingress and egress
+    policies, patterns, and limitations'
+  id: 39
+  level: 2.3
+  name: Kubernetes Network Policy
+  topic: Kubernetes
+- description: Kubernetes Role Based Access Control (RBAC) concepts and primitives
+    for users and application Pods
+  id: 37
+  level: 2.5
+  name: Kubernetes RBAC
+  topic: Kubernetes
+- description: ''
+  id: 77
+  level: 2.0
+  name: Kubernetes Services and Networking
+  topic: Microservices
+- description: ''
+  id: 416
+  level: 2.0
+  name: Kubernetes as an Agent Runtime Platform
+  topic: AI
+- description: ''
+  id: 154
+  level: 2.0
+  name: Kubernetes in the Cloud
+  topic: Spark
+- description: A mid-level technical discussion into the architecture that allows
+    large language models to transform inputs into relevant outputs
+  id: 323
+  level: 2.0
+  name: LLM Architecture
+  topic: AI
+- description: A discussion on infrastructure requirements and infrastructure for
+    serving LLMs at scale (featuring Kubernetes, Ray, and vLLM)
+  id: 327
+  level: 2.0
+  name: LLM Deployments at Scale
+  topic: AI
+- description: An exploration of the tools (such as LangChain or function callers)
+    work within the Agentic framework
+  id: 354
+  level: 2.0
+  name: LLM Tools and Structured Output
+  topic: AI
+- description: A discussion on the field of Natural Language Processing (NLP) and
+    its current applications with LLMs
+  id: 326
+  level: 2.0
+  name: LLMs and NLP
+  topic: AI
+- description: A technical dive covering the components of a LangChain-powered system
+  id: 276
+  level: 2.0
+  name: LangChain Components
+  topic: AI
+- description: A high-level look at LangChain, its development considerations, use
+    cases, and its place in LLM application development
+  id: 277
+  level: 2.0
+  name: LangChain Fundamentals
+  topic: AI
+- description: A look into what language models are, how they are used, and the common
+    libraries associated with them
+  id: 328
+  level: 2.0
+  name: Language Models and Applications
+  topic: AI
+- description: Working with linear machine learning models.
+  id: 250
+  level: 2.3
+  name: Linear Machine Learning Models
+  topic: AI
+- description: ''
+  id: 412
+  level: 2.0
+  name: Linkerd observability features for MCP traffic
+  topic: AI
+- description: Exposing locally attached storage to application Pods with demanding
+    disk IOPS
+  id: 18
+  level: 2.5
+  name: Local Storage in Kubernetes
+  topic: Kubernetes
+- description: Exploring the client-side perspective of the model context protocol
+  id: 283
+  level: 2.0
+  name: MCP Clients
+  topic: AI
+- description: A look at how servers provide the fundamental building blocks for adding
+    context to language models via MCP
+  id: 289
+  level: 2.0
+  name: MCP Servers
+  topic: AI
+- description: Technical exploration of how MCP clients and servers communicate and
+    their implementation
+  id: 290
+  level: 2.0
+  name: MCP Sessions
+  topic: AI
+- description: Learn how Consumers can be resilient to Kafka failures.
+  id: 96
+  level: 2.4
+  name: Managing Failure Modes in Kafka Consumers
+  topic: Kafka
+- description: Learn how Producers can be resilient to Kafka failures.
+  id: 95
+  level: 2.4
+  name: Managing Failure Modes in Kafka Producers
+  topic: Kafka
+- description: Measuring models and exploring loses and metrics.
+  id: 249
+  level: 2.3
+  name: Measuring Machine Learning Models
+  topic: AI
+- description: ''
+  id: 395
+  level: 2.0
+  name: Memory Management Patterns
+  topic: AI
+- description: ''
+  id: 378
+  level: 2.0
+  name: Memory, State, and Temporal Context
+  topic: AI
+- description: ''
+  id: 242
+  level: 2.0
+  name: Microservice Aggregates
+  topic: Microservices
+- description: ''
+  id: 78
+  level: 2.1
+  name: Microservice Communications I - APIs
+  topic: Microservices
+- description: ''
+  id: 79
+  level: 2.2
+  name: Microservice Communications II - RPC
+  topic: Microservices
+- description: ''
+  id: 80
+  level: 2.3
+  name: Microservice Communications III - Messaging
+  topic: Microservices
+- description: ''
+  id: 244
+  level: 2.2
+  name: Microservice Migration Patterns
+  topic: Microservices
+- description: ''
+  id: 81
+  level: 2.0
+  name: Microservice Operability
+  topic: Microservices
+- description: ''
+  id: 243
+  level: 2.1
+  name: Microservice Operational Patterns
+  topic: Microservices
+- description: ''
+  id: 82
+  level: 2.0
+  name: Microservice Orchestration
+  topic: Microservices
+- description: ''
+  id: 83
+  level: 2.0
+  name: Microservice Overview
+  topic: Microservices
+- description: Exploring the types of attacks that focus on acquiring data from a
+    model
+  id: 342
+  level: 2.0
+  name: Model & Data Confidentiality Attacks
+  topic: AI
+- description: Exploring the coordination mechanisms, orchestration frameworks, and
+    communication patterns between multiple AI agents
+  id: 295
+  level: 2.0
+  name: Multi-Agent Collaboration
+  topic: AI
+- description: ''
+  id: 394
+  level: 2.0
+  name: Multi-Agent Collaboration Pattern
+  topic: AI
+- description: Discussing various frameworks for AI risk management with a focus on
+    the NIST AI Risk Management Framework
+  id: 343
+  level: 2.0
+  name: NIST Artificial Intelligence Risk Management Framework
+  topic: AI
+- description: Working with supervised non-linear machine learning models.
+  id: 251
+  level: 2.4
+  name: 'Nonlinear Models: Supervised'
+  topic: AI
+- description: Working with unsupervised non-linear machine learning models.
+  id: 252
+  level: 2.5
+  name: 'Nonlinear Models: Unsupervised'
+  topic: AI
+- description: Working with numpy and pandas for data processing.
+  id: 246
+  level: 2.0
+  name: NumPy and Pandas
+  topic: AI
+- description: ''
+  id: 85
+  level: 2.0
+  name: Observability Overview
+  topic: Microservices
+- description: Learn the basic components of Kafka and how they programmatically relate.
+  id: 91
+  level: 2.1
+  name: Overview of Kafka Development
+  topic: Kafka
+- description: ''
+  id: 139
+  level: 2.3
+  name: Ownership & Borrowing in Rust
+  topic: Rust
+- description: ''
+  id: 390
+  level: 2.0
+  name: Parallelization Pattern
+  topic: AI
+- description: ''
+  id: 388
+  level: 2.0
+  name: Pipeline Pattern
+  topic: AI
+- description: ''
+  id: 393
+  level: 2.0
+  name: Planning Pattern
+  topic: AI
+- description: Overview of software defined networking, network policy and ingress
+    load balancing
+  id: 33
+  level: 2.3
+  name: Pod Networking Overview
+  topic: Kubernetes
+- description: 'Scheduling Pods using Pod and Node metadata: affinities, anti-affinities,
+    Node taints and Pod tolerations'
+  id: 29
+  level: 2.0
+  name: Pod Scheduling in Kubernetes
+  topic: Kubernetes
+- description: ''
+  id: 166
+  level: 2.8
+  name: Processes & Job Control in Linux
+  topic: Linux
+- description: ''
+  id: 120
+  level: 2.1
+  name: Python Standard Library
+  topic: Python
+- description: ''
+  id: 391
+  level: 2.0
+  name: Reflection Pattern
+  topic: AI
+- description: A look into Retrieval Augmented Generation (RAG) and how it helps enable
+    ad-hoc information gathering for LLMs
+  id: 330
+  level: 2.0
+  name: Retrieval Augmented Generation Overview
+  topic: AI
+- description: Review of the Go language for those with basic knowledge of Go.
+  id: 67
+  level: 2.1
+  name: Review of Go
+  topic: Go
+- description: ''
+  id: 389
+  level: 2.0
+  name: Routing Pattern
+  topic: AI
+- description: ''
+  id: 141
+  level: 2.0
+  name: Rust Functions
+  topic: Rust
+- description: ''
+  id: 150
+  level: 2.8
+  name: Rust Generics
+  topic: Rust
+- description: ''
+  id: 146
+  level: 2.0
+  name: Rust Methods & Traits
+  topic: Rust
+- description: ''
+  id: 383
+  level: 2.0
+  name: Safety and Security
+  topic: AI
+- description: ''
+  id: 419
+  level: 2.0
+  name: 'Scaling Agents: Concurrency, Parallelism, and Resource Management'
+  topic: AI
+- description: A discussion on secure software development and AI-related considerations
+    for designing secure AI systems
+  id: 336
+  level: 2.0
+  name: Secure Coding Practices for AI
+  topic: AI
+- description: A discussion of security issues associated with LLM applications and
+    the difficulties in securing them
+  id: 345
+  level: 2.0
+  name: Securing LLM-Based Applications
+  topic: AI
+- description: Exploration of the concept of Service Meshes applied to Kubernetes
+  id: 209
+  level: 2.0
+  name: Service Mesh Overview
+  topic: Kubernetes
+- description: ''
+  id: 163
+  level: 2.0
+  name: Shell Operations in Linux
+  topic: Linux
+- description: ''
+  id: 403
+  level: 2.0
+  name: Single-Agent LLM Systems
+  topic: AI
+- description: 'Software defined networking (SDN) and Kubernetes: networking models,
+    network policy, and SDN configuration'
+  id: 32
+  level: 2.3
+  name: Software Defined Networking
+  topic: Kubernetes
+- description: ''
+  id: 84
+  level: 2.0
+  name: Software Delivery Pipelines
+  topic: Microservices
+- description: ''
+  id: 230
+  level: 2.9
+  name: Software Supply Chain Security
+  topic: Microservices
+- description: ''
+  id: 157
+  level: 2.0
+  name: Spark Observability & Scaling
+  topic: Spark
+- description: 'Kubernetes volume operations: resizing, snapshotting, and backup and
+    restore'
+  id: 36
+  level: 2.1
+  name: State Operations in Kubernetes
+  topic: Kubernetes
+- description: The StatefulSet application controller and Kubernetes' storage abstraction
+    using Storage Classes, PVs, and PVCs
+  id: 19
+  level: 2.5
+  name: Stateful Workloads in Kubernetes
+  topic: Kubernetes
+- description: ''
+  id: 86
+  level: 2.0
+  name: Stateless Services and Polyglot Persistence
+  topic: Microservices
+- description: A look into the tools and techniques necessary for effective evaluation
+    of an Agentic system's performance
+  id: 359
+  level: 2.0
+  name: Testing and Diagnostics for Agents
+  topic: AI
+- description: ''
+  id: 165
+  level: 2.5
+  name: Text Processing in Linux
+  topic: Linux
+- description: Learn about the http package from the Go standard library.
+  id: 59
+  level: 2.4
+  name: The Go Http Library
+  topic: Go
+- description: Learn about the Go standard library.
+  id: 68
+  level: 2.1
+  name: The Go Standard Library
+  topic: Go
+- description: ''
+  id: 374
+  level: 2.0
+  name: Tokenization, Windows, and the Economics of Context
+  topic: AI
+- description: ''
+  id: 379
+  level: 2.0
+  name: Tool Context and Model-Tool Boundaries
+  topic: AI
+- description: ''
+  id: 392
+  level: 2.0
+  name: Tool Use Pattern
+  topic: AI
 - description: Troubleshooting stuck or crashing Pods, network connectivity and service
     discovery and cluster components (optional)
   id: 35
@@ -1610,15 +1599,294 @@ Modules:
   name: Troubleshooting Kubernetes Workloads
   topic: Kubernetes
 - description: ''
-  id: 230
+  id: 401
+  level: 2.0
+  name: UIs with the MCP Apps Pattern
+  topic: AI
+- description: ''
+  id: 193
+  level: 2.4
+  name: Using Zookeeper with Kafka
+  topic: Kafka
+- description: 'Examination of the Kubernetes database: etcd; including bootstrapping,
+    sizing, backup and restore'
+  id: 14
   level: 2.9
-  name: Software Supply Chain Security
-  topic: Microservices
+  name: etcd
+  topic: Kubernetes
+- description: A discussion on the importance of GPUs in AI-driven systems and how
+    to implement them on AWS
+  id: 306
+  level: 3.0
+  name: AWS Advanced Infrastructure (GPU, Inferentia, Trainium)
+  topic: AI
+- description: ''
+  id: 183
+  level: 3.0
+  name: Advanced Stream Processing in Kafka
+  topic: Kafka
+- description: Discussion around Istio's Load Balancing and Service Discovery capabilities
+  id: 138
+  level: 3.0
+  name: Advanced Traffic Management in Istio
+  topic: Istio
+- description: Discussion on how to improve ArangoDB's runtime performance
+  id: 177
+  level: 3.0
+  name: ArangoDB Performance Tuning
+  topic: ArangoDB
+- description: Working with API auditing and audit log policies
+  id: 5
+  level: 3.9
+  name: Auditing in Kubernetes
+  topic: Kubernetes
+- description: Learn how to use FoundationDB data models to store application data
+    mapped to keys and values.
+  id: 257
+  level: 3.0
+  name: Basic Data Modeling in FoundationDB
+  topic: FoundationDB
+- description: An exploration of the value of Amazon Bedrock as a managed service
+    for accessing diverse foundation models
+  id: 307
+  level: 3.0
+  name: Bedrock
+  topic: AI
+- description: Using unikernels and/or micro-VMs for improved Pod security and hard
+    multi-tenancy in Kubernetes
+  id: 46
+  level: 3.9
+  name: Behavioral Analysis in Kubernetes
+  topic: Kubernetes
+- description: A look into building a retrieval augmented generation (RAG) with LangChain
+  id: 291
+  level: 3.0
+  name: Building Applications with LangChain
+  topic: AI
+- description: ''
+  id: 371
+  level: 3.0
+  name: Building Custom Agent Skills
+  topic: AI
+- description: ''
+  id: 167
+  level: 3.0
+  name: Cgroups & Namespaces in Linux
+  topic: Linux
+- description: Exploration of how to create clients that can interact with ArangoDB
+    programmatically through code
+  id: 171
+  level: 3.1
+  name: Code Clients for ArangoDB
+  topic: ArangoDB
+- description: ''
+  id: 413
+  level: 3.0
+  name: Configuring Linkerd Authorization policies for MCP traffic
+  topic: AI
+- description: ''
+  id: 153
+  level: 3.0
+  name: Cost Management for Spark
+  topic: Spark
+- description: A technical dive exploration the mechanisms and techniques necessary
+    for effective data ingestion during training and prompt-time requests
+  id: 361
+  level: 3.0
+  name: Data Ingestion & Chunking Strategies
+  topic: AI
+- description: ''
+  id: 184
+  level: 3.2
+  name: Debugging and monitoring Stream Processing Applications
+  topic: Kafka
+- description: Understanding the power range operations bring to a key value store
+    and explore the various range operations available in FDB.
+  id: 265
+  level: 3.0
+  name: Design Considerations for Range Based Key/Value Stores
+  topic: FoundationDB
+- description: ''
+  id: 144
+  level: 3.0
+  name: Errors in Rust
+  topic: Rust
+- description: Dig into the nuts and bolts of FoundationDB's distributed architecture,
+    data storage and transaction processing components.
+  id: 269
+  level: 3.0
+  name: FoundationDB Architecture Deep Dive
+  topic: FoundationDB
+- description: An exploration of the practices, design considerations, and tools involved
+    when architecting Gen AI systems
+  id: 317
+  level: 3.0
+  name: GenAI App Components
+  topic: AI
+- description: Discusses additional details in chart building, such as establishing
+    dependencies
+  id: 127
+  level: 3.0
+  name: Helm Chart Patterns
+  topic: Helm
+- description: A technical dive into implementing a hybrid information retrieval approach
+    which can greatly improve the relevance of outputs from an LLM-driven system
+  id: 362
+  level: 3.0
+  name: Hybrid Retrieval & Filters
+  topic: AI
+- description: 'Best practices for container image security: scanning, image signing,
+    and binary authorization'
+  id: 16
+  level: 3.9
+  name: Image Security
+  topic: Containers
+- description: ''
+  id: 375
+  level: 3.0
+  name: Instruction Hierarchy and Context Layering
+  topic: AI
+- description: Exploration of Policy-based networking control on the Istio Service
+    Mesh using its own custom resources
+  id: 132
+  level: 3.0
+  name: Istio Policy
+  topic: Istio
+- description: ''
+  id: 110
+  level: 3.3
+  name: Jinja in Python
+  topic: Python
+- description: ''
+  id: 190
+  level: 3.1
+  name: Kafka Security
+  topic: Kafka
+- description: Admission controller operations and key implementations in the Kubernetes
+    API Server
+  id: 1
+  level: 3.1
+  name: Kubernetes Admission Control
+  topic: Kubernetes
+- description: 'Overview the aspects of Observability: Logging, metrics, and tracing
+    and implementations in Kubernetes'
+  id: 24
+  level: 3.0
+  name: Kubernetes Observability Overview
+  topic: Kubernetes
+- description: A look at pod security features and secure pod design approaches.
+  id: 124
+  level: 3.5
+  name: Kubernetes Pod Security
+  topic: Kubernetes
+- description: Examination of Kubernetes OS based and VM based container runtime solutions
+  id: 45
+  level: 3.8
+  name: Kubernetes Runtime Security
+  topic: Kubernetes
+- description: In-depth discussion on the nature of the Kubernetes default scheduler
+  id: 222
+  level: 3.0
+  name: Kubernetes Scheduler In-Depth
+  topic: Kubernetes
+- description: Overview of Kubernetes API security (RBAC, Namespaces, PSP) and Pod
+    security (Security Context, Capabilities, etc.)
+  id: 87
+  level: 3.0
+  name: Kubernetes Security Overview
+  topic: Kubernetes
 - description: Templating for Kubernetes application manifests using the kustomize
     command line utility
   id: 17
   level: 3.0
   name: Kustomize
+  topic: Kubernetes
+- description: An advanced deep-dive into the transformer architecture that allows
+    LLMs identify relevant outputs for a given input
+  id: 324
+  level: 3.0
+  name: LLM Architecture in Depth
+  topic: AI
+- description: An exploration of LangGraph, a framework that extends LangChain by
+    introducing graph-based control flow for agents
+  id: 280
+  level: 3.0
+  name: LangGraph Fundamentals
+  topic: AI
+- description: An exploration of advanced LangChain graph patterns that empower structured
+    reasoning in complex AI workflows
+  id: 279
+  level: 3.0
+  name: LangGraph Patterns and Components
+  topic: AI
+- description: An exploration on tracing a LangChain app, evaluate its outputs, and
+    monitor its performance and costs
+  id: 282
+  level: 3.0
+  name: LangSmith for Tracing and Evaluation
+  topic: AI
+- description: A discussion on how an AI agents can support long-term semantic memory
+    (facts, user preferences) and episodic memory (past examples or episodes of interaction)
+  id: 281
+  level: 3.0
+  name: Long-Term Agentic Memory
+  topic: AI
+- description: ''
+  id: 399
+  level: 3.0
+  name: MCP Advanced Features
+  topic: AI
+- description: A look into how to debug MCP-driven systems and applications
+  id: 284
+  level: 3.0
+  name: MCP Debugging
+  topic: AI
+- description: Discussing the importance of security in MCP and exploring some of
+    its common vulnerabilities
+  id: 288
+  level: 3.0
+  name: MCP Security
+  topic: AI
+- description: ''
+  id: 410
+  level: 3.0
+  name: MCP wire protocol and auth approach
+  topic: AI
+- description: An exploration into what allows LLMs to interact with external services
+    and data sources in a structured and controlled manner through an Agent
+  id: 285
+  level: 3.0
+  name: Model Context Protocol (MCP) External APIs
+  topic: AI
+- description: A discussion on AI model optimization techniques
+  id: 329
+  level: 3.0
+  name: Model Optimization
+  topic: AI
+- description: ''
+  id: 187
+  level: 3.1
+  name: Monitoring Kafka
+  topic: Kafka
+- description: ''
+  id: 405
+  level: 3.0
+  name: 'Multi-Agent LLM Systems: Attacks and Mitigations'
+  topic: AI
+- description: ''
+  id: 404
+  level: 3.0
+  name: 'Multi-Agent LLM Systems: Failures and Mitigations'
+  topic: AI
+- description: ''
+  id: 111
+  level: 3.2
+  name: Multitasking in Python
+  topic: Python
+- description: Using LSM and SecComp to secure pod-based services
+  id: 38
+  level: 3.9
+  name: OS Hardening and K8s Pods
   topic: Kubernetes
 - description: Accessing Kubernetes Pod application logs, configuring logging drivers,
     and strategies for log forwarding
@@ -1638,164 +1906,69 @@ Modules:
   level: 3.0
   name: Observability - Tracing
   topic: Kubernetes
-- description: 'Overview the aspects of Observability: Logging, metrics, and tracing
-    and implementations in Kubernetes'
-  id: 24
-  level: 3.0
-  name: Kubernetes Observability Overview
-  topic: Kubernetes
-- description: 'Kubernetes volumes: concepts and types; using volumes with the StatefulSet
-    controller'
-  id: 34
-  level: 3.0
-  name: State Design in Kubernetes
-  topic: Kubernetes
-- description: Overview of Kubernetes API security (RBAC, Namespaces, PSP) and Pod
-    security (Security Context, Capabilities, etc.)
-  id: 87
-  level: 3.0
-  name: Kubernetes Security Overview
-  topic: Kubernetes
-- description: Discusses additional details in chart building, such as establishing
-    dependencies
-  id: 127
-  level: 3.0
-  name: Helm Chart Patterns
-  topic: Helm
-- description: Exploration of Policy-based networking control on the Istio Service
-    Mesh using its own custom resources
-  id: 132
-  level: 3.0
-  name: Istio Policy
-  topic: Istio
-- description: Discussion around Istio's Load Balancing and Service Discovery capabilities
-  id: 138
-  level: 3.0
-  name: Advanced Traffic Management in Istio
-  topic: Istio
 - description: ''
   id: 143
   level: 3.0
   name: Packages in Rust
   topic: Rust
-- description: ''
-  id: 144
+- description: A discussion on how parameters can be adjusted to tighten the scope
+    of an LLM to provide more relevant answers to more pointed topics
+  id: 368
   level: 3.0
-  name: Errors in Rust
+  name: Parameters, Attention and Feedforward
+  topic: AI
+- description: ''
+  id: 116
+  level: 3.1
+  name: Python - Pandas
+  topic: Python
+- description: ''
+  id: 113
+  level: 3.3
+  name: Python Networking Features
+  topic: Python
+- description: ''
+  id: 114
+  level: 3.3
+  name: Python Networking Modules
+  topic: Python
+- description: ''
+  id: 115
+  level: 3.1
+  name: Python Numpy
+  topic: Python
+- description: ''
+  id: 119
+  level: 3.2
+  name: Python SQL-DB
+  topic: Python
+- description: ''
+  id: 118
+  level: 3.2
+  name: Python Scapy
+  topic: Python
+- description: A technical discussion on the mechanisms involved with taking user
+    queries and breaking them up into more effective chunks for better output quality
+  id: 363
+  level: 3.0
+  name: Query Transformation & Reranking
+  topic: AI
+- description: A discussion on Retrieval Augmented Generation and the techniques needed
+    to improve its performance and the relevance of its outputs
+  id: 331
+  level: 3.0
+  name: RAG Techniques and Enhancements
+  topic: AI
+- description: ''
+  id: 376
+  level: 3.0
+  name: Representing Knowledge in Context
+  topic: AI
+- description: ''
+  id: 147
+  level: 3.5
+  name: Rust Concurrency
   topic: Rust
-- description: ''
-  id: 153
-  level: 3.0
-  name: Cost Management for Spark
-  topic: Spark
-- description: ''
-  id: 167
-  level: 3.0
-  name: Cgroups & Namespaces in Linux
-  topic: Linux
-- description: Discussion on how to improve ArangoDB's runtime performance
-  id: 177
-  level: 3.0
-  name: ArangoDB Performance Tuning
-  topic: ArangoDB
-- description: ''
-  id: 183
-  level: 3.0
-  name: Advanced Stream Processing in Kafka
-  topic: Kafka
-- description: In-depth discussion on the nature of the Kubernetes default scheduler
-  id: 222
-  level: 3.0
-  name: Kubernetes Scheduler In-Depth
-  topic: Kubernetes
-- description: Learn how to use FoundationDB data models to store application data
-    mapped to keys and values.
-  id: 257
-  level: 3.0
-  name: Basic Data Modeling in FoundationDB
-  topic: FoundationDB
-- description: Understanding the power range operations bring to a key value store
-    and explore the various range operations available in FDB.
-  id: 265
-  level: 3.0
-  name: Design Considerations for Range Based Key/Value Stores
-  topic: FoundationDB
-- description: Dig into the nuts and bolts of FoundationDB's distributed architecture,
-    data storage and transaction processing components.
-  id: 269
-  level: 3.0
-  name: FoundationDB Architecture Deep Dive
-  topic: FoundationDB
-- description: A discussion on LLM evaluation and LangChain-specific tooling (like
-    LangSmith) for LLM app evaluation
-  id: 278
-  level: 3.0
-  name: Testing Applications with LangChain
-  topic: AI
-- description: An exploration of advanced LangChain graph patterns that empower structured
-    reasoning in complex AI workflows
-  id: 279
-  level: 3.0
-  name: LangGraph Patterns and Components
-  topic: AI
-- description: An exploration of LangGraph, a framework that extends LangChain by
-    introducing graph-based control flow for agents
-  id: 280
-  level: 3.0
-  name: LangGraph Fundamentals
-  topic: AI
-- description: A discussion on how an AI agents can support long-term semantic memory
-    (facts, user preferences) and episodic memory (past examples or episodes of interaction)
-  id: 281
-  level: 3.0
-  name: Long-Term Agentic Memory
-  topic: AI
-- description: An exploration on tracing a LangChain app, evaluate its outputs, and
-    monitor its performance and costs
-  id: 282
-  level: 3.0
-  name: LangSmith for Tracing and Evaluation
-  topic: AI
-- description: A look into how to debug MCP-driven systems and applications
-  id: 284
-  level: 3.0
-  name: MCP Debugging
-  topic: AI
-- description: An exploration into what allows LLMs to interact with external services
-    and data sources in a structured and controlled manner through an Agent
-  id: 285
-  level: 3.0
-  name: Model Context Protocol (MCP) External APIs
-  topic: AI
-- description: Discussing the importance of security in MCP and exploring some of
-    its common vulnerabilities
-  id: 288
-  level: 3.0
-  name: MCP Security
-  topic: AI
-- description: A look into building a retrieval augmented generation (RAG) with LangChain
-  id: 291
-  level: 3.0
-  name: Building Applications with LangChain
-  topic: AI
-- description: Examining design considerations for data pipelines and AI model training/inference
-    workflows and how to deploy them
-  id: 299
-  level: 3.0
-  name: Training & Inference in AI
-  topic: AI
-- description: A discussion on the importance of GPUs in AI-driven systems and how
-    to implement them on AWS
-  id: 306
-  level: 3.0
-  name: AWS Advanced Infrastructure (GPU, Inferentia, Trainium)
-  topic: AI
-- description: An exploration of the value of Amazon Bedrock as a managed service
-    for accessing diverse foundation models
-  id: 307
-  level: 3.0
-  name: Bedrock
-  topic: AI
 - description: An exploration of the AWS SageMaker AI ecosystem and how it supports
     AI/ML workflows
   id: 311
@@ -1814,276 +1987,113 @@ Modules:
   level: 3.0
   name: Securing Data Model Pipelines
   topic: AI
-- description: An exploration of the practices, design considerations, and tools involved
-    when architecting Gen AI systems
-  id: 317
-  level: 3.0
-  name: GenAI App Components
-  topic: AI
-- description: An advanced deep-dive into the transformer architecture that allows
-    LLMs identify relevant outputs for a given input
-  id: 324
-  level: 3.0
-  name: LLM Architecture in Depth
-  topic: AI
-- description: A discussion on AI model optimization techniques
-  id: 329
-  level: 3.0
-  name: Model Optimization
-  topic: AI
-- description: A discussion on Retrieval Augmented Generation and the techniques needed
-    to improve its performance and the relevance of its outputs
-  id: 331
-  level: 3.0
-  name: RAG Techniques and Enhancements
-  topic: AI
-- description: A technical dive exploration the mechanisms and techniques necessary
-    for effective data ingestion during training and prompt-time requests
-  id: 361
-  level: 3.0
-  name: Data Ingestion & Chunking Strategies
-  topic: AI
-- description: A technical dive into implementing a hybrid information retrieval approach
-    which can greatly improve the relevance of outputs from an LLM-driven system
-  id: 362
-  level: 3.0
-  name: Hybrid Retrieval & Filters
-  topic: AI
-- description: A technical discussion on the mechanisms involved with taking user
-    queries and breaking them up into more effective chunks for better output quality
-  id: 363
-  level: 3.0
-  name: Query Transformation & Reranking
-  topic: AI
-- description: A discussion on how parameters can be adjusted to tighten the scope
-    of an LLM to provide more relevant answers to more pointed topics
-  id: 368
-  level: 3.0
-  name: Parameters, Attention and Feedforward
-  topic: AI
-- description: ''
-  id: 371
-  level: 3.0
-  name: Building Custom Agent Skills
-  topic: AI
-- description: ''
-  id: 375
-  level: 3.0
-  name: Instruction Hierarchy and Context Layering
-  topic: AI
-- description: ''
-  id: 376
-  level: 3.0
-  name: Representing Knowledge in Context
-  topic: AI
-- description: ''
-  id: 399
-  level: 3.0
-  name: MCP Advanced Features
-  topic: AI
-- description: ''
-  id: 404
-  level: 3.0
-  name: 'Multi-Agent LLM Systems: Failures and Mitigations'
-  topic: AI
-- description: ''
-  id: 405
-  level: 3.0
-  name: 'Multi-Agent LLM Systems: Attacks and Mitigations'
-  topic: AI
-- description: ''
-  id: 410
-  level: 3.0
-  name: MCP wire protocol and auth approach
-  topic: AI
-- description: ''
-  id: 413
-  level: 3.0
-  name: Configuring Linkerd Authorization policies for MCP traffic
-  topic: AI
-- description: ''
-  id: 420
-  level: 3.0
-  name: State, Memory, and Persistence for Agents
-  topic: AI
 - description: ''
   id: 421
   level: 3.0
   name: Security, Isolation, and Policy for Agent Workloads
   topic: AI
-- description: Admission controller operations and key implementations in the Kubernetes
-    API Server
-  id: 1
-  level: 3.1
-  name: Kubernetes Admission Control
-  topic: Kubernetes
-- description: ''
-  id: 115
-  level: 3.1
-  name: Python Numpy
-  topic: Python
-- description: ''
-  id: 116
-  level: 3.1
-  name: Python - Pandas
-  topic: Python
-- description: Exploration of how to create clients that can interact with ArangoDB
-    programmatically through code
-  id: 171
-  level: 3.1
-  name: Code Clients for ArangoDB
-  topic: ArangoDB
-- description: ''
-  id: 187
-  level: 3.1
-  name: Monitoring Kafka
-  topic: Kafka
-- description: ''
-  id: 190
-  level: 3.1
-  name: Kafka Security
-  topic: Kafka
-- description: ''
-  id: 111
-  level: 3.2
-  name: Multitasking in Python
-  topic: Python
-- description: ''
-  id: 118
-  level: 3.2
-  name: Python Scapy
-  topic: Python
-- description: ''
-  id: 119
-  level: 3.2
-  name: Python SQL-DB
-  topic: Python
-- description: ''
-  id: 184
-  level: 3.2
-  name: Debugging and monitoring Stream Processing Applications
-  topic: Kafka
-- description: ''
-  id: 110
-  level: 3.3
-  name: Jinja in Python
-  topic: Python
-- description: ''
-  id: 112
-  level: 3.3
-  name: netconf restconf in Python
-  topic: Python
-- description: ''
-  id: 113
-  level: 3.3
-  name: Python Networking Features
-  topic: Python
-- description: ''
-  id: 114
-  level: 3.3
-  name: Python Networking Modules
-  topic: Python
 - description: ''
   id: 151
   level: 3.3
   name: Smart Pointers in Rust
   topic: Rust
-- description: ''
-  id: 185
-  level: 3.3
-  name: Tuning for Scale and Performance
-  topic: Kafka
+- description: 'Kubernetes volumes: concepts and types; using volumes with the StatefulSet
+    controller'
+  id: 34
+  level: 3.0
+  name: State Design in Kubernetes
+  topic: Kubernetes
 - description: 'Security for stateful Pods: Secret encryption, Pod Security Policies,
     and file permissions in Pods'
   id: 30
   level: 3.5
   name: State Security in Kubernetes
   topic: Kubernetes
-- description: A look at pod security features and secure pod design approaches.
-  id: 124
-  level: 3.5
-  name: Kubernetes Pod Security
-  topic: Kubernetes
 - description: ''
-  id: 147
-  level: 3.5
-  name: Rust Concurrency
-  topic: Rust
-- description: Examination of Kubernetes OS based and VM based container runtime solutions
-  id: 45
-  level: 3.8
-  name: Kubernetes Runtime Security
-  topic: Kubernetes
-- description: Working with API auditing and audit log policies
-  id: 5
-  level: 3.9
-  name: Auditing in Kubernetes
-  topic: Kubernetes
-- description: 'Best practices for container image security: scanning, image signing,
-    and binary authorization'
-  id: 16
-  level: 3.9
-  name: Image Security
-  topic: Containers
-- description: Using LSM and SecComp to secure pod-based services
-  id: 38
-  level: 3.9
-  name: OS Hardening and K8s Pods
-  topic: Kubernetes
+  id: 420
+  level: 3.0
+  name: State, Memory, and Persistence for Agents
+  topic: AI
 - description: Using unikernels and/or micro-VMs for improved Pod security and hard
     multi-tenancy in Kubernetes
   id: 44
   level: 3.9
   name: Static Analysis of K8s Manifests
   topic: Kubernetes
-- description: Using unikernels and/or micro-VMs for improved Pod security and hard
-    multi-tenancy in Kubernetes
-  id: 46
-  level: 3.9
-  name: Behavioral Analysis in Kubernetes
-  topic: Kubernetes
+- description: A discussion on LLM evaluation and LangChain-specific tooling (like
+    LangSmith) for LLM app evaluation
+  id: 278
+  level: 3.0
+  name: Testing Applications with LangChain
+  topic: AI
 - description: ''
   id: 140
   level: 3.9
   name: Testing in Rust
   topic: Rust
-- description: 'Securing the Kubernetes API using TLS: best practices and common mistakes'
-  id: 41
-  level: 4.0
-  name: Kubernetes Control Plane TLS
-  topic: Kubernetes
-- description: Examines Custom Resource Definitions (CRDs) and how to use them.
-  id: 125
-  level: 4.0
-  name: Kubernetes CRDs Overview
-  topic: Kubernetes
-- description: Explores cloud native approaches to software supply chain security.
-  id: 126
-  level: 4.0
-  name: Kubernetes Supply Chain Security
-  topic: Kubernetes
-- description: Discussion around how to unify two separate Kubernetes clusters together
-    using Istio
-  id: 131
-  level: 4.0
-  name: Istio Multicluster
-  topic: Istio
+- description: Examining design considerations for data pipelines and AI model training/inference
+    workflows and how to deploy them
+  id: 299
+  level: 3.0
+  name: Training & Inference in AI
+  topic: AI
 - description: ''
-  id: 152
+  id: 185
+  level: 3.3
+  name: Tuning for Scale and Performance
+  topic: Kafka
+- description: ''
+  id: 112
+  level: 3.3
+  name: netconf restconf in Python
+  topic: Python
+- description: A deep dive into the technical aspects, use cases, and problem-solving
+    capabilities of the Agent2Agent Protocol
+  id: 274
   level: 4.0
-  name: Next Steps in Rust
-  topic: Rust
-- description: Learn effective data modeling in FoundationDB to ensure efficient access
-    patterns and transaction management.
-  id: 258
+  name: A2A Protocol
+  topic: AI
+- description: ''
+  id: 100
+  level: 4.1
+  name: Anaconda Intro for Python
+  topic: Python
+- description: Explore techniques and best practices for mapping domain-based data
+    models to FoundationDB.
+  id: 266
   level: 4.0
-  name: FoundationDB Data Modeling in Depth
+  name: Best Practices Data Modeling on FoundationDB
   topic: FoundationDB
+- description: FoundationDB supports "Fearless Disaster Recovery", this module delves
+    into the synchronous and asynchronous replication features of FDB and the various
+    Region, Data Center, and Satellite modes available.
+  id: 272
+  level: 4.0
+  name: Building Multi-Site Solutions with FoundationDB
+  topic: FoundationDB
+- description: ''
+  id: 101
+  level: 4.1
+  name: C Extensions in Python
+  topic: Python
 - description: Learn about FoundationDB's conflict detection algorithm, common errors,
     the recovery process, and using probes for debugging.
   id: 259
   level: 4.0
   name: Debugging and Troubleshooting FoundationDB Applications
+  topic: FoundationDB
+- description: Learn how to create operations that maximize the benefits of FDB distributed
+    transactions, working in harmony with the FDB transaction architecture.
+  id: 267
+  level: 4.0
+  name: Distributed Transactions in Depth
+  topic: FoundationDB
+- description: FDB is designed to self-tune, this module digs into the details of
+    data distribution and discusses the support for elastic scaling of the FDB cluster
+    itself.
+  id: 271
+  level: 4.0
+  name: FoundationDB Cluster Scaling and Data Distribution
   topic: FoundationDB
 - description: Explore how FoundationDB's transactions empower developers to maintain
     integrity constraints.
@@ -2091,29 +2101,11 @@ Modules:
   level: 4.0
   name: FoundationDB Consistency
   topic: FoundationDB
-- description: Learn about redundancy options, regions, satellites, and understand
-    failure scenarios.
-  id: 261
+- description: Learn effective data modeling in FoundationDB to ensure efficient access
+    patterns and transaction management.
+  id: 258
   level: 4.0
-  name: FoundationDB Options
-  topic: FoundationDB
-- description: Understand the use of asynchrony, futures, call backs, and watches
-    in FoundationDB.
-  id: 264
-  level: 4.0
-  name: Futures, Watches and Streaming in FoundationDB
-  topic: FoundationDB
-- description: Explore techniques and best practices for mapping domain-based data
-    models to FoundationDB.
-  id: 266
-  level: 4.0
-  name: Best Practices Data Modeling on FoundationDB
-  topic: FoundationDB
-- description: Learn how to create operations that maximize the benefits of FDB distributed
-    transactions, working in harmony with the FDB transaction architecture.
-  id: 267
-  level: 4.0
-  name: Distributed Transactions in Depth
+  name: FoundationDB Data Modeling in Depth
   topic: FoundationDB
 - description: Explore effective data design, modeling, and transaction patterns for
     FDB.
@@ -2127,56 +2119,64 @@ Modules:
   level: 4.0
   name: FoundationDB Failure Modes and Recovery Mechanisms
   topic: FoundationDB
-- description: FDB is designed to self-tune, this module digs into the details of
-    data distribution and discusses the support for elastic scaling of the FDB cluster
-    itself.
-  id: 271
+- description: Learn about redundancy options, regions, satellites, and understand
+    failure scenarios.
+  id: 261
   level: 4.0
-  name: FoundationDB Cluster Scaling and Data Distribution
+  name: FoundationDB Options
   topic: FoundationDB
-- description: FoundationDB supports "Fearless Disaster Recovery", this module delves
-    into the synchronous and asynchronous replication features of FDB and the various
-    Region, Data Center, and Satellite modes available.
-  id: 272
+- description: Understand the use of asynchrony, futures, call backs, and watches
+    in FoundationDB.
+  id: 264
   level: 4.0
-  name: Building Multi-Site Solutions with FoundationDB
+  name: Futures, Watches and Streaming in FoundationDB
   topic: FoundationDB
-- description: A deep dive into the technical aspects, use cases, and problem-solving
-    capabilities of the Agent2Agent Protocol
-  id: 274
-  level: 4.0
-  name: A2A Protocol
-  topic: AI
-- description: A deeper discussion on the concepts and ecosystem surrounding fine-tuning
-    of language models for more specific outputs
-  id: 315
-  level: 4.0
-  name: PEFT Evaluation, Optimization & CI
-  topic: AI
 - description: A look into implementing defenses against common AI attacks based on
     the ISO/IEC DIS 27090 standards
   id: 333
   level: 4.0
   name: ISO/IEC DIS 27090
   topic: AI
+- description: Discussion around how to unify two separate Kubernetes clusters together
+    using Istio
+  id: 131
+  level: 4.0
+  name: Istio Multicluster
+  topic: Istio
+- description: Examines Custom Resource Definitions (CRDs) and how to use them.
+  id: 125
+  level: 4.0
+  name: Kubernetes CRDs Overview
+  topic: Kubernetes
+- description: 'Securing the Kubernetes API using TLS: best practices and common mistakes'
+  id: 41
+  level: 4.0
+  name: Kubernetes Control Plane TLS
+  topic: Kubernetes
+- description: Explores cloud native approaches to software supply chain security.
+  id: 126
+  level: 4.0
+  name: Kubernetes Supply Chain Security
+  topic: Kubernetes
 - description: Securing Kubernetes clusters with zone-based architecture and firewalls
   id: 42
   level: 4.1
   name: Network Design and K8s
   topic: Kubernetes
 - description: ''
+  id: 152
+  level: 4.0
+  name: Next Steps in Rust
+  topic: Rust
+- description: A deeper discussion on the concepts and ecosystem surrounding fine-tuning
+    of language models for more specific outputs
+  id: 315
+  level: 4.0
+  name: PEFT Evaluation, Optimization & CI
+  topic: AI
+- description: ''
   id: 99
   level: 4.1
   name: Python Jupyter
-  topic: Python
-- description: ''
-  id: 100
-  level: 4.1
-  name: Anaconda Intro for Python
-  topic: Python
-- description: ''
-  id: 101
-  level: 4.1
-  name: C Extensions in Python
   topic: Python
 
